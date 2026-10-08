@@ -1,0 +1,646 @@
+/* ───────── Hero: the 45-degree diagram ───────── */
+.angle {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  width: min(100%, 26rem);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 60% at 50% 30%, var(--white), transparent 75%),
+    linear-gradient(180deg, var(--sky-100), var(--pearl-50));
+  box-shadow: var(--shadow-lift);
+}
+
+.angleArt {
+  width: 100%;
+  height: auto;
+}
+
+.arc {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: arc-draw 0.9s var(--ease-out) 1.6s forwards;
+}
+
+@keyframes arc-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Small, gentle circles at the gumline */
+.brush {
+  animation:
+    brush-in 1s var(--ease-out) 0.6s both,
+    brush-circle 2.4s ease-in-out 1.8s infinite;
+}
+
+@keyframes brush-in {
+  from {
+    opacity: 0;
+    translate: 0 -60px;
+  }
+}
+
+@keyframes brush-circle {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  25% {
+    translate: 3px -2px;
+  }
+  50% {
+    translate: 0 -4px;
+  }
+  75% {
+    translate: -3px -2px;
+  }
+}
+
+.angleBadge {
+  position: absolute;
+  right: 12%;
+  top: 14%;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  color: var(--white);
+  animation: badge-in 0.6s var(--ease-out) 2s both;
+}
+
+@keyframes badge-in {
+  from {
+    opacity: 0;
+    scale: 0.7;
+  }
+}
+
+.angleCaption {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.angleCaption svg {
+  color: var(--sky-700);
+}
+
+/* ───────── Brushing: stroke cards ───────── */
+.brushing {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.brushHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.strokes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strokes li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, var(--sky-50), var(--white) 60%);
+  border: 1px solid var(--line);
+  color: var(--slate-600);
+}
+
+.strokes strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.stroke {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.45rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+}
+
+.pressure {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  max-width: 54rem;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: #fff7e6;
+  border: 1px solid #f4dfb4;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.splay {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: #b7791f;
+}
+
+.splay svg {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+/* ───────── Flossing ───────── */
+.flossing {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.flossGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.flossCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.cShape {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0.5rem 0 0;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.cShape svg {
+  width: 100%;
+  height: auto;
+}
+
+.cShape figcaption {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.cShape figcaption svg {
+  width: auto;
+  color: var(--sky-700);
+}
+
+.flossSteps {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* An 18-inch ruler of floss */
+.ruler {
+  position: relative;
+  display: block;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background:
+    repeating-linear-gradient(90deg, var(--navy-800) 0 2px, transparent 2px calc(100% / 18)) bottom / 100% 0.75rem no-repeat,
+    var(--white);
+  border: 1px solid var(--line);
+}
+
+.ruler span {
+  position: absolute;
+  left: 50%;
+  top: 0.35rem;
+  translate: -50% 0;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.flossList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flossList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--ink);
+}
+
+/* A strand of floss stepping along: each dot a little further down a curve */
+.flossDot {
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-top: 0.45rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--sky-500) calc(100% - var(--i) * 10%), var(--navy-800));
+}
+
+.flossAfter {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid #e5959c;
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: var(--white);
+  color: var(--slate-600);
+}
+
+.flossAfter svg {
+  flex: none;
+  margin-top: 0.2rem;
+  color: #c86b76;
+}
+
+/* ───────── Products: the shelf ───────── */
+.products {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.productsHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 50rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: end;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0 0 1rem;
+  border-bottom: 10px solid var(--pearl-200);
+  list-style: none;
+}
+
+/* Bottles of different heights standing on the shelf */
+.product {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  min-height: calc(15rem + var(--i) * 1.25rem);
+  padding: 1.5rem;
+  border-radius: var(--radius-l) var(--radius-l) var(--radius-s) var(--radius-s);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+  border: 1px solid var(--sky-200);
+  color: var(--slate-600);
+}
+
+.product:nth-child(2) {
+  min-height: 17.5rem;
+  background: linear-gradient(180deg, var(--mouth-edge), var(--white));
+  border-color: #f2d5d5;
+}
+
+.product:nth-child(4) {
+  min-height: 14rem;
+  background: linear-gradient(180deg, var(--pearl-100), var(--white));
+  border-color: var(--pearl-200);
+}
+
+.product strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.productCap {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m) var(--radius-m) var(--radius-xs) var(--radius-xs);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.productsAfter {
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+/* ───────── Diet: the day chart ───────── */
+.diet {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.dietGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.dietCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.dietCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.dietList {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dietList li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink);
+}
+
+.dietList li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.day {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.dayTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.dayRow {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.dayName {
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.dayTrack {
+  position: relative;
+  display: block;
+  height: 4.5rem;
+  border-bottom: 2px solid var(--line-strong);
+  background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 15 - 1px), var(--line) calc(100% / 15 - 1px) calc(100% / 15));
+}
+
+/* Each spike is one acid attack after eating */
+.spike {
+  position: absolute;
+  bottom: 0;
+  width: 0.9rem;
+  height: 80%;
+  border-radius: 999px 999px 0 0;
+  translate: -50% 0;
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease-out) calc(0.2s + var(--i) * 0.08s);
+}
+
+.rowGraze .spike {
+  background: linear-gradient(180deg, #e5959c, rgb(229 149 156 / 0.25));
+}
+
+.rowSet .spike {
+  background: linear-gradient(180deg, var(--sky-500), rgb(109 189 232 / 0.25));
+}
+
+.motion [data-inview]:not([data-inview="in"]) .spike {
+  transform: scaleY(0);
+}
+
+.dayScale {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--step-label);
+  color: var(--slate-500);
+}
+
+/* ───────── Between visits ───────── */
+.between {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.betweenGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.betweenCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.callCard {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.callIntro {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.callIntro svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+.callList {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.callList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.06);
+  color: var(--white);
+}
+
+.callList li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-s);
+  background: rgb(229 149 156 / 0.2);
+  color: #f6cfd0;
+}
+
+.callAfter {
+  font-size: var(--step-small);
+}
+
+@media (max-width: 1199px) {
+  .strokes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .shelf {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product,
+  .product:nth-child(n) {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .flossGrid,
+  .dietGrid,
+  .betweenGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .strokes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .strokes,
+  .shelf {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pressure {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .flossAfter,
+  .dietList li,
+  .callIntro,
+  .callList li,
+  .cShape figcaption {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+
+  .angleCaption {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arc,
+  .brush,
+  .angleBadge {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

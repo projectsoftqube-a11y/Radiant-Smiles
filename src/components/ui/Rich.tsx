@@ -28,6 +28,8 @@ export function Rich({ text }: { text: string }) {
 function anchor(label: string, href: string) {
   // Phone numbers never break across lines
   if (href.startsWith("tel:")) return <a href={href} style={{ whiteSpace: "nowrap" }}>{label}</a>;
-  if (/^(mailto:|https?:)/.test(href)) return <a href={href}>{label}</a>;
+  if (href.startsWith("mailto:")) return <a href={href}>{label}</a>;
+  // External health sources (NIDCR, MSKCC): rel="noopener" per the handoffs
+  if (/^https?:/.test(href)) return <a href={href} rel="noopener">{label}</a>;
   return <SiteLink href={href}>{label}</SiteLink>;
 }

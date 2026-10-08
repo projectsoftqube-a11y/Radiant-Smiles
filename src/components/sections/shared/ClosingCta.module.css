@@ -35,6 +35,29 @@
   max-width: 48ch;
 }
 
+/* A short patient quote above the heading (plain text, no Review markup) */
+.quote {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--sky-500);
+}
+
+.quote blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--navy-800);
+}
+
+.quote figcaption {
+  margin-top: 0.35rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
 .ctas {
   display: flex;
   flex-wrap: wrap;

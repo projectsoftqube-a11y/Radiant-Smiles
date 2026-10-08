@@ -1,0 +1,888 @@
+/* ───────── Hero: the same-day board ───────── */
+.board {
+  display: grid;
+  gap: 1.1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.boardHead {
+  display: grid;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line-strong);
+}
+
+.boardTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.boardStatus {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--pearl-100);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.statusOpen {
+  background: #e7f6ee;
+  color: #24704a;
+}
+
+.statusDot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.statusOpen .statusDot {
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.slots {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slot,
+.slotHeld {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  animation: slot-in 0.6s var(--ease-out) calc(0.8s + var(--i) * 0.12s) both;
+}
+
+.slotBar {
+  display: block;
+  height: 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--line-strong);
+}
+
+.slotHeld {
+  padding: 0.85rem 1rem;
+  background: linear-gradient(90deg, #fdecec, #fff7f7);
+  border: 1px solid #f3c9c9;
+  box-shadow: 0 0 0 0 rgb(196 61 61 / 0.35);
+  animation:
+    slot-in 0.6s var(--ease-out) calc(0.8s + var(--i) * 0.12s) both,
+    held 2.4s ease-in-out 2.2s infinite;
+}
+
+@keyframes slot-in {
+  from {
+    opacity: 0;
+    translate: -14px 0;
+  }
+}
+
+@keyframes held {
+  50% {
+    box-shadow: 0 0 0 6px rgb(196 61 61 / 0.08);
+  }
+}
+
+.slotIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: #c43d3d;
+  color: var(--white);
+}
+
+.slotText {
+  display: grid;
+  line-height: 1.3;
+}
+
+.slotName {
+  font-weight: 700;
+  color: #a33434;
+}
+
+.slotNote {
+  font-size: var(--step-label);
+  color: var(--slate-600);
+}
+
+.boardFoot {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.boardFoot svg {
+  color: var(--sky-300);
+}
+
+/* ───────── Hero extras ───────── */
+.heroExtra {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.safety {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: 40rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #c43d3d;
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: #fdf1f1;
+  color: #8f2b2b;
+}
+
+.safety svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: #c43d3d;
+}
+
+/* ───────── Call first ───────── */
+.first {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.firstGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.firstCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.rail {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail::before {
+  content: "";
+  position: absolute;
+  left: 1.2rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: linear-gradient(180deg, #c43d3d, var(--navy-800));
+}
+
+.rail li {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  color: var(--ink);
+}
+
+.rail strong {
+  color: var(--navy-800);
+}
+
+.railIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.rail li:first-child .railIcon {
+  background: #c43d3d;
+}
+
+.hoursCard {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  border: 1px solid var(--line);
+}
+
+.hoursKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.hoursKicker svg {
+  color: var(--sky-700);
+}
+
+.hoursWrap {
+  overflow-x: auto;
+  border-radius: var(--radius-m);
+  background: var(--white);
+}
+
+.hoursWrap:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.hours {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.hours th,
+.hours td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.hours thead th {
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate-500);
+}
+
+.hours tbody th {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.hours td {
+  font-variant-numeric: tabular-nums;
+  color: var(--slate-600);
+  white-space: nowrap;
+}
+
+.hours tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.hours .today th,
+.hours .today td {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.todayTag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-xs);
+  background: var(--sky-500);
+  font-size: var(--step-label);
+  color: var(--navy-950);
+}
+
+/* ───────── Field guide ───────── */
+.guide {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--pearl-50), var(--white) 40%);
+}
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.guideNav {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.guideNavTitle {
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.guideNav ul {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guideNav a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-m);
+  font-weight: 600;
+  color: var(--navy-800);
+  text-decoration: none;
+  transition: background-color var(--dur-ui) ease;
+}
+
+.guideNav a:hover {
+  background: var(--sky-50);
+}
+
+.guideNav a span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  color: var(--sky-700);
+  box-shadow: var(--shadow-soft);
+}
+
+.guideCards {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  --tone: var(--sky-500);
+  --tone-soft: var(--sky-50);
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--tone);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+
+.toneRed {
+  --tone: #c43d3d;
+  --tone-soft: #fdecec;
+}
+
+.toneAmber {
+  --tone: #d4952b;
+  --tone-soft: #fdf3df;
+}
+
+.toneSky {
+  --tone: var(--sky-500);
+  --tone-soft: var(--sky-50);
+}
+
+/* Text links only: the call buttons keep their own colours */
+.card p a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardHead h2 {
+  font-size: var(--step-h3);
+}
+
+.cardIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--tone-soft);
+  color: var(--tone);
+}
+
+.toneRed .cardIcon {
+  color: #a33434;
+}
+
+.toneAmber .cardIcon {
+  color: #9a6514;
+}
+
+.cardIntro {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.cardList {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cardList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--ink);
+}
+
+.cardList li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.15rem;
+  border-radius: 50%;
+  background: var(--tone-soft);
+  color: var(--navy-800);
+}
+
+.cardSteps {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  color: var(--ink);
+}
+
+.cardSteps li::marker {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #c43d3d;
+}
+
+/* The adult-teeth-only step stays word for word and stands out */
+.stepKey {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-m);
+  background: #fdecec;
+}
+
+.stepKey strong {
+  color: #8f2b2b;
+}
+
+.never {
+  font-weight: 600;
+  color: #8f2b2b;
+}
+
+.cardAlert {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: #c43d3d;
+  color: var(--white);
+}
+
+.card p.cardAlert a {
+  color: var(--white);
+}
+
+.clock {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.clockBar {
+  display: block;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: #fdecec;
+  overflow: hidden;
+}
+
+.clockBar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #e5959c, #c43d3d);
+}
+
+.clockText {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: #a33434;
+}
+
+.cardCall {
+  margin-top: 0.25rem;
+}
+
+/* ───────── ER card ───────── */
+.er {
+  padding-block: 0 var(--space-section);
+  background: var(--white);
+}
+
+.erCard {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(150deg, #c43d3d, #8f2b2b);
+  color: #fde6e6;
+  overflow: hidden;
+}
+
+.erHead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.erHead h2 {
+  color: var(--white);
+}
+
+.erIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: #c43d3d;
+}
+
+.erList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.erList li {
+  padding: 1.25rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.12);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  font-weight: 500;
+  color: var(--white);
+}
+
+.erAfter {
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ───────── Pay ───────── */
+.pay {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.payGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.payCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.payList {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.payList li {
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--sky-500);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: var(--white);
+}
+
+.payList strong {
+  color: var(--navy-800);
+}
+
+.payList a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.payAfter {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.exam {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border: 2px solid var(--navy-800);
+  text-align: center;
+  box-shadow: var(--shadow-lift);
+}
+
+.examKicker {
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.examPrice {
+  font-family: var(--font-display);
+  font-size: var(--step-display);
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  line-height: 1.05;
+  color: var(--navy-800);
+}
+
+.examNote {
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.examRule {
+  width: 100%;
+  height: 1px;
+  margin-block: 0.5rem;
+  background: repeating-linear-gradient(90deg, var(--line-strong) 0 6px, transparent 6px 12px);
+}
+
+.examPlus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--sky-700);
+}
+
+/* ───────── Phone call bar ───────── */
+.callBar {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .erList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .firstGrid,
+  .guideGrid,
+  .payGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hoursCard,
+  .guideNav {
+    position: static;
+  }
+
+  .guideNav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .guideNav a {
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+@media (max-width: 767px) {
+  .callBar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    display: block;
+    padding: 0.6rem 5% calc(0.6rem + env(safe-area-inset-bottom));
+    background: rgb(255 255 255 / 0.94);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -10px 24px -18px rgb(15 38 69 / 0.4);
+    backdrop-filter: blur(8px);
+    animation: bar-up 0.6s var(--ease-out) 1.2s both;
+  }
+
+  @keyframes bar-up {
+    from {
+      translate: 0 100%;
+    }
+  }
+
+  .callBarLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    border-radius: var(--radius-s);
+    background: #c43d3d;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color var(--dur-ui) ease;
+  }
+
+  .callBarLink:hover {
+    background: #a33434;
+  }
+
+  /* Room under the footer so the bar never covers it */
+  :global(body):has(.callBar) {
+    padding-bottom: 4.5rem;
+  }
+
+  /* Emergency CTAs are call-only (handoff): this bar replaces the site's call/book bar */
+  :global(body):has(.callBar) :global([data-mobile-bar]) {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .cardHead {
+    align-items: flex-start;
+  }
+
+  .cardCall {
+    width: 100%;
+    padding-inline: 0.9rem;
+    font-size: 0.875rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.1rem;
+  }
+}
+
+/* Small phones: the long call label still fits on one line (never under 13px) */
+@media (max-width: 389px) {
+  .cardCall {
+    padding-inline: 0.6rem;
+    font-size: 0.8125rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cardCall svg {
+    display: none;
+  }
+
+  .card {
+    padding-inline: 0.9rem;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .slotHeld,
+  .boardFoot,
+  .safety,
+  .rail li,
+  .hoursKicker,
+  .guideNav a,
+  .cardHead,
+  .cardList li,
+  .clockText,
+  .erHead {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+
+  .examPlus {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rail::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot,
+  .slotHeld,
+  .statusOpen .statusDot {
+    animation: none;
+  }
+}

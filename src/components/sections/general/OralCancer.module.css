@@ -1,0 +1,539 @@
+/* ───────── Hero: areas checked ───────── */
+.scan {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.scanHead {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line-strong);
+}
+
+.scanHead > span:last-child {
+  display: grid;
+}
+
+.scanIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.scanTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.scanSub {
+  font-size: var(--step-label);
+  color: var(--slate-500);
+}
+
+.areas {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.areas li {
+  display: grid;
+  grid-template-columns: auto minmax(1rem, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.areaName {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.areaLine {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--line-strong) 0 4px, transparent 4px 8px);
+}
+
+.areaTick {
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: transparent;
+  animation: area-tick 0.4s var(--ease-out) calc(1.1s + var(--i) * 0.22s) forwards;
+}
+
+@keyframes area-tick {
+  to {
+    background: var(--navy-800);
+    color: var(--white);
+  }
+}
+
+/* The scan beam sweeps down the list once, then rests */
+.beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22%;
+  height: 3.5rem;
+  background: linear-gradient(180deg, transparent, rgb(109 189 232 / 0.22), transparent);
+  border-bottom: 2px solid rgb(109 189 232 / 0.6);
+  pointer-events: none;
+  opacity: 0;
+  animation: beam 1.9s var(--ease-in-out) 1s forwards;
+}
+
+@keyframes beam {
+  0% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 17rem;
+  }
+}
+
+/* ───────── Why: copy + close-up note ───────── */
+.why {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.whyCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.closeUp {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+  padding-top: clamp(3.5rem, 7vw, 5rem);
+  background:
+    radial-gradient(60% 50% at 50% 20%, rgb(169 218 243 / 0.22), transparent 70%),
+    linear-gradient(170deg, var(--navy-700), var(--navy-950));
+  justify-items: center;
+  text-align: center;
+}
+
+.closeUp p {
+  font-family: var(--font-display);
+  font-size: var(--step-statement);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--white);
+}
+
+.closeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.1);
+  color: var(--sky-300);
+}
+
+/* ───────── What we check: verbs ───────── */
+.check {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.checkHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.verbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.verb {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+
+.verb:hover {
+  translate: 0 -4px;
+  box-shadow: var(--shadow-lift);
+}
+
+.verbLead {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy-800);
+}
+
+.verbIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(160deg, var(--sky-100), var(--white));
+  border: 1px solid var(--sky-200);
+  color: var(--navy-800);
+}
+
+.biopsy {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  max-width: 56rem;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-100);
+  color: var(--ink);
+}
+
+.biopsyIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Warning signs ───────── */
+.signs {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.signsHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.signsCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.signsCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.fortnight {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: #fff5f5;
+  border: 1px solid #f3c9c9;
+}
+
+.fortnightLabel {
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a33434;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.days span {
+  height: 1.6rem;
+  border-radius: var(--radius-xs);
+  background: #e5959c;
+  transition: background-color 0.3s ease calc(var(--i) * 0.07s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .days span {
+  background: rgb(255 255 255 / 0.9);
+}
+
+.fortnightEnd {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: #a33434;
+}
+
+.signList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.signList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.signList li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: #fdecec;
+  color: #c43d3d;
+}
+
+.signsCall {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  font-weight: 500;
+  color: var(--white);
+}
+
+.signsCall svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+.signsCall a {
+  color: var(--sky-300);
+  font-weight: 700;
+}
+
+/* ───────── Risk tiles ───────── */
+.risk {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.riskGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.riskCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.riskAfter {
+  padding-left: 1rem;
+  border-left: 3px solid var(--sky-500);
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.riskTiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.riskTiles li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+}
+
+.riskIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── How often band ───────── */
+.often {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.oftenBand {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 140% at 0% 0%, var(--sky-100), transparent 60%),
+    var(--pearl-100);
+}
+
+.oftenMarks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.oftenMarks span {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.oftenMarks span:last-child {
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.oftenCopy {
+  display: grid;
+  gap: 0.9rem;
+  color: var(--slate-600);
+}
+
+@media (max-width: 1199px) {
+  .verbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .signList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .whyGrid,
+  .signsHead,
+  .riskGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .verbs,
+  .signList,
+  .riskTiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .oftenBand {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .biopsy,
+  .signsCall {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .scanHead,
+  .signList li,
+  .fortnightEnd {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .areaTick {
+    animation: none;
+    background: var(--navy-800);
+    color: var(--white);
+  }
+
+  .beam {
+    display: none;
+  }
+}

@@ -47,6 +47,43 @@
   animation: hero-fade 0.9s var(--ease-out) 0.7s both;
 }
 
+/* Quick points (hub, cleaning, children's): ticks on a soft sky line */
+.points {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: hero-fade 0.9s var(--ease-out) 0.78s both;
+}
+
+.points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--slate-600);
+}
+
+.points strong {
+  color: var(--navy-800);
+}
+
+.pointTick {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.centred .points {
+  justify-items: center;
+}
+
 .ctas {
   display: flex;
   flex-wrap: wrap;
@@ -121,10 +158,22 @@
   }
 }
 
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .points li {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .crumbs,
   .label,
   .intro,
+  .points,
   .ctas,
   .extra,
   .aside,

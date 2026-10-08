@@ -26,7 +26,15 @@ export type PageHeroContent = {
  * Closing call to action (its text may carry inline [label](/path) links). Buttons default
  * to call, then appointment.
  */
-export type ClosingCta = { title: string; text: string; buttons?: CtaButton[] };
+export type ClosingCta = {
+  title: string;
+  text: string;
+  buttons?: CtaButton[];
+  /** A text link under the buttons ("[Link]" in a content file) */
+  link?: { label: string; href: string; track?: string };
+  /** A plain-text quote above the H2 (no Review markup) */
+  quote?: { text: string; author: string };
+};
 
 /** The NAP line that closes every Patient Information page (phone as a tel: link) */
 export const napCtaLine = `${practice.name}, ${practice.address.street}, ${practice.address.city}, ${practice.address.region} ${practice.address.postalCode} · [${practice.phone.display}](${practice.phone.href})`;

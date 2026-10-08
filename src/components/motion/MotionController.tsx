@@ -11,6 +11,8 @@ import { gsap, motion, ScrollTrigger, useGSAP } from "@/lib/gsap";
  *   data-grow            children with [data-grow-item] grow from the left, one after another
  *   data-scrub-words     its [data-word] children fill from pale to full, tied to the scroll
  *   data-count="500"     a decorative figure counts up from zero as it enters
+ *   data-inview          set to "in" once it scrolls in, for CSS-driven animations
+ *                        (`.motion [data-inview]:not([data-inview="in"])` holds the start state)
  *
  * Only elements that start below the fold are hidden first, so nothing visible on load
  * ever flashes. Without JavaScript, or with reduced motion, everything is simply shown.
@@ -197,6 +199,10 @@ export function MotionController() {
               scrollTrigger: { trigger: text, start: "top 85%", end: "bottom 50%", scrub: 0.4 },
             },
           );
+        });
+
+        gsap.utils.toArray<HTMLElement>("[data-inview]").forEach((el) => {
+          ScrollTrigger.create({ trigger: el, start: REVEAL_START, once: true, onEnter: () => el.setAttribute("data-inview", "in") });
         });
 
         gsap.utils.toArray<HTMLElement>("[data-grow]").filter(belowFold).forEach((group) => {

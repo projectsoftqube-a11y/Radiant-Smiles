@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Icon } from "@/components/ui/Icon";
 import { Rich } from "@/components/ui/Rich";
 import { RiseWords } from "@/components/ui/RiseWords";
 import type { PageHeroContent } from "@/content/pages/shared";
@@ -20,6 +21,8 @@ type PageHeroProps = {
   track: string;
   /** The page's own visual, beside the copy. Without it the hero is centred. */
   aside?: ReactNode;
+  /** Short bold-led points between the intro and the buttons (content-file order) */
+  points?: { lead: string; text: string }[];
   /** Extra content under the buttons (e.g. a NAP block) */
   children?: ReactNode;
   /** Full-width content along the bottom of the hero (e.g. an offer strip) */
@@ -32,7 +35,7 @@ type PageHeroProps = {
  * (no line rays: the user wants none in heroes). Pure CSS entrance (no flash, no layout shift).
  * The hero ends on a straight line.
  */
-export function PageHero({ id, label, content, crumbs, strong = [], track, aside, children, footer }: PageHeroProps) {
+export function PageHero({ id, label, content, crumbs, strong = [], track, aside, points, children, footer }: PageHeroProps) {
   const centred = !aside;
   return (
     <section className={centred ? `${styles.hero} ${styles.centred}` : styles.hero} aria-labelledby={id}>
@@ -46,6 +49,20 @@ export function PageHero({ id, label, content, crumbs, strong = [], track, aside
           <p className={`lead ${styles.intro}`}>
             <Rich text={content.intro} />
           </p>
+          {points?.length ? (
+            <ul role="list" className={styles.points}>
+              {points.map((point) => (
+                <li key={point.lead}>
+                  <span className={styles.pointTick} aria-hidden="true">
+                    <Icon name="check" size={14} strokeWidth={2.6} />
+                  </span>
+                  <span>
+                    <strong>{point.lead}</strong> {point.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <CtaButtons buttons={content.buttons} track={`${track}_hero`} className={styles.ctas} />
           {children ? <div className={styles.extra}>{children}</div> : null}
         </div>

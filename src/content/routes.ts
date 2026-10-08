@@ -65,22 +65,22 @@ export const routes: RouteEntry[] = [
   r("/patient-information/care-and-comfort/home-instructions/", "Home Care Instructions", "patient-info", true),
 
   // General dentistry
-  r("/family-dentistry/", "Family Dentistry", "general", false),
-  r("/emergency-dentistry/", "Emergency Dentistry", "general", false),
+  r("/family-dentistry/", "Family Dentistry", "general", true),
+  r("/emergency-dentistry/", "Emergency Dentistry", "general", true),
 
   // Preventative care
-  r("/preventative-care/", "Preventative Care", "preventive", false),
-  r("/preventative-care/teeth-cleaning-and-check-ups/", "Teeth Cleaning & Check-ups", "preventive", false),
-  r("/preventative-care/child-dentistry/", "Child Dentistry", "preventive", false),
-  r("/preventative-care/dental-sealants/", "Dental Sealants", "preventive", false),
-  r("/preventative-care/fluoride/", "Fluoride Treatment", "preventive", false),
-  r("/preventative-care/oral-hygiene/", "Oral Hygiene", "preventive", false),
-  r("/preventative-care/oral-cancer-screening/", "Oral Cancer Screening", "preventive", false),
-  r("/preventative-care/professional-night-guards/", "Night Guards", "preventive", false),
-  r("/preventative-care/deep-teeth-cleaning/", "Deep Teeth Cleaning", "preventive", false),
-  r("/preventative-care/periodontal-maintenance/", "Periodontal Maintenance", "preventive", false),
-  r("/preventative-care/gum-disease-laser-therapy/", "Gum Disease Laser Therapy", "preventive", false),
-  r("/preventative-care/arestin/", "Arestin", "preventive", false),
+  r("/preventative-care/", "Preventative Care", "preventive", true),
+  r("/preventative-care/teeth-cleaning-and-check-ups/", "Teeth Cleaning & Check-ups", "preventive", true),
+  r("/preventative-care/child-dentistry/", "Child Dentistry", "preventive", true),
+  r("/preventative-care/dental-sealants/", "Dental Sealants", "preventive", true),
+  r("/preventative-care/fluoride/", "Fluoride Treatment", "preventive", true),
+  r("/preventative-care/oral-hygiene/", "Oral Hygiene", "preventive", true),
+  r("/preventative-care/oral-cancer-screening/", "Oral Cancer Screening", "preventive", true),
+  r("/preventative-care/professional-night-guards/", "Night Guards", "preventive", true),
+  r("/preventative-care/deep-teeth-cleaning/", "Deep Teeth Cleaning", "preventive", true),
+  r("/preventative-care/periodontal-maintenance/", "Periodontal Maintenance", "preventive", true),
+  r("/preventative-care/gum-disease-laser-therapy/", "Gum Disease Laser Therapy", "preventive", true),
+  r("/preventative-care/arestin/", "Arestin", "preventive", true),
 
   // Restorative
   r("/restorative-dentistry/", "Restorative Dentistry", "restorative", false),

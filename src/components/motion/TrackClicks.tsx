@@ -36,10 +36,19 @@ export function TrackClicks() {
           : href.includes("/patient-information/scheduling/") || href === "#appointment-form"
             ? "click_request_appointment"
             : null;
-        if (generic) {
+        const push = (name: string) => {
           window.dataLayer = window.dataLayer ?? [];
-          window.dataLayer.push({ event: generic, link_url: anchor.href, page_path: window.location.pathname });
-        }
+          window.dataLayer.push({ event: name, link_url: anchor.href, page_path: window.location.pathname });
+        };
+        if (generic) push(generic);
+        // Treatment-page handoffs name the appointment event click_book
+        if (generic === "click_request_appointment") push("click_book");
+        // A page can add its own call event for every phone link on it (emergency:
+        // click_call_emergency), set once on the page's wrapper
+        const scoped = generic === "click_call" ? document.querySelector<HTMLElement>("[data-call-event]")?.dataset.callEvent : undefined;
+        if (scoped) push(scoped);
+        // Links to the special offers page (cleaning handoff: click_offer)
+        if (href.includes("/special-offers/")) push("click_offer");
       }
 
       const target = (event.target as Element | null)?.closest<HTMLElement>("[data-track]");

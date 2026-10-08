@@ -1,0 +1,936 @@
+/* ───────── Hero: the house of teeth ───────── */
+.house {
+  position: relative;
+  display: grid;
+  width: min(100%, 27rem);
+  aspect-ratio: 400 / 380;
+  margin-inline: auto;
+  padding: 0 16.5% 8%;
+  align-content: end;
+}
+
+.houseArt {
+  position: absolute;
+  inset: 0 0 5% 0;
+  width: 100%;
+  height: 95%;
+  overflow: visible;
+}
+
+.houseArt path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: house-draw 1.4s var(--ease-in-out) forwards;
+}
+
+.houseArt .houseLine {
+  stroke: var(--navy-800);
+  stroke-width: 5;
+  animation-delay: 0.5s;
+}
+
+.houseArt .houseWall {
+  stroke: var(--sky-500);
+  stroke-width: 3;
+  animation-delay: 0.9s;
+}
+
+.houseArt .houseChimney {
+  stroke: var(--sky-500);
+  stroke-width: 3;
+  animation-delay: 1.2s;
+}
+
+@keyframes house-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Soft sky floor glow inside the walls */
+.house::before {
+  content: "";
+  position: absolute;
+  left: 15.5%;
+  right: 15.5%;
+  top: 38%;
+  bottom: 8%;
+  border-radius: 0 0 var(--radius-m) var(--radius-m);
+  background: linear-gradient(180deg, transparent, var(--sky-100));
+}
+
+/* Columns sized to each tooth, so the adult tooth gets the most room */
+.family {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.6fr 0.8fr 1fr 0.92fr;
+  align-items: end;
+  gap: 0.25rem;
+  padding-bottom: 9%;
+}
+
+.member {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  animation: member-in 0.9s var(--ease-out) calc(1.2s + var(--i) * 0.15s) both;
+}
+
+@keyframes member-in {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+    scale: 0.6;
+  }
+}
+
+.memberTooth {
+  width: 100%;
+  height: auto;
+  fill: var(--white);
+  stroke: var(--navy-800);
+  stroke-width: 1.1;
+  filter: drop-shadow(0 8px 10px rgb(15 38 69 / 0.14));
+}
+
+.member:nth-child(2) .memberTooth {
+  fill: var(--sky-50);
+}
+
+.member:nth-child(4) .memberTooth {
+  fill: var(--pearl-100);
+}
+
+.memberName {
+  font-size: var(--step-label);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--navy-800);
+}
+
+.houseSign {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+  translate: -50% 0;
+  animation: sign-in 0.8s var(--ease-out) 1.9s both;
+}
+
+.houseSign svg {
+  color: var(--sky-300);
+}
+
+@keyframes sign-in {
+  from {
+    opacity: 0;
+    translate: -50% 12px;
+  }
+}
+
+/* ───────── Every age: the ribbon ───────── */
+.ages {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.agesHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 54rem;
+  margin: 0 auto clamp(2rem, 4vw, 3.25rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.ribbon {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: 0 0 1.75rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--slate-600);
+}
+
+.stage strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  color: var(--navy-800);
+}
+
+/* Each life stage's band reaches a little further than the one before */
+.stageBand {
+  display: block;
+  height: 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--sky-50);
+  overflow: hidden;
+}
+
+.stageBand span {
+  display: block;
+  width: calc(var(--s) * 100%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+  transform-origin: left;
+  transition: transform 1.2s var(--ease-out) calc(0.2s + var(--i) * 0.15s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .stageBand span {
+  transform: scaleX(0);
+}
+
+.stageIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.stage:nth-child(4) .stageIcon {
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.agesAfter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 50rem;
+  margin: 2.25rem auto 0;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.agesAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── General dentistry: definition card ───────── */
+.general {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.generalGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.definition {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.defText {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-left: 5px solid var(--navy-800);
+  border-radius: 0 var(--radius-l) var(--radius-l) 0;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--step-lead);
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.includes {
+  display: grid;
+  gap: 1rem;
+}
+
+.includesIntro {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.includesList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.includesList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--slate-600);
+  transition: border-color var(--dur-ui) ease;
+}
+
+.includesList li:hover {
+  border-color: var(--sky-300);
+}
+
+.includesList a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.includesIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Twin panels ───────── */
+.twins {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.twinGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.twin {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  color: var(--slate-600);
+}
+
+.twinSky {
+  background: linear-gradient(160deg, var(--sky-100), var(--sky-50) 60%);
+}
+
+.twinBlush {
+  background: linear-gradient(160deg, var(--mouth-edge), var(--mouth-mid) 60%);
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.month,
+.monthOn {
+  display: grid;
+  place-items: center;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.7);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-500);
+}
+
+.monthOn {
+  background: var(--navy-800);
+  color: var(--white);
+  transition: background-color 0.5s ease 0.6s, color 0.5s ease 0.6s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .monthOn {
+  background: rgb(255 255 255 / 0.7);
+  color: var(--slate-500);
+}
+
+.firstBirthday {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.birthdayFigure {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  color: #c86b76;
+  box-shadow: var(--shadow-soft);
+}
+
+.birthdayText {
+  max-width: 14rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Restorative tiles ───────── */
+.restore {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.restoreHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 50rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.restoreTiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.restoreTiles li {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  min-height: 12rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy-800);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+
+.restoreTiles li:hover {
+  translate: 0 -4px;
+  box-shadow: var(--shadow-lift);
+}
+
+.restoreIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px 999px var(--radius-s) var(--radius-s);
+  background: linear-gradient(180deg, var(--sky-100), var(--white));
+  color: var(--navy-800);
+}
+
+.microscope {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.microscope a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.microscopeIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.1);
+  color: var(--sky-300);
+}
+
+/* ───────── Cosmetic band ───────── */
+.cosmetic {
+  padding-block: var(--space-section);
+  background: var(--pearl-100);
+}
+
+.cosmeticGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.cosmeticCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.cosmeticChips {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cosmeticChips li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.25rem 0.8rem 0.8rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+  margin-left: calc(var(--i) * 1.5rem);
+}
+
+.cosmeticChips li span {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--sky-300);
+}
+
+/* ───────── Emergency strip ───────── */
+.emergency {
+  padding-block: var(--space-section) 0;
+  background: var(--white);
+}
+
+.emergencyStrip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border: 1px solid #f3c9c9;
+  border-left: 6px solid #c43d3d;
+  border-radius: var(--radius-l);
+  background: linear-gradient(90deg, #fdf1f1, var(--white) 70%);
+}
+
+.emergencyIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: #c43d3d;
+  color: var(--white);
+}
+
+.emergencyCopy {
+  display: grid;
+  gap: 0.75rem;
+  color: var(--slate-600);
+}
+
+.emergencyCopy h2 {
+  font-size: var(--step-h3);
+}
+
+/* ───────── Dentists ───────── */
+.dentists {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.dentistsHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.dentistCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.dentistCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--pearl-50), var(--white));
+  color: var(--slate-600);
+}
+
+.dentistPhoto {
+  width: 100%;
+}
+
+.dentistName {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+  text-decoration: underline;
+  text-decoration-color: var(--sky-300);
+  text-underline-offset: 0.3em;
+}
+
+.dentistName:hover {
+  color: var(--sky-700);
+}
+
+/* ───────── Pay: list + calculator ───────── */
+.pay {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.payGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.payCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.payList {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.payList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.8rem;
+}
+
+.payList strong {
+  color: var(--navy-800);
+}
+
+.payTick {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.15rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.plan {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgb(169 218 243 / 0.25), transparent 70%),
+    linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+  box-shadow: var(--shadow-lift);
+}
+
+.planKicker {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-300);
+}
+
+.planRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+
+.planLabel {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.stepper button {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--navy-800);
+  cursor: pointer;
+  transition: background-color var(--dur-ui) ease;
+}
+
+.stepper button:hover:not(:disabled) {
+  background: var(--sky-300);
+}
+
+.stepper button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.stepper button:focus-visible {
+  outline: 2px solid var(--sky-300);
+  outline-offset: 2px;
+}
+
+.count {
+  min-width: 2.25rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: center;
+  color: var(--white);
+}
+
+.people {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.person,
+.personOn {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: var(--radius-s);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.person {
+  background: rgb(255 255 255 / 0.05);
+  color: rgb(196 211 230 / 0.35);
+}
+
+.personOn {
+  background: rgb(169 218 243 / 0.18);
+  color: var(--sky-300);
+}
+
+.personOn:first-child {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+.planTotal {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-on-navy);
+}
+
+.planFigure {
+  font-family: var(--font-display);
+  font-size: var(--step-display);
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: var(--white);
+}
+
+.planPer {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.planMath {
+  font-size: var(--step-small);
+}
+
+@media (max-width: 1199px) {
+  .ribbon,
+  .restoreTiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dentistCard {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .dentistPhoto {
+    width: min(100%, 15rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .generalGrid,
+  .cosmeticGrid,
+  .payGrid,
+  .twinGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cosmeticChips li {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .dentistCards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calendar {
+    gap: 0.2rem;
+  }
+
+  .month,
+  .monthOn {
+    height: 2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .ribbon,
+  .restoreTiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .restoreTiles li {
+    min-height: 0;
+  }
+
+  .emergencyStrip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .microscope {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .agesAfter {
+    flex-direction: column;
+  }
+
+  .calendar {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .memberName {
+    font-size: var(--step-label);
+  }
+
+  .houseSign {
+    font-size: var(--step-label);
+  }
+}
+
+@media (max-width: 389px) {
+  .houseSign {
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .includesList li,
+  .payList li,
+  .cosmeticChips li,
+  .firstBirthday {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .houseArt path,
+  .member,
+  .houseSign {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

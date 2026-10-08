@@ -1,0 +1,904 @@
+/* ───────── Hero: the layered tooth ───────── */
+.layered {
+  position: relative;
+  width: min(100%, 27rem);
+  aspect-ratio: 400 / 420;
+  margin-inline: auto;
+}
+
+.layeredArt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.tooth {
+  transform-box: fill-box;
+  animation: tooth-rise 1.1s var(--ease-out) 0.55s both;
+}
+
+@keyframes tooth-rise {
+  from {
+    opacity: 0;
+    translate: 0 30px;
+  }
+}
+
+/* The grooves fill with sealant */
+.groove {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.2s var(--ease-in-out) 1.4s forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.leaders {
+  opacity: 0;
+  animation: fade-in 0.8s ease 1.6s forwards;
+}
+
+.dots circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dot-pop 0.6s var(--ease-out) both;
+}
+
+.dots circle:nth-child(1) {
+  animation-delay: 1.7s;
+}
+
+.dots circle:nth-child(2) {
+  animation-delay: 1.85s;
+}
+
+.dots circle:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.dots circle:nth-child(4) {
+  animation-delay: 2.15s;
+}
+
+@keyframes dot-pop {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.layer {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.95rem 0.5rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.92);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(6px);
+  animation: layer-in 0.8s var(--ease-out) calc(1.5s + var(--i) * 0.15s) both;
+}
+
+@keyframes layer-in {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+.layerA {
+  left: 0;
+  top: 2%;
+}
+
+.layerB {
+  right: 0;
+  top: 2%;
+}
+
+.layerC {
+  left: 0;
+  bottom: 12%;
+}
+
+.layerD {
+  right: 0;
+  bottom: 0;
+}
+
+.layerIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.layerText {
+  display: grid;
+  line-height: 1.25;
+}
+
+.layerName {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.layerPart {
+  font-size: var(--step-label);
+  color: var(--slate-500);
+}
+
+/* ───────── At a glance: the directory ───────── */
+.glance {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.glanceHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.directory {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.directory:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.dirTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.dirTable thead th {
+  padding: 1.1rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--navy-800);
+}
+
+.dirTable tbody th,
+.dirTable td {
+  padding: 1.1rem 1.5rem;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.dirTable tbody tr {
+  transition: background-color var(--dur-ui) ease;
+}
+
+.dirTable tbody tr:hover {
+  background: var(--sky-50);
+}
+
+.dirTable tbody th {
+  font-weight: 600;
+}
+
+.dirTable td {
+  color: var(--slate-600);
+}
+
+.dirName {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 16rem;
+}
+
+.dirIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+  transition: background-color var(--dur-ui) ease, color var(--dur-ui) ease;
+}
+
+.dirTable tbody tr:hover .dirIcon {
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.dirLink {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+  text-decoration: underline;
+  text-decoration-color: var(--sky-300);
+  text-underline-offset: 0.3em;
+}
+
+.dirLink:hover {
+  color: var(--sky-700);
+}
+
+.dirFor {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--pearl-100);
+  font-size: var(--step-small);
+  color: var(--navy-800);
+}
+
+/* ───────── Checkups: the hour track ───────── */
+.checkups {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.checkGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.checkCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.checkMore {
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.hour {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.hourHead {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.hourList {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hourList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  color: var(--ink);
+}
+
+.hourIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid var(--sky-300);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+/* The hour fills down the icons as the card scrolls in */
+.hourLine {
+  position: absolute;
+  left: calc(clamp(1.5rem, 3vw, 2.25rem) + 1.375rem - 1px);
+  top: 5.5rem;
+  bottom: clamp(2.5rem, 4vw, 3.25rem);
+  width: 2px;
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+  transform-origin: top;
+  transition: transform 1.6s var(--ease-out) 0.2s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .hourLine {
+  transform: scaleY(0);
+}
+
+.subs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.sub {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+}
+
+.sub h3 {
+  align-self: center;
+  font-size: var(--step-h3);
+}
+
+.sub p {
+  grid-column: 2;
+}
+
+.subIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Kids: the growth chart ───────── */
+.kids {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.kidsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.kidsCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  align-self: center;
+  color: var(--slate-600);
+}
+
+.chart {
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+/* A height ruler down the left edge */
+.ruler {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1.25rem;
+  border-right: 2px solid var(--sky-300);
+  background: repeating-linear-gradient(180deg, var(--sky-500) 0 2px, transparent 2px 1.5rem) right / 0.75rem 100% no-repeat,
+    repeating-linear-gradient(180deg, var(--navy-800) 0 2px, transparent 2px 6rem) right / 1.25rem 100% no-repeat;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each card stands a little taller than the one before */
+.stepCard {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  min-height: calc(16rem + var(--i) * 3.5rem);
+  padding: 1.5rem;
+  border-radius: var(--radius-l) var(--radius-l) var(--radius-s) var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.stepCard:nth-child(2) {
+  background: linear-gradient(180deg, var(--sky-100), var(--white));
+}
+
+.stepCard:nth-child(3) {
+  background: linear-gradient(180deg, var(--mouth-edge), var(--white));
+}
+
+.stepCard a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.stepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Gum health: navy band ───────── */
+.gum {
+  position: relative;
+  padding-block: var(--space-section);
+  background:
+    radial-gradient(60% 80% at 100% 100%, rgb(229 149 156 / 0.22), transparent 70%),
+    linear-gradient(160deg, var(--navy-800), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.gumGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.gumCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.gumCopy h2 {
+  color: var(--white);
+}
+
+.depth {
+  display: grid;
+  gap: 1rem;
+}
+
+.depthIntro {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.depthList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 3px solid #e5959c;
+  list-style: none;
+}
+
+.depthList li {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--line-on-navy);
+}
+
+.depthList a {
+  font-weight: 700;
+  color: var(--sky-300);
+}
+
+.depthList a:hover {
+  color: var(--white);
+}
+
+/* A bar dropping deeper below the gumline with each step */
+.depthBar {
+  position: relative;
+  display: block;
+  height: 100%;
+  min-height: 3rem;
+  border-radius: var(--radius-xs);
+  background: rgb(255 255 255 / 0.06);
+}
+
+.depthBar span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(30% + var(--i) * 23%);
+  border-radius: var(--radius-xs);
+  background: linear-gradient(180deg, #e5959c, var(--sky-500));
+  transform-origin: top;
+  transition: transform 1.2s var(--ease-out) calc(0.3s + var(--i) * 0.15s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .depthBar span {
+  transform: scaleY(0);
+}
+
+/* ───────── Protecting your teeth ───────── */
+.protect {
+  padding-block: var(--space-section) 0;
+  background: var(--white);
+}
+
+.protectCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 140% at 0% 0%, var(--sky-100), transparent 60%),
+    var(--pearl-100);
+}
+
+.protectIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--sky-300);
+}
+
+.protectCopy {
+  display: grid;
+  gap: 0.9rem;
+  color: var(--slate-600);
+}
+
+/* ───────── Not sure: signpost table ───────── */
+.notSure {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.notSureGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.notSureCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.signpost {
+  --table-min: 30rem;
+}
+
+.signpost td:last-child {
+  white-space: nowrap;
+}
+
+.signpost td:last-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.signpost td:last-child a::after {
+  content: "→";
+  color: var(--sky-600);
+  transition: translate var(--dur-ui) var(--ease-out);
+}
+
+.signpost tr:hover td:last-child a::after {
+  translate: 3px 0;
+}
+
+/* ───────── Cost: pay tiles ───────── */
+.cost {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--pearl-50), var(--white));
+}
+
+.costHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tile {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--sky-500);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+
+.tile:nth-child(2) {
+  border-top-color: var(--navy-800);
+}
+
+.tile:hover {
+  translate: 0 -4px;
+  box-shadow: var(--shadow-lift);
+}
+
+.tileLead {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  color: var(--navy-800);
+}
+
+.tileIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.costAfter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.costAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+@media (max-width: 1199px) {
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .checkGrid,
+  .kidsGrid,
+  .gumGrid,
+  .notSureGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones: the directory's rows become cards; the table semantics stay */
+@media (max-width: 767px) {
+  .directory {
+    overflow: visible;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .dirTable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .dirTable,
+  .dirTable tbody,
+  .dirTable tr,
+  .dirTable tbody th,
+  .dirTable td {
+    display: block;
+  }
+
+  .dirTable tbody {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .dirTable tbody tr {
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-l);
+    background: var(--white);
+  }
+
+  .dirTable tbody th {
+    padding: 0 0 0.75rem;
+    border: 0;
+  }
+
+  .dirName {
+    min-width: 0;
+  }
+
+  .dirTable td {
+    padding: 0.35rem 0 0;
+    border: 0;
+  }
+
+  .dirTable td::before {
+    content: attr(data-head);
+    display: block;
+    font-size: var(--step-label);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sky-700);
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stepCard {
+    min-height: 0;
+  }
+
+  .chart {
+    padding-left: 0;
+  }
+
+  .ruler {
+    display: none;
+  }
+
+  .subs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .depthList li {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .protectCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .protectIcon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .sub {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sub p {
+    grid-column: auto;
+  }
+
+  .layer {
+    gap: 0.45rem;
+    padding: 0.35rem 0.6rem 0.35rem 0.35rem;
+  }
+
+  .layerIcon {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+  .layerName {
+    font-size: 0.875rem;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  /* The hour line runs down the icon column; with icons above the text it would cross it */
+  .hourLine {
+    display: none;
+  }
+
+  /* A dashed rule keeps each item of the hour visit apart instead */
+  .hourList li + li {
+    padding-top: 1rem;
+    border-top: 1px dashed var(--line-strong);
+  }
+
+  .dirName,
+  .hourHead,
+  .hourList li {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+
+  .costAfter {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tooth,
+  .groove,
+  .leaders,
+  .dots circle,
+  .layer {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,580 @@
+/* ───────── Hero: the pocket close-up ───────── */
+.pocket {
+  position: relative;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 60% at 60% 60%, rgb(169 218 243 / 0.35), transparent 70%),
+    var(--pearl-50);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.pocketArt {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.glow {
+  opacity: 0;
+  animation: glow 3s ease-in-out 2.4s infinite;
+}
+
+@keyframes glow {
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Microspheres drop in from above the gumline and settle in the pocket */
+.spheres circle {
+  fill: var(--sky-500);
+  stroke: var(--white);
+  stroke-width: 1.5;
+  animation: settle 0.9s var(--ease-out) calc(0.9s + var(--i) * 0.12s) both;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    translate: 0 -90px;
+  }
+}
+
+.pocketTag {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-s);
+  font-size: var(--step-label);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tagA {
+  right: 1rem;
+  top: 1rem;
+  background: var(--navy-800);
+  color: var(--white);
+  animation: tag-in 0.6s var(--ease-out) 2.2s both;
+}
+
+.tagA svg {
+  color: var(--sky-300);
+}
+
+.tagB {
+  right: 1rem;
+  bottom: 1rem;
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+  animation: tag-in 0.6s var(--ease-out) 2.4s both;
+}
+
+@keyframes tag-in {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+}
+
+/* ───────── What: pill vs pocket ───────── */
+.what {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.whatGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.whatCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.versus {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+.route {
+  display: grid;
+  justify-items: start;
+  gap: 0.6rem;
+  min-height: 15rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  align-content: start;
+}
+
+.routePill {
+  border: 1px dashed var(--line-strong);
+  background: var(--pearl-50);
+}
+
+.routePill .routeIcon {
+  background: var(--white);
+  color: var(--slate-500);
+}
+
+.routePill .routeName {
+  text-decoration: line-through;
+  text-decoration-color: rgb(196 61 61 / 0.6);
+  text-decoration-thickness: 2px;
+}
+
+.routePocket {
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  box-shadow: var(--shadow-lift);
+}
+
+.routePocket .routeName {
+  color: var(--white);
+}
+
+.routePocket .routeNote {
+  color: var(--slate-on-navy);
+}
+
+.routeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.12);
+  color: var(--sky-300);
+}
+
+.routeName {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy-800);
+}
+
+.routeNote {
+  font-size: var(--step-small);
+  color: var(--slate-500);
+}
+
+.versusMark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+/* ───────── When: the pairing ───────── */
+.when {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.whenCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.pair {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.pairStep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 17rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  border: 1px solid var(--sky-200);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.pairArestin {
+  background: var(--navy-800);
+  border-color: var(--navy-800);
+  color: var(--white);
+}
+
+.pairArestin svg {
+  color: var(--sky-300);
+}
+
+.pairPlus {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--sky-500);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+}
+
+.whenCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.whenIntro {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.whenList {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.whenList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--ink);
+}
+
+.whenList li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.15rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.whenAfter {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Expect: timeline + aftercare ───────── */
+.expect {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.expectHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.timeline li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 3px solid var(--sky-200);
+  color: var(--slate-600);
+}
+
+.timeline li:nth-child(2) {
+  border-top-color: var(--sky-500);
+}
+
+.timeline strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.timeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.timeline li:nth-child(2) .timeIcon {
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.expectAfter {
+  margin-top: 1.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.care {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 120% at 100% 0%, var(--sky-100), transparent 60%),
+    var(--pearl-100);
+}
+
+.careCopy {
+  display: grid;
+  gap: 0.9rem;
+  color: var(--slate-600);
+}
+
+.careCopy h3 {
+  font-size: var(--step-h3);
+}
+
+.careCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.week {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.weekTitle {
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.weekDays span {
+  display: grid;
+  place-items: center;
+  height: 2.75rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+  transition: background-color 0.4s ease calc(var(--i) * 0.1s), color 0.4s ease calc(var(--i) * 0.1s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .weekDays span {
+  background: var(--sky-50);
+  color: var(--slate-500);
+}
+
+/* ───────── Caution card ───────── */
+.caution {
+  padding-block: 0 var(--space-section);
+  background: var(--white);
+}
+
+.cautionCard {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid #f4dfb4;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, #fff7e6, var(--white) 70%);
+}
+
+.cautionHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--slate-600);
+}
+
+.cautionHead > div {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.cautionIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: #b7791f;
+  color: var(--white);
+}
+
+.cautionList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cautionList li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  border: 1px solid #f4dfb4;
+  color: var(--ink);
+}
+
+.cautionList li span {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: #fdf0d5;
+  color: #9a6514;
+}
+
+.cautionAfter {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .whatGrid,
+  .whenCard,
+  .care {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cautionList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .versus {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .versusMark {
+    justify-self: center;
+  }
+
+  .route {
+    min-height: 0;
+  }
+
+  .timeline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cautionHead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .weekDays span {
+    height: 2.25rem;
+  }
+}
+
+@media (max-width: 389px) {
+  .weekDays {
+    gap: 0.15rem;
+  }
+
+  .weekDays span {
+    font-size: 0.8125rem;
+    letter-spacing: -0.02em;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .whenList li {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+
+  .pairStep {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow,
+  .spheres circle,
+  .tagA,
+  .tagB {
+    animation: none;
+  }
+}

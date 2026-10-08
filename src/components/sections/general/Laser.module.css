@@ -1,0 +1,485 @@
+/* ───────── Hero: the laser beam ───────── */
+.beamCard {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(50% 50% at 50% 55%, rgb(109 189 232 / 0.25), transparent 70%),
+    linear-gradient(160deg, var(--navy-800), var(--navy-950));
+  box-shadow: var(--shadow-lift);
+}
+
+.beamArt {
+  width: 100%;
+  height: auto;
+}
+
+.handpiece {
+  animation: hand-in 1s var(--ease-out) 0.5s both;
+}
+
+@keyframes hand-in {
+  from {
+    opacity: 0;
+    translate: 40px -40px;
+  }
+}
+
+.ray {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: ray-on 0.6s ease 1.4s forwards, ray-pulse 2s ease-in-out 2s infinite;
+}
+
+@keyframes ray-on {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ray-pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.spot {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: spot-on 0.6s ease 1.9s forwards, spot-pulse 2s ease-in-out 2.5s infinite;
+}
+
+@keyframes spot-on {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spot-pulse {
+  50% {
+    scale: 1.25;
+    opacity: 0.75;
+  }
+}
+
+.beamTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.beamTags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.1);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.beamTags svg {
+  color: var(--sky-300);
+}
+
+/* ───────── How: the beam-lit steps ───────── */
+.how {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.howHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 52rem;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.beamRow {
+  position: relative;
+}
+
+/* A thin light beam runs through every node */
+.lightLine {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 1.75rem;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, transparent, var(--sky-500) 15%, var(--sky-300) 50%, var(--sky-500) 85%, transparent);
+  box-shadow: 0 0 12px 2px rgb(109 189 232 / 0.55);
+  transform-origin: left;
+  transition: transform 1.6s var(--ease-in-out) 0.2s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .lightLine {
+  transform: scaleX(0);
+}
+
+.beamSteps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.beamSteps li {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1rem;
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.beamSteps strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.beamSteps a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.node {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: 0 0 0 6px var(--white), 0 0 22px 2px rgb(109 189 232 / 0.45);
+}
+
+.howAfter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.howAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.howAfter a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Benefits: navy band ───────── */
+.benefits {
+  padding-block: var(--space-section);
+  background:
+    radial-gradient(50% 70% at 50% 0%, rgb(109 189 232 / 0.2), transparent 70%),
+    linear-gradient(170deg, var(--navy-800), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.benefitsHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.benefitsHead h2 {
+  color: var(--white);
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefitGrid li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line-on-navy);
+  border-radius: var(--radius-l);
+  background: rgb(255 255 255 / 0.04);
+  transition: background-color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+}
+
+.benefitGrid li:hover {
+  background: rgb(255 255 255 / 0.08);
+  border-color: rgb(169 218 243 / 0.4);
+}
+
+.benefitGrid strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--white);
+}
+
+.benefitIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+.benefitsAfter {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: var(--step-small);
+}
+
+/* ───────── Candidate ───────── */
+.candidate {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.candidateGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.candidateCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.candidateList {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.candidateList li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--ink);
+}
+
+.candidateList li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.candidateSide {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.frenectomy {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+}
+
+.frenIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+.options {
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-100);
+  color: var(--slate-600);
+}
+
+.options a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Recovery ───────── */
+.recovery {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.recoveryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.recoveryCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.recoveryCard {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.recoveryBar {
+  display: block;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--sky-50);
+  overflow: hidden;
+}
+
+.recoveryBar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #e5959c, var(--sky-500), #3f9e6b);
+}
+
+.recoveryList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recoveryList li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--ink);
+}
+
+.recoveryList li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  .beamSteps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+
+  .lightLine {
+    display: none;
+  }
+
+  .benefitGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .candidateGrid,
+  .recoveryGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .beamSteps,
+  .benefitGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .beamSteps li {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    align-items: start;
+    text-align: left;
+  }
+
+  .howAfter {
+    flex-direction: column;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .frenectomy,
+  .candidateList li,
+  .recoveryList li,
+  .benefitGrid li,
+  .beamSteps li,
+  .beamTags span {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .handpiece,
+  .ray,
+  .spot {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}

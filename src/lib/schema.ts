@@ -209,6 +209,7 @@ export function innerPage({
   name,
   description,
   about = { "@id": ids.dentist },
+  provider,
   mainEntity,
   mentions,
 }: {
@@ -216,7 +217,9 @@ export function innerPage({
   path: string;
   name: string;
   description: string;
-  about?: Json;
+  about?: Json | Json[];
+  /** The practice, by @id (treatment pages: handoff 3a) */
+  provider?: Json;
   mainEntity?: Json;
   mentions?: Json[];
 }): Json {
@@ -230,6 +233,7 @@ export function innerPage({
     isPartOf: { "@id": ids.website },
     breadcrumb: { "@id": ids.breadcrumb(path) },
     about,
+    ...(provider ? { provider } : {}),
     ...(mainEntity ? { mainEntity } : {}),
     ...(mentions ? { mentions } : {}),
   };
@@ -362,10 +366,15 @@ export const graph = (...nodes: (Json | Json[])[]): Json => ({
 export const serializeJsonLd = (data: Json) => JSON.stringify(data).replace(/</g, "\\u003c");
 
 /** ItemList of pages (hub and patient education CollectionPages), in page order */
-export function pageItemList(path: string, items: { name: string; path: string }[]): Json {
+export function pageItemList(
+  path: string,
+  items: { name: string; path: string }[],
+  { key = "itemlist", name }: { key?: string; name?: string } = {},
+): Json {
   return {
     "@type": "ItemList",
-    "@id": `${absoluteUrl(path)}#itemlist`,
+    "@id": `${absoluteUrl(path)}#${key}`,
+    ...(name ? { name } : {}),
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -385,5 +394,63 @@ export function membershipOffer(path: string): Json {
     price: membershipPlan.yearly.toFixed(2),
     priceCurrency: "USD",
     offeredBy: { "@id": ids.dentist },
+  };
+}
+
+/* ───────── Treatment pages (03 General Dentistry handoffs, 3a) ───────── */
+
+const yardley = {
+  "@type": "City",
+  name: "Yardley",
+  containedInPlace: { "@type": "AdministrativeArea", name: "Bucks County, Pennsylvania" },
+};
+
+/** The page node of a treatment page: MedicalWebPage about its main node and the practice */
+export function treatmentPage({ path, name, description, main }: { path: string; name: string; description: string; main?: string }): Json {
+  return innerPage({
+    type: "MedicalWebPage",
+    path,
+    name,
+    description,
+    about: main ? [{ "@id": `${absoluteUrl(path)}#${main}` }, { "@id": ids.dentist }] : { "@id": ids.dentist },
+    provider: { "@id": ids.dentist },
+  });
+}
+
+/** MedicalProcedure (cleanings, sealants, fluoride, screening, deep cleaning, laser, perio) */
+export function medicalProcedure({ path, name, alternateName, description }: { path: string; name: string; alternateName?: string; description: string }): Json {
+  return {
+    "@type": "MedicalProcedure",
+    "@id": `${absoluteUrl(path)}#procedure`,
+    name,
+    ...(alternateName ? { alternateName } : {}),
+    description,
+    url: absoluteUrl(path),
+  };
+}
+
+/** Service provided by the practice in Yardley (family, children's, emergency, night guards) */
+export function practiceService({ path, name, serviceType, description }: { path: string; name: string; serviceType: string; description: string }): Json {
+  return {
+    "@type": "Service",
+    "@id": `${absoluteUrl(path)}#service`,
+    name,
+    description,
+    serviceType,
+    provider: { "@id": ids.dentist },
+    areaServed: yardley,
+    url: absoluteUrl(path),
+  };
+}
+
+/** MedicalTherapy with its Drug node (Arestin; no doses anywhere) */
+export function medicalTherapy({ path, name, description, drug }: { path: string; name: string; description: string; drug: { name: string; nonProprietaryName: string } }): Json {
+  return {
+    "@type": "MedicalTherapy",
+    "@id": `${absoluteUrl(path)}#therapy`,
+    name,
+    description,
+    url: absoluteUrl(path),
+    drug: { "@type": "Drug", ...drug },
   };
 }

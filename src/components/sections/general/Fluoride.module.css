@@ -1,0 +1,617 @@
+/* ───────── Hero: the enamel lattice ───────── */
+.lattice {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 60% at 50% 40%, rgb(109 189 232 / 0.25), transparent 70%),
+    linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  box-shadow: var(--shadow-lift);
+}
+
+.latticeArt {
+  width: 100%;
+  height: auto;
+}
+
+/* Cells fill outward from the centre, as minerals are drawn back in */
+.cell,
+.cellDeep {
+  stroke: rgb(169 218 243 / 0.5);
+  stroke-width: 1.5;
+  fill: rgb(169 218 243 / 0.06);
+  animation: cell-fill 0.7s ease calc(0.8s + var(--d) * 0.008s) forwards;
+}
+
+.cellDeep {
+  animation-name: cell-deep;
+}
+
+@keyframes cell-fill {
+  to {
+    fill: rgb(169 218 243 / 0.28);
+    stroke: #a9daf3;
+  }
+}
+
+@keyframes cell-deep {
+  to {
+    fill: #6dbde8;
+    stroke: #ffffff;
+  }
+}
+
+.latticeTag {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+  translate: -50% -50%;
+  white-space: nowrap;
+  animation: tag-in 0.8s var(--ease-out) 2.2s both;
+}
+
+.latticeTag svg {
+  color: var(--sky-600);
+}
+
+@keyframes tag-in {
+  from {
+    opacity: 0;
+    scale: 0.85;
+  }
+}
+
+.latticeFoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.latticeFoot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.1);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.latticeFoot svg {
+  color: var(--sky-300);
+}
+
+/* ───────── How it protects: the magnet ───────── */
+.how {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.howGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.howCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.magnet {
+  display: grid;
+  gap: 1rem;
+}
+
+.magnetStage {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  border: 1px solid var(--line);
+}
+
+.magnetTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.magnetStage:first-child .magnetTitle svg {
+  color: #c43d3d;
+}
+
+.magnetTitle svg {
+  color: var(--sky-700);
+}
+
+/* A strip of enamel with mineral dots sitting in its surface */
+.enamel {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  height: 3rem;
+  border-radius: var(--radius-s);
+  background: linear-gradient(180deg, transparent 50%, #f1ece3 50%);
+}
+
+.mineralOut,
+.mineralIn {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 1.05rem;
+  border-radius: 50%;
+  background: var(--sky-500);
+  transition: translate 1s var(--ease-out) calc(var(--i) * 0.08s), opacity 1s ease calc(var(--i) * 0.08s);
+}
+
+/* Acid: minerals drift up and out of the surface (start state only with motion on) */
+.mineralOut {
+  translate: 0 -1rem;
+  opacity: 0.25;
+}
+
+.mineralOut:nth-child(odd) {
+  background: #e5959c;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .mineralOut {
+  translate: 0 0;
+  opacity: 1;
+}
+
+/* Fluoride: minerals settle back down into it */
+.mineralIn {
+  transition-delay: calc(0.8s + var(--i) * 0.08s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .mineralIn {
+  translate: 0 -1rem;
+  opacity: 0.4;
+}
+
+.enamelBack {
+  background: linear-gradient(180deg, transparent 50%, #e9f2f6 50%);
+}
+
+.harder {
+  background: linear-gradient(140deg, var(--navy-800), var(--navy-950));
+  border-color: var(--navy-800);
+}
+
+.harder .magnetTitle {
+  color: var(--white);
+}
+
+.harder .magnetTitle svg {
+  color: var(--sky-300);
+}
+
+.enamelHard {
+  height: 1.5rem;
+  background: repeating-linear-gradient(60deg, rgb(169 218 243 / 0.5) 0 2px, transparent 2px 12px),
+    repeating-linear-gradient(-60deg, rgb(169 218 243 / 0.5) 0 2px, transparent 2px 12px),
+    rgb(169 218 243 / 0.12);
+}
+
+/* ───────── Who benefits: tiles ───────── */
+.who {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.whoHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.whoTiles {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Three across, then two centred */
+.whoTiles li {
+  grid-column: span 2;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.whoTiles li:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.whoTiles strong {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.whoIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(160deg, var(--sky-100), var(--white));
+  border: 1px solid var(--sky-200);
+  color: var(--navy-800);
+}
+
+.whoAfter {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+/* ───────── What to expect: stopwatch strip ───────── */
+.expect {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.expectGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.expectCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.watch {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.watchBar {
+  display: block;
+  height: 0.6rem;
+  border-radius: var(--radius-pill);
+  background: repeating-linear-gradient(90deg, var(--sky-100) 0 calc(25% - 3px), var(--white) calc(25% - 3px) 25%);
+  overflow: hidden;
+}
+
+.watchBar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+}
+
+.watchSteps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.watchSteps li {
+  display: grid;
+  gap: 0.75rem;
+  color: var(--ink);
+}
+
+.watchIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Necessary: statement band ───────── */
+.necessary {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.necessaryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 3px solid var(--navy-800);
+}
+
+.necessaryCopy {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.necessaryLead {
+  font-family: var(--font-display);
+  font-size: var(--step-statement);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--navy-800);
+}
+
+.pairing {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+.pairing a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.pairIcons {
+  display: inline-flex;
+  flex: none;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Safety: measured drop ───────── */
+.safety {
+  padding-block: 0 var(--space-section);
+  background: var(--white);
+}
+
+.safetyCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 90% at 0% 50%, var(--sky-100), transparent 70%),
+    var(--pearl-100);
+}
+
+.measure {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.measureDrop {
+  display: inline-grid;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--sky-600);
+}
+
+.measureDrop svg {
+  animation: drip 2.6s ease-in-out infinite;
+}
+
+@keyframes drip {
+  50% {
+    translate: 0 4px;
+  }
+}
+
+.measureScale {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.measureScale span {
+  width: 1.25rem;
+  height: 0.5rem;
+  border-radius: var(--radius-xs);
+  background: rgb(15 38 69 / 0.1);
+}
+
+.measureScale .tickOn {
+  background: var(--sky-600);
+  transition: background-color 0.4s ease 0.4s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .measureScale .tickOn {
+  background: rgb(15 38 69 / 0.1);
+}
+
+.measureText {
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.safetyCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+/* ───────── At home: the routine ───────── */
+.home {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.homeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.homeCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.routine {
+  display: grid;
+  gap: 1rem;
+}
+
+.routineSky {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--sky-700);
+}
+
+.routineArc {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, #f0b44c, var(--sky-500), var(--navy-800));
+}
+
+.routineList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.routineList li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border: 1px solid var(--line);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.routineIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+@media (max-width: 991px) {
+  .howGrid,
+  .expectGrid,
+  .necessaryGrid,
+  .safetyCard,
+  .homeGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .whoTiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .whoTiles li,
+  .whoTiles li:nth-child(4) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .whoTiles,
+  .watchSteps,
+  .routineList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .latticeTag {
+    font-size: 0.875rem;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .magnetTitle,
+  .pairing,
+  .latticeFoot span {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell {
+    fill: rgb(169 218 243 / 0.28);
+  }
+
+  .cellDeep {
+    fill: #6dbde8;
+  }
+
+  .cell,
+  .cellDeep,
+  .latticeTag,
+  .measureDrop svg {
+    animation: none;
+  }
+}

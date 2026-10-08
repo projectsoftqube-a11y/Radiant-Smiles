@@ -1,0 +1,135 @@
+/* ───────── Ledger: copy left, ways to pay right ───────── */
+.section {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--pearl-50), var(--white));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.copy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.after {
+  padding-left: 1rem;
+  border-left: 3px solid var(--sky-500);
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.ledger {
+  display: grid;
+  margin: 0;
+  padding: 0.5rem clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  padding-block: 1.25rem;
+  color: var(--slate-600);
+}
+
+.row + .row {
+  border-top: 1px dashed var(--line-strong);
+}
+
+.row strong {
+  color: var(--navy-800);
+}
+
+.rowIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Note: one paragraph ───────── */
+.noteSection {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.flush {
+  padding-top: 0;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 120% at 100% 0%, var(--sky-100), transparent 70%),
+    var(--pearl-100);
+}
+
+.noteIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.noteCopy {
+  display: grid;
+  gap: 0.9rem;
+  color: var(--slate-600);
+}
+
+.noteCopy h2 {
+  font-size: var(--step-h3);
+}
+
+@media (max-width: 991px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .note {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .noteIcon {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}

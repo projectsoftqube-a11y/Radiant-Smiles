@@ -1,0 +1,590 @@
+/* ───────── Hero: the night arch ───────── */
+.night {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(40% 35% at 82% 14%, rgb(169 218 243 / 0.25), transparent 70%),
+    linear-gradient(170deg, #142a52, var(--navy-950) 70%);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.moon {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.25rem;
+  color: #f3e3b3;
+  animation: moon-in 1s var(--ease-out) 0.5s both;
+}
+
+.zzz {
+  position: absolute;
+  right: 4.5rem;
+  top: 2.75rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgb(196 211 230 / 0.6);
+  animation: drift 3.6s ease-in-out 1.4s infinite;
+}
+
+@keyframes moon-in {
+  from {
+    opacity: 0;
+    translate: 0 -10px;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    opacity: 0.2;
+    translate: 0 4px;
+  }
+  50% {
+    opacity: 0.8;
+    translate: 0 -4px;
+  }
+}
+
+.arch {
+  position: relative;
+  height: 15rem;
+  margin-top: 2.5rem;
+}
+
+.gum {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 22%;
+  height: 34%;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background: linear-gradient(180deg, #e5959c, #f6cfd0);
+}
+
+.archTooth {
+  position: absolute;
+  width: 3.1rem;
+  height: 3.1rem;
+  fill: var(--white);
+  stroke: var(--navy-800);
+  stroke-width: 1;
+  translate: -50% 0;
+  rotate: var(--r);
+}
+
+/* The clear guard settles over the biting edges */
+.guard {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 46%;
+  height: 34%;
+  border: 2px solid rgb(169 218 243 / 0.85);
+  border-top: 0;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background: linear-gradient(180deg, rgb(169 218 243 / 0.05), rgb(169 218 243 / 0.35));
+  box-shadow: 0 10px 30px -10px rgb(109 189 232 / 0.6);
+  animation: guard-on 1.4s var(--ease-out) 1.2s both;
+}
+
+@keyframes guard-on {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+  }
+}
+
+.nightTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nightTags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.1);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.nightTags svg {
+  color: var(--sky-300);
+}
+
+/* ───────── Signs: the morning ───────── */
+.signs {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, #fff8ec, var(--white) 55%);
+}
+
+.signsHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.morning {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.morning li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.morningIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(160deg, #fdf0d5, #fff8ec);
+  color: #9a6514;
+}
+
+.signsNotes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.tmj,
+.force {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  color: var(--slate-600);
+}
+
+.tmj {
+  background: var(--pearl-100);
+}
+
+.force {
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.tmj svg,
+.force svg {
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+.tmj svg {
+  color: var(--sky-700);
+}
+
+.force svg {
+  color: var(--sky-300);
+}
+
+.force a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+/* ───────── Compare ───────── */
+.compare {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.compareHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.guardTable {
+  --table-min: 44rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.guardTable tbody th {
+  width: 20%;
+}
+
+.compareAfter {
+  max-width: 52rem;
+  margin: 1.75rem auto 0;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+/* ───────── Make: the lab journey ───────── */
+.make {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.makeHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 50rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.journey {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journey li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+/* Arrows hand the impression on to the next stop */
+.journey li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -1.9rem;
+  top: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-top: 3px solid var(--sky-500);
+  border-right: 3px solid var(--sky-500);
+  rotate: 45deg;
+  translate: 0 -50%;
+}
+
+.journey strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.journeyTag {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.45rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.journeyTag svg {
+  color: var(--sky-300);
+}
+
+.journey .labStop {
+  background: repeating-linear-gradient(135deg, var(--white) 0 12px, var(--sky-50) 12px 24px);
+}
+
+.labStop .journeyTag {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+.labStop .journeyTag svg {
+  color: var(--navy-950);
+}
+
+.makeAfter {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.makeAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Dental work ───────── */
+.work {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.workCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 90% at 0% 50%, var(--sky-100), transparent 70%),
+    var(--pearl-100);
+}
+
+.shielded {
+  display: grid;
+  gap: 0;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.shieldBand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
+  background: linear-gradient(180deg, rgb(169 218 243 / 0.7), rgb(169 218 243 / 0.25));
+  border: 2px solid var(--sky-500);
+  border-bottom: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.workRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 2px solid var(--sky-500);
+  border-top: 2px dashed var(--sky-500);
+  border-radius: 0 0 var(--radius-m) var(--radius-m);
+}
+
+.workRow span {
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  padding: 1rem 0.25rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.workRow span + span {
+  border-left: 1px solid var(--line);
+}
+
+.workRow svg {
+  color: var(--sky-700);
+}
+
+.workCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.workCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Care routine ───────── */
+.care {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.careHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.routine {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.routine li {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border: 1px solid var(--line);
+  text-align: center;
+  color: var(--ink);
+}
+
+.routineIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.careAfter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.careAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+@media (max-width: 1199px) {
+  .routine {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .morning {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .signsNotes,
+  .workCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .journey {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+
+  .journey li:not(:last-child)::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -1.75rem;
+    rotate: 135deg;
+    translate: -50% 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .morning,
+  .routine {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .routine li {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+  }
+
+  .archTooth {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .arch {
+    height: 12rem;
+  }
+
+  .workRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workRow span:nth-child(3) {
+    border-left: 0;
+  }
+
+  .workRow span:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .careAfter {
+    flex-direction: column;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .morning li,
+  .tmj,
+  .force,
+  .journeyTag,
+  .makeAfter,
+  .routine li,
+  .nightTags span {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moon,
+  .zzz,
+  .guard {
+    animation: none;
+  }
+}

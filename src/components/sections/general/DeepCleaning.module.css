@@ -1,0 +1,579 @@
+/* ───────── Hero: the probe gauge ───────── */
+.gauge {
+  display: grid;
+  gap: 1.25rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.gaugeHead {
+  display: grid;
+  gap: 0.15rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line-strong);
+}
+
+.gaugeTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.gaugeSub {
+  font-size: var(--step-label);
+  color: var(--slate-500);
+}
+
+.gaugeBody {
+  display: grid;
+  grid-template-columns: auto 3rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.scale {
+  display: grid;
+  grid-template-rows: repeat(6, 2.6rem);
+}
+
+.mark,
+.markDeep {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0.6rem 0.3rem 0;
+  border-bottom: 2px solid var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+  white-space: nowrap;
+}
+
+.markDeep {
+  color: #a33434;
+  border-bottom-color: #c43d3d;
+}
+
+/* The probe slides down into the pocket, past the 3 mm line */
+.probe {
+  position: relative;
+  border-radius: var(--radius-s);
+  background: linear-gradient(90deg, #f6cfd0 0 30%, var(--pearl-100) 30% 70%, #f6cfd0 70%);
+  overflow: hidden;
+}
+
+.probeTip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.5rem;
+  height: 80%;
+  border-radius: 0 0 var(--radius-pill) var(--radius-pill);
+  background: linear-gradient(180deg, var(--slate-500), var(--navy-800));
+  translate: -50% 0;
+  transform-origin: top;
+  animation: probe 1.6s var(--ease-out) 1s both;
+}
+
+@keyframes probe {
+  from {
+    transform: scaleY(0.1);
+  }
+}
+
+.zones {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.zoneHealthy,
+.zoneDeep {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-m);
+  font-size: var(--step-small);
+  font-weight: 600;
+  animation: zone-in 0.6s var(--ease-out) both;
+}
+
+.zoneHealthy {
+  background: var(--sky-50);
+  color: var(--sky-700);
+  animation-delay: 1.6s;
+}
+
+.zoneDeep {
+  background: #fdecec;
+  color: #a33434;
+  animation-delay: 2s;
+}
+
+@keyframes zone-in {
+  from {
+    opacity: 0;
+    translate: 10px 0;
+  }
+}
+
+.gaugeFoot {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.gaugeFoot svg {
+  color: var(--sky-300);
+}
+
+/* ───────── Versus: the table ───────── */
+.versus {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.versusHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 54rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.table {
+  --table-min: 38rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.table tbody th {
+  width: 22%;
+  color: var(--slate-600);
+  font-weight: 600;
+}
+
+/* ───────── Signs ───────── */
+.signs {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--pearl-50), var(--white));
+}
+
+.signsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.signsCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.signsAfter {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: #fdf1f1;
+  border-left: 3px solid #e5959c;
+  color: var(--ink);
+}
+
+.signTiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.signTiles li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.signIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #f6cfd0, #fdf1f1);
+  color: #a33434;
+}
+
+/* ───────── How: descending below the gumline ───────── */
+.how {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.howHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.descend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.descend li:not(.gumline) {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+/* Below the gumline: the cards take on the gum's colour, a step lower each time */
+.gumline ~ li:not(.gumline) {
+  background: linear-gradient(180deg, #fbe4e5, #fdf6f6);
+  margin-top: calc((var(--i) - 3) * 1.25rem);
+}
+
+.descend strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.descend a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.descendIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+.gumline {
+  grid-column: 1 / -1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 3rem;
+}
+
+.gumline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, #f6cfd0, #e5959c, #f6cfd0);
+}
+
+.gumline span {
+  position: relative;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-s);
+  background: #c86b76;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.howAfter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.howAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Comfort note ───────── */
+.comfort {
+  padding-block: 0 var(--space-section);
+  background: var(--white);
+}
+
+.comfortCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(140deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.comfortCard h2 {
+  font-size: var(--step-h3);
+  color: var(--white);
+}
+
+.comfortIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-l);
+  background: rgb(255 255 255 / 0.1);
+  color: var(--sky-300);
+}
+
+.comfortCopy {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* ───────── Necessary ───────── */
+.necessary {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.necessaryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.necessaryCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.helps {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.helpsList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.helpsList li {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.helpsList li span {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.helpsAfter {
+  padding-left: 1rem;
+  border-left: 3px solid var(--sky-500);
+  color: var(--slate-600);
+}
+
+/* ───────── After: the road ───────── */
+.after {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.afterHead {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.road {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.roadLine {
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  top: 2rem;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--sky-50);
+  overflow: hidden;
+}
+
+.roadLine span {
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, var(--navy-800) 0 14px, transparent 14px 22px);
+}
+
+.stop {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  color: var(--slate-600);
+}
+
+.stop a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.stopIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border: 4px solid var(--white);
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: var(--shadow-soft);
+}
+
+.stop:nth-child(2) .stopIcon {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+.stop:nth-child(3) .stopIcon {
+  background: var(--white);
+  border-color: var(--sky-200);
+  color: var(--navy-800);
+}
+
+.stopName {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  .signTiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .signsGrid,
+  .necessaryGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .descend {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gumline ~ li:not(.gumline) {
+    margin-top: 0;
+  }
+
+  .road {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .roadLine {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .signTiles,
+  .helpsList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .comfortCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .howAfter {
+    flex-direction: column;
+  }
+}
+
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .gaugeFoot,
+  .zoneHealthy,
+  .zoneDeep {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .probeTip,
+  .zoneHealthy,
+  .zoneDeep {
+    animation: none;
+  }
+}

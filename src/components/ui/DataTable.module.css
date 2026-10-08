@@ -1,0 +1,73 @@
+/* Scrolls sideways inside its own box on phones; the page never does */
+.scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  overscroll-behavior-x: contain;
+}
+
+.scroll:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.table {
+  width: 100%;
+  min-width: var(--table-min, 34rem);
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.table thead th {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+  background: var(--sky-50);
+  white-space: nowrap;
+}
+
+.table tbody th {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.table td {
+  color: var(--slate-600);
+}
+
+.table a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* The recommended column: navy head, sky tint below */
+.table thead th.hl {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.table td.hl {
+  background: color-mix(in srgb, var(--sky-100) 55%, var(--white));
+  color: var(--ink);
+}
+
+@media (max-width: 767px) {
+  .table th,
+  .table td {
+    padding: 0.85rem 1rem;
+  }
+}
