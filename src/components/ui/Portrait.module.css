@@ -1,0 +1,16 @@
+.fallback {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-arch);
+  background:
+    radial-gradient(65% 45% at 50% 38%, var(--white) 0%, transparent 72%),
+    linear-gradient(170deg, var(--sky-100) 0%, var(--sky-50) 55%, var(--sky-200) 100%);
+}
+
+.mark {
+  width: 30%;
+  height: auto;
+}

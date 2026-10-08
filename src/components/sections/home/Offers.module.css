@@ -1,0 +1,189 @@
+.section {
+  padding-block: var(--space-section);
+  background:
+    radial-gradient(45% 60% at 100% 0%, var(--sky-100) 0%, transparent 70%),
+    var(--sky-50);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 1.5rem 4rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.headCopy {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.headCopy h2 {
+  max-width: 16ch;
+}
+
+.intro {
+  max-width: 52ch;
+  color: var(--slate-600);
+}
+
+/* Table laid out as four tear-off tickets (ARIA roles keep it a table) */
+.tickets {
+  display: block;
+  width: 100%;
+}
+
+/* The drop shadow sits on the group, so it follows each ticket's zigzag edge */
+.body {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  filter: drop-shadow(0 16px 22px rgb(15 38 69 / 0.1)) drop-shadow(0 2px 3px rgb(15 38 69 / 0.06));
+}
+
+/* Ticket: stub on top, dashed tear line, details below, zigzag bottom edge */
+.ticket {
+  --zigzag: 11px;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--white);
+  border-radius: var(--radius-l) var(--radius-l) 0 0;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--zigzag)) 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--zigzag)) 100%;
+  transition: translate 0.4s var(--ease-out);
+}
+
+.ticket:hover {
+  translate: 0 -6px;
+}
+
+.stub {
+  position: relative;
+  display: grid;
+  align-content: end;
+  gap: 0.75rem;
+  min-height: 10.5rem;
+  padding: 1.75rem 1.6rem 1.5rem;
+  border-radius: var(--radius-l) var(--radius-l) 0 0;
+  background: linear-gradient(160deg, var(--sky-100), var(--sky-50));
+  text-align: left;
+  font-weight: inherit;
+}
+
+/* Tear line between stub and body */
+.stub::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: -1px;
+  border-bottom: 2px dashed var(--sky-300);
+}
+
+.figure {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 2.2rem + 1.6vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+  white-space: nowrap;
+}
+
+.figure small {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.offer {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.detail {
+  display: block;
+  padding: 1.5rem 1.6rem calc(var(--zigzag) + 1.75rem);
+  font-size: var(--step-small);
+  line-height: 1.6;
+  color: var(--slate-600);
+}
+
+/* Featured: the $89 new-patient visit, with a navy stub */
+.featured .stub {
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-900));
+}
+
+.featured .stub::after {
+  border-bottom-color: var(--sky-500);
+}
+
+.featured .figure {
+  color: var(--white);
+}
+
+.featured .figure small {
+  color: var(--sky-300);
+}
+
+.featured .offer {
+  color: var(--white);
+}
+
+.featured .detail {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-top: 2.5rem;
+}
+
+.note {
+  max-width: 62ch;
+  color: var(--slate-600);
+}
+
+.note a {
+  color: var(--sky-700);
+  font-weight: 600;
+}
+
+@media (max-width: 1199px) {
+  .body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .head {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+
+  .stub {
+    min-height: 0;
+  }
+}

@@ -1,0 +1,475 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+}
+
+/* Navy information bar: the two facts patients ask about most. */
+.topbar {
+  height: var(--topbar-h);
+  overflow: hidden;
+  background: var(--navy-900);
+  color: var(--slate-on-navy);
+  font-size: 0.8125rem;
+  transition: height 0.35s var(--ease-out);
+}
+
+.topbarInner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.topItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Text and icon share one centre line (the font's line box sits evenly in the bar) */
+.topItem > span {
+  display: block;
+}
+
+.topItem svg {
+  flex: none;
+  display: block;
+  color: var(--sky-500);
+}
+
+.topItem strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.topAddress {
+  margin-left: auto;
+}
+
+.bar {
+  background: rgb(255 255 255 / 0.96);
+  backdrop-filter: saturate(1.4) blur(10px);
+  box-shadow: 0 1px 0 var(--line);
+  transition: box-shadow 0.3s ease;
+}
+
+.barInner {
+  --bar-h: var(--header-h);
+  position: relative;
+  height: var(--bar-h);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: height 0.35s var(--ease-out);
+}
+
+.scrolled .topbar {
+  height: 0;
+}
+
+.scrolled .bar {
+  box-shadow: var(--shadow-header);
+}
+
+/* The sticky header keeps its full height (user: the logo must not shrink). The logo
+   is sized from the bar height with clear padding above and below it. */
+.logo img {
+  width: auto;
+  height: calc(var(--bar-h) - 1.5rem);
+}
+
+.nav {
+  margin-inline: auto;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navList > li {
+  position: relative;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-s);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur-ui) ease, background-color var(--dur-ui) ease;
+}
+
+.navLink:hover,
+.hasMenu:hover > .navLink,
+.hasMenu:focus-within > .navLink {
+  color: var(--navy-800);
+  background: var(--sky-50);
+}
+
+.chevron {
+  transition: transform var(--dur-ui) ease;
+}
+
+.hasMenu:hover .chevron,
+.hasMenu:focus-within .chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdowns open on hover and on keyboard focus. */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 15.5rem;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--sky-500);
+  border-radius: 0 0 var(--radius-m) var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 6px;
+  transition: opacity 0.2s ease, translate 0.25s var(--ease-out), visibility 0.2s;
+}
+
+/* Hover bridge so the pointer can travel from the link into the panel */
+.dropdown::before {
+  content: "";
+  position: absolute;
+  inset: -0.6rem 0 auto;
+  height: 0.6rem;
+}
+
+.hasMenu:hover > .dropdown,
+.hasMenu:focus-within > .dropdown {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+
+.dropLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-s);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: background-color var(--dur-ui) ease, color var(--dur-ui) ease;
+}
+
+.dropArrow {
+  flex: none;
+  color: var(--sky-700);
+  opacity: 0.85;
+  transition: transform 0.25s var(--ease-out), opacity var(--dur-ui) ease, color var(--dur-ui) ease;
+}
+
+.dropLink:hover,
+.dropLink:focus-visible {
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.dropLink:hover .dropArrow,
+.dropLink:focus-visible .dropArrow {
+  opacity: 1;
+  color: var(--navy-800);
+  transform: translateX(4px);
+}
+
+/* Services mega menu: anchored to the header row (its <li> is static) */
+.navList > li.megaItem {
+  position: static;
+}
+
+.mega {
+  top: 100%;
+  left: 50%;
+  width: 100%;
+  margin-top: 0;
+  translate: -50% 6px;
+  padding: 1.75rem;
+}
+
+.hasMenu:hover > .mega,
+.hasMenu:focus-within > .mega {
+  translate: -50% 0;
+}
+
+.megaGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  /* Row 1: group titles (one shared height); row 2: the link lists, all starting level */
+  grid-template-rows: auto auto;
+  column-gap: 1.5rem;
+}
+
+.megaGroup {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  align-content: start;
+}
+
+.megaTitle {
+  align-self: end;
+  margin-bottom: 0.6rem;
+  padding: 0 0.75rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: var(--navy-800);
+}
+
+/* Every link row is the same height, so rows line up across the five columns */
+.megaGroup ul {
+  display: grid;
+  align-content: start;
+  grid-auto-rows: 2.9rem;
+  gap: 0.1rem;
+}
+
+/* Long names may take two lines inside their fixed-height row (never cut off) */
+.megaGroup .dropLink {
+  height: 100%;
+  gap: 0.5rem;
+  padding: 0 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 1439px) {
+  .mega {
+    padding: 1.4rem;
+  }
+
+  .megaGrid {
+    column-gap: 0.75rem;
+  }
+
+  .megaGroup .dropLink {
+    padding: 0 0.6rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* The $89 offer runs along the bottom of the panel */
+.megaPromo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(100deg, var(--sky-100), var(--pearl-100));
+}
+
+.megaPromoFigure {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--navy-800);
+  font-variant-numeric: lining-nums;
+}
+
+.megaPromo :global(.text-link) {
+  margin-left: auto;
+  font-size: 0.9375rem;
+}
+
+.megaPromoText {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--slate-600);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.nav + .actions {
+  margin-left: 0;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--navy-800);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur-ui) ease;
+}
+
+.phone svg {
+  color: var(--sky-600);
+}
+
+.phone:hover {
+  color: var(--sky-700);
+}
+
+.callIcon,
+.menuButton {
+  display: none;
+}
+
+@media (max-width: 1439px) {
+  .phone {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .nav {
+    display: none;
+  }
+
+  .logo img {
+    height: calc(var(--bar-h) - 1.15rem);
+  }
+
+  /* The menu is hidden: the logo stays left, everything else goes right */
+  .actions,
+  .nav + .actions {
+    margin-left: auto;
+    gap: 0.6rem;
+  }
+
+  .callIcon,
+  .menuButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    height: 2.75rem;
+    border-radius: var(--radius-s);
+  }
+
+  .callIcon {
+    width: 2.75rem;
+    border: 1.5px solid var(--line-strong);
+    color: var(--navy-800);
+  }
+
+  .menuButton {
+    padding: 0 0.9rem;
+    border: 0;
+    background: var(--navy-800);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .topAddress {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta {
+    display: none;
+  }
+
+  .topEmergency {
+    display: none;
+  }
+
+  .topbarInner {
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 389px) {
+  .menuButton span {
+    display: none;
+  }
+
+  .menuButton {
+    width: 2.75rem;
+    padding: 0;
+  }
+}
+
+/* Entrance on page load: the top bar's facts drop in, then the logo slides in, the menu
+   items drop in one after another and the actions follow. `backwards` fill only, so no
+   transform is left on the menu items afterwards (the mega menu positions from the bar). */
+@media (prefers-reduced-motion: no-preference) {
+  .topItem {
+    animation: header-drop 0.6s var(--ease-out) backwards;
+  }
+
+  .topItem:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .topItem:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  .logo {
+    animation: header-slide 0.8s var(--ease-out) 0.1s backwards;
+  }
+
+  .navList > li {
+    animation: header-drop 0.6s var(--ease-out) backwards;
+  }
+
+  .navList > li:nth-child(1) { animation-delay: 0.2s; }
+  .navList > li:nth-child(2) { animation-delay: 0.26s; }
+  .navList > li:nth-child(3) { animation-delay: 0.32s; }
+  .navList > li:nth-child(4) { animation-delay: 0.38s; }
+  .navList > li:nth-child(5) { animation-delay: 0.44s; }
+  .navList > li:nth-child(6) { animation-delay: 0.5s; }
+  .navList > li:nth-child(7) { animation-delay: 0.56s; }
+
+  .actions > * {
+    animation: header-drop 0.6s var(--ease-out) backwards;
+  }
+
+  .actions > :nth-child(1) { animation-delay: 0.55s; }
+  .actions > :nth-child(2) { animation-delay: 0.62s; }
+  .actions > :nth-child(3) { animation-delay: 0.55s; }
+  .actions > :nth-child(4) { animation-delay: 0.62s; }
+}
+
+@keyframes header-drop {
+  from {
+    opacity: 0;
+    translate: 0 -10px;
+  }
+}
+
+@keyframes header-slide {
+  from {
+    opacity: 0;
+    translate: -16px 0;
+  }
+}

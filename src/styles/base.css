@@ -1,0 +1,266 @@
+/*
+ * Global layers. CSS Modules are unlayered, so component styles always win over
+ * these defaults without specificity fights.
+ */
+@layer reset, base, utilities;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    interpolate-size: allow-keywords;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd,
+  ul,
+  ol {
+    margin: 0;
+  }
+
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+    padding: 0;
+  }
+
+  img,
+  picture,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-text);
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    font-size: var(--step-body);
+    line-height: var(--leading-body);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  /* Titles: Raleway. Its default old-style figures sit at uneven heights, so titles
+     switch to lining figures (prices, ZIP codes, phone numbers line up). */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-variant-numeric: lining-nums;
+    color: var(--color-heading);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--step-hero);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  h2 {
+    font-size: var(--step-h2);
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-display);
+  }
+
+  h3 {
+    font-size: var(--step-h3);
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  ::selection {
+    background: var(--sky-200);
+    color: var(--navy-900);
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  /* Mobile menu open: the page behind it stops scrolling */
+  html.menu-open {
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .container {
+    width: var(--container);
+    margin-inline: auto;
+  }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Section label: the full tooth mark from the logo (sky outline + navy RS), then
+     small caps text. */
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-sans);
+    font-size: var(--step-label);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--label-color, var(--color-accent));
+  }
+
+  .label::before {
+    content: "";
+    flex: none;
+    width: 1.05rem;
+    height: 1.5rem;
+    background: var(--label-mark, url("/images/tooth-mark.svg")) center / contain no-repeat;
+  }
+
+  /* On navy: the monogram turns white so the mark stays visible */
+  .label-inverse {
+    --label-color: var(--sky-300);
+    --label-mark: url("/images/tooth-mark-light.svg");
+  }
+
+  .lead {
+    font-size: var(--step-lead);
+    line-height: 1.6;
+  }
+
+  .measure {
+    max-width: var(--measure);
+  }
+
+  /* Text link with an arrow; the arrow slides, the text never moves. */
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+    transition: color var(--dur-ui) ease, text-decoration-color var(--dur-ui) ease;
+  }
+
+  .text-link:hover {
+    color: var(--navy-800);
+    text-decoration-color: currentColor;
+  }
+
+  .text-link svg {
+    flex: none;
+    transition: transform var(--dur-ui) var(--ease-out);
+  }
+
+  .text-link:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+/* Reduced motion: no smooth scrolling, no transitions or CSS animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Light rays drawn on page load (Rays animate): each line traces outward from the core. */
+[data-rays-animate] line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ray-draw 1.6s var(--ease-out) forwards;
+}
+
+@keyframes ray-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-rays-animate] line {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+/* Motion on (set before first paint, see app/layout.tsx): everything that reveals on
+   scroll waits hidden until MotionController plays it, so nothing flashes first. */
+.motion [data-reveal] {
+  opacity: 0;
+}

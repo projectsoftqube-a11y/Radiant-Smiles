@@ -1,0 +1,10 @@
+.logo {
+  display: inline-flex;
+  flex: none;
+  line-height: 0;
+}
+
+.image {
+  width: var(--logo-w, 13.5rem);
+  height: auto;
+}

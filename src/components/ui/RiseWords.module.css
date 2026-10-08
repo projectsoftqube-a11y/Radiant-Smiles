@@ -1,0 +1,29 @@
+.word {
+  display: inline-block;
+  overflow: clip;
+  overflow-clip-margin: 0.14em;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  vertical-align: top;
+}
+
+.inner {
+  display: inline-block;
+  animation: word-rise var(--dur-hero) var(--ease-out) calc(120ms + var(--i) * 55ms) both;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+@keyframes word-rise {
+  from {
+    transform: translateY(108%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner {
+    animation: none;
+  }
+}

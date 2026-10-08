@@ -1,0 +1,119 @@
+/* SVG layers for <Jaw>. The section is position: relative; its tile row sits at z-index 2,
+   between the back layer (inside of the mouth, side teeth) and the front layer (gum). */
+.back,
+.teeth,
+.front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.back {
+  z-index: 1;
+}
+
+.teeth {
+  z-index: 2;
+}
+
+.front {
+  z-index: 3;
+}
+
+/* Upper jaw: its side teeth sit with the upper tile row (z-index 6) above the Family
+   section, so the closing lower jaw tucks behind all the upper teeth */
+.upper.teeth {
+  z-index: 6;
+}
+
+/* Upper jaw: its gum sits above the upper teeth (rail z-index 6) and above the Family
+   section, so the closing lower jaw tucks behind the upper teeth */
+.upper.front {
+  z-index: 7;
+}
+
+.inside {
+  animation: jaw-in 0.9s var(--ease-out) 0.7s both;
+}
+
+/* Side teeth: shadow on the outer group so it follows the clipped shapes. The lower jaw
+   is drawn flipped, so its offsets are inverted to keep shadows falling downward. */
+.sideTeeth {
+  filter: drop-shadow(0 10px 14px rgb(15 38 69 / 0.12));
+  animation: jaw-in 0.9s var(--ease-out) 1s both;
+}
+
+.lower .sideTeeth {
+  filter: drop-shadow(0 -8px 12px rgb(15 38 69 / 0.1));
+}
+
+.sideTooth {
+  stroke: #e4e7ea;
+  stroke-width: 1;
+}
+
+/* Natural pink gum, with a soft shadow where it overlaps the teeth */
+.gum {
+  filter: drop-shadow(0 3px 3px rgb(150 60 70 / 0.18));
+  animation: jaw-in 0.9s var(--ease-out) 0.7s both;
+}
+
+.margin {
+  fill: none;
+  stroke: #d98089;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: jaw-draw 1.6s var(--ease-in-out) 0.8s forwards;
+}
+
+/* Plain smile line when the teeth wrap */
+.line {
+  fill: none;
+  stroke: var(--sky-300);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: jaw-draw 1.6s var(--ease-in-out) 0.8s forwards;
+}
+
+@keyframes jaw-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes jaw-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* The smile (gums, side teeth, smile line) is a desktop design: at 1199px and below the
+   facts and the first-visit steps are plain cards and sections meet on a straight line */
+@media (max-width: 1199px) {
+  .back,
+  .teeth,
+  .front {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inside,
+  .sideTeeth,
+  .gum {
+    animation: none;
+  }
+
+  .margin,
+  .line {
+    animation: none;
+    stroke-dasharray: none;
+  }
+}

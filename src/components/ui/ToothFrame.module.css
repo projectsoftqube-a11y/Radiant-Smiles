@@ -1,0 +1,66 @@
+/* A plump molar, a little taller than wide */
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 100 / 124;
+  filter: drop-shadow(0 28px 32px rgb(15 38 69 / 0.18)) drop-shadow(0 3px 6px rgb(15 38 69 / 0.08));
+}
+
+.shape {
+  position: absolute;
+  inset: 0;
+  background: var(--sky-100);
+}
+
+/* No photo: soft sky enamel with the logo's tooth mark */
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding-bottom: 14%;
+  background:
+    radial-gradient(70% 55% at 50% 35%, var(--white) 0%, transparent 70%),
+    linear-gradient(170deg, var(--sky-100) 0%, var(--sky-50) 60%, var(--sky-200) 100%);
+}
+
+.mark {
+  width: 34%;
+  height: auto;
+}
+
+/* Enamel highlight on the crown */
+.sheen {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(22% 11% at 27% 13%, rgb(255 255 255 / 0.55), transparent 70%),
+    linear-gradient(180deg, rgb(255 255 255 / 0.12), transparent 30%);
+  pointer-events: none;
+}
+
+.rim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.rim path {
+  fill: none;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Wider sky stroke under the white one: a 2px sky line shows just outside the rim */
+.rimSky {
+  stroke: var(--sky-300);
+  stroke-width: 13px;
+}
+
+.rimWhite {
+  stroke: var(--white);
+  stroke-width: 9px;
+}

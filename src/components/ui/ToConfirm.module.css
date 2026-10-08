@@ -1,0 +1,29 @@
+.tag {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px dashed #c9862b;
+  border-radius: var(--radius-xs);
+  background: #fff7ea;
+  color: #7a4a0b;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.badge {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.inverse {
+  border-color: #e7b366;
+  background: rgb(255 247 234 / 0.12);
+  color: #ffd9a0;
+}

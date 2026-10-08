@@ -1,0 +1,31 @@
+/* The header is fixed; the page starts below the top bar and the header row. */
+.main {
+  padding-top: calc(var(--topbar-h) + var(--header-h));
+  outline: none;
+}
+
+.skipLink {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.75rem 1.1rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform var(--dur-ui) ease;
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
+/* Room for the phone action bar at the bottom of the screen */
+@media (max-width: 767px) {
+  :global(body) {
+    padding-bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}

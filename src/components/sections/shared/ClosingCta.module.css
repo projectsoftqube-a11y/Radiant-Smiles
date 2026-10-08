@@ -1,0 +1,101 @@
+.section {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+  padding: clamp(2.25rem, 5vw, 4.5rem);
+  border-radius: var(--radius-l);
+  border: 1px solid var(--sky-200);
+  background:
+    radial-gradient(60% 90% at 82% 100%, var(--white) 0%, transparent 65%),
+    linear-gradient(135deg, var(--sky-100) 0%, var(--sky-50) 55%, var(--pearl-100) 100%);
+  color: var(--slate-600);
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.copy h2 {
+  max-width: 17ch;
+}
+
+.copy .lead {
+  max-width: 48ch;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.art {
+  position: relative;
+  align-self: stretch;
+  min-height: 14rem;
+}
+
+.rays {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  width: 230%;
+  translate: -50% 0;
+  stroke: var(--sky-500);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
+.mark {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  width: clamp(5rem, 9vw, 7.5rem);
+  height: auto;
+  translate: -50% 0;
+  --mark-outline: var(--sky-500);
+  --mark-monogram: var(--navy-800);
+}
+
+@media (max-width: 991px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
+
+  .art {
+    order: -1;
+    min-height: 9rem;
+    margin: -1rem 0 -0.5rem;
+  }
+
+  .rays {
+    width: 120%;
+    bottom: 10%;
+  }
+
+  .mark {
+    width: 4.5rem;
+    bottom: 6%;
+  }
+}
+
+@media (max-width: 575px) {
+  .ctas {
+    display: grid;
+    width: 100%;
+  }
+}

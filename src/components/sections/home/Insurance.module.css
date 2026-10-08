@@ -1,0 +1,282 @@
+.section {
+  padding-block: var(--space-section);
+  background:
+    radial-gradient(40% 50% at 0% 100%, var(--sky-100) 0%, transparent 70%),
+    var(--pearl-50);
+  border-top: 1px solid var(--pearl-200);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.plansText {
+  max-width: 62ch;
+  color: var(--slate-600);
+}
+
+/* Plan checker (always full width, whatever the number of results) */
+.checkerWrap {
+  justify-self: stretch;
+}
+
+.checker {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--pearl-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.checkerLabel {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1.1rem;
+  border: 2px solid var(--line-strong);
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--slate-500);
+  transition: border-color var(--dur-ui) ease, background-color var(--dur-ui) ease;
+}
+
+.field:focus-within {
+  border-color: var(--sky-600);
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.field input {
+  flex: 1;
+  /* Inputs have a built-in minimum width; let it shrink on narrow phones */
+  width: 0;
+  min-width: 0;
+  height: 3.6rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.0625rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.field input::placeholder {
+  color: var(--slate-500);
+}
+
+.result {
+  margin: 1.1rem 0 0.9rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.plan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem 0.5rem 0.55rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-s);
+  background: var(--sky-50);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy-800);
+  animation: plan-in 0.35s var(--ease-out) both;
+}
+
+.tick {
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #2fa36b;
+  color: var(--white);
+}
+
+@keyframes plan-in {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+}
+
+.callPlan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* Side: paying at the visit, then CareCredit */
+.side {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.block {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  border: 1px solid var(--pearl-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+}
+
+.blockTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.blockTitle svg {
+  color: var(--sky-700);
+}
+
+.blockText {
+  color: var(--slate-600);
+  font-size: var(--step-small);
+}
+
+.methods {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.methods li {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 0.7rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--navy-800);
+}
+
+.methods svg {
+  color: var(--sky-700);
+}
+
+/* CareCredit: a six-month timeline */
+.finance {
+  background: linear-gradient(160deg, var(--white), var(--sky-50));
+  border-color: var(--sky-200);
+}
+
+.timeline {
+  width: 100%;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.months {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--slate-500);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  position: relative;
+  height: 0.9rem;
+  border-radius: var(--radius-pill);
+  background: repeating-linear-gradient(90deg, var(--line) 0 2px, transparent 2px calc(100% / 6)), var(--pearl-100);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sky-300), var(--navy-800));
+}
+
+.timelineFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.min {
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--navy-800);
+  color: var(--white);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 389px) {
+  .methods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan {
+    animation: none;
+  }
+}

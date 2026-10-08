@@ -1,0 +1,301 @@
+/* White, so it reads as its own section after the sky-tinted Specials above */
+.section {
+  padding-block: var(--space-section);
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "label label"
+    "title intro";
+  align-items: end;
+  gap: 1rem 4rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.head > :first-child {
+  grid-area: label;
+}
+
+.head h2 {
+  grid-area: title;
+  max-width: 16ch;
+}
+
+.intro {
+  grid-area: intro;
+  max-width: 50ch;
+  color: var(--slate-600);
+}
+
+/* Tabs: group list on the left, the chosen group on the right, one even line */
+.tabs {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+}
+
+.tabList {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+}
+
+.tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.85rem 1.1rem 0.85rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  text-align: left;
+  transition: border-color var(--dur-ui) ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tab:hover {
+  border-color: var(--sky-300);
+}
+
+.tabActive {
+  border-color: var(--navy-800);
+  background: var(--navy-800);
+  box-shadow: 0 18px 30px -20px rgb(15 38 69 / 0.55);
+}
+
+/* Round photo thumb (round avatars and chips are allowed) */
+.thumb {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--sky-100);
+}
+
+.tabText {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.tabName {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy-800);
+}
+
+.tabCount {
+  font-size: 0.875rem;
+  color: var(--slate-500);
+}
+
+.tabActive .tabName {
+  color: var(--white);
+}
+
+.tabActive .tabCount {
+  color: var(--sky-300);
+}
+
+.tabArrow {
+  color: var(--sky-600);
+  transition: transform 0.25s var(--ease-out), color var(--dur-ui) ease;
+}
+
+.tab:hover .tabArrow {
+  transform: translateX(3px);
+}
+
+.tabActive .tabArrow {
+  color: var(--sky-300);
+  transform: translateX(3px);
+}
+
+/* Scroll-driven: the active tab's bottom line fills as its share of the scroll passes */
+.tabProgress {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.45rem;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.16);
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.tabProgress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--sky-500);
+  transform: scaleX(var(--tab-progress, 0));
+  transform-origin: left center;
+}
+
+[data-scroll-driven] .tabActive .tabProgress {
+  opacity: 1;
+}
+
+[data-scroll-driven] .tab {
+  transition: border-color var(--dur-ui) ease, background-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+/* Panels: stacked in one grid cell; only the active one shows (≥992px) */
+.panels {
+  display: grid;
+}
+
+.panel {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 1.25rem;
+  padding: 0.75rem 0.75rem 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 10px;
+  transition: opacity 0.4s ease, translate 0.5s var(--ease-out), visibility 0.4s;
+}
+
+.panelActive {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+
+.panelMedia {
+  position: relative;
+  height: clamp(12rem, 18vw, 15rem);
+  overflow: hidden;
+  border-radius: calc(var(--radius-l) - 6px);
+  background: var(--sky-100);
+}
+
+.panelMedia img {
+  transition: scale 1.2s var(--ease-out);
+  scale: 1.06;
+}
+
+.panelActive .panelMedia img {
+  scale: 1;
+}
+
+.panelShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgb(10 27 51 / 0.75) 100%);
+}
+
+.panelTitle {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.25rem;
+  right: 1.5rem;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  color: var(--white);
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  column-gap: 2rem;
+  padding-inline: 1rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--line);
+  line-height: 1.4;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--dur-ui) ease, padding var(--dur-ui) var(--ease-out);
+}
+
+.link svg {
+  flex: none;
+  color: var(--sky-600);
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--navy-800);
+  padding-left: 0.35rem;
+}
+
+.link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.hub {
+  justify-self: start;
+  margin-left: 1rem;
+}
+
+@media (max-width: 991px) {
+  .head {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "label"
+      "title"
+      "intro";
+  }
+
+  /* All five groups stacked; the tab list is not needed */
+  .tabs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tabList {
+    display: none;
+  }
+
+  .panels {
+    gap: 1.25rem;
+  }
+
+  .panel {
+    grid-area: auto;
+    opacity: 1;
+    visibility: visible;
+    translate: 0 0;
+  }
+
+  .panelMedia img {
+    scale: 1;
+  }
+}
+
+@media (max-width: 575px) {
+  .links {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: 0.5rem;
+  }
+
+  .hub {
+    margin-left: 0.5rem;
+  }
+
+  .panelMedia {
+    height: 10rem;
+  }
+}

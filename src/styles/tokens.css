@@ -1,0 +1,120 @@
+/*
+ * Design tokens. Brand values come from the logo SVG (docs/brand/logo.svg):
+ *   #1B3D6E wordmark navy · #6DBDE8 tooth-line sky.
+ * Contrast notes (WCAG): logo sky fails as text on white (2.2:1), so sky is used for
+ * lines, light rays and fills only; accent text on light backgrounds uses --sky-700
+ * (5.3:1). On navy, sky text passes (6.1:1 on --navy-900).
+ * Neutrals lean warm ("pearl") so the site reads differently from the cool ice/porcelain
+ * of the sister practice's site.
+ */
+
+:root {
+  /* Brand palette */
+  --navy-950: #0a1b33;
+  --navy-900: #0f2645;
+  --navy-800: #1b3d6e;
+  --navy-700: #24508a;
+  --sky-700: #1b6e9f;
+  --sky-600: #2f8bc0;
+  --sky-500: #6dbde8;
+  --sky-300: #a9daf3;
+  --sky-200: #cde9f8;
+  --sky-100: #e5f4fb;
+  --sky-50: #f3fafd;
+  --pearl-200: #ece6dc;
+  --pearl-100: #f5f1ea;
+  --pearl-50: #faf8f4;
+  /* Inside of the mouth (home Family section, between the teeth): soft rose near the
+     teeth, pale blush where the text sits. To revert to white, set both to #ffffff. */
+  --mouth-edge: #f6e0e0;
+  --mouth-mid: #fdf8f6;
+  --white: #ffffff;
+
+  /* Neutrals biased toward the brand navy */
+  --ink: #142238;
+  --slate-600: #4b586c;
+  --slate-500: #67738a;
+  --slate-on-navy: #c4d3e6;
+  --line: #e3e7ec;
+  --line-strong: #c8d1dc;
+  --line-on-navy: rgb(169 218 243 / 0.18);
+
+  /* Semantic roles */
+  --color-bg: var(--white);
+  --color-text: var(--ink);
+  --color-heading: var(--navy-800);
+  --color-muted: var(--slate-600);
+  --color-accent: var(--sky-700);
+  --color-focus: var(--sky-700);
+
+  /* Typography: Raleway for titles, Google Sans for everything else (user's choice, 6 Oct 2026) */
+  --font-display: var(--font-raleway), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-google-sans), "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Fluid scale between a 320px and a 1920px viewport */
+  --step-hero: clamp(2.125rem, 1.65rem + 2.4vw, 4rem);      /* 34 → 64 */
+  --step-h2: clamp(1.875rem, 1.55rem + 1.6vw, 3.25rem);     /* 30 → 52 */
+  --step-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);     /* 20 → 26 */
+  --step-display: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);      /* 40 → 72: prices and figures */
+  --step-statement: clamp(1.375rem, 1.15rem + 1.1vw, 2.25rem); /* 22 → 36 */
+  --step-lead: clamp(1.0625rem, 1.02rem + 0.2vw, 1.25rem);  /* 17 → 20 */
+  --step-body: clamp(1rem, 0.975rem + 0.125vw, 1.125rem);   /* 16 → 18 */
+  --step-small: 0.9375rem;                                  /* 15 */
+  --step-label: 0.8125rem;                                  /* 13: the minimum text size */
+
+  --leading-tight: 1.1;
+  --leading-heading: 1.18;
+  --leading-body: 1.7;
+  --tracking-display: -0.02em;
+  --tracking-label: 0.14em;
+  --measure: 62ch;
+
+  /* Space */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: clamp(1.25rem, 1.1rem + 0.75vw, 2rem);
+  --space-l: clamp(2rem, 1.6rem + 2vw, 4rem);
+  --space-xl: clamp(3rem, 2.4rem + 3vw, 6rem);
+  /* Section padding (top and bottom): 100px desktop, 80px ≤1199px, 60px ≤767px */
+  --space-section: 100px;
+
+  /* Layout: 1440px max, 48px gutters, then 90% */
+  --container-max: 1440px;
+  --container: min(var(--container-max), max(90%, 100% - 96px));
+  --header-h: 5.75rem;
+  --topbar-h: 2.5rem;
+
+  /* Shape: crisp corners on cards, arches on photos (the tooth crown in the logo) */
+  --radius-xs: 4px;
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+  --radius-arch: 999px 999px var(--radius-m) var(--radius-m);
+  --radius-pill: 999px;
+  --shadow-soft: 0 1px 2px rgb(15 38 69 / 0.05), 0 14px 34px -16px rgb(15 38 69 / 0.18);
+  --shadow-lift: 0 2px 6px rgb(15 38 69 / 0.06), 0 30px 60px -28px rgb(15 38 69 / 0.32);
+  --shadow-header: 0 1px 0 var(--line), 0 14px 30px -26px rgb(15 38 69 / 0.4);
+
+  /* Motion (GSAP equivalents in src/lib/gsap.ts) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-ui: 200ms;
+  --dur-reveal: 800ms;
+  --dur-hero: 1200ms;
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --header-h: 4.75rem;
+    --space-section: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --space-section: 60px;
+    --topbar-h: 2.25rem;
+  }
+}

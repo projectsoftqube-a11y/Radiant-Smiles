@@ -1,0 +1,198 @@
+"""One-time converter: docs/seo-content/06 Locations/*/02 Content.md -> typed TS content.
+
+Wording is copied exactly. Only the client's "&" rule is applied to H2/H3 headings and
+standalone link labels. areaServed is copied from each Developer Handoff's JSON-LD.
+"""
+import glob, io, json, os, re, sys
+sys.argv = ["x", "general"]  # reuse the block parser from the services converter
+src = io.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "gen_services2.py"), encoding="utf-8").read()
+ns = {}
+exec(src.split("os.makedirs(OUT")[0], ns)
+parse_blocks, amp, BUTTON, LINK, slugify, camel = ns["parse_blocks"], ns["amp"], ns["BUTTON"], ns["LINK"], ns["slugify"], ns["camel"]
+js = lambda v: json.dumps(v, ensure_ascii=False)
+
+ROOT = r"E:/Wordpress Project Backup/Amazing Smiles"
+DOCS = ROOT + "/docs/seo-content/06 Locations"
+OUT = ROOT + "/src/content/pages/locations"
+
+
+def split_h1(h1):
+    i = h1.index(" Near ") + len(" Near")
+    return {"lead": h1[:i], "accent": h1[i + 1:]}
+
+
+def split_final(h2):
+    if "?" in h2:
+        a, b = h2.split("?", 1)
+        return {"lead": a + "?", "accent": b.strip()}
+    m = re.search(r"\s(From .+)$", h2)
+    if m:
+        return {"lead": h2[: m.start()], "accent": m.group(1)}
+    words = h2.split()
+    return {"lead": " ".join(words[:-2]), "accent": " ".join(words[-2:])}
+
+
+def parse(folder):
+    content = io.open(os.path.join(DOCS, folder, "02 Content.md"), encoding="utf-8").read()
+    handoff = io.open(os.path.join(DOCS, folder, "03 Developer Handoff.md"), encoding="utf-8").read()
+    path = re.search(r"\*\*URL:\*\* `(.+?)`", content).group(1)
+    title = re.search(r"\*\*Title tag:\*\* (.*)", content).group(1).strip()
+    desc = re.search(r"\*\*Meta description:\*\* (.*)", content).group(1).strip()
+    crumb = re.search(r"Breadcrumb: Home › Areas We Serve › (.+?)\.\s*$", handoff, re.M).group(1).strip()
+    graph = json.loads(re.search(r"```json\n(.*?)\n```", handoff, re.S).group(1))["@graph"]
+    area = next(n for n in graph if n["@type"] == "Dentist")["areaServed"]
+
+    chunks = [c.strip("\n") for c in re.split(r"\n---\n", content)]
+    hero = next(c for c in chunks if c.startswith("## [HERO]"))
+    final = next(c for c in chunks if c.startswith("## [FINAL CTA]"))
+    body = [c for c in chunks if c.startswith("## ") and not c.startswith("## [") and "SEO fields" not in c]
+
+    hl = hero.splitlines()
+    h1 = next(l[2:] for l in hl if l.startswith("# "))
+    paras, buttons = [], []
+    for l in hl:
+        if l.startswith("#") or not l.strip():
+            continue
+        m = BUTTON.match(l)
+        if m:
+            buttons.append({"label": m.group(1), "href": m.group(2)})
+        else:
+            paras.append(l.strip())
+
+    sections, faq = [], None
+    for chunk in body:
+        lines = chunk.splitlines()
+        h2 = lines[0][3:].strip()
+        if re.search(r"FAQs$", h2):
+            items, q, a = [], None, []
+            for l in lines[1:]:
+                if l.startswith("### "):
+                    if q:
+                        items.append({"question": q, "answer": " ".join(a).strip()})
+                    q, a = l[4:].strip(), []
+                elif l.strip():
+                    a.append(l.strip())
+            if q:
+                items.append({"question": q, "answer": " ".join(a).strip()})
+            faq = {"title": amp(h2), "items": items}
+            continue
+        sections.append({"id": slugify(h2) + "-title", "title": amp(h2), "blocks": parse_blocks(lines[1:])})
+
+    fl = final.splitlines()
+    fh2 = next(l[3:] for l in fl if l.startswith("## ") and "[FINAL CTA]" not in l)
+    fbody = " ".join(l.strip() for l in fl if l.strip() and not l.startswith("#") and not BUTTON.match(l) and not LINK.match(l))
+    fbuttons = [{"label": m.group(1), "href": m.group(2)} for m in (BUTTON.match(l) for l in fl) if m]
+    flinks = [{"label": amp(m.group(1)), "href": m.group(2)} for m in (LINK.match(l) for l in fl) if m]
+
+    return path, crumb, {
+        "meta": {"path": path, "title": title, "description": desc},
+        "hero": {"title": split_h1(h1), "intro": " ".join(paras), "buttons": buttons},
+        "procedure": None,
+        "withHours": True,
+        "sections": sections,
+        "faqs": faq,
+        "finalCta": {"title": split_final(amp(fh2)), "body": fbody, "buttons": fbuttons, "links": flinks},
+        "areaServed": area,
+    }
+
+
+os.makedirs(OUT, exist_ok=True)
+names = []
+for f in sorted(glob.glob(DOCS + "/0[1-5]*/*/02 Content.md")):
+    folder = os.path.relpath(os.path.dirname(f), DOCS).replace("\\", "/")
+    path, crumb, data = parse(folder)
+    slug = path.strip("/")
+    key = slug[len("dentist-"):]
+    name = camel(key)
+    names.append((slug, name, key))
+    out = f'''import type {{ LocationPageContent }} from "@/content/location-page";
+import {{ locationCrumb }} from "./hub";
+
+/**
+ * Verbatim from docs/seo-content/06 Locations/{folder}/02 Content.md (Final v1).
+ * Generated by a one-time converter; headings and link labels use "&" (client rule).
+ * areaServed is copied from the page's 03 Developer Handoff.md.
+ */
+export const {name}: LocationPageContent = {{
+  ...{js(data)},
+  breadcrumb: locationCrumb({js(crumb)}, {js(path)}),
+}};
+'''
+    io.open(os.path.join(OUT, key + ".ts"), "w", encoding="utf-8", newline="\n").write(out)
+    print(slug.ljust(36), len(data["sections"]), "sections", len(data["faqs"]["items"]), "faqs |", data["hero"]["title"], "|", data["finalCta"]["title"])
+print(len(names), "pages")
+
+
+# ---------- Areas We Serve hub ----------
+HUB = "00 Areas We Serve Hub/Areas We Serve Hub"
+hcontent = io.open(os.path.join(DOCS, HUB, "02 Content.md"), encoding="utf-8").read()
+hhandoff = io.open(os.path.join(DOCS, HUB, "03 Developer Handoff.md"), encoding="utf-8").read()
+hgraph = json.loads(re.search(r"```json\n(.*?)\n```", hhandoff, re.S).group(1))["@graph"]
+item_list = next(n for n in hgraph if n["@type"] == "ItemList")
+hub_area = next(n for n in hgraph if n["@type"] == "Dentist")["areaServed"]
+chunks = [c.strip("\n") for c in re.split(r"\n---\n", hcontent)]
+hero = next(c for c in chunks if c.startswith("## [HERO]")).splitlines()
+final = next(c for c in chunks if c.startswith("## [FINAL CTA]")).splitlines()
+body = [c for c in chunks if c.startswith("## ") and not c.startswith("## [") and "SEO fields" not in c]
+sections, faq = [], None
+for chunk in body:
+    lines = chunk.splitlines()
+    h2 = lines[0][3:].strip()
+    if h2.endswith("FAQs"):
+        items, q, a = [], None, []
+        for l in lines[1:]:
+            if l.startswith("### "):
+                if q:
+                    items.append({"question": q, "answer": " ".join(a).strip()})
+                q, a = l[4:].strip(), []
+            elif l.strip():
+                a.append(l.strip())
+        items.append({"question": q, "answer": " ".join(a).strip()})
+        faq = {"title": amp(h2), "items": items}
+        continue
+    sections.append({"id": slugify(h2) + "-title", "title": amp(h2), "blocks": parse_blocks(lines[1:])})
+h1 = next(l[2:] for l in hero if l.startswith("# "))
+intro = " ".join(l.strip() for l in hero if l.strip() and not l.startswith("#") and not BUTTON.match(l))
+hbuttons = [{"label": m.group(1), "href": m.group(2)} for m in (BUTTON.match(l) for l in hero) if m]
+fh2 = next(l[3:] for l in final if l.startswith("## ") and "[FINAL CTA]" not in l)
+fbody = " ".join(l.strip() for l in final if l.strip() and not l.startswith("#") and not BUTTON.match(l) and not LINK.match(l))
+fbuttons = [{"label": m.group(1), "href": m.group(2)} for m in (BUTTON.match(l) for l in final) if m]
+flinks = [{"label": amp(m.group(1)), "href": m.group(2)} for m in (LINK.match(l) for l in final) if m]
+title = re.search(r"\*\*Title tag:\*\* (.*)", hcontent).group(1).strip()
+desc = re.search(r"\*\*Meta description:\*\* (.*)", hcontent).group(1).strip()
+assert h1 == "Areas We Serve Around Bensalem"
+
+hub = f'''import type {{ ServiceSection }} from "@/content/service-page";
+
+/**
+ * Areas We Serve hub, verbatim from docs/seo-content/06 Locations/{HUB}/02 Content.md (Final v1).
+ * Generated by a one-time converter; headings and link labels use "&" (client rule).
+ * The ItemList and areaServed for the JSON-LD are copied from its 03 Developer Handoff.md.
+ */
+
+export const locationsMeta = {js({"path": "/areas-we-serve/", "title": title, "description": desc})};
+
+export const locationsBreadcrumb = [
+  {{ name: "Home", path: "/" }},
+  {{ name: "Areas We Serve", path: "/areas-we-serve/" }},
+];
+
+/** Home › Areas We Serve › {{name}} */
+export const locationCrumb = (name: string, path: string) => [...locationsBreadcrumb, {{ name, path }}];
+
+export const locationsHero = {js({"title": {"lead": "Areas We Serve", "accent": "Around Bensalem"}, "intro": intro, "buttons": hbuttons})};
+
+export const locationsSections: ServiceSection[] = {js(sections)};
+
+export const locationsFaqs = {js(faq)};
+
+export const locationsFinalCta = {js({"title": split_final(amp(fh2)), "body": fbody, "buttons": fbuttons, "links": flinks})};
+
+/** ItemList (3a): the 25 town pages, names as in the handoff */
+export const locationsItemList = {js([{"name": i["name"], "path": i["url"].replace("https://www.amazingsmilesbydesign.com", "")} for i in item_list["itemListElement"]])};
+
+/** Dentist areaServed on the hub lists every area (3a) */
+export const locationsAreaServed = {js(hub_area)};
+'''
+io.open(os.path.join(OUT, "hub.ts"), "w", encoding="utf-8", newline="\n").write(hub)
+print("hub:", [s["id"] for s in sections], "faqs", len(faq["items"]), "final", split_final(amp(fh2)), "items", len(item_list["itemListElement"]))

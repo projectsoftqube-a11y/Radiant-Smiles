@@ -1,0 +1,97 @@
+.frame {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--frame-radius, var(--radius-m));
+  background: var(--sky-100);
+  isolation: isolate;
+}
+
+.fill {
+  height: 100%;
+}
+
+.arch {
+  --frame-radius: var(--radius-arch);
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+}
+
+/* Sky-to-navy curtain that slides down and away; the image is painted underneath
+   from the first frame, so nothing is hidden without JavaScript. */
+.curtain {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--sky-200), var(--navy-800));
+  transform-origin: bottom center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.revealLoad .curtain {
+  animation: curtain-drop var(--dur-hero) var(--ease-in-out) 0.25s forwards;
+}
+
+.revealLoad .inner {
+  animation: settle 1.8s var(--ease-out) 0.25s both;
+}
+
+@keyframes curtain-drop {
+  to {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes settle {
+  from {
+    transform: scale(1.1);
+  }
+}
+
+/* Scroll reveal: the curtain stays collapsed unless MotionController raises it for
+   frames below the fold. */
+.frame[data-reveal-media] .curtain {
+  transform: scaleY(0);
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(90% 70% at 50% 18%, var(--white) 0%, transparent 62%),
+    linear-gradient(170deg, var(--sky-100), var(--sky-200));
+}
+
+.placeholderMark {
+  width: 34%;
+  max-width: 9rem;
+  height: auto;
+  opacity: 0.6;
+  --mark-outline: var(--sky-500);
+  --mark-monogram: var(--sky-300);
+}
+
+.placeholderLabel {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain {
+    display: none;
+  }
+
+  .revealLoad .inner {
+    animation: none;
+  }
+}

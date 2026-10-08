@@ -1,0 +1,324 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.copy {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.copy h2 {
+  max-width: 14ch;
+}
+
+.intro {
+  max-width: 48ch;
+  color: var(--slate-600);
+}
+
+/* Phones only: town lists */
+.lists {
+  display: none;
+}
+
+/* The map */
+.map {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 1000 / 700;
+  overflow: hidden;
+  border: 1px solid var(--pearl-200);
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  box-shadow: var(--shadow-soft);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.state {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  fill: var(--navy-800);
+  opacity: 0.08;
+}
+
+.stateRight {
+  text-anchor: end;
+}
+
+.riverBank {
+  fill: none;
+  stroke: var(--sky-200);
+  stroke-width: 26;
+  stroke-linecap: round;
+}
+
+.river {
+  fill: none;
+  stroke: var(--sky-500);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.riverName {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--sky-700);
+}
+
+.route {
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 1.6;
+  opacity: 0.3;
+}
+
+/* Office pin with rays */
+.office {
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: 0;
+  height: 0;
+}
+
+.officeRays {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 15rem;
+  /* The rays' origin sits at 50% / 96% of their box */
+  translate: -50% -96%;
+  stroke: var(--sky-500);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.55;
+  animation: glow 3.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.officePin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: 0 0 0 6px rgb(255 255 255 / 0.9), 0 14px 26px -10px rgb(15 38 69 / 0.6);
+}
+
+/* Town labels: the dot is centred on the town (the li's origin), the pill beside it */
+.labels {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.label {
+  --gap: 0.55rem;
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: 0;
+  height: 0;
+}
+
+.dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  translate: -50% -50%;
+  border: 3px solid var(--navy-800);
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 2px 6px rgb(15 38 69 / 0.25);
+}
+
+.label .pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.label-right .pill {
+  translate: calc(0.4375rem + var(--gap)) -50%;
+}
+
+.label-left .pill {
+  translate: calc(-100% - 0.4375rem - var(--gap)) -50%;
+}
+
+.label-top .pill {
+  translate: -50% calc(-100% - 0.4375rem - var(--gap));
+}
+
+.label-bottom .pill {
+  translate: -50% calc(0.4375rem + var(--gap));
+}
+
+/* Yardley: the office pin is its dot; the name sits under the pin and its white edge */
+.label-office .pill {
+  translate: -50% calc(1.875rem + var(--gap));
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--navy-800);
+  text-decoration: none;
+  box-shadow: 0 6px 14px -10px rgb(15 38 69 / 0.4);
+  transition: background-color var(--dur-ui) ease, color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+}
+
+a.pill:hover {
+  border-color: var(--navy-800);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* Yardley, where the office is */
+.pillHome {
+  border-color: var(--navy-800);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* Top left: the only corner no town or river reaches */
+.mapNote {
+  position: absolute;
+  left: 1rem;
+  top: 0.8rem;
+  font-size: 0.8125rem;
+  color: var(--slate-500);
+}
+
+@media (max-width: 1199px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .copy h2 {
+    max-width: 24ch;
+  }
+}
+
+/* Smaller maps (two columns at 1200px, tablets): compact pills */
+@container (max-width: 760px) {
+  .pill {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Phones: the map is too small for labels; they move to lists */
+@media (max-width: 767px) {
+  /* The dots stay; the names move to the lists */
+  .label .pill {
+    display: none;
+  }
+
+  .dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-width: 2px;
+  }
+
+  .officeRays {
+    width: 9rem;
+  }
+
+  .officePin {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .officePin svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .lists {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .listTitle {
+    margin-bottom: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--sky-700);
+  }
+
+  .list {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .listLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--navy-800);
+    text-decoration: none;
+  }
+
+  .listHome {
+    color: var(--sky-700);
+  }
+
+  .map {
+    order: -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .officeRays {
+    animation: none;
+  }
+}

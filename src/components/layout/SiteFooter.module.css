@@ -1,0 +1,341 @@
+/* One continuous footer on a single pearl background */
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--pearl-50);
+  border-top: 1px solid var(--pearl-200);
+  color: var(--slate-600);
+  font-size: 1rem;
+}
+
+/* Large, faint tooth mark from the logo, cropped by the footer edge */
+.watermark {
+  position: absolute;
+  right: -5rem;
+  bottom: 3rem;
+  width: 24rem;
+  height: auto;
+  opacity: 0.035;
+  --mark-outline: var(--navy-800);
+  --mark-monogram: var(--navy-800);
+  pointer-events: none;
+}
+
+/* Left: practice details. Right: four service menus. */
+.top {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 3fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  padding-block: 96px 80px;
+}
+
+.brand {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.logo {
+  --logo-w: 15.5rem;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy-800);
+}
+
+.nap {
+  display: grid;
+  gap: 0.1rem;
+  line-height: 1.55;
+}
+
+.napName {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur-ui) ease;
+}
+
+.phone:hover {
+  color: var(--sky-700);
+}
+
+.phoneIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.hours {
+  width: 100%;
+  max-width: 24rem;
+  margin-top: 0.75rem;
+  padding: 1.2rem 1.35rem 1rem;
+  border: 1px solid var(--pearl-200);
+  border-radius: var(--radius-m);
+  background: var(--white);
+}
+
+.hoursTitle {
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--navy-800);
+}
+
+.hoursList {
+  display: grid;
+  font-size: 0.9375rem;
+}
+
+.hoursList > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.32rem 0.6rem;
+  margin-inline: -0.6rem;
+  border-radius: var(--radius-xs);
+}
+
+.hoursList dt {
+  color: var(--ink);
+}
+
+.hoursList dd {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.saturday {
+  background: var(--sky-100);
+}
+
+.saturday dt,
+.saturday dd {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* Three columns, each with two menus stacked */
+.menus {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem clamp(1.75rem, 3vw, 3.5rem);
+  align-items: start;
+}
+
+.column {
+  display: grid;
+  align-content: start;
+  gap: 2.5rem;
+}
+
+.menu {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+}
+
+.menuTitle {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--navy-800);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy-800);
+}
+
+/* The top menu of each column reserves two title lines, so the first row of underlines
+   lines up even where "Preventive & Family Dentistry" wraps */
+.column > .menu:first-child .menuTitle {
+  min-height: calc(2 * 1.3em + 0.75rem);
+}
+
+/* Links: each carries an arrow that slides in on hover, over a sky background */
+.links {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.42rem 0.6rem;
+  margin-inline: -0.6rem;
+  border-radius: var(--radius-s);
+  color: var(--slate-600);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: color var(--dur-ui) ease, background-color var(--dur-ui) ease;
+}
+
+.linkArrow {
+  flex: none;
+  color: var(--sky-700);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--dur-ui) ease, transform 0.25s var(--ease-out);
+}
+
+/* Hover tint is a deeper shade of the footer's own warm pearl, so it sits with the background */
+.link:hover,
+.link:focus-visible {
+  background: var(--pearl-200);
+  color: var(--navy-800);
+}
+
+.link:hover .linkArrow,
+.link:focus-visible .linkArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* Base line */
+.base {
+  position: relative;
+  border-top: 1px solid var(--pearl-200);
+  font-size: 0.9375rem;
+}
+
+.baseInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.4rem;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+}
+
+.legalLink {
+  color: var(--slate-600);
+  text-decoration: none;
+}
+
+.legalLink:hover {
+  color: var(--navy-800);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.credit a {
+  color: var(--navy-800);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.credit a:hover {
+  text-decoration: underline;
+}
+
+/* Tablet: practice details across the top (details left, hours right), menus below */
+@media (max-width: 1199px) {
+  .top {
+    grid-template-columns: 1fr;
+    padding-block: 80px 64px;
+  }
+
+  .brand {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 3rem;
+  }
+
+  .brand > :not(.hours) {
+    grid-column: 1;
+  }
+
+  .hours {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    justify-self: end;
+    margin-top: 0;
+  }
+}
+
+/* Phones: everything stacked; menus two across */
+@media (max-width: 767px) {
+  .top {
+    padding-block: 60px 48px;
+  }
+
+  .brand {
+    grid-template-columns: 1fr;
+  }
+
+  .hours {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+    max-width: none;
+    margin-top: 0.5rem;
+  }
+
+  .logo {
+    --logo-w: 13rem;
+  }
+
+  /* Two across; the third column runs full width with its two menus side by side */
+  .menus {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .column:last-child {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.75rem, 3vw, 3.5rem);
+  }
+
+  .baseInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 359px) {
+  .menus,
+  .column:last-child {
+    grid-template-columns: 1fr;
+  }
+
+  .column > .menu:first-child .menuTitle {
+    min-height: 0;
+  }
+}

@@ -1,0 +1,85 @@
+/* Squared-off buttons (8px corners): a deliberate contrast with pill-shaped buttons. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0 1.6rem;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-s);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-ui) ease,
+    border-color var(--dur-ui) ease,
+    color var(--dur-ui) ease;
+}
+
+.button svg {
+  flex: none;
+}
+
+.primary {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.primary:hover {
+  background: var(--navy-900);
+}
+
+.outline {
+  border-color: var(--navy-800);
+  color: var(--navy-800);
+  background: transparent;
+}
+
+.outline:hover {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.sky {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+.sky:hover {
+  background: var(--sky-300);
+}
+
+.light {
+  background: var(--white);
+  color: var(--navy-900);
+}
+
+.light:hover {
+  background: var(--sky-100);
+}
+
+.ghost-light {
+  border-color: rgb(255 255 255 / 0.55);
+  color: var(--white);
+  background: transparent;
+}
+
+.ghost-light:hover {
+  background: rgb(255 255 255 / 0.12);
+  border-color: var(--white);
+}
+
+/* Below 390px: tighter padding so labels still fit on one line at 320px. */
+@media (max-width: 389px) {
+  .button {
+    padding: 0 1.1rem;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+  }
+}

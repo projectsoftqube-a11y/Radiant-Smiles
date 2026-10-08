@@ -1,0 +1,121 @@
+.compare {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-l);
+  background: var(--sky-100);
+  box-shadow: var(--shadow-lift);
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Before on the left, after on the right: the after photo shows right of the handle */
+.after {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 var(--split));
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split);
+  width: 3px;
+  translate: -50% 0;
+  background: var(--white);
+  box-shadow: 0 0 0 1px rgb(15 38 69 / 0.15);
+  pointer-events: none;
+}
+
+.knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  translate: -50% -50%;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--navy-800);
+  box-shadow: 0 10px 22px -8px rgb(15 38 69 / 0.6);
+}
+
+.knob svg {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tag {
+  position: absolute;
+  top: 1rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-s);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.tagBefore {
+  left: 1rem;
+  background: rgb(255 255 255 / 0.92);
+  color: var(--navy-800);
+}
+
+.tagAfter {
+  right: 1rem;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* The whole frame is the slider; the native control stays invisible but focusable */
+.range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.compare:has(.range:focus-visible) .knob {
+  box-shadow: 0 0 0 4px rgb(109 189 232 / 0.6), 0 10px 22px -8px rgb(15 38 69 / 0.6);
+}
+
+/* Until it is touched: one slow sweep to show it moves */
+@media (prefers-reduced-motion: no-preference) {
+  .hint {
+    animation: sweep 3.2s var(--ease-in-out) 0.4s 1 both;
+  }
+}
+
+@property --split {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+@keyframes sweep {
+  25% {
+    --split: 22%;
+  }
+  65% {
+    --split: 78%;
+  }
+  100% {
+    --split: 50%;
+  }
+}

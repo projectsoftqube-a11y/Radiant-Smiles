@@ -1,0 +1,327 @@
+.section {
+  position: relative;
+  /* Above the hero, so the closing lower teeth can rise a little into it; clipped at the
+     sides and bottom, open 14rem at the top for that overlap (outer teeth rise highest) */
+  z-index: 4;
+  clip-path: inset(-14rem 0 0 0);
+  padding-block: var(--space-section) 0;
+  /* Inside the mouth: rose at the edges (next to both rows of teeth), pale blush in the
+     middle where the text sits */
+  background:
+    radial-gradient(70% 120% at 50% 50%, transparent 60%, color-mix(in srgb, var(--mouth-edge) 70%, transparent) 100%),
+    linear-gradient(180deg, var(--mouth-edge) 0, var(--mouth-mid) 14%, var(--mouth-mid) 72%, var(--mouth-edge) 100%);
+  /* Top and bottom are exactly --mouth-edge, matching the hero under the upper teeth and
+     the fade above the lower teeth, so there is no seam */
+}
+
+/* Centred heading with photo pills, then the statement */
+.head {
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2.125rem, 1.5rem + 2.8vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+/* Photo pills: rounded photos sitting on the text line between words */
+.pill {
+  position: relative;
+  display: inline-block;
+  width: 1.9em;
+  height: 0.95em;
+  margin-inline: 0.06em;
+  overflow: hidden;
+  vertical-align: -0.08em;
+  border-radius: 999px;
+  background: var(--sky-100);
+  box-shadow: 0 0 0 3px var(--white), 0 10px 22px -10px rgb(15 38 69 / 0.45);
+}
+
+.pillWide {
+  width: 2.6em;
+}
+
+.statement {
+  max-width: 48ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.02rem + 0.45vw, 1.4375rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--slate-600);
+}
+
+/* First visit: label and paragraph (its four steps are the lower teeth below) */
+.visit {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.visitLabel {
+  justify-self: center;
+}
+
+/* Mouth floor: the lower teeth and gum. When the mouth is closed (desktop, before
+   scrolling) it is lifted over the section: a white fill behind the teeth and a pearl
+   body below the gum cover the content, and both slide away as the mouth opens. */
+.floor {
+  position: relative;
+  z-index: 5;
+  /* Room above the lower teeth for the tongue */
+  margin-top: clamp(6rem, 9vw, 8.5rem);
+  will-change: transform;
+}
+
+/* White behind the teeth, fading in just above them, so content fades out cleanly as the
+   mouth closes over it instead of being cut by the tooth outlines */
+.floor::before {
+  content: "";
+  position: absolute;
+  inset: -4rem 0 0;
+  background: linear-gradient(180deg, transparent 0, var(--mouth-edge) 6.5rem);
+}
+
+/* Tongue: behind the lower teeth, in front of the floor's fill, base hidden by the gum */
+.tongue {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: -4.5rem;
+  width: min(56%, 820px);
+  height: 17rem;
+  translate: -50% 0;
+  overflow: visible;
+  filter: drop-shadow(0 -6px 14px rgb(150 60 70 / 0.18));
+  pointer-events: none;
+}
+
+.floor::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 3000px;
+  background: var(--pearl-50);
+}
+
+/* Lower teeth: rounded crowns pointing up, bases tucked into the lower gum (<Jaw jaw="lower">) */
+.lowerTeeth {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 0.5rem;
+  width: min(960px, 100% - 2 * clamp(110px, 14vw, 300px));
+  margin: 0 auto;
+  padding: 0 0 4.75rem;
+  list-style: none;
+}
+
+.lowerTooth {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.8rem;
+  min-height: 11rem;
+  padding: 2.1rem 0.75rem 3.6rem;
+  border: 1px solid #e4e7ea;
+  border-radius: 50% 50% 0 0 / 4.5rem 4.5rem 0 0;
+  background: linear-gradient(0deg, #f2f3f4 0%, var(--white) 35%);
+  text-align: center;
+  box-shadow: 0 -10px 24px -18px rgb(15 38 69 / 0.25);
+  transition: translate 0.4s var(--ease-out);
+}
+
+/* The smile curve (U): the middle teeth sit lower and are a little longer */
+.lowerTooth:nth-child(2),
+.lowerTooth:nth-child(3) {
+  margin-top: 1.6rem;
+  min-height: 12rem;
+}
+
+.lowerTooth:hover {
+  translate: 0 4px;
+}
+
+.stepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--navy-800);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lowerTooth:hover .stepIcon {
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.stepLabel {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy-800);
+}
+
+.visitText {
+  max-width: 62ch;
+  color: var(--slate-600);
+}
+
+/* Nervous? A soft banner with the headphones tile */
+.nervous {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  width: fit-content;
+  max-width: min(100%, 46rem);
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+  padding: 1rem 1.6rem 1rem 1rem;
+  border-radius: 999px;
+  /* White glass, so the note stands out from the blush inside of the mouth */
+  border: 1px solid rgb(255 255 255 / 0.9);
+  background: rgb(255 255 255 / 0.72);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 28px -18px rgb(150 60 70 / 0.35);
+  color: var(--navy-800);
+  line-height: 1.5;
+}
+
+.nervousIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* 1199px and below: no mouth. The section ends on a straight line, and the four
+   first-visit steps are cards in a row, joined by a line through their icons, each with
+   a row of dots showing where it falls in the visit */
+@media (max-width: 1199px) {
+  .section {
+    padding-bottom: var(--space-section);
+    border-bottom: 1px solid var(--pearl-200);
+  }
+
+  .tongue,
+  .floor::before,
+  .floor::after {
+    display: none;
+  }
+
+  .floor {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .lowerTeeth {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+  }
+
+  /* The line through the icons, behind the cards */
+  .lowerTeeth::before {
+    content: "";
+    position: absolute;
+    left: 12.5%;
+    right: 12.5%;
+    top: 3.1rem;
+    border-top: 2px dashed var(--sky-300);
+  }
+
+  .lowerTooth,
+  .lowerTooth:nth-child(n) {
+    position: relative;
+    margin-top: 0;
+    min-height: 0;
+    gap: 0.75rem;
+    padding: 1.35rem 1rem 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-l);
+    background: var(--white);
+    box-shadow: 0 16px 30px -24px rgb(15 38 69 / 0.4);
+  }
+
+  .lowerTooth:hover {
+    translate: 0 -4px;
+  }
+
+  .stepIcon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-m);
+  }
+
+  /* Where the step falls in the visit: four dots, this step's dot filled */
+  .lowerTooth::after {
+    content: "";
+    width: calc(4 * 0.86rem);
+    height: 0.5rem;
+    background:
+      radial-gradient(circle, var(--navy-800) 0.2rem, transparent 0.23rem) calc(var(--step) * 0.86rem) 0 / 0.86rem 0.5rem no-repeat,
+      radial-gradient(circle, var(--sky-200) 0.2rem, transparent 0.23rem) 0 0 / 0.86rem 0.5rem repeat-x;
+  }
+
+  .lowerTooth:nth-child(1) { --step: 0; }
+  .lowerTooth:nth-child(2) { --step: 1; }
+  .lowerTooth:nth-child(3) { --step: 2; }
+  .lowerTooth:nth-child(4) { --step: 3; }
+}
+
+@media (max-width: 767px) {
+  .lowerTeeth {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  /* Two rows: no single line can join them */
+  .lowerTeeth::before {
+    display: none;
+  }
+
+  .nervous {
+    border-radius: var(--radius-l);
+    align-items: flex-start;
+    padding: 1.1rem 1.2rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 389px) {
+  .pill {
+    width: 1.6em;
+  }
+
+  .pillWide {
+    width: 2.1em;
+  }
+}

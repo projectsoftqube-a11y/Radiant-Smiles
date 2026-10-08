@@ -1,0 +1,521 @@
+/* ───────── Hero: shade guide ───────── */
+.guide {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+  padding: 2.25rem 2rem 2rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, var(--white) 0%, var(--sky-50) 100%);
+  box-shadow: var(--shadow-lift);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  align-items: end;
+  gap: 0.5rem;
+  height: 11rem;
+}
+
+/* Each tab: a tooth on a stick, like a dentist's shade guide */
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  animation: tab-rise 0.9s var(--ease-out) calc(0.8s + var(--i) * 0.07s) both;
+}
+
+/* The handle runs down into the tooth */
+.tab::before {
+  content: "";
+  flex: 1;
+  width: 0.35rem;
+  margin-bottom: -0.4rem;
+  border-radius: var(--radius-pill) var(--radius-pill) 0 0;
+  background: linear-gradient(180deg, var(--line-strong), var(--line));
+}
+
+.tabTooth {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4.4;
+  border: 1px solid rgb(15 38 69 / 0.08);
+  border-radius: 40% 40% 46% 46% / 30% 30% 60% 60%;
+  background:
+    radial-gradient(40% 30% at 35% 25%, rgb(255 255 255 / 0.9), transparent 70%),
+    var(--shade);
+  box-shadow: 0 10px 16px -12px rgb(15 38 69 / 0.4);
+}
+
+@keyframes tab-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate-500);
+}
+
+.scaleTrack {
+  position: relative;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, #efe2c4, var(--white));
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* The marker glides from natural toward bright */
+.scaleThumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--navy-800);
+  box-shadow: 0 4px 10px rgb(15 38 69 / 0.35);
+  translate: -50% -50%;
+  animation: glide 4.5s var(--ease-in-out) 1.4s infinite alternate both;
+}
+
+@keyframes glide {
+  to {
+    left: 100%;
+  }
+}
+
+.guideNote {
+  position: absolute;
+  right: -1.25rem;
+  top: -1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.95rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 14px 26px -16px rgb(15 38 69 / 0.6);
+}
+
+.guideNote svg {
+  color: var(--sky-300);
+}
+
+/* ───────── Smile makeover ───────── */
+.makeover {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.makeoverGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.copy {
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+  color: var(--slate-600);
+}
+
+/* The treatments stacked like building blocks, joined by "+" */
+.blocks {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px dashed var(--sky-300);
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+}
+
+.blockRow {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: min(100%, 17rem);
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+.block svg {
+  color: var(--sky-600);
+}
+
+.plus {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--sky-600);
+}
+
+.equals {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.equals svg {
+  color: var(--sky-300);
+}
+
+/* ───────── Whitening ───────── */
+.whitening {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.whiteningHead {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  max-width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.whiteningHead .lead {
+  color: var(--slate-600);
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 56rem;
+  margin: clamp(2rem, 4vw, 3rem) auto;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 1.6rem 1rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.figure {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+}
+
+.figure small {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--sky-700);
+}
+
+.stepText {
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.whiteningCase {
+  display: grid;
+}
+
+.whiteningFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.offer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  border: 1px solid var(--sky-200);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.offer svg {
+  color: var(--sky-600);
+}
+
+/* ───────── Case cards ───────── */
+.cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* One case: shown large and centred */
+.single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.case {
+  display: grid;
+  gap: 1rem;
+}
+
+.caseText {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+.caseLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.caseLabel svg {
+  color: var(--sky-600);
+}
+
+.caseNote,
+.caseVary {
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+/* ───────── Veneers + implants: two panels ───────── */
+.treatments {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.treatmentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.treatment {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 1.15rem;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--sky-50) 0%, var(--white) 70%);
+  color: var(--slate-600);
+}
+
+.treatment h2 {
+  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.5rem);
+}
+
+/* Implants: the navy panel */
+.treatmentDark {
+  border-color: var(--navy-800);
+  background: radial-gradient(90% 80% at 85% 0%, var(--navy-700) 0%, var(--navy-900) 75%);
+  color: var(--slate-on-navy);
+}
+
+.treatmentDark h2 {
+  color: var(--white);
+}
+
+.treatmentArt {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px var(--radius-s) var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.treatmentDark .treatmentArt {
+  background: rgb(255 255 255 / 0.1);
+  color: var(--sky-300);
+}
+
+.quote {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 1.25rem 1.4rem;
+  border-left: 3px solid var(--sky-500);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: rgb(255 255 255 / 0.06);
+}
+
+.quote figcaption {
+  font-size: var(--step-small);
+}
+
+.quote blockquote p {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--white);
+}
+
+.lightLink {
+  color: var(--sky-300);
+}
+
+.lightLink:hover {
+  color: var(--white);
+}
+
+/* ───────── Share ───────── */
+.share {
+  padding-bottom: var(--space-section);
+  background: var(--white);
+}
+
+.shareBanner {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-100);
+  color: var(--slate-600);
+}
+
+.shareBanner h2 {
+  margin-bottom: 0.4rem;
+  font-size: var(--step-h3);
+}
+
+.shareIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+@media (max-width: 991px) {
+  .makeoverGrid,
+  .treatmentGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .schedule {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .step {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.35rem;
+    text-align: left;
+  }
+
+  .guideNote {
+    right: 50%;
+    translate: 50% 0;
+  }
+
+  .shareBanner {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 575px) {
+  .guide {
+    padding: 2.25rem 1.1rem 1.5rem;
+  }
+
+  .tabs {
+    gap: 0.3rem;
+    height: 8.5rem;
+  }
+
+  .scale {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 0.5rem;
+  }
+
+  .scaleTrack {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab,
+  .scaleThumb {
+    animation: none;
+  }
+}

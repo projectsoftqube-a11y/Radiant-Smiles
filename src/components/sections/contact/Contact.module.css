@@ -1,0 +1,706 @@
+/* ───────── Hero: the contact panel ───────── */
+.panel {
+  display: grid;
+  width: min(100%, 28rem);
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.panelTop {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  padding: 1.5rem 1.75rem;
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgb(169 218 243 / 0.25), transparent 70%),
+    linear-gradient(150deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+}
+
+.todayLine {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+}
+
+.todayLine svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+.panelBody {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.5rem 1.75rem 1.25rem;
+}
+
+.panelPin {
+  position: absolute;
+  right: 1.5rem;
+  top: -1.6rem;
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-m);
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  text-decoration: none;
+  transition: border-color var(--dur-ui) ease, background-color 0.3s ease;
+}
+
+.action:hover {
+  border-color: var(--navy-800);
+  background: var(--white);
+}
+
+.action > span:last-child {
+  display: grid;
+  min-width: 0;
+}
+
+.actionIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.actionTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.actionSub {
+  overflow: hidden;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--slate-600);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.12);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.statusDot {
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--sky-300);
+}
+
+.isOpen {
+  background: rgb(34 163 90 / 0.22);
+}
+
+.isOpen .statusDot {
+  background: #4ade80;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.isClosed .statusDot {
+  background: #f08a6c;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.address {
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.address strong {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  color: var(--navy-800);
+}
+
+.phoneLine {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  font-size: 1.0625rem;
+  color: var(--ink);
+}
+
+.phoneLine a {
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+.phoneLine strong {
+  color: var(--navy-800);
+}
+
+
+/* ───────── Call or request ───────── */
+.request {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.requestGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.requestCopy {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  justify-items: start;
+  gap: 1.35rem;
+}
+
+.requestCopy .lead {
+  color: var(--slate-600);
+}
+
+.bigPhone {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+  text-decoration: none;
+  transition: color var(--dur-ui) ease;
+}
+
+.bigPhone:hover {
+  color: var(--sky-700);
+}
+
+.bigPhoneIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.urgent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: #fdecec;
+  border-left: 4px solid #c62828;
+  color: #6f1a16;
+  font-weight: 500;
+}
+
+.urgentIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: #c62828;
+  color: var(--white);
+}
+
+.formWrap {
+  display: grid;
+  gap: 1rem;
+}
+
+/* ───────── Hours timetable ───────── */
+.hours {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.hoursGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+/* At the top of its column and sticky while the table scrolls past (user, 8 Oct 2026) */
+.hoursCopy {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  justify-items: start;
+  gap: 1.35rem;
+}
+
+.afterWork {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  font-size: var(--step-lead);
+  color: var(--slate-600);
+}
+
+.afterWorkIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.timetable {
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  padding: 0 1rem 0.75rem;
+  border-bottom: 2px solid var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.table thead th:last-child,
+.table td {
+  text-align: right;
+}
+
+.table tbody th,
+.table td {
+  padding: 0.95rem 1rem;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.table tbody th {
+  font-weight: 600;
+  text-align: left;
+  color: var(--navy-800);
+}
+
+.table td {
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.today th,
+.today td {
+  background: var(--navy-800);
+  color: var(--white) !important;
+}
+
+.today th {
+  border-radius: var(--radius-s) 0 0 var(--radius-s);
+}
+
+.today td {
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+}
+
+.todayTag {
+  margin-left: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--sky-500);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-950);
+}
+
+.closed td {
+  color: var(--slate-500);
+}
+
+.flag {
+  margin-left: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--sky-100);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+.flagSat {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.today .flag {
+  background: rgb(255 255 255 / 0.15);
+  color: var(--white);
+}
+
+/* ───────── Directions ───────── */
+.directions {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.directionsHead {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  max-width: 50rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.directionsHead .lead {
+  color: var(--slate-600);
+}
+
+.directionsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+}
+
+.routes {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+}
+
+.routeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.routeTable thead th {
+  padding: 1rem 1.25rem;
+  background: var(--sky-50);
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.routeTable tbody th,
+.routeTable td {
+  padding: 1.1rem 1.25rem;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+  text-align: left;
+}
+
+.routeTable tbody th {
+  font-weight: 700;
+  color: var(--navy-800);
+  white-space: nowrap;
+}
+
+.routeTable td {
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.routeTable tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.routeTable tbody tr:hover {
+  background: var(--sky-50);
+}
+
+.routeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.6rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+  vertical-align: middle;
+}
+
+.time {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--white);
+}
+
+.mapSide {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.map {
+  position: relative;
+  width: 100%;
+  min-height: 20rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--sky-100);
+}
+
+.finding {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 50rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--sky-500);
+  color: var(--slate-600);
+}
+
+/* ───────── Notes ───────── */
+.notes {
+  padding-bottom: var(--space-section);
+  background: var(--white);
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.noteCard {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 1rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-100);
+  color: var(--slate-600);
+}
+
+.noteCard h2 {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+}
+
+.noteSky {
+  background: linear-gradient(150deg, var(--sky-100) 0%, var(--sky-50) 100%);
+}
+
+.noteIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.noteLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+}
+
+/* The route table needs the full width below desktop */
+@media (max-width: 1199px) {
+  .directionsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .map {
+    min-height: 22rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .requestGrid,
+  .hoursGrid,
+  .directionsGrid,
+  .notesGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .requestCopy,
+  .hoursCopy {
+    position: static;
+  }
+}
+
+/* Phones: the route table turns into stacked cards */
+@media (max-width: 767px) {
+  /* Stacked cards: each row reads "place, time, route"; the caption names the table */
+  .routeTable thead {
+    display: none;
+  }
+
+  .routeTable tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem 1rem;
+    padding: 1rem 1.1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .routeTable tbody tr:first-child {
+    border-top: 0;
+  }
+
+  .routeTable tbody th,
+  .routeTable td {
+    padding: 0;
+    border: 0;
+  }
+
+  .routeTable tbody th {
+    white-space: normal;
+  }
+
+  .routeTable td:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .table tbody th,
+  .table td {
+    padding: 0.85rem 0.6rem;
+    font-size: 0.9375rem;
+  }
+
+  /* "Today" drops under the day name */
+  /* A block, not display: table (a table box drops its padding inside a collapsed table) */
+  .todayTag {
+    display: block;
+    width: fit-content;
+    margin: 0.45rem 0 0.1rem;
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+/* Small phones: room inside the navy band; the status and today's hours wrap neatly */
+@media (max-width: 480px) {
+  .panelTop {
+    padding: 1.25rem 1.1rem 1.6rem;
+  }
+
+  .status {
+    align-items: flex-start;
+    padding: 0.5rem 0.75rem;
+    line-height: 1.4;
+  }
+
+  .status .statusDot {
+    margin-top: 0.4rem;
+  }
+
+  .todayLine {
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.35;
+  }
+
+  .todayLine svg {
+    margin-top: 0.2rem;
+  }
+
+  .panelBody {
+    padding: 1.6rem 1.1rem 1.1rem;
+  }
+
+  .panelPin {
+    right: 1.1rem;
+  }
+}
+
+@media (max-width: 389px) {
+  .panelTop,
+  .panelBody {
+    padding-inline: 1.25rem;
+  }
+
+  .actions {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: 1rem;
+  }
+
+  .flag {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .isOpen .statusDot {
+    animation: none;
+  }
+}

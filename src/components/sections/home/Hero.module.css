@@ -1,0 +1,373 @@
+.hero {
+  position: relative;
+  /* Clipped at the sides only: the upper teeth's shadows fall onto the section below */
+  overflow-x: clip;
+  background:
+    radial-gradient(60% 70% at 82% 38%, var(--sky-100) 0%, transparent 70%),
+    linear-gradient(180deg, var(--white) 0%, var(--sky-50) 38%, var(--sky-100) 62%, var(--sky-100) 100%);
+  /* The white below the smile meets the next section with no hairline */
+  margin-bottom: -1px;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 5rem);
+  padding-block: clamp(3rem, 6vw, 5.5rem) clamp(4.5rem, 7vw, 7rem);
+}
+
+.copy {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+}
+
+.label {
+  animation: fade-up 0.8s var(--ease-out) 0.05s both;
+}
+
+/* Medium (500) by default; "Dentist in Yardley, PA" is set bold (RiseWords strong). The
+   user asked for no 300 weight (7 Oct 2026): it reads too thin. */
+.title {
+  max-width: 17ch;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.intro {
+  max-width: 60ch;
+  color: var(--slate-600);
+  animation: fade-up 0.9s var(--ease-out) 0.75s both;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  animation: fade-up 0.9s var(--ease-out) 0.9s both;
+}
+
+.newPatient {
+  animation: fade-up 0.9s var(--ease-out) 1.05s both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.visual {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 32rem);
+  padding-top: 3.5rem;
+}
+
+/* The rays fan out from just above the arch, behind the photo */
+.rays {
+  position: absolute;
+  left: 50%;
+  top: -1rem;
+  width: 190%;
+  translate: -50% 0;
+  stroke: var(--sky-500);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.photo {
+  position: relative;
+  box-shadow: var(--shadow-lift);
+}
+
+.badge {
+  position: absolute;
+  left: -2.5rem;
+  bottom: 2.5rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1.2rem 0.9rem 0.9rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  line-height: 1.25;
+  animation: badge-in 0.9s var(--ease-out) 1.3s both;
+}
+
+.badge > span:last-child {
+  display: grid;
+  font-size: 0.9375rem;
+  color: var(--slate-600);
+}
+
+.badge strong {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.badgeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--sky-700);
+}
+
+@keyframes badge-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+}
+
+/* Quick facts: five white tooth-shaped tiles (squared top, rounded dome at the bottom),
+   set in the upper gum (<Jaw jaw="upper">) at the bottom of the hero. */
+.rail {
+  position: relative;
+  /* Above the Family section (z-index 4), so the upper teeth overlap the lower teeth when
+     the mouth closes, like a real bite */
+  z-index: 6;
+  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.facts {
+  display: grid;
+  /* Teeth sit side by side; the centre one is the widest, like a front tooth */
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr) minmax(0, 1.12fr) minmax(0, 1fr) minmax(0, 0.92fr);
+  align-items: start;
+  gap: 0.5rem;
+}
+
+/* The row follows the smile: outer tiles highest, the centre tile lowest */
+.fact:nth-child(2),
+.fact:nth-child(4) {
+  margin-top: var(--arc-mid, 1.6rem);
+}
+
+.fact:nth-child(3) {
+  margin-top: var(--arc-low, 2.25rem);
+}
+
+/* One row (≥1200px): the five main teeth sit a little narrower, leaving room at both
+   sides for the smaller teeth of the full smile */
+@media (min-width: 1200px) {
+  /* Upper teeth tips sit close to the hero's edge, where the lower teeth meet them */
+  .rail {
+    padding-bottom: 1rem;
+  }
+
+  .facts {
+    width: min(1200px, 100% - 2 * clamp(120px, 11vw, 240px));
+  }
+
+  /* A proper smile: tops on a gentle arc, bottoms (the biting edges) on a steeper one,
+     so the centre teeth are the longest */
+  .fact {
+    min-height: 12.4rem;
+  }
+
+  .fact:nth-child(2),
+  .fact:nth-child(4) {
+    margin-top: 1.2rem;
+    min-height: 13.6rem;
+  }
+
+  .fact:nth-child(3) {
+    margin-top: 1.6rem;
+    min-height: 14rem;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .fact {
+    padding-inline: 0.85rem;
+  }
+
+  .factText {
+    font-size: 0.875rem;
+  }
+}
+
+.fact {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1rem;
+  padding: 3.6rem 1.25rem 2.6rem;
+  border: 1px solid var(--sky-200);
+  /* Tooth: the top is tucked under the gum; the rounded dome hangs at the bottom */
+  border-radius: 0 0 50% 50% / 0 0 4.5rem 4.5rem;
+  /* Natural tooth white: a touch of warm shade under the gum, bright toward the edge */
+  border-color: #e4e7ea;
+  background: linear-gradient(180deg, #f2f3f4 0%, var(--white) 35%);
+  text-align: center;
+  box-shadow: 0 1px 2px rgb(15 38 69 / 0.04), 0 18px 34px -24px rgb(15 38 69 / 0.35);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease, border-color var(--dur-ui) ease;
+  animation: fade-up 0.8s var(--ease-out) both;
+}
+
+.fact:nth-child(1) { animation-delay: 1.2s; }
+.fact:nth-child(2) { animation-delay: 1.28s; }
+.fact:nth-child(3) { animation-delay: 1.36s; }
+.fact:nth-child(4) { animation-delay: 1.44s; }
+.fact:nth-child(5) { animation-delay: 1.52s; }
+
+.fact:hover {
+  /* The tooth lifts slightly into the gum */
+  translate: 0 -6px;
+  border-color: var(--sky-300);
+  box-shadow: 0 2px 6px rgb(15 38 69 / 0.06), 0 28px 50px -28px rgb(15 38 69 / 0.45);
+}
+
+/* Round icon chip at the top of the tile (round icon chips are allowed) */
+.factIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--navy-800);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.fact:hover .factIcon {
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.factText {
+  max-width: 18ch;
+  text-wrap: balance;
+  font-size: var(--step-small);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  /* No smile here: the hero ends on a straight line */
+  .hero {
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--sky-200);
+  }
+
+  /* Plain boxes: three across, the last two centred under them */
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .fact,
+  .fact:nth-child(n) {
+    flex: 0 0 calc((100% - 2rem) / 3);
+    margin-top: 0;
+    min-height: 0;
+    padding: 1.6rem 1.25rem;
+    border: 1px solid var(--sky-200);
+    border-radius: var(--radius-l);
+    background: var(--white);
+  }
+
+  .badge {
+    left: -1rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    max-width: 20ch;
+  }
+
+  .visual {
+    justify-self: center;
+    width: min(100%, 26rem);
+    padding-top: 2.5rem;
+  }
+
+  .badge {
+    left: -1.25rem;
+    bottom: 1.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Phones: tiles turn sideways, the arch moves to the left end */
+  .facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .fact,
+  .fact:nth-child(n) {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 1.1rem 0.8rem 0.8rem;
+    text-align: left;
+    border-radius: var(--radius-m);
+  }
+
+  .factIcon {
+    flex: none;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .factText {
+    max-width: none;
+  }
+
+  .badge {
+    left: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .ctas {
+    display: grid;
+    width: 100%;
+  }
+
+  .visual {
+    width: min(100%, 22rem);
+  }
+
+  .badge {
+    left: 0.5rem;
+    bottom: 1rem;
+    padding: 0.7rem 1rem 0.7rem 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .intro,
+  .ctas,
+  .newPatient,
+  .badge,
+  .fact {
+    animation: none;
+  }
+}

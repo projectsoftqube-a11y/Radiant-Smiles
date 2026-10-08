@@ -1,0 +1,699 @@
+/* ───────── Hero: fact bento ───────── */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "photo year"
+    "photo docs"
+    "hours place";
+  gap: 0.9rem;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+}
+
+.tile {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 0.35rem;
+  min-height: 8.5rem;
+  padding: 1.25rem 1.35rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  animation: tile-in 0.9s var(--ease-out) both;
+}
+
+.tilePhoto {
+  grid-area: photo;
+  min-height: 18rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+  background: var(--sky-100);
+  box-shadow: var(--shadow-lift);
+  animation-delay: 0.5s;
+}
+
+.tileYear {
+  grid-area: year;
+  border: 0;
+  background:
+    radial-gradient(80% 70% at 85% 0%, rgb(169 218 243 / 0.3), transparent 70%),
+    linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+  animation-delay: 0.62s;
+}
+
+.tileDocs {
+  grid-area: docs;
+  animation-delay: 0.74s;
+}
+
+.tileHours {
+  grid-area: hours;
+  background: linear-gradient(160deg, var(--sky-100), var(--sky-50));
+  border-color: var(--sky-200);
+  color: var(--navy-800);
+  animation-delay: 0.86s;
+}
+
+.tilePlace {
+  grid-area: place;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
+  animation-delay: 0.98s;
+}
+
+.tilePlace > span:last-child {
+  display: grid;
+  gap: 0.15rem;
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+}
+
+.tileLabel {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-300);
+}
+
+.year {
+  display: flex;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 2rem + 2.5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums;
+}
+
+.digit {
+  display: inline-block;
+  overflow: clip;
+  overflow-clip-margin: 0.1em;
+}
+
+.digit > span {
+  display: inline-block;
+  animation: digit-rise 1.1s var(--ease-out) calc(1s + var(--d) * 0.09s) both;
+}
+
+@keyframes digit-rise {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+.tileStrong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy-800);
+}
+
+.tileSmall {
+  display: block;
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.avatars {
+  display: flex;
+  margin-bottom: 0.4rem;
+}
+
+/* Round avatars (allowed) overlapping a little */
+.avatar {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  overflow: hidden;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--sky-100);
+  box-shadow: 0 6px 14px -8px rgb(15 38 69 / 0.5);
+}
+
+.avatar + .avatar {
+  margin-left: -0.8rem;
+}
+
+.avatarMark {
+  width: 46%;
+  height: auto;
+}
+
+.placeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── At a glance: fact sheet ───────── */
+.glance {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.glanceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.glanceHead {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.glanceHead .lead {
+  color: var(--slate-600);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1.6rem 1.5rem 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--slate-600);
+}
+
+.fact:nth-child(even) {
+  padding: 1.6rem 0 1.6rem 1.5rem;
+  border-left: 1px solid var(--line);
+}
+
+.fact strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.factIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.fact:hover .factIcon {
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Approach: arched pillars ───────── */
+.approach {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.approachHead {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: end;
+  gap: 1.5rem clamp(2rem, 5vw, 6rem);
+}
+
+.approachHead > div {
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.approachHead .lead {
+  color: var(--slate-600);
+}
+
+.listIntro {
+  margin: clamp(2.5rem, 4vw, 3.5rem) 0 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.pillar {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: 3rem 1.75rem 2.25rem;
+  border: 1px solid var(--pearl-200);
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+  background: linear-gradient(180deg, var(--white) 0%, var(--white) 60%, var(--sky-50) 100%);
+  text-align: center;
+  color: var(--slate-600);
+  box-shadow: var(--shadow-soft);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease, border-color var(--dur-ui) ease;
+}
+
+.pillar:hover {
+  translate: 0 -6px;
+  border-color: var(--sky-300);
+  box-shadow: var(--shadow-lift);
+}
+
+.pillarIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.pillarLead {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* ───────── Dentists: two cards ───────── */
+.dentists {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.centerHead {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  max-width: 46rem;
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+}
+
+.centerHead .lead {
+  color: var(--slate-600);
+}
+
+.doctorCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.doctorCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: linear-gradient(135deg, var(--sky-50) 0%, var(--white) 70%);
+  transition: border-color var(--dur-ui) ease, box-shadow 0.4s ease;
+}
+
+.doctorCard:hover {
+  border-color: var(--sky-300);
+  box-shadow: var(--shadow-soft);
+}
+
+.doctorPhoto {
+  box-shadow: 0 18px 36px -24px rgb(15 38 69 / 0.45);
+}
+
+.doctorText {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.doctorName {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy-800);
+}
+
+/* ───────── Staff: sky strip with role tiles ───────── */
+.staff {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+  border-top: 1px solid var(--sky-200);
+}
+
+.staffGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.staffCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.2rem;
+  color: var(--slate-600);
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.role {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  padding: 2rem 1rem 1.6rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: translate 0.4s var(--ease-out);
+}
+
+/* Middle tile set lower, like a step in a row of teeth */
+.role:nth-child(2) {
+  margin-top: 2.5rem;
+}
+
+.role:hover {
+  translate: 0 -5px;
+}
+
+.roleIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.roleName {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* ───────── Technology: the page's one navy band ───────── */
+.tech {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: var(--space-section);
+  background: radial-gradient(70% 90% at 15% 50%, var(--navy-700) 0%, var(--navy-900) 70%);
+  color: var(--slate-on-navy);
+}
+
+.techRays {
+  position: absolute;
+  left: 22%;
+  bottom: 8%;
+  z-index: -1;
+  width: min(60rem, 90%);
+  translate: -50% 0;
+  stroke: var(--sky-500);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.35;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 7rem);
+}
+
+.techMedia {
+  width: min(100%, 26rem);
+  justify-self: center;
+}
+
+.techCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.techCopy h2 {
+  color: var(--white);
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-block: 0.25rem 0.5rem;
+}
+
+.tools li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--line-on-navy);
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.05);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.tools svg {
+  color: var(--sky-500);
+}
+
+.techLink {
+  color: var(--sky-300);
+}
+
+.techLink:hover {
+  color: var(--white);
+}
+
+/* ───────── Visit: NAP card and map ───────── */
+.visit {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.visitGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.visitCopy {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 1.25rem;
+  color: var(--slate-600);
+}
+
+.nap {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid var(--sky-200);
+  border-left: 4px solid var(--sky-500);
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.nap strong {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.nap a {
+  font-weight: 600;
+  color: var(--sky-700);
+}
+
+.napIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.map {
+  position: relative;
+  min-height: 24rem;
+  overflow: hidden;
+  border-radius: var(--radius-l);
+  border: 1px solid var(--line);
+  background: var(--sky-100);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .doctorCards {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .glanceGrid,
+  .approachHead,
+  .staffGrid,
+  .techGrid,
+  .visitGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .glanceHead {
+    position: static;
+  }
+
+  .pillars {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+
+  .pillar {
+    border-radius: 12rem 12rem var(--radius-l) var(--radius-l);
+  }
+
+  .map {
+    min-height: 20rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fact,
+  .fact:nth-child(even) {
+    padding: 1.35rem 0;
+    border-left: 0;
+  }
+
+  .tilePhoto {
+    min-height: 15rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .bento {
+    gap: 0.6rem;
+  }
+
+  .tile {
+    min-height: 7rem;
+    padding: 1rem;
+  }
+
+  .tilePlace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .tileStrong {
+    font-size: 0.9375rem;
+  }
+
+  .tileSmall {
+    font-size: 0.875rem;
+  }
+
+  .doctorCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .doctorPhoto {
+    max-width: 16rem;
+  }
+
+  .roles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .role,
+  .role:nth-child(2) {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    margin-top: 0;
+    padding: 1rem 1.25rem;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .digit > span,
+  .tile {
+    animation: none;
+  }
+}

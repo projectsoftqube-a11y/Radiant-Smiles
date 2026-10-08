@@ -1,0 +1,36 @@
+import puppeteer from "puppeteer-core";
+// Header checks: About dropdown with a hovered item, Services mega menu, the logo in the
+// full and the sticky header (desktop and phone), and the pointer cursor on links.
+const out = process.env.OUT || ".";
+const b = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true, args: ["--hide-scrollbars"] });
+const p = await b.newPage();
+await p.setViewport({ width: 1440, height: 900 });
+await p.goto("http://localhost:3300/", { waitUntil: "networkidle2" });
+await new Promise((r) => setTimeout(r, 2500));
+await p.screenshot({ path: `${out}/h-full.png`, clip: { x: 0, y: 0, width: 1440, height: 130 } });
+await p.hover("nav[aria-label='Main'] > ul > li:nth-child(1)"); await new Promise((r) => setTimeout(r, 500));
+await p.hover("nav[aria-label='Main'] > ul > li:nth-child(1) li:nth-child(3) a"); await new Promise((r) => setTimeout(r, 500));
+await p.screenshot({ path: `${out}/h-dropdown.png`, clip: { x: 0, y: 0, width: 760, height: 500 } });
+await p.mouse.move(700, 600); await new Promise((r) => setTimeout(r, 400));
+await p.hover("nav[aria-label='Main'] > ul > li:nth-child(2)"); await new Promise((r) => setTimeout(r, 500));
+await p.hover("nav[aria-label='Main'] > ul > li:nth-child(2) [class*='megaGroup'] li:nth-child(2) a"); await new Promise((r) => setTimeout(r, 500));
+await p.screenshot({ path: `${out}/h-mega.png`, clip: { x: 0, y: 0, width: 1440, height: 640 } });
+await p.mouse.move(700, 800);
+await p.evaluate(() => window.scrollTo(0, 900)); await new Promise((r) => setTimeout(r, 1200));
+let sy = await p.evaluate(() => scrollY);
+await p.screenshot({ path: `${out}/h-sticky.png`, clip: { x: 0, y: sy, width: 1440, height: 110 } });
+const cursors = await p.evaluate(() => [...document.querySelectorAll("main a")].map((a) => getComputedStyle(a).cursor).reduce((m, c) => ((m[c] = (m[c] || 0) + 1), m), {}));
+console.log("cursor on links in main:", JSON.stringify(cursors));
+const label = await p.$("#home-family-title"); await label.scrollIntoView(); await new Promise((r) => setTimeout(r, 1500));
+const lbl = await p.$$("section p.label"); const lb = await lbl[1].boundingBox(); sy = await p.evaluate(() => scrollY);
+await p.screenshot({ path: `${out}/h-label.png`, clip: { x: lb.x - 10, y: lb.y + sy - 10, width: 320, height: lb.height + 20 } });
+const tl = await p.$("section p.label-inverse"); await tl.scrollIntoView(); await new Promise((r) => setTimeout(r, 1500));
+const tb = await tl.boundingBox(); sy = await p.evaluate(() => scrollY);
+await p.screenshot({ path: `${out}/h-label-dark.png`, clip: { x: tb.x - 10, y: tb.y + sy - 10, width: 260, height: tb.height + 20 } });
+await p.setViewport({ width: 374, height: 800 });
+await p.goto("http://localhost:3300/", { waitUntil: "networkidle2" }); await new Promise((r) => setTimeout(r, 1500));
+await p.screenshot({ path: `${out}/h-m-full.png`, clip: { x: 0, y: 0, width: 374, height: 120 } });
+await p.evaluate(() => window.scrollTo(0, 700)); await new Promise((r) => setTimeout(r, 1200));
+sy = await p.evaluate(() => scrollY);
+await p.screenshot({ path: `${out}/h-m-sticky.png`, clip: { x: 0, y: sy, width: 374, height: 90 } });
+await b.close();

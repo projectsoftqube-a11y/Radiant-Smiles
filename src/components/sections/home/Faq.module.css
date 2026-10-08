@@ -1,0 +1,168 @@
+.section {
+  padding-block: var(--space-section);
+  background:
+    radial-gradient(40% 50% at 100% 100%, var(--sky-100) 0%, transparent 70%),
+    var(--pearl-50);
+  border-top: 1px solid var(--pearl-200);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.headCopy {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+/* Two independent columns, so opening a card never moves the other column */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.column {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  interpolate-size: allow-keywords;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, translate 0.35s var(--ease-out);
+}
+
+.card:hover {
+  border-color: var(--sky-300);
+  translate: 0 -2px;
+}
+
+.card[open] {
+  border-color: var(--navy-800);
+  box-shadow: 0 22px 40px -28px rgb(15 38 69 / 0.45);
+}
+
+/* Smooth open/close where the browser supports animating details content */
+.card::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.45s var(--ease-out), content-visibility 0.45s allow-discrete;
+}
+
+.card[open]::details-content {
+  block-size: auto;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Round icon chip (allowed) */
+.icon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--navy-800);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card[open] .icon {
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.question {
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--navy-800);
+}
+
+/* Plus that turns into a minus */
+.toggle {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.toggle span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.85rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--navy-800);
+  translate: -50% -50%;
+  transition: rotate 0.35s var(--ease-out), background-color 0.3s ease;
+}
+
+.toggle span:last-child {
+  rotate: 90deg;
+}
+
+.card[open] .toggle {
+  background: var(--navy-800);
+  border-color: var(--navy-800);
+}
+
+.card[open] .toggle span {
+  background: var(--white);
+}
+
+.card[open] .toggle span:last-child {
+  rotate: 0deg;
+}
+
+.answer {
+  padding: 0 1.5rem 1.4rem calc(1.25rem + 3rem + 1rem);
+  color: var(--slate-600);
+}
+
+@media (max-width: 991px) {
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .summary {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .answer {
+    padding: 0 1rem 1.2rem;
+  }
+}

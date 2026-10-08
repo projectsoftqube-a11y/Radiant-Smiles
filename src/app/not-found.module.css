@@ -1,0 +1,34 @@
+.section {
+  padding-block: clamp(4rem, 10vw, 8rem);
+  background: linear-gradient(180deg, var(--white), var(--sky-50));
+}
+
+.inner {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.mark {
+  width: 4.5rem;
+  height: auto;
+}
+
+.title {
+  max-width: 18ch;
+  font-size: var(--step-h2);
+}
+
+.inner .lead {
+  max-width: 48ch;
+  color: var(--slate-600);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
