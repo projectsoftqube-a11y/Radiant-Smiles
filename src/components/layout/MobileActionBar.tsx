@@ -6,7 +6,7 @@ import styles from "./MobileActionBar.module.css";
 /** Phones only: call and appointment actions stay within thumb reach on every page. */
 export function MobileActionBar() {
   return (
-    <div className={styles.bar}>
+    <div className={styles.bar} data-mobile-bar>
       <a href={practice.phone.href} className={`${styles.action} ${styles.call}`} data-track="call_click_mobile_bar">
         <Icon name="phone" size={18} />
         <span>Call Us</span>

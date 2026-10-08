@@ -1,0 +1,452 @@
+/* ───────── Hero: the payment-plan card ───────── */
+.plan {
+  display: grid;
+  gap: 1.25rem;
+  width: min(100%, 28rem);
+  margin-inline: auto;
+  padding: 1.6rem;
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgb(169 218 243 / 0.3), transparent 70%),
+    linear-gradient(150deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.planTop {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.planTop > span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.planMark {
+  width: 2.25rem;
+  height: auto;
+  --mark-outline: var(--sky-300);
+  --mark-monogram: var(--white);
+}
+
+.planKicker {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-300);
+}
+
+.planTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Six equal monthly bars rise one after another */
+.months {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.5rem;
+  align-items: end;
+  padding: 1.1rem 1rem 0.9rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.07);
+}
+
+.month {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+}
+
+.monthBar {
+  width: 100%;
+  height: 5.5rem;
+  border-radius: var(--radius-s) var(--radius-s) 4px 4px;
+  background: linear-gradient(180deg, var(--sky-300), var(--sky-500));
+  transform-origin: bottom;
+  animation: bar-rise 0.8s var(--ease-out) calc(0.7s + var(--i) * 0.1s) both;
+}
+
+@keyframes bar-rise {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+.monthName {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--slate-on-navy);
+}
+
+.planNote {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.planNote svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.planFine {
+  font-size: 0.8125rem;
+  color: var(--slate-on-navy);
+}
+
+/* ───────── How it works + terms ───────── */
+.how {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.howGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.howCopy {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+}
+
+.howCopy .lead {
+  color: var(--slate-600);
+}
+
+/* The terms: a framed panel, never a footnote */
+.terms {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid #ecd9a8;
+  border-radius: var(--radius-l);
+  background: #fffaf0;
+  color: var(--slate-600);
+}
+
+.termsIntro {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.termsList {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.termsList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+}
+
+.termsList strong {
+  color: var(--navy-800);
+}
+
+.termIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-s);
+  background: #fdf0d2;
+  color: #8a5a0b;
+}
+
+.termsAfter {
+  font-size: var(--step-small);
+}
+
+/* ───────── What you can finance ───────── */
+.finance {
+  padding-block: var(--space-section);
+  background: var(--sky-50);
+  border-block: 1px solid var(--sky-200);
+}
+
+.financeHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.financeHead .lead {
+  color: var(--slate-600);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.tile {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  justify-items: center;
+  color: var(--slate-600);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+
+.tile:hover {
+  translate: 0 -6px;
+  box-shadow: var(--shadow-lift);
+}
+
+.tileIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin-top: 1rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.tileLink {
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+.financeAfter {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 52rem;
+  margin: clamp(2rem, 4vw, 2.75rem) auto 0;
+  color: var(--ink);
+}
+
+.financeAfter svg {
+  flex: none;
+  margin-top: 0.2rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Apply timeline ───────── */
+.apply {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.applyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.applyHead {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+  color: var(--slate-600);
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.75rem;
+  top: 1.75rem;
+  bottom: 1.75rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+}
+
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--slate-600);
+}
+
+.stage p {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.stage strong {
+  color: var(--navy-800);
+}
+
+.stageIcon {
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: 0 0 0 6px var(--white);
+}
+
+/* ───────── Other ways to pay ───────── */
+.other {
+  padding-bottom: var(--space-section);
+  background: var(--white);
+}
+
+.otherHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.otherHead > div:first-child {
+  display: grid;
+  gap: 1rem;
+  max-width: 44rem;
+}
+
+.otherHead .lead {
+  color: var(--slate-600);
+}
+
+.ways {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.way {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-100);
+  color: var(--slate-600);
+}
+
+.way strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.wayIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .howGrid,
+  .applyGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .howCopy,
+  .applyHead {
+    position: static;
+  }
+
+  .ways {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stage {
+    gap: 0.9rem;
+  }
+
+  .stage p {
+    padding: 1rem 1.1rem;
+  }
+
+  .timeline::before {
+    left: 1.5rem;
+  }
+
+  .stageIcon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .monthName {
+    font-size: 0.8125rem;
+    writing-mode: vertical-rl;
+    rotate: 180deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monthBar {
+    animation: none;
+  }
+}

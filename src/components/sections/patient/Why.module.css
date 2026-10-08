@@ -1,0 +1,555 @@
+/* ───────── Hero: reason arches ───────── */
+.arches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+}
+
+.arch {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 1rem;
+  min-height: 12.5rem;
+  padding: 2.25rem 1rem 1.5rem;
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+  text-align: center;
+  box-shadow: var(--shadow-lift);
+  animation: arch-in 0.9s var(--ease-out) both;
+}
+
+/* Staggered heights, like a row of teeth */
+.arch:nth-child(even) {
+  translate: 0 2rem;
+}
+
+@keyframes arch-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+.archIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+.archTitle {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.arch-navy {
+  background: linear-gradient(170deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+}
+
+.arch-navy .archIcon {
+  background: rgb(255 255 255 / 0.12);
+  color: var(--sky-300);
+}
+
+.arch-sky {
+  background: linear-gradient(180deg, var(--sky-100), var(--sky-50));
+  color: var(--navy-800);
+}
+
+.arch-sky .archIcon,
+.arch-pearl .archIcon {
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.arch-white {
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.arch-white .archIcon {
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.arch-pearl {
+  background: linear-gradient(180deg, var(--pearl-100), var(--pearl-50));
+  color: var(--navy-800);
+}
+
+/* ───────── Two dentists under one roof ───────── */
+.roofSection {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.roofHead {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.roofHead .lead {
+  color: var(--slate-600);
+}
+
+/* One big arch (the roof) holding both dentists */
+.roof {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.25rem, 4vw, 3.5rem) clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: 40rem 40rem var(--radius-l) var(--radius-l);
+  background: linear-gradient(180deg, var(--sky-100) 0%, var(--sky-50) 45%, var(--white) 100%);
+  border: 1px solid var(--sky-200);
+}
+
+.doctors {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.doctor {
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.doctorPhoto {
+  width: min(100%, 15rem);
+  box-shadow: var(--shadow-lift);
+}
+
+.doctorName {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+  text-decoration: none;
+}
+
+.doctorName:hover {
+  color: var(--sky-700);
+}
+
+.roofFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--ink);
+}
+
+.roofFoot p {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.roofFoot svg {
+  flex: none;
+  margin-top: 0.2rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Precision ───────── */
+.precision {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.precisionGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+.precisionMedia {
+  width: min(100%, 26rem);
+  justify-self: center;
+}
+
+.precisionCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+  color: var(--slate-600);
+}
+
+.quoteIntro {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.bigQuote {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.bigQuote::before {
+  content: "\201C";
+  position: absolute;
+  right: 1.25rem;
+  top: -0.5rem;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--sky-200);
+}
+
+.bigQuote blockquote {
+  margin: 0;
+}
+
+.bigQuote blockquote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.1875rem, 1.05rem + 0.5vw, 1.4375rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--navy-800);
+}
+
+.bigQuote figcaption,
+.quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--slate-600);
+}
+
+.bigQuote strong,
+.quote strong {
+  color: var(--navy-800);
+}
+
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* ───────── Comfort band ───────── */
+.comfort {
+  padding-block: var(--space-section) 0;
+  background: var(--white);
+}
+
+.comfortBand {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(120deg, var(--mouth-edge) 0%, var(--mouth-mid) 80%);
+}
+
+.comfortIcon {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(4.5rem, 8vw, 6rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--white);
+  color: #c4566a;
+  box-shadow: 0 16px 30px -18px rgb(150 60 70 / 0.55);
+}
+
+.comfortCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.comfortCopy h2 {
+  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.5rem);
+}
+
+/* ───────── Prices ───────── */
+.prices {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.pricesHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.pricesHead > div:first-child {
+  display: grid;
+  gap: 1rem;
+}
+
+.pricesHead .lead {
+  color: var(--slate-600);
+}
+
+.priceCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.priceCard {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  color: var(--slate-600);
+  transition: border-color var(--dur-ui) ease, translate 0.35s var(--ease-out);
+}
+
+.priceCard:hover {
+  border-color: var(--navy-800);
+  translate: 0 -4px;
+}
+
+.priceCard strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  color: var(--navy-800);
+}
+
+.priceIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Week strip ───────── */
+.week {
+  padding-block: var(--space-section);
+  background: var(--sky-50);
+  border-block: 1px solid var(--sky-200);
+}
+
+.weekGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.weekCopy {
+  display: grid;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.stripDay {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 1rem 0.25rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.stripName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.stripMark {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--sky-700);
+}
+
+.stripNote {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--slate-500);
+}
+
+.stripLate .stripMark {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+.stripSat {
+  background: var(--navy-800);
+}
+
+.stripSat .stripName,
+.stripSat .stripNote {
+  color: var(--white);
+}
+
+.stripSat .stripMark {
+  background: var(--sky-300);
+  color: var(--navy-950);
+}
+
+.stripOff {
+  background: var(--pearl-100);
+  box-shadow: none;
+}
+
+.stripOff .stripMark {
+  background: var(--pearl-200);
+  color: var(--slate-500);
+}
+
+/* ───────── Patient quotes ───────── */
+.quotes {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.quotesHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.quoteRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.quote {
+  display: grid;
+  align-content: space-between;
+  gap: 1.25rem;
+  margin: 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(150deg, var(--sky-100), var(--sky-50));
+}
+
+.quote blockquote {
+  margin: 0;
+}
+
+.quote blockquote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy-800);
+}
+
+.quoteWide {
+  background: linear-gradient(150deg, var(--pearl-100), var(--pearl-50));
+}
+
+@media (max-width: 991px) {
+  .precisionGrid,
+  .weekGrid,
+  .quoteRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .priceCards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .doctors {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .roof {
+    border-radius: 20rem 20rem var(--radius-l) var(--radius-l);
+  }
+
+  .comfortBand {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .strip {
+    gap: 0.3rem;
+  }
+
+  .stripDay {
+    padding-inline: 0;
+  }
+
+  .stripNote {
+    writing-mode: vertical-rl;
+    rotate: 180deg;
+  }
+}
+
+@media (max-width: 480px) {
+  .arch {
+    min-height: 10rem;
+    padding: 1.75rem 0.6rem 1.1rem;
+  }
+
+  .archTitle {
+    font-size: 0.9375rem;
+  }
+
+  .arch:nth-child(even) {
+    translate: 0 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch {
+    animation: none;
+  }
+}

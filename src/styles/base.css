@@ -264,3 +264,23 @@
 .motion [data-reveal] {
   opacity: 0;
 }
+
+/* Printing (Home Care Instructions prints as a handout): show every revealed block, and
+   drop the site chrome, section menus and closing call to action */
+@media print {
+  [data-reveal],
+  .motion [data-reveal] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  body:has([data-print-handout]) > header,
+  body:has([data-print-handout]) > footer,
+  body:has([data-print-handout]) [data-mobile-bar],
+  [data-print-handout] nav[aria-label="Care & Comfort pages"],
+  [data-print-handout] section:last-of-type {
+    display: none !important;
+  }
+}

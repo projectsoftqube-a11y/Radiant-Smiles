@@ -1,0 +1,275 @@
+/* ───────── Hero: the cycle card ───────── */
+.cycle {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: 1.6rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.cycleKicker {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.stages {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.25rem 0.9rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+}
+
+.stageIcon {
+  grid-row: span 2;
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.stageText {
+  display: grid;
+}
+
+.stageName {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.stageNote {
+  font-size: 0.875rem;
+  color: var(--slate-600);
+}
+
+/* Each stage's bar fills in turn, then the cycle repeats */
+.stageBar {
+  height: 4px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--sky-200);
+}
+
+.stageBar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+  transform-origin: left;
+  animation: fill 4.5s var(--ease-in-out) calc(0.8s + var(--i) * 1.5s) infinite;
+}
+
+@keyframes fill {
+  0% {
+    transform: scaleX(0);
+  }
+  30%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.cycleFoot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #17643a;
+}
+
+.cycleFoot svg {
+  padding: 0.15rem;
+  border-radius: 50%;
+  background: #22a35a;
+  color: var(--white);
+}
+
+/* ───────── Agencies ───────── */
+.how {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.howHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.howHead .lead {
+  color: var(--slate-600);
+}
+
+.agencies {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.agency {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  padding: clamp(2rem, 4vw, 3rem) 1.5rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+  border: 1px solid var(--sky-200);
+  text-align: center;
+}
+
+.agency:nth-child(2) {
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  border-color: var(--navy-800);
+}
+
+.agency:nth-child(2) .agencyShort {
+  color: var(--white);
+}
+
+.agency:nth-child(2) .agencyName {
+  color: var(--slate-on-navy);
+}
+
+.agencyShort {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 2.4rem + 2.6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--navy-800);
+}
+
+.agencyName {
+  max-width: 22ch;
+  color: var(--slate-600);
+}
+
+.howAfter {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--navy-800);
+}
+
+/* ───────── The sequence ───────── */
+.steps {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.stepsInner {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  max-width: 56rem;
+}
+
+/* The thread joining the three steps */
+.stepsInner::before {
+  content: "";
+  position: absolute;
+  left: calc(2.25rem - 1px);
+  top: 2.5rem;
+  bottom: 5rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  scroll-margin-top: var(--header-h);
+}
+
+.stepIcon {
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: 0 0 0 8px var(--pearl-50);
+}
+
+.stepCopy {
+  display: grid;
+  gap: 0.75rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.stepCopy h2 {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+}
+
+.stepsFoot {
+  padding-left: 6rem;
+}
+
+@media (max-width: 767px) {
+  .agencies {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .step {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+
+  .stepsInner::before {
+    display: none;
+  }
+
+  .stepIcon {
+    width: 3.5rem;
+    height: 3.5rem;
+    box-shadow: none;
+  }
+
+  .stepsFoot {
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stageBar span {
+    animation: none;
+  }
+}

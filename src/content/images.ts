@@ -5,6 +5,7 @@ import whiteningAfterImg from "@/assets/images/gallery-whitening-after.jpg";
 import whiteningBeforeImg from "@/assets/images/gallery-whitening-before.jpg";
 import familyPillImg from "@/assets/images/home-family-pill-patient.jpg";
 import heroImg from "@/assets/images/home-hero-patient-mirror.jpg";
+import npHeroImg from "@/assets/images/new-patients-hero-welcome.jpg";
 import cosmeticImg from "@/assets/images/home-services-cosmetic-smile.jpg";
 import denturesImg from "@/assets/images/home-services-dentures-smile.jpg";
 import gumImg from "@/assets/images/home-services-gum-care.jpg";
@@ -39,7 +40,7 @@ export type SiteImage = {
   /** CSS object-position for art-directed crops */
   position?: string;
   source: {
-    provider: "pexels" | "practice";
+    provider: "pexels" | "practice" | "freepik";
     id?: string;
     url?: string;
     author?: string;
@@ -64,6 +65,21 @@ export const images = {
     brief: "Hero: happy patient in the chair",
     position: "62% 40%",
     source: pexels("6627574", "https://www.pexels.com/photo/smiling-woman-in-dentist-chair-looking-in-mirror-6627574/", "Karola G"),
+  },
+  npHero: {
+    src: npHeroImg,
+    alt: "Smiling patient in a dental chair while a dentist shows a model of teeth",
+    brief: "New Patients hero: welcoming first visit",
+    // Tall arch: keep the patient's face and the dentist in the window
+    position: "40% 78%",
+    source: {
+      provider: "freepik",
+      id: "2887088",
+      url: "https://www.freepik.com/free-photo/happy-female-sitting-dental-chair-front-dentist-holding-teeth-model_2887088.htm",
+      author: "Freepik",
+      licence: "Freepik / Magnific stock (free licence via the practice's Premium account; 40 credits), user-approved 8 Oct 2026. Stock: not the practice's own office or team",
+      downloaded: "2026-10-08",
+    },
   },
   homeFamily: {
     src: familyImg,

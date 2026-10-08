@@ -259,3 +259,70 @@
     width: 100%;
   }
 }
+
+.req {
+  font-weight: 500;
+  color: var(--slate-500);
+}
+
+/* Native select with a custom chevron */
+.select {
+  position: relative;
+  display: block;
+}
+
+.select::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--navy-800);
+  border-bottom: 2px solid var(--navy-800);
+  translate: 0 -70%;
+  rotate: 45deg;
+  pointer-events: none;
+}
+
+.select select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.8rem 2.5rem 0.8rem 0.95rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font: inherit;
+  color: var(--ink);
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease;
+}
+
+.select select:focus {
+  outline: none;
+  border-color: var(--sky-600);
+  box-shadow: 0 0 0 3px rgb(109 189 232 / 0.3);
+}
+
+.select select[aria-invalid="true"] {
+  border-color: #c62828;
+}
+
+/* "Please don't include medical details" (scheduling form) */
+.privacyNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-50);
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.privacyNote svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--sky-700);
+}

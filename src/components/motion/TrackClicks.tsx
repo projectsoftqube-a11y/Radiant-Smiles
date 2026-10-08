@@ -26,6 +26,22 @@ export function TrackClicks() {
         event.stopPropagation();
       }
 
+      // Handoff events on every page: click_call for any tel: link, click_request_appointment
+      // for any link to the scheduling page or its form
+      const anchor = (event.target as Element | null)?.closest<HTMLAnchorElement>("a[href]");
+      if (anchor) {
+        const href = anchor.getAttribute("href") ?? "";
+        const generic = href.startsWith("tel:")
+          ? "click_call"
+          : href.includes("/patient-information/scheduling/") || href === "#appointment-form"
+            ? "click_request_appointment"
+            : null;
+        if (generic) {
+          window.dataLayer = window.dataLayer ?? [];
+          window.dataLayer.push({ event: generic, link_url: anchor.href, page_path: window.location.pathname });
+        }
+      }
+
       const target = (event.target as Element | null)?.closest<HTMLElement>("[data-track]");
       const names = target?.dataset.track;
       if (!target || !names) return;

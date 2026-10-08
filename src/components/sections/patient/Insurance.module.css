@@ -1,0 +1,458 @@
+/* ───────── Hero: the coverage card ───────── */
+.coverage {
+  display: grid;
+  gap: 1.25rem;
+  width: min(100%, 28rem);
+  margin-inline: auto;
+  padding: 1.6rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.coverageTop {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background:
+    radial-gradient(80% 100% at 100% 0%, rgb(169 218 243 / 0.28), transparent 70%),
+    linear-gradient(140deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+}
+
+.coverageTop > span:last-child {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.coverageCount {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.coverageTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+.coverageSub {
+  font-size: 0.875rem;
+  color: var(--sky-300);
+}
+
+.sample {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.sample li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy-800);
+  animation: plan-in 0.7s var(--ease-out) both;
+}
+
+.sample svg {
+  flex: none;
+  padding: 0.15rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: #22a35a;
+  color: var(--white);
+}
+
+@keyframes plan-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.coverageFoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.coverageFoot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-50);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sky-700);
+}
+
+/* ───────── Plan list ───────── */
+.plans {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.plansHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 1.25rem clamp(2rem, 5vw, 6rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.plansHead > div {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.plansHead .lead {
+  color: var(--slate-600);
+}
+
+.planList {
+  columns: 3;
+  column-gap: clamp(1rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, var(--sky-50), var(--white) 40%);
+  list-style: none;
+}
+
+.planList li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.25rem;
+  border-bottom: 1px dashed var(--line);
+  break-inside: avoid;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.planTick {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--sky-700);
+}
+
+.plansAfter {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  max-width: 60rem;
+  margin-top: 1.5rem;
+  color: var(--slate-600);
+}
+
+.plansAfter svg {
+  flex: none;
+  margin-top: 0.25rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Benefits: plan year ───────── */
+.benefits {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+.benefitsCopy {
+  display: grid;
+  gap: 1.15rem;
+  color: var(--slate-600);
+}
+
+.year {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.yearLabel {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.months {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.3rem;
+  align-items: end;
+}
+
+.month {
+  display: grid;
+  gap: 0.4rem;
+  justify-items: center;
+}
+
+.monthFill {
+  width: 100%;
+  height: 4.5rem;
+  border-radius: var(--radius-xs);
+  background: linear-gradient(180deg, var(--sky-300), var(--sky-500));
+  transform-origin: bottom center;
+}
+
+.monthLate .monthFill {
+  background: linear-gradient(180deg, var(--navy-700), var(--navy-900));
+}
+
+.monthName {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--slate-500);
+}
+
+.yearFoot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.yearFoot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ───────── Membership table ───────── */
+.membership {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.membershipGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+.membershipCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+}
+
+.membershipCopy .lead {
+  color: var(--slate-600);
+}
+
+.membershipAfter {
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--sky-500);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: var(--sky-50);
+  color: var(--ink);
+}
+
+.priceCard {
+  overflow: hidden;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.priceTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.priceTable thead th {
+  padding: 1rem 1.5rem;
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--sky-300);
+}
+
+.priceTable thead th:last-child,
+.priceTable td:last-child {
+  text-align: right;
+}
+
+.priceTable td {
+  padding: 1.1rem 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.priceTable td:last-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--navy-800);
+}
+
+.rowMain td {
+  background: var(--sky-50);
+  font-weight: 600;
+}
+
+.rowMain td:last-child {
+  font-size: 1.25rem;
+}
+
+/* ───────── Payment + financing ───────── */
+.pay {
+  padding-bottom: var(--space-section);
+  background: var(--white);
+}
+
+.payGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.payCard,
+.financeCard {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 1rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: var(--radius-l);
+}
+
+.payCard {
+  border: 1px solid var(--pearl-200);
+  background: var(--pearl-50);
+  color: var(--slate-600);
+}
+
+.payCard h2,
+.financeCard h2 {
+  font-size: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+}
+
+.methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.methods li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  border: 1px solid var(--line);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.methods svg {
+  color: var(--sky-600);
+}
+
+.financeCard {
+  background:
+    radial-gradient(90% 70% at 100% 0%, rgb(169 218 243 / 0.25), transparent 70%),
+    linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.financeCard h2 {
+  color: var(--white);
+}
+
+.financeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.1);
+  color: var(--sky-300);
+}
+
+.lightLink {
+  color: var(--sky-300);
+}
+
+.lightLink:hover {
+  color: var(--white);
+}
+
+@media (max-width: 991px) {
+  .plansHead,
+  .benefitsGrid,
+  .membershipGrid,
+  .payGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .planList {
+    columns: 2;
+  }
+}
+
+@media (max-width: 575px) {
+  .planList {
+    columns: 1;
+  }
+
+  .priceTable td,
+  .priceTable thead th {
+    padding-inline: 1rem;
+  }
+
+  .sample {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sample li {
+    animation: none;
+  }
+}

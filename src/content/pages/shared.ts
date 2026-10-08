@@ -8,15 +8,27 @@ export const appointmentLink: LinkItem = { label: "Request an Appointment", href
 /** Page head fields, verbatim from each content file's "SEO fields". */
 export type PageMeta = { path: string; title: string; description: string; noindex?: boolean };
 
+/**
+ * A call-to-action button: the standard call / appointment pair, or a page's own label
+ * and link (verbatim from its content file). The first button in a row is the primary.
+ */
+export type CtaButton = "call" | "appointment" | { label: string; href: string; external?: boolean; track?: string };
+
 /** Hero: the H1, its intro paragraph and which buttons it shows. */
 export type PageHeroContent = {
   h1: string;
   intro: string;
   /** Hero buttons, in content-file order */
-  buttons: ("call" | "appointment")[];
+  buttons: CtaButton[];
 };
 
-/** Closing call to action (its text may carry inline [label](/path) links). */
-export type ClosingCta = { title: string; text: string };
+/**
+ * Closing call to action (its text may carry inline [label](/path) links). Buttons default
+ * to call, then appointment.
+ */
+export type ClosingCta = { title: string; text: string; buttons?: CtaButton[] };
+
+/** The NAP line that closes every Patient Information page (phone as a tel: link) */
+export const napCtaLine = `${practice.name}, ${practice.address.street}, ${practice.address.city}, ${practice.address.region} ${practice.address.postalCode} · [${practice.phone.display}](${practice.phone.href})`;
 
 export type FaqBlock = { title: string; items: { question: string; answer: string }[] };

@@ -1,0 +1,399 @@
+/* ───────── Hero: the recovery clock ───────── */
+.clock {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: 1.6rem 1.6rem 1.75rem;
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(80% 60% at 100% 0%, rgb(169 218 243 / 0.28), transparent 70%),
+    linear-gradient(150deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.clockKicker {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-300);
+}
+
+.clockList {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0 0 0 1.75rem;
+  list-style: none;
+}
+
+.clockList::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sky-300), rgb(169 218 243 / 0.2));
+}
+
+.clockList li {
+  position: relative;
+  display: grid;
+  gap: 0.15rem;
+  animation: mark-in 0.7s var(--ease-out) calc(0.8s + var(--i) * 0.15s) both;
+}
+
+/* A tooth-crown marker on the line */
+.clockList li::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 0.3rem;
+  width: 0.9rem;
+  height: 1.05rem;
+  border-radius: 999px 999px 3px 3px;
+  background: var(--sky-500);
+  box-shadow: 0 0 0 3px var(--navy-900);
+}
+
+@keyframes mark-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+}
+
+.clockWhen {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+}
+
+.clockWhat {
+  font-size: 0.9375rem;
+  color: var(--slate-on-navy);
+}
+
+/* ───────── Jump list ───────── */
+.jumpNav {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.jumpTitle {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.jumpLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy-800);
+  text-decoration: none;
+  transition: background-color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+}
+
+.jumpLink svg {
+  color: var(--sky-600);
+}
+
+.jumpLink:hover {
+  border-color: var(--navy-800);
+  background: var(--sky-50);
+}
+
+/* ───────── Extraction steps ───────── */
+.extraction {
+  padding-block: var(--space-section);
+  background: var(--white);
+  scroll-margin-top: var(--header-h);
+}
+
+.extractionHead {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  max-width: 50rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.extractionHead .lead {
+  color: var(--slate-600);
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 4.75rem;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+}
+
+.tstep {
+  position: relative;
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* The time on a rounded tile, sitting on the line */
+.when {
+  z-index: 1;
+  justify-self: center;
+  display: inline-grid;
+  place-items: center;
+  min-width: 7.5rem;
+  padding: 0.75rem 0.8rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums;
+  color: var(--white);
+  box-shadow: 0 0 0 6px var(--white);
+}
+
+.tcard {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.tcard strong {
+  color: var(--navy-800);
+}
+
+.extractionFoot {
+  margin-top: 1.5rem;
+  padding-left: 11rem;
+}
+
+/* ───────── Aftercare cards ───────── */
+.cards {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: start;
+}
+
+.card {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.card h2 {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+}
+
+.cardIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.cardList {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.cardList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem;
+}
+
+.cardList svg {
+  margin-top: 0.3rem;
+  color: var(--sky-600);
+}
+
+.cardList strong {
+  color: var(--navy-800);
+}
+
+/* ───────── When to call ───────── */
+.call {
+  padding-top: var(--space-section);
+  background: var(--white);
+  scroll-margin-top: var(--header-h);
+}
+
+.alert {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  border: 1px solid #f2c4c0;
+  border-left: 6px solid #c62828;
+  border-radius: var(--radius-l);
+  background: #fff5f4;
+  color: #5d1a15;
+}
+
+.alert h2 {
+  font-size: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+  color: #8f1d17;
+}
+
+.alertIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: #c62828;
+  color: var(--white);
+}
+
+.alertCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.alertCopy a[href^="tel:"] {
+  font-weight: 700;
+  color: #8f1d17;
+}
+
+.signs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.signs li {
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  border: 1px solid #f2c4c0;
+  font-weight: 700;
+  color: #8f1d17;
+}
+
+.alertLink {
+  color: #8f1d17;
+}
+
+.alertLink:hover {
+  color: #5d1a15;
+}
+
+.printNap {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .cardGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline::before {
+    display: none;
+  }
+
+  .tstep {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .when {
+    justify-self: start;
+    min-width: 0;
+    box-shadow: none;
+  }
+
+  .extractionFoot {
+    padding-left: 0;
+  }
+
+  .alert {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clockList li {
+    animation: none;
+  }
+}
+
+/* Prints as a clean handout: no header, nav or footer; the NAP line stays */
+@media print {
+  .printNap {
+    display: block;
+    margin-top: 1.5rem;
+    font-weight: 600;
+  }
+
+  .jumpNav {
+    display: none;
+  }
+
+  .tcard,
+  .card,
+  .alert {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}

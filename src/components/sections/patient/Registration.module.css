@@ -1,0 +1,325 @@
+/* ───────── Hero: the clipboard ───────── */
+.clipboard {
+  position: relative;
+  width: min(100%, 24rem);
+  margin-inline: auto;
+  padding: 1.75rem 1.25rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  box-shadow: var(--shadow-lift);
+  rotate: 2deg;
+}
+
+.clip {
+  position: absolute;
+  left: 50%;
+  top: -0.9rem;
+  width: 7rem;
+  height: 2rem;
+  translate: -50% 0;
+  border-radius: var(--radius-s) var(--radius-s) var(--radius-m) var(--radius-m);
+  background: linear-gradient(180deg, var(--sky-300), var(--sky-500));
+  box-shadow: 0 6px 12px -6px rgb(0 0 0 / 0.4);
+}
+
+.paper {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1.5rem 1.4rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+}
+
+.paperTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.paperSub {
+  font-size: 0.8125rem;
+  color: var(--slate-500);
+}
+
+.lines {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.lines li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+/* Each box ticks in turn */
+.box {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid var(--sky-300);
+  border-radius: 6px;
+  color: var(--white);
+  animation: tick 0.5s var(--ease-out) calc(0.9s + var(--i) * 0.22s) both;
+}
+
+.box svg {
+  animation: tick-mark 0.5s var(--ease-out) calc(0.9s + var(--i) * 0.22s) both;
+}
+
+@keyframes tick {
+  from {
+    border-color: var(--line-strong);
+    background: transparent;
+  }
+  to {
+    border-color: #22a35a;
+    background: #22a35a;
+  }
+}
+
+@keyframes tick-mark {
+  from {
+    opacity: 0;
+    scale: 0.4;
+  }
+}
+
+.line {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sign {
+  display: grid;
+  margin-top: 0.25rem;
+}
+
+.signature {
+  width: 9rem;
+  height: 2.25rem;
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: sign 1.4s var(--ease-in-out) 2.3s forwards;
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.signLine {
+  height: 1px;
+  background: var(--line-strong);
+}
+
+/* ───────── Getting your forms ───────── */
+.getting {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.gettingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+.gettingCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+}
+
+.gettingCopy .lead {
+  color: var(--slate-600);
+}
+
+.askCard {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--sky-50), var(--white));
+}
+
+.askIntro {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.askList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.askList li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  border: 1px solid var(--line);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--navy-800);
+}
+
+.askIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Detail cards ───────── */
+.details {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.detail {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+  padding-top: clamp(3rem, 5vw, 4rem);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  justify-items: center;
+  color: var(--slate-600);
+}
+
+.detail h2 {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+}
+
+.detailIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Privacy banner ───────── */
+.privacy {
+  padding-top: var(--space-section);
+  background: var(--white);
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgb(169 218 243 / 0.25), transparent 70%),
+    linear-gradient(140deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.banner h2 {
+  font-size: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+  color: var(--white);
+}
+
+.bannerIcon {
+  display: grid;
+  place-items: center;
+  width: clamp(4.5rem, 8vw, 6rem);
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px var(--radius-m) var(--radius-m);
+  background: rgb(255 255 255 / 0.1);
+  color: var(--sky-300);
+}
+
+.bannerCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.bannerCopy a[href^="tel:"] {
+  color: var(--white);
+}
+
+.lightLink {
+  color: var(--sky-300);
+}
+
+.lightLink:hover {
+  color: var(--white);
+}
+
+@media (max-width: 991px) {
+  .gettingGrid,
+  .detailGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail {
+    border-radius: 20rem 20rem var(--radius-l) var(--radius-l);
+  }
+}
+
+@media (max-width: 575px) {
+  .askList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .banner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .clipboard {
+    rotate: 0deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box,
+  .box svg {
+    animation: none;
+    border-color: #22a35a;
+    background: #22a35a;
+  }
+
+  .signature {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

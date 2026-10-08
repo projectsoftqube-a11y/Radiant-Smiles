@@ -9,8 +9,9 @@ This is the **second site built with the same process as Amazing Smiles By Desig
 
 ## Status
 
-- **Homepage approved by the user (8 Oct 2026).** Fresh Next.js 16.4 project in the repo root (no git yet; the user creates the repo after approving the homepage). Dev server: `npm run dev` on port 3300.
-- **All 9 Core pages built (8 Oct 2026):** home, About Us, Meet the Staff, both dentist bios, Before & After Gallery (noindex until a case is cleared), Patient Reviews, Special Offers and Contact Us. Waiting for the user's review; other folders (02 onward) haven't arrived.
+- **Homepage approved by the user (8 Oct 2026).** Fresh Next.js 16.4 project in the repo root, pushed to GitHub (see below). Dev server: `npm run dev` on port 3300.
+- **All 9 Core pages built (8 Oct 2026):** home, About Us, Meet the Staff, both dentist bios, Before & After Gallery (noindex until a case is cleared), Patient Reviews, Special Offers and Contact Us. Repo pushed.
+- **02 Patient Info built (8 Oct 2026):** all 12 pages (hub, New Patients, Scheduling, Insurance & Payment, CareCredit, Why Choose Us, Patient Registration, Care & Comfort, Advanced Technology, Infection Control, Home Care Instructions, Patient Education). Waiting for the user's review; folders 03 onward haven't arrived.
 - Received:
   - `docs/brand/logo.svg`: the **master logo**, a true vector copied from Downloads/`Logo 1.svg`. Use this, not `logo.webp`.
   - **SEO master files (2026-10-07):**
@@ -42,7 +43,8 @@ This is the **second site built with the same process as Amazing Smiles By Desig
 
 ## Decisions still open (ask the user before coding)
 
-- **Repo and staging.** The user sends the GitHub repo and Vercel links **after the homepage is complete**. Until then, build and review locally on port 3300.
+- **Repo:** https://github.com/projectsoftqube-a11y/Radiant-Smiles (branch `main`; first commit 8 Oct 2026, after the Core pages were done). Commit and push only when the user asks.
+- **Staging:** the Vercel link is still to come from the user.
 
 ## Radiant design system (set on the homepage, 7 Oct 2026)
 
@@ -109,6 +111,27 @@ These choices keep Radiant clearly different from Amazing Smiles. Reuse them on 
   - Motion: `html.motion`, set by an inline head script before paint, keeps `[data-reveal]` hidden until MotionController plays it. Items already on screen at load now animate in instead of being skipped; there's a 4s fallback, and reduced motion removes the class.
   - Long CTA labels use `longCta` sizing (14px on phones, 13px without the icon under 390px) so they stay on one line.
   - QA: `seocheck.mjs`; `minfont` and `revealseen` now take PAGE.
+- **Patient Info pages (8 Oct 2026):** content in `src/content/pages/patient/*.ts`; sections in `components/sections/patient/`.
+  - Hero buttons and closing CTAs take `CtaButton[]` (the standard call/appointment pair or a page's own label/link, the first one primary). `napCtaLine` is the NAP line closing every Patient Info page.
+  - `Rich` turns the practice phone into a tel: link (no wrapping). FAQ answers use `Rich`.
+  - TrackClicks adds `click_call` / `click_request_appointment` for any tel:/scheduling link on every page.
+  - The appointment form has two variants: `contact`, and `scheduling` (name and phone required, reason select, generate_lead). The same `id="appointment-form"`; the scheduling final CTA jumps to `#appointment-form`.
+  - Care & Comfort and its 3 children share a sticky `CareNav`. Home Care has the handoff anchors, an "On this page" jump list and a print handout (`data-print-handout`; print CSS in base.css).
+  - Patient Education's "Latest Guides" is hidden until `latestPosts` has posts.
+  - Registration embeds no form and no pixels.
+  - Each page's own visual:
+    - Hub: visit pass + bento.
+    - New Patients: welcome arch + fact chips, the first-visit path, the bring checklist, the $89 navy band.
+    - Scheduling: week planner (live), request desk + flow, hours tiles, red emergency card.
+    - Insurance: coverage card, 3-column plan list, plan-year bars, membership table.
+    - CareCredit: 6-month plan card, terms panel (amber), finance arches, apply timeline.
+    - Why: reason arches, both dentists under one big arch, comfort band, week strip.
+    - Registration: clipboard ticking + signature.
+    - Care: now-playing card with a sound wave, the navy gentle-tech band.
+    - Technology: 3D scan card (sweep), jump chips, alternating chapters.
+    - Infection: cycle card, OSHA/EPA/CDC tiles, joined steps.
+    - Home Care: recovery clock, timed extraction steps, aftercare cards, call-us alert.
+    - Education: fanned booklets, guide shelf.
 - **Type:** Raleway headings. **No 300 weight** (the user found it too thin): 400 is the lightest. The hero H1 is 500 with the key phrase in 700 via `RiseWords strong`. Section labels use the `.label` class with the full two-colour tooth mark (`/images/tooth-mark.svg`; `label-inverse` uses `tooth-mark-light.svg` on navy).
 - **No marquees or tickers** (Amazing Smiles has one).
 - **Text motion (user request, 8 Oct 2026: every text must animate):**

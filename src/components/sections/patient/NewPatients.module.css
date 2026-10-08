@@ -1,0 +1,462 @@
+/* ───────── Hero: welcome arch with fact chips ───────── */
+.welcome {
+  position: relative;
+  width: min(100%, 24rem);
+  margin-inline: auto;
+  padding-bottom: 1rem;
+}
+
+.welcomePhoto {
+  box-shadow: var(--shadow-lift);
+}
+
+.chips {
+  position: absolute;
+  left: -3.5rem;
+  right: -3rem;
+  bottom: -0.5rem;
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 19rem;
+  padding: 0.55rem 0.9rem 0.55rem 0.55rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-lift);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--navy-800);
+  animation: chip-in 0.8s var(--ease-out) both;
+}
+
+/* Alternate sides, like notes pinned around the photo */
+.chip:nth-child(even) {
+  justify-self: end;
+}
+
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.chipIcon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--sky-700);
+}
+
+/* ───────── First visit path ───────── */
+.expect {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.expectHead {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.expectHead .lead {
+  color: var(--slate-600);
+}
+
+.pathWrap {
+  position: relative;
+}
+
+/* Line through the step icons, filling on scroll */
+.path {
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 2.25rem;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--sky-100);
+}
+
+.path > span {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+}
+
+.steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1.1rem;
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.stepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 2px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: 0 0 0 8px var(--white), var(--shadow-soft);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.step:hover .stepIcon {
+  border-color: var(--navy-800);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.stepLead {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.expectAfter {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  max-width: 52rem;
+  margin: clamp(2.5rem, 4vw, 3.5rem) auto 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  border: 1px solid var(--sky-200);
+  color: var(--ink);
+}
+
+.expectAfter svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--sky-700);
+}
+
+/* ───────── What to bring ───────── */
+.bring {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.bringGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.bringCard {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.checklist {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.checklist li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--pearl-200);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--slate-600);
+  transition: border-color var(--dur-ui) ease, translate 0.35s var(--ease-out);
+}
+
+.checklist li:hover {
+  border-color: var(--sky-300);
+  translate: 4px 0;
+}
+
+.checklist strong {
+  color: var(--navy-800);
+}
+
+.checkIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.tick {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* Tell us about your health: a soft blush note */
+.health {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--mouth-edge) 0%, var(--mouth-mid) 80%);
+  color: var(--slate-600);
+}
+
+.healthIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--white);
+  color: #c4566a;
+  box-shadow: 0 10px 22px -14px rgb(150 60 70 / 0.5);
+}
+
+/* ───────── $89 band (the page's one navy band) ───────── */
+.special {
+  padding-block: var(--space-section);
+  background: radial-gradient(70% 90% at 15% 50%, var(--navy-700) 0%, var(--navy-900) 70%);
+  color: var(--slate-on-navy);
+}
+
+.specialGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+}
+
+/* The price on an arch (the tooth crown) */
+.priceTile {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.4rem;
+  width: min(100%, 19rem);
+  aspect-ratio: 4 / 5;
+  justify-self: center;
+  border-radius: var(--radius-arch);
+  background:
+    radial-gradient(70% 50% at 50% 25%, rgb(255 255 255 / 0.9), transparent 75%),
+    linear-gradient(180deg, var(--sky-100), var(--sky-300));
+  color: var(--navy-900);
+  box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.6);
+}
+
+.priceLabel {
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 3.5rem + 4vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.priceIncludes {
+  font-weight: 700;
+}
+
+.specialCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+}
+
+.specialCopy h2 {
+  color: var(--white);
+}
+
+.specialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+}
+
+.lightLink {
+  color: var(--sky-300);
+}
+
+.lightLink:hover {
+  color: var(--white);
+}
+
+/* ───────── Forms slip ───────── */
+.forms {
+  padding-top: var(--space-section);
+  background: var(--white);
+}
+
+.slip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  border: 1px dashed var(--sky-300);
+  border-radius: var(--radius-l);
+  background: linear-gradient(120deg, var(--sky-50), var(--white));
+}
+
+.slipIcon {
+  display: grid;
+  place-items: center;
+  width: clamp(4rem, 7vw, 5.5rem);
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px var(--radius-m) var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.slipCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.slipCopy h2 {
+  font-size: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+}
+
+.slipActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+
+@media (max-width: 1199px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .path {
+    display: none;
+  }
+
+  .chips {
+    left: -1.5rem;
+    right: -1.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .bringGrid,
+  .specialGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .health {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .chips {
+    position: static;
+    margin-top: -2.5rem;
+    padding-inline: 0.75rem;
+  }
+
+  .chip,
+  .chip:nth-child(even) {
+    justify-self: stretch;
+    max-width: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.5rem;
+  }
+
+  .step {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .stepIcon {
+    width: 3.5rem;
+    height: 3.5rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .slip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .checklist li {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 0.9rem 1rem;
+  }
+
+  .tick {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    animation: none;
+  }
+}

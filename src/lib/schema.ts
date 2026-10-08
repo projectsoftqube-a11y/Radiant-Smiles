@@ -212,7 +212,7 @@ export function innerPage({
   mainEntity,
   mentions,
 }: {
-  type: "AboutPage" | "ProfilePage" | "ContactPage" | "ImageGallery" | "WebPage";
+  type: "AboutPage" | "ProfilePage" | "ContactPage" | "ImageGallery" | "WebPage" | "CollectionPage" | "MedicalWebPage";
   path: string;
   name: string;
   description: string;
@@ -360,3 +360,30 @@ export const graph = (...nodes: (Json | Json[])[]): Json => ({
 
 /** Escapes "<" so the JSON can never close its <script> element. */
 export const serializeJsonLd = (data: Json) => JSON.stringify(data).replace(/</g, "\\u003c");
+
+/** ItemList of pages (hub and patient education CollectionPages), in page order */
+export function pageItemList(path: string, items: { name: string; path: string }[]): Json {
+  return {
+    "@type": "ItemList",
+    "@id": `${absoluteUrl(path)}#itemlist`,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: absoluteUrl(item.path),
+    })),
+  };
+}
+
+/** Insurance page: the in-office membership plan as its one Offer (prices from site.ts) */
+export function membershipOffer(path: string): Json {
+  return {
+    "@type": "Offer",
+    "@id": `${absoluteUrl(path)}#membership-plan`,
+    name: "In-office membership plan",
+    description: `Yearly membership: 2 cleanings, exams and X-rays. Each additional family member ${money(membershipPlan.additionalMember)} a year; additional cleanings or periodontal maintenance ${money(membershipPlan.extraCleaning)} each; emergency exam with X-ray ${money(membershipPlan.emergencyExam)} per visit; ${membershipPlan.treatmentDiscountPercent}% off all other dental treatment.`,
+    price: membershipPlan.yearly.toFixed(2),
+    priceCurrency: "USD",
+    offeredBy: { "@id": ids.dentist },
+  };
+}

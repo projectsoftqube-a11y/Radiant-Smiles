@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { Rich } from "@/components/ui/Rich";
 import { callLink, type FaqBlock } from "@/content/pages/shared";
 import styles from "./FaqAccordion.module.css";
 
@@ -33,7 +34,9 @@ export function FaqAccordion({ id, faqs, track }: { id: string; faqs: FaqBlock; 
                 <span className={styles.toggle} aria-hidden="true" />
               </summary>
               <div className={styles.answer}>
-                <p>{item.answer}</p>
+                <p>
+                  <Rich text={item.answer} />
+                </p>
               </div>
             </details>
           ))}

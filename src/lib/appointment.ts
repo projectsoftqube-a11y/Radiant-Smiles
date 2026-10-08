@@ -5,7 +5,7 @@ import { practice } from "@/content/site";
 import { validateAppointment, type AppointmentState } from "./appointment-validation";
 
 /**
- * Appointment request handler for the contact page form. A public endpoint, so every
+ * Appointment request handler for the contact and scheduling page forms. A public endpoint, so every
  * field is checked again here and nothing from the request is trusted.
  *
  * Delivery: the contact handoff asks for a HIPAA-appropriate form processor, still to be
@@ -35,7 +35,7 @@ export async function submitAppointment(_previous: AppointmentState, data: FormD
   // Honeypot: real visitors never see or fill this field
   if (String(data.get("company") ?? "").trim() !== "") return { status: "sent" };
 
-  const { errors, fields } = validateAppointment(data);
+  const { variant, errors, fields } = validateAppointment(data);
   if (Object.keys(errors).length) return { status: "invalid", errors };
 
   const requestHeaders = await headers();
@@ -54,7 +54,7 @@ export async function submitAppointment(_previous: AppointmentState, data: FormD
       },
       body: JSON.stringify({
         subject: `Appointment request: ${fields[0][1]}`,
-        source: "Website contact page",
+        source: variant === "scheduling" ? "Website scheduling page" : "Website contact page",
         fields: Object.fromEntries(fields),
       }),
       cache: "no-store",

@@ -1,0 +1,297 @@
+/* ───────── Hero: the visit pass ───────── */
+.pass {
+  position: relative;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  /* Notches on both sides where the pass tears, like a ticket stub */
+  mask: radial-gradient(circle at 0 6.6rem, transparent 0.75rem, #000 0.78rem) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 6.6rem, transparent 0.75rem, #000 0.78rem) right / 51% 100% no-repeat;
+}
+
+.passTop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 6.6rem;
+  padding: 0 1.75rem;
+  border-radius: var(--radius-l) var(--radius-l) 0 0;
+  background:
+    radial-gradient(80% 120% at 100% 0%, rgb(169 218 243 / 0.3), transparent 70%),
+    linear-gradient(140deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+}
+
+.passTop > span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.passMark {
+  width: 2.4rem;
+  height: auto;
+  --mark-outline: var(--sky-300);
+  --mark-monogram: var(--white);
+}
+
+.passKicker {
+  font-size: var(--step-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-300);
+}
+
+.passName {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+.passFacts {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1.25rem 1.5rem 1.6rem;
+  border-top: 2px dashed var(--sky-200);
+}
+
+.passFacts li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 0.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--navy-800);
+  animation: fact-in 0.8s var(--ease-out) both;
+}
+
+.passFacts li + li {
+  border-top: 1px solid var(--line);
+}
+
+@keyframes fact-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+.passIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── The bento of section cards ───────── */
+.cards {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    "new new sched"
+    "ins forms comfort"
+    "after after after";
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease, border-color var(--dur-ui) ease;
+}
+
+.card:hover {
+  translate: 0 -4px;
+  border-color: var(--sky-300);
+  box-shadow: var(--shadow-lift);
+}
+
+.cardTitle {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+}
+
+.cardIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* New patients: the wide sky card */
+.card-new-patients {
+  grid-area: new;
+  border-color: var(--sky-200);
+  background: linear-gradient(130deg, var(--sky-100) 0%, var(--sky-50) 55%, var(--white) 100%);
+}
+
+.card-new-patients .cardTitle {
+  max-width: 22ch;
+  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.5rem);
+}
+
+/* Scheduling: the navy card */
+.card-scheduling {
+  grid-area: sched;
+  border: 0;
+  background:
+    radial-gradient(90% 70% at 100% 0%, rgb(169 218 243 / 0.25), transparent 70%),
+    linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.card-scheduling .cardTitle {
+  color: var(--white);
+}
+
+.card-scheduling .cardIcon {
+  background: rgb(255 255 255 / 0.1);
+  color: var(--sky-300);
+}
+
+.card-scheduling :global(.text-link) {
+  color: var(--sky-300);
+}
+
+.card-scheduling :global(.text-link):hover {
+  color: var(--white);
+}
+
+.card-insurance {
+  grid-area: ins;
+}
+
+.card-forms {
+  grid-area: forms;
+  background: var(--pearl-50);
+  border-color: var(--pearl-200);
+}
+
+.card-comfort {
+  grid-area: comfort;
+}
+
+/* After treatment: the wide blush card */
+.card-after {
+  grid-area: after;
+  border-color: transparent;
+  background: linear-gradient(120deg, var(--mouth-edge) 0%, var(--mouth-mid) 75%);
+}
+
+.bullets {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.bullets li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem;
+}
+
+.bullets svg {
+  margin-top: 0.3rem;
+  color: var(--sky-600);
+}
+
+.bullets strong {
+  color: var(--navy-800);
+}
+
+.links {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+/* Lists of pages: full-width rows with an arrow */
+.linkList {
+  width: 100%;
+  gap: 0;
+}
+
+.listLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgb(15 38 69 / 0.1);
+  font-weight: 600;
+  color: var(--navy-800);
+  text-decoration: none;
+  transition: color var(--dur-ui) ease, padding var(--dur-ui) var(--ease-out);
+}
+
+.listLink svg {
+  flex: none;
+  color: var(--sky-600);
+}
+
+.listLink:hover {
+  padding-left: 0.35rem;
+  color: var(--sky-700);
+}
+
+@media (max-width: 1199px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "new new"
+      "sched ins"
+      "forms comfort"
+      "after after";
+  }
+}
+
+@media (max-width: 767px) {
+  .bento {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "new"
+      "sched"
+      "ins"
+      "forms"
+      "comfort"
+      "after";
+  }
+}
+
+@media (max-width: 389px) {
+  .passTop {
+    padding: 0 1.25rem;
+  }
+
+  .passFacts {
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .passFacts li {
+    animation: none;
+  }
+}

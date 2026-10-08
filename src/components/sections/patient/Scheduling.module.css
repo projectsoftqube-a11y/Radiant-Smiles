@@ -1,0 +1,523 @@
+/* ───────── Hero: the week planner ───────── */
+.planner {
+  display: grid;
+  gap: 1.25rem;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+  padding: 1.5rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.plannerHead {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.plannerHead > span:last-child {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.plannerIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.plannerTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.plannerStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.dot {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--sky-500);
+}
+
+.isOpen {
+  color: #17643a;
+}
+
+.isOpen .dot {
+  background: #22a35a;
+}
+
+/* Seven day columns, each a bar from opening to closing time */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.day {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  justify-items: center;
+  gap: 0.35rem;
+  min-height: 11rem;
+  padding: 0.6rem 0.2rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  animation: day-up 0.7s var(--ease-out) both;
+}
+
+@keyframes day-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.dayName {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.dayTime {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--slate-600);
+}
+
+.dayBar {
+  width: 0.5rem;
+  min-height: 3rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, var(--sky-300), var(--sky-500));
+}
+
+.dayOff {
+  align-self: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+  color: var(--slate-500);
+}
+
+.dayClosed {
+  background: repeating-linear-gradient(135deg, var(--pearl-100) 0 6px, var(--pearl-50) 6px 12px);
+}
+
+.daySat {
+  background: var(--navy-800);
+}
+
+.daySat .dayName,
+.daySat .dayTime {
+  color: var(--white);
+}
+
+.daySat .dayBar {
+  background: var(--sky-300);
+}
+
+.dayToday {
+  outline: 2px solid var(--sky-500);
+  outline-offset: 2px;
+}
+
+.plannerFoot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-s);
+  background: #fdecec;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #8f1d17;
+}
+
+.plannerFoot svg {
+  flex: none;
+}
+
+/* ───────── Request desk ───────── */
+.request {
+  padding-block: var(--space-section);
+  background: var(--white);
+  scroll-margin-top: var(--header-h);
+}
+
+.requestGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.requestCopy {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.requestCopy .lead {
+  color: var(--slate-600);
+}
+
+/* Send → contact → confirm, joined by a line */
+.flow {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  border-left: 2px dashed var(--sky-300);
+}
+
+.flow li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.flowIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+  box-shadow: 0 0 0 5px var(--white);
+}
+
+.formWrap {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+/* ───────── Hours as tiles (a real table) ───────── */
+.hours {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+  border-block: 1px solid var(--pearl-200);
+}
+
+.hoursHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 1.25rem clamp(2rem, 5vw, 6rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.hoursHead > div {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.hoursNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: var(--step-lead);
+  color: var(--slate-600);
+}
+
+.hoursNote svg {
+  flex: none;
+  margin-top: 0.25rem;
+  color: var(--sky-700);
+}
+
+.hoursTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.hoursTable tbody {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.hoursTable tr {
+  display: grid;
+  align-content: space-between;
+  gap: 1.5rem;
+  min-height: 9rem;
+  padding: 1.1rem 1rem;
+  border: 1px solid var(--pearl-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  transition: translate 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+
+.hoursTable tr:hover {
+  translate: 0 -4px;
+  box-shadow: var(--shadow-soft);
+}
+
+.hoursTable th,
+.hoursTable td {
+  display: block;
+  padding: 0;
+  text-align: left;
+}
+
+.hoursTable th {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.hoursTable td {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  font-variant-numeric: lining-nums;
+  color: var(--slate-600);
+}
+
+.tileLate {
+  border-color: var(--sky-300) !important;
+  background: linear-gradient(180deg, var(--white), var(--sky-50)) !important;
+}
+
+.tileSat {
+  border-color: var(--navy-800) !important;
+  background: var(--navy-800) !important;
+}
+
+.tileSat th,
+.tileSat td {
+  color: var(--white) !important;
+}
+
+.tileClosed {
+  background: repeating-linear-gradient(135deg, var(--pearl-100) 0 8px, var(--pearl-50) 8px 16px) !important;
+}
+
+.tileToday {
+  outline: 3px solid var(--sky-500);
+  outline-offset: 2px;
+}
+
+.todayTag {
+  display: block;
+  width: fit-content;
+  margin-top: 0.4rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--sky-500);
+  font-family: var(--font-sans);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-950);
+}
+
+/* ───────── Emergency card ───────── */
+.emergency {
+  padding-block: var(--space-section) 0;
+  background: var(--white);
+}
+
+.alert {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgb(255 255 255 / 0.12), transparent 70%),
+    linear-gradient(135deg, #d42f2f 0%, #b01e1e 60%, #8f1717 100%);
+  color: rgb(255 255 255 / 0.9);
+  box-shadow: 0 28px 50px -30px rgb(143 23 23 / 0.75);
+}
+
+.alert h2 {
+  color: var(--white);
+  font-size: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
+}
+
+.alertIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: #c62828;
+}
+
+.alertCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.alertLink {
+  color: var(--white);
+}
+
+.alertLink:hover {
+  color: var(--white);
+  text-decoration-color: var(--white);
+}
+
+/* ───────── Before your appointment ───────── */
+.before {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.beforeHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.note {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border-top: 4px solid var(--sky-500);
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+.note strong {
+  color: var(--navy-800);
+}
+
+.noteIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 1199px) {
+  .hoursTable tbody {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .requestGrid,
+  .hoursHead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .requestCopy {
+    position: static;
+  }
+
+  .notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .hoursTable tbody {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .hoursTable tr {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    min-height: 0;
+    padding: 0.9rem 1.1rem;
+  }
+
+  .hoursTable td {
+    text-align: right;
+  }
+
+  .alert {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .day {
+    min-height: 9.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .planner {
+    padding: 1.1rem;
+  }
+
+  .days {
+    gap: 0.25rem;
+  }
+
+  .day {
+    padding-inline: 0;
+  }
+
+  .dayTime {
+    font-size: 0.8125rem;
+    writing-mode: vertical-rl;
+    rotate: 180deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day {
+    animation: none;
+  }
+}

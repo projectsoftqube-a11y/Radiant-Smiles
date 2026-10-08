@@ -1,8 +1,8 @@
 import { ToothMark } from "@/components/ui/Brand";
-import { Button } from "@/components/ui/Button";
 import { Rays } from "@/components/ui/Rays";
 import { Rich } from "@/components/ui/Rich";
-import { appointmentLink, callLink, type ClosingCta as ClosingCtaContent } from "@/content/pages/shared";
+import type { ClosingCta as ClosingCtaContent } from "@/content/pages/shared";
+import { CtaButtons } from "./CtaButtons";
 import styles from "./ClosingCta.module.css";
 
 /**
@@ -21,13 +21,8 @@ export function ClosingCta({ id, content, track }: { id: string; content: Closin
             <p className="lead" data-reveal>
               <Rich text={content.text} />
             </p>
-            <div className={styles.ctas} data-reveal>
-              <Button href={callLink.href} icon="phone" track={`call_click_${track}`}>
-                {callLink.label}
-              </Button>
-              <Button href={appointmentLink.href} variant="outline" track={`appointment_click_${track}`}>
-                {appointmentLink.label}
-              </Button>
+            <div data-reveal>
+              <CtaButtons buttons={content.buttons ?? ["call", "appointment"]} track={track} className={styles.ctas} />
             </div>
           </div>
           <div className={styles.art} aria-hidden="true">

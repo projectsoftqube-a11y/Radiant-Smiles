@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
-import { Button } from "@/components/ui/Button";
 import { Rich } from "@/components/ui/Rich";
 import { RiseWords } from "@/components/ui/RiseWords";
-import { appointmentLink, callLink, type PageHeroContent } from "@/content/pages/shared";
+import type { PageHeroContent } from "@/content/pages/shared";
+import { CtaButtons } from "./CtaButtons";
 import type { Crumb } from "@/lib/schema";
 import styles from "./PageHero.module.css";
 
@@ -46,24 +46,7 @@ export function PageHero({ id, label, content, crumbs, strong = [], track, aside
           <p className={`lead ${styles.intro}`}>
             <Rich text={content.intro} />
           </p>
-          <div className={styles.ctas}>
-            {content.buttons.map((button) =>
-              button === "call" ? (
-                <Button key={button} href={callLink.href} icon="phone" track={`call_click_${track}_hero`}>
-                  {callLink.label}
-                </Button>
-              ) : (
-                <Button
-                  key={button}
-                  href={appointmentLink.href}
-                  variant={content.buttons.length > 1 ? "outline" : "primary"}
-                  track={`appointment_click_${track}_hero`}
-                >
-                  {appointmentLink.label}
-                </Button>
-              ),
-            )}
-          </div>
+          <CtaButtons buttons={content.buttons} track={`${track}_hero`} className={styles.ctas} />
           {children ? <div className={styles.extra}>{children}</div> : null}
         </div>
         {aside ? <div className={styles.aside}>{aside}</div> : null}
