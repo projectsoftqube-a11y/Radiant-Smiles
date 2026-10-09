@@ -6,7 +6,7 @@ const sels = (process.env.SEL || "").split(",").filter(Boolean);
 const b = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true, args: ["--hide-scrollbars"] });
 for (const w of widths) {
   const p = await b.newPage(); await p.setViewport({ width: w, height: 900 });
-  await p.goto("http://localhost:3300/", { waitUntil: "networkidle2" });
+  await p.goto("http://localhost:3300" + (process.env.PAGE || "/"), { waitUntil: "networkidle2" });
   for (const sel of sels) {
     const el = await p.$(sel); if (!el) { console.log("missing", sel); continue; }
     // scroll through so the reveals play

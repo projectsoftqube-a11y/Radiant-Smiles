@@ -21,6 +21,8 @@ type PageHeroProps = {
   track: string;
   /** The page's own visual, beside the copy. Without it the hero is centred. */
   aside?: ReactNode;
+  /** A highlighted callout between the intro and the buttons (e.g. a current offer) */
+  callout?: ReactNode;
   /** Short bold-led points between the intro and the buttons (content-file order) */
   points?: { lead: string; text: string }[];
   /** Extra content under the buttons (e.g. a NAP block) */
@@ -35,7 +37,7 @@ type PageHeroProps = {
  * (no line rays: the user wants none in heroes). Pure CSS entrance (no flash, no layout shift).
  * The hero ends on a straight line.
  */
-export function PageHero({ id, label, content, crumbs, strong = [], track, aside, points, children, footer }: PageHeroProps) {
+export function PageHero({ id, label, content, crumbs, strong = [], track, aside, callout, points, children, footer }: PageHeroProps) {
   const centred = !aside;
   return (
     <section className={centred ? `${styles.hero} ${styles.centred}` : styles.hero} aria-labelledby={id}>
@@ -49,6 +51,12 @@ export function PageHero({ id, label, content, crumbs, strong = [], track, aside
           <p className={`lead ${styles.intro}`}>
             <Rich text={content.intro} />
           </p>
+          {content.more?.map((text) => (
+            <p key={text.slice(0, 24)} className={styles.more}>
+              <Rich text={text} />
+            </p>
+          ))}
+          {callout ? <div className={styles.callout}>{callout}</div> : null}
           {points?.length ? (
             <ul role="list" className={styles.points}>
               {points.map((point) => (

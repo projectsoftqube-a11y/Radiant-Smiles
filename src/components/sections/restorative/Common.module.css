@@ -1,0 +1,91 @@
+/*
+ * Layout primitives shared by the restorative pages (section padding, heading blocks, two
+ * column splits). Each page's own designs live in its own module.
+ */
+.section {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.pearl {
+  background: var(--pearl-50);
+}
+
+.sky {
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.blush {
+  background: linear-gradient(180deg, #fdf3f3, var(--white));
+}
+
+.head {
+  display: grid;
+  gap: 1rem;
+  max-width: 54rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.headCenter {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.copy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.copy a,
+.head a,
+.textLinks a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.note svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--sky-700);
+}
+
+.note a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+@media (max-width: 991px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .note {
+    flex-direction: column;
+  }
+}

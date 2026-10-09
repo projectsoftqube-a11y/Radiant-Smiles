@@ -1,0 +1,385 @@
+/* ───────── Hero: one appointment ───────── */
+.board {
+  display: grid;
+  gap: 1.25rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.boardTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.boardTitle svg {
+  color: var(--sky-700);
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.slot {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 1.25rem 0.75rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-100);
+  text-align: center;
+  animation: slot-in 0.7s var(--ease-out) calc(0.8s + var(--i) * 0.6s) both;
+}
+
+.slotNew {
+  background: linear-gradient(180deg, var(--mouth-edge), #fbe4e5);
+}
+
+@keyframes slot-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+
+.slotIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.slotNew .slotIcon {
+  background: #c86b76;
+  color: var(--white);
+}
+
+.slotText {
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.arrow {
+  color: var(--sky-700);
+}
+
+.boardFoot {
+  justify-self: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: var(--white);
+  animation: slot-in 0.7s var(--ease-out) 2s both;
+}
+
+/* ───────── Who: keep or remove ───────── */
+.decide {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  border: 1px solid var(--sky-200);
+}
+
+.decideQ {
+  justify-self: center;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.decideRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.decideYes,
+.decideNo {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.decideYes strong,
+.decideNo strong {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
+
+.decideYes strong {
+  color: #3f9e6b;
+}
+
+.decideNo strong {
+  color: #a5505b;
+}
+
+/* ───────── Steps ───────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.steps strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.stepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.steps .stepDay {
+  background: linear-gradient(170deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.stepDay strong {
+  color: var(--white);
+}
+
+.stepDay .stepIcon {
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ───────── Trade-off ───────── */
+.trade {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid #f4dfb4;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, #fff7e6, var(--white) 70%);
+}
+
+.tradeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: #b7791f;
+  color: var(--white);
+}
+
+.tradeCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+/* ───────── Healing months ───────── */
+.months {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.monthsTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.monthRow {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.monthName {
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.monthBar {
+  display: block;
+  height: 1.1rem;
+  border-radius: var(--radius-pill);
+  background: var(--pearl-100);
+  overflow: hidden;
+}
+
+.monthBar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #e5959c, #f6cfd0);
+  transform-origin: left;
+  transition: transform 1s var(--ease-out) calc(0.2s + var(--i) * 0.2s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .monthBar span {
+  transform: scaleX(0);
+}
+
+.monthsNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--line-strong);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--sky-700);
+}
+
+/* ───────── Long-term fit ───────── */
+.longCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 90% at 100% 0%, var(--sky-100), transparent 70%),
+    var(--pearl-100);
+}
+
+.longCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.longCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.reline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.reline svg {
+  color: var(--sky-300);
+}
+
+@media (max-width: 991px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .longCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reline {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 575px) {
+  .trade {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .decideRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slots {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: stretch;
+  }
+
+  .arrow {
+    justify-self: center;
+    rotate: 90deg;
+  }
+
+  .monthRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .boardTitle,
+  .monthsNote,
+  .reline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot,
+  .boardFoot {
+    animation: none;
+  }
+}

@@ -1,0 +1,465 @@
+/* ───────── Hero: plan ahead ───────── */
+.plan {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 50% at 50% 30%, var(--white), transparent 75%),
+    linear-gradient(180deg, var(--sky-100), var(--pearl-50));
+  box-shadow: var(--shadow-lift);
+}
+
+.planArt {
+  width: 100%;
+  height: auto;
+}
+
+.lift {
+  animation: lift-out 1.6s var(--ease-out) 0.8s both;
+}
+
+@keyframes lift-out {
+  from {
+    translate: 0 26px;
+  }
+  to {
+    translate: 0 -24px;
+  }
+}
+
+.socket {
+  opacity: 0;
+  animation: show 0.4s ease 1.5s forwards;
+}
+
+@keyframes show {
+  to {
+    opacity: 0.7;
+  }
+}
+
+.planCard {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  animation: card-in 0.7s var(--ease-out) 2.2s both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+}
+
+.planKicker {
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sky-300);
+}
+
+.planOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.planOptions span {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.1);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ───────── When: reasons ───────── */
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reasons li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+}
+
+.reasons strong {
+  display: block;
+  color: var(--navy-800);
+}
+
+.reasonIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: #fbe4e5;
+  color: #a5505b;
+}
+
+.saveFirst {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(120deg, var(--sky-100), var(--white));
+  border: 1px solid var(--sky-300);
+  color: var(--ink);
+}
+
+.saveFirst svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.saveFirst a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Chairside ───────── */
+.expectGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.sections {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border-left: 4px solid var(--navy-800);
+}
+
+.sections h3 {
+  font-size: 1.1875rem;
+}
+
+.chair {
+  display: grid;
+  gap: 1rem;
+}
+
+.chairSteps {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: chair;
+}
+
+.chairSteps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+  counter-increment: chair;
+}
+
+.chairSteps li::before {
+  content: counter(chair);
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  color: var(--white);
+}
+
+.chairSteps strong {
+  color: var(--navy-800);
+}
+
+.chairNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.chairNote svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Recovery ───────── */
+.recoveryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 1.25rem;
+}
+
+.hour,
+.days {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  color: var(--slate-600);
+}
+
+.hour {
+  background: linear-gradient(170deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.hour h3 {
+  color: var(--white);
+}
+
+.hour h3,
+.days h3 {
+  font-size: var(--step-h3);
+}
+
+.hourDial {
+  display: inline-flex;
+  align-items: baseline;
+  justify-self: start;
+  gap: 0.45rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-m);
+  background: rgb(109 189 232 / 0.15);
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.hourFigure {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: var(--white);
+}
+
+.days {
+  background: var(--pearl-100);
+}
+
+.daysBadge {
+  justify-self: start;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: #c43d3d;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.avoid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avoid li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.avoid li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-s);
+  background: #fdecec;
+  color: #c43d3d;
+}
+
+.recoveryAfter {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--sky-500);
+  color: var(--slate-600);
+}
+
+.recoveryAfter a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Replacement shelf ───────── */
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shelf li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.shelf li:first-child {
+  border: 2px solid var(--navy-800);
+}
+
+.shelf strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
+
+.shelf strong a {
+  color: var(--navy-800);
+}
+
+.shelfIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 999px 999px var(--radius-s) var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Wisdom link ───────── */
+.wisdom {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 90% at 100% 0%, var(--sky-100), transparent 70%),
+    var(--pearl-100);
+}
+
+.wisdomIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.wisdomCopy {
+  display: grid;
+  gap: 0.75rem;
+  color: var(--slate-600);
+}
+
+.wisdomCopy h2 {
+  font-size: var(--step-h3);
+}
+
+.wisdomCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  .reasons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .shelf {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .expectGrid,
+  .recoveryGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .reasons,
+  .shelf,
+  .avoid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wisdom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .saveFirst,
+  .chairNote,
+  .avoid li,
+  .chairSteps li {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift,
+  .socket,
+  .planCard {
+    animation: none;
+    opacity: 1;
+  }
+}

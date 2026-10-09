@@ -1,0 +1,529 @@
+/* ───────── Hero: the conservative ladder ───────── */
+.ladder {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 60% at 50% 100%, rgb(229 149 156 / 0.25), transparent 70%),
+    var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.ladderTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.rungs {
+  position: relative;
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rungs::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 3px;
+  background: linear-gradient(180deg, var(--sky-500), #e5959c);
+}
+
+.rungs li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.6rem 0.9rem 0.6rem 0.25rem;
+  border-radius: var(--radius-m);
+  font-weight: 600;
+  color: var(--navy-800);
+  animation: rung-in 0.6s var(--ease-out) calc(0.8s + var(--i) * 0.25s) both;
+}
+
+@keyframes rung-in {
+  from {
+    opacity: 0;
+    translate: -10px 0;
+  }
+}
+
+.rungIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.rungs .rungLast {
+  background: #fdf3f3;
+  color: #a5505b;
+}
+
+.rungLast .rungIcon {
+  background: #e5959c;
+  color: var(--white);
+}
+
+.ladderFoot {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Signs ───────── */
+.signsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.signs {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.signs li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  color: var(--slate-600);
+}
+
+.signs strong {
+  color: var(--navy-800);
+}
+
+.signs li > span {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: #fbe4e5;
+  color: #a5505b;
+}
+
+.bleeding {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(170deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.bleeding h3 {
+  font-size: var(--step-h3);
+  color: var(--white);
+}
+
+/* A gumline pulling back from the tooth */
+.gumline {
+  display: block;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fbf6ec 0 45%, #f6cfd0 45%);
+  overflow: hidden;
+}
+
+.gumline span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  margin-left: auto;
+  background: linear-gradient(180deg, #fbf6ec 0 70%, #e5959c 70%);
+}
+
+/* ───────── Causes ───────── */
+.chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c86b76;
+}
+
+.chain span {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.risks {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.risksTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.risks ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.risks li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.risks li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.risksAfter {
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line-strong);
+  color: var(--slate-600);
+}
+
+/* ───────── Diagnose: measure ───────── */
+.measure {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+}
+
+.measureTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.scale span {
+  display: grid;
+  place-items: end center;
+  height: 5rem;
+  padding-bottom: 0.4rem;
+  border-radius: var(--radius-s) var(--radius-s) var(--radius-xs) var(--radius-xs);
+  background: linear-gradient(180deg, var(--sky-100), var(--sky-300));
+  font-size: var(--step-label);
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.scale span:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.scale span:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.scale span:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.scale span:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+.scale .deep {
+  background: linear-gradient(180deg, #fbe4e5, #e5959c);
+  color: #8f2b2b;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .scale span {
+  transform: scaleY(0.2);
+}
+
+.measureLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+}
+
+.legendOk {
+  color: var(--sky-700);
+}
+
+.legendDeep {
+  color: #a33434;
+}
+
+/* ───────── Treatment path (navy) ───────── */
+.pathSection {
+  background:
+    radial-gradient(50% 60% at 100% 100%, rgb(229 149 156 / 0.2), transparent 70%),
+    linear-gradient(170deg, var(--navy-800), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.pathHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 56rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.pathHead h2 {
+  color: var(--white);
+}
+
+.path {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.stage {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--line-on-navy);
+  border-radius: var(--radius-l);
+  background: rgb(255 255 255 / 0.05);
+}
+
+.stage h3 {
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.stage a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.stageMain {
+  grid-row: span 2;
+  background: rgb(109 189 232 / 0.1);
+  border-color: rgb(109 189 232 / 0.35);
+}
+
+.stageTag {
+  justify-self: start;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-500);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-950);
+}
+
+.stageList {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stageList li {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.06);
+}
+
+.stageList strong {
+  color: var(--white);
+}
+
+.stageAfter {
+  font-size: var(--step-small);
+}
+
+.stageIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+.stageLast {
+  grid-column: 2 / span 2;
+  background: rgb(229 149 156 / 0.1);
+  border-color: rgb(229 149 156 / 0.35);
+}
+
+.stageLast .stageIcon {
+  background: rgb(229 149 156 / 0.25);
+  color: #f6cfd0;
+}
+
+/* ───────── Maintenance loop ───────── */
+.loop {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 90% at 0% 0%, var(--sky-100), transparent 70%),
+    var(--pearl-100);
+}
+
+.loopCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.loopCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.cycle {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.cycleStep {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.cycleStep svg {
+  color: var(--sky-700);
+}
+
+.member {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  font-size: var(--step-small);
+  color: var(--sky-300);
+}
+
+.memberFigure {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: var(--white);
+}
+
+@media (max-width: 991px) {
+  .signsGrid,
+  .loop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stageMain {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .stageLast {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 575px) {
+  .path,
+  .risks ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .signs li,
+  .risks li,
+  .cycleStep,
+  .ladderFoot {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rungs li {
+    animation: none;
+  }
+}

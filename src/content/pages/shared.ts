@@ -18,6 +18,8 @@ export type CtaButton = "call" | "appointment" | { label: string; href: string; 
 export type PageHeroContent = {
   h1: string;
   intro: string;
+  /** Further hero paragraphs after the intro (content-file order) */
+  more?: string[];
   /** Hero buttons, in content-file order */
   buttons: CtaButton[];
 };
@@ -29,6 +31,8 @@ export type PageHeroContent = {
 export type ClosingCta = {
   title: string;
   text: string;
+  /** A second paragraph under the text (e.g. the NAP line) */
+  sub?: string;
   buttons?: CtaButton[];
   /** A text link under the buttons ("[Link]" in a content file) */
   link?: { label: string; href: string; track?: string };

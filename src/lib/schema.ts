@@ -406,25 +406,62 @@ const yardley = {
 };
 
 /** The page node of a treatment page: MedicalWebPage about its main node and the practice */
-export function treatmentPage({ path, name, description, main }: { path: string; name: string; description: string; main?: string }): Json {
-  return innerPage({
-    type: "MedicalWebPage",
-    path,
-    name,
-    description,
-    about: main ? [{ "@id": `${absoluteUrl(path)}#${main}` }, { "@id": ids.dentist }] : { "@id": ids.dentist },
-    provider: { "@id": ids.dentist },
-  });
+export function treatmentPage({
+  path,
+  name,
+  description,
+  main,
+  lastReviewed,
+  mainEntity,
+  specialty,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  main?: string;
+  /** ISO date for schema lastReviewed (optional) */
+  lastReviewed?: string;
+  /** Make the main node (or a given @id key) the page's mainEntity */
+  mainEntity?: string;
+  specialty?: boolean;
+}): Json {
+  return {
+    ...innerPage({
+      type: "MedicalWebPage",
+      path,
+      name,
+      description,
+      about: main ? [{ "@id": `${absoluteUrl(path)}#${main}` }, { "@id": ids.dentist }] : { "@id": ids.dentist },
+      provider: { "@id": ids.dentist },
+      ...(mainEntity ? { mainEntity: { "@id": `${absoluteUrl(path)}#${mainEntity}` } } : {}),
+    }),
+    ...(lastReviewed ? { lastReviewed } : {}),
+    ...(specialty ? { specialty: "https://schema.org/Dentistry" } : {}),
+  };
 }
 
 /** MedicalProcedure (cleanings, sealants, fluoride, screening, deep cleaning, laser, perio) */
-export function medicalProcedure({ path, name, alternateName, description }: { path: string; name: string; alternateName?: string; description: string }): Json {
+export function medicalProcedure({
+  path,
+  name,
+  alternateName,
+  description,
+  specialty,
+}: {
+  path: string;
+  name: string;
+  alternateName?: string;
+  description: string;
+  /** relevantSpecialty: Dentistry (restorative handoffs) */
+  specialty?: boolean;
+}): Json {
   return {
     "@type": "MedicalProcedure",
     "@id": `${absoluteUrl(path)}#procedure`,
     name,
     ...(alternateName ? { alternateName } : {}),
     description,
+    ...(specialty ? { relevantSpecialty: "https://schema.org/Dentistry" } : {}),
     url: absoluteUrl(path),
   };
 }

@@ -31,6 +31,11 @@ export function ClosingCta({ id, content, track }: { id: string; content: Closin
             <p className="lead" data-reveal>
               <Rich text={content.text} />
             </p>
+            {content.sub ? (
+              <p className={styles.sub} data-reveal>
+                <Rich text={content.sub} />
+              </p>
+            ) : null}
             <div data-reveal>
               <CtaButtons buttons={content.buttons ?? ["call", "appointment"]} track={track} className={styles.ctas} />
             </div>

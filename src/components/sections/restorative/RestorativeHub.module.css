@@ -1,0 +1,972 @@
+/* ───────── Hero: four tooth states ───────── */
+.states {
+  display: grid;
+  gap: 1.1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.statesKicker {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.statesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.state {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  padding: 1rem 0.75rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, var(--sky-50), var(--pearl-50));
+  text-align: center;
+  animation: state-in 0.7s var(--ease-out) calc(0.8s + var(--i) * 0.18s) both;
+}
+
+.state:nth-child(4) {
+  background: linear-gradient(180deg, var(--navy-700), var(--navy-950));
+}
+
+.state:nth-child(4) .stateName {
+  color: var(--white);
+}
+
+.state:nth-child(4) .stateNote {
+  color: var(--slate-on-navy);
+}
+
+@keyframes state-in {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+.stateArt {
+  width: 4.25rem;
+  height: 4.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.enamel {
+  fill: var(--white);
+  stroke: var(--navy-800);
+  stroke-width: 1.1;
+}
+
+.patch {
+  fill: var(--sky-300);
+  stroke: var(--sky-700);
+  stroke-width: 0.6;
+}
+
+.canal {
+  fill: none;
+  stroke: #e5959c;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.post {
+  fill: #c4d3e6;
+  stroke: var(--navy-800);
+  stroke-width: 0.6;
+}
+
+.thread {
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 0.5;
+}
+
+.stateName {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.stateNote {
+  font-size: var(--step-label);
+  color: var(--slate-500);
+}
+
+.statesFoot {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Repair: the damage scale ───────── */
+.repair {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.repairHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 54rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scaleCard {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, var(--pearl-50), var(--white) 50%);
+  color: var(--slate-600);
+}
+
+.scaleCard strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+}
+
+.scaleCard strong a {
+  color: var(--navy-800);
+}
+
+/* Damage meter: one, two or three segments filled */
+.meter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem;
+}
+
+.meter span {
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--line);
+}
+
+.meter .meterOn {
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+  transition: opacity 0.4s ease calc(0.2s + var(--i) * 0.2s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .meter .meterOn {
+  opacity: 0.15;
+}
+
+.repairAfter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.repairAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Save: navy band ───────── */
+.save {
+  padding-block: var(--space-section);
+  background:
+    radial-gradient(50% 70% at 100% 50%, rgb(229 149 156 / 0.18), transparent 70%),
+    linear-gradient(160deg, var(--navy-800), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.saveGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.saveCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.saveCopy h2 {
+  color: var(--white);
+}
+
+.saveCopy a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.signs {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.signs li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line-on-navy);
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.05);
+  font-weight: 600;
+  color: var(--white);
+  margin-left: calc(var(--i) * 1rem);
+}
+
+.signs li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: rgb(229 149 156 / 0.18);
+  color: #f6cfd0;
+}
+
+/* ───────── Replace: line art cards ───────── */
+.replace {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.replaceHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 54rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.replaceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.replaceCard {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+
+.replaceCard:hover {
+  translate: 0 -4px;
+  box-shadow: var(--shadow-lift);
+}
+
+.replaceCard strong a {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.replaceCard p a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.replaceStage {
+  display: grid;
+  place-items: center;
+  height: 8rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, var(--sky-50), var(--pearl-50));
+}
+
+.replaceArt {
+  width: 7rem;
+  height: auto;
+  overflow: visible;
+}
+
+.artCrown {
+  fill: var(--white);
+  stroke: var(--navy-800);
+  stroke-width: 1.6;
+}
+
+.artPontic {
+  fill: var(--sky-100);
+  stroke: var(--sky-700);
+  stroke-width: 1.6;
+  stroke-dasharray: 4 3;
+}
+
+.artMetal {
+  fill: #c4d3e6;
+  stroke: var(--navy-800);
+  stroke-width: 1.2;
+}
+
+.artMetalFill {
+  fill: var(--sky-500);
+}
+
+.artLine {
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 1;
+}
+
+.artPost {
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.artGum {
+  fill: none;
+  stroke: #e5959c;
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+
+.artBase {
+  fill: none;
+  stroke: #e5959c;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.replaceAfter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.replaceAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Denture care: the fit panel ───────── */
+.dentures {
+  padding-block: var(--space-section);
+  background: var(--pearl-50);
+}
+
+.dentureGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.dentureCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.dentureCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.fitPanel {
+  display: grid;
+  gap: 0.75rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 50% at 50% 0%, var(--mouth-edge), transparent 70%),
+    var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.annual {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.annual svg {
+  color: var(--sky-300);
+}
+
+.fitRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  border: 1px solid var(--line);
+}
+
+.fitIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #f6cfd0, #fbe4e5);
+  color: #a5505b;
+}
+
+.fitText {
+  display: grid;
+}
+
+.fitName {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.fitNote {
+  font-size: var(--step-small);
+  color: var(--slate-500);
+}
+
+/* ───────── Extractions: the pair ───────── */
+.extract {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.extractHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 54rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.extractCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.extractCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--sky-100), var(--white) 70%);
+  color: var(--slate-600);
+}
+
+.extractCard:last-child {
+  background: linear-gradient(160deg, var(--pearl-100), var(--white) 70%);
+}
+
+.extractCard a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.extractIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px 999px var(--radius-s) var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Gum path ───────── */
+.gum {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, #fdf3f3, var(--white));
+}
+
+.gumGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.gumCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.gumCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* The healing-gum card: the gum rises back around the teeth as it comes into view */
+.heal {
+  display: grid;
+  gap: 1.1rem;
+  width: min(100%, 30rem);
+  justify-self: center;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.healArt {
+  position: relative;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, var(--sky-50), #fdf3f3);
+  overflow: hidden;
+}
+
+.healSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.healGum {
+  fill: #f2b7bc;
+  transition:
+    translate 1.4s var(--ease-out) 0.3s,
+    fill 1.4s var(--ease-out) 0.3s;
+}
+
+.healEdge {
+  stroke: #d98089;
+  stroke-width: 2.5;
+  transition: translate 1.4s var(--ease-out) 0.3s;
+}
+
+/* Start: receded, inflamed gum low on the roots */
+.motion .heal[data-inview]:not([data-inview="in"]) .healGum {
+  translate: 0 26px;
+  fill: #d9646f;
+}
+
+.motion .heal[data-inview]:not([data-inview="in"]) .healEdge {
+  translate: 0 26px;
+}
+
+.healTag {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  translate: -50% 0;
+  white-space: nowrap;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-800);
+  transition: opacity 0.6s var(--ease-out) 1.4s;
+}
+
+.motion .heal[data-inview]:not([data-inview="in"]) .healTag {
+  opacity: 0;
+}
+
+.healSteps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.healSteps li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy-800);
+  transition:
+    opacity 0.6s var(--ease-out) calc(0.5s + var(--i) * 0.15s),
+    translate 0.6s var(--ease-out) calc(0.5s + var(--i) * 0.15s);
+}
+
+.motion .heal[data-inview]:not([data-inview="in"]) .healSteps li {
+  opacity: 0;
+  translate: 0 12px;
+}
+
+.healIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.healSteps li:last-child {
+  background: var(--sky-100);
+}
+
+.healSteps li:last-child .healIcon {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+.healLast {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px dashed #e5959c;
+  border-radius: var(--radius-m);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: #a5505b;
+}
+
+.healLast svg {
+  flex: none;
+}
+
+/* ───────── Which: the triage table ───────── */
+.which {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.whichGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.whichCopy {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.triage {
+  --table-min: 30rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.triage td {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.triage tbody tr:nth-child(odd) > * {
+  background: var(--pearl-50);
+}
+
+/* ───────── Magnification: the eyepiece ───────── */
+.magnify {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.eyepiece {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(45% 60% at 100% 0%, rgb(169 218 243 / 0.35), transparent 70%),
+    var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.eyeHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: start;
+}
+
+.eyeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--sky-300);
+}
+
+.eyeCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.toolsIntro {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tools li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+.tools strong {
+  display: block;
+  color: var(--navy-800);
+}
+
+.toolIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+.toolsMore a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.story {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--sky-500);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: var(--pearl-100);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--navy-800);
+}
+
+.story svg {
+  flex: none;
+  margin-top: 0.2rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Dentist duo ───────── */
+.duo {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.duoTitle {
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  text-align: center;
+}
+
+.duoCard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 64rem;
+  margin-inline: auto;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--pearl-100), var(--sky-50));
+  overflow: hidden;
+}
+
+.duoPerson {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  color: var(--slate-600);
+}
+
+.duoPerson + .duoPerson {
+  border-left: 1px solid var(--line-strong);
+}
+
+.duoPerson a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.duoPhoto {
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .replaceGrid,
+  .tools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .duoPerson {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+
+  .duoPhoto {
+    width: min(100%, 10rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .saveGrid,
+  .dentureGrid,
+  .gumGrid,
+  .whichGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .whichCopy {
+    position: static;
+  }
+
+  .scale {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .signs li {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .extractCards,
+  .duoCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .duoPerson + .duoPerson {
+    border-left: 0;
+    border-top: 1px solid var(--line-strong);
+  }
+}
+
+@media (max-width: 575px) {
+  .replaceGrid,
+  .tools {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .eyeHead,
+  .extractCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .repairAfter,
+  .signs li,
+  .fitRow,
+  .story,
+  .statesFoot,
+  .annual,
+  .healSteps li,
+  .healLast {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .replaceAfter {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state {
+    animation: none;
+  }
+}

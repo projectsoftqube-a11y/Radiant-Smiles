@@ -1,0 +1,403 @@
+/* ───────── Hero: snap-in ───────── */
+.snap {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 50% at 50% 30%, var(--white), transparent 75%),
+    linear-gradient(180deg, var(--sky-100), var(--pearl-50));
+  box-shadow: var(--shadow-lift);
+}
+
+.snapArt {
+  width: 100%;
+  height: auto;
+}
+
+.denture {
+  animation: snap-down 1.3s var(--ease-out) 0.8s both;
+}
+
+@keyframes snap-down {
+  0% {
+    opacity: 0;
+    translate: 0 -40px;
+  }
+  80% {
+    translate: 0 4px;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.snapTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.snapTags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.snapTags svg {
+  color: var(--sky-300);
+}
+
+/* ───────── Stay put ───────── */
+.versus {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.vsCard {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-100);
+  border: 1px dashed var(--line-strong);
+}
+
+.vsImplant {
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  border: 0;
+}
+
+.vsName {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.vsImplant .vsName {
+  color: var(--white);
+}
+
+.vsNote {
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.vsImplant .vsNote {
+  color: var(--sky-300);
+}
+
+.benefitsIntro {
+  margin: clamp(2rem, 4vw, 3rem) 0 1rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefits li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+.benefits strong {
+  display: block;
+  color: var(--navy-800);
+}
+
+.benefitIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ───────── Attachment styles ───────── */
+.styles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.style {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.style h3 {
+  font-size: 1.25rem;
+}
+
+.styleFixed {
+  border: 2px solid var(--navy-800);
+}
+
+/* A strip of gum and bone with the implant posts in it */
+.ridge {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 4.25rem;
+  padding: 0 0.75rem 0.35rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #f6cfd0 0 30%, #f1e6cf 30%);
+}
+
+.postMark {
+  color: var(--navy-800);
+}
+
+.bar {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  top: 1.15rem;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: #8a97a8;
+}
+
+.styleTag {
+  justify-self: start;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.styleFixed .styleTag {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.upper {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(140deg, var(--mouth-edge), var(--white) 70%);
+  color: var(--slate-600);
+}
+
+.upper > div {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.upper h3 {
+  font-size: 1.25rem;
+}
+
+.upperIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: #c86b76;
+  color: var(--white);
+}
+
+/* ───────── Bone check ───────── */
+.bone {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.boneTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.boneRow {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.boneIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.boneScan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--line-strong);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--sky-700);
+}
+
+/* ───────── Staged path ───────── */
+.path {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: stage;
+}
+
+.path li {
+  position: relative;
+  padding: 3.5rem 1.5rem 1.5rem;
+  border-top: 4px solid var(--sky-300);
+  background: var(--white);
+  color: var(--slate-600);
+  counter-increment: stage;
+}
+
+.path li:nth-child(3) {
+  border-top-color: var(--navy-800);
+  background: var(--sky-50);
+}
+
+.path li + li {
+  border-left: 1px solid var(--line);
+}
+
+.path li:first-child {
+  border-radius: 0 0 0 var(--radius-l);
+}
+
+.path li:last-child {
+  border-radius: 0 0 var(--radius-l) 0;
+}
+
+.path li::before {
+  content: counter(stage);
+  position: absolute;
+  left: 1.5rem;
+  top: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  color: var(--sky-500);
+}
+
+.path strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  .benefits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .path li,
+  .path li:first-child,
+  .path li:last-child {
+    border-radius: 0 0 var(--radius-l) var(--radius-l);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .styles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .benefits,
+  .path,
+  .versus {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .upper {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .snapTags span,
+  .boneTitle,
+  .boneRow,
+  .boneScan {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .denture {
+    animation: none;
+  }
+}

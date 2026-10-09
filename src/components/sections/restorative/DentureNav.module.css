@@ -1,0 +1,72 @@
+/* Sticky tab rail for the dentures pages: an underline marks the current page */
+.nav {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: rgb(250 248 244 / 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.title {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.4rem;
+  padding-right: 1.25rem;
+  border-right: 1px solid var(--line-strong);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: #a5505b;
+}
+
+.list {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 0.9rem;
+  border-bottom: 3px solid transparent;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--slate-600);
+  text-decoration: none;
+  transition: color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+}
+
+.link:hover {
+  color: var(--navy-800);
+  border-bottom-color: var(--sky-300);
+}
+
+.current {
+  color: var(--navy-800);
+  border-bottom-color: #e5959c;
+}
+
+@media (max-width: 767px) {
+  .title {
+    display: none;
+  }
+}

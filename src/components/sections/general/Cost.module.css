@@ -25,6 +25,15 @@
   color: var(--navy-800);
 }
 
+.ledgerWrap {
+  display: grid;
+  gap: 1rem;
+}
+
+.ledgerTitle {
+  font-size: var(--step-h3);
+}
+
 .ledger {
   display: grid;
   margin: 0;

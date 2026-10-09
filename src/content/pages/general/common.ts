@@ -28,6 +28,8 @@ export type Point = { lead: string; text: string };
 export type CostBlock = {
   title: string;
   paragraphs?: string[];
+  /** An H3 heading over the ways to pay */
+  itemsTitle?: string;
   items?: Point[];
   after?: string[];
 };

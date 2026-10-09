@@ -32,7 +32,12 @@ export function Cost({
 }) {
   if (!cost.items?.length) {
     return (
-      <section className={flush ? `${styles.noteSection} ${styles.flush}` : styles.noteSection} aria-labelledby={id}>
+      <section
+        className={
+          flush ? `${styles.noteSection} ${styles.flush}` : styles.noteSection
+        }
+        aria-labelledby={id}
+      >
         <div className="container">
           <div className={styles.note}>
             <span className={styles.noteIcon} aria-hidden="true" data-reveal>
@@ -74,18 +79,25 @@ export function Cost({
             </p>
           ))}
         </div>
-        <ul role="list" className={styles.ledger}>
-          {cost.items.map((item) => (
-            <li key={item.lead} className={styles.row} data-reveal>
-              <span className={styles.rowIcon} aria-hidden="true">
-                <Icon name={payIcon(item.lead)} size={22} />
-              </span>
-              <p>
-                <strong>{item.lead}</strong> <Rich text={item.text} />
-              </p>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.ledgerWrap}>
+          {cost.itemsTitle ? (
+            <h3 className={styles.ledgerTitle} data-reveal>
+              {cost.itemsTitle}
+            </h3>
+          ) : null}
+          <ul role="list" className={styles.ledger}>
+            {cost.items.map((item) => (
+              <li key={item.lead} className={styles.row} data-reveal>
+                <span className={styles.rowIcon} aria-hidden="true">
+                  <Icon name={payIcon(item.lead)} size={22} />
+                </span>
+                <p>
+                  <strong>{item.lead}</strong> <Rich text={item.text} />
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

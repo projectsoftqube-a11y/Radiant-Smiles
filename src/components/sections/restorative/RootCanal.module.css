@@ -1,0 +1,655 @@
+/* ───────── Hero: the pulp cross-section ───────── */
+.pulp {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 25rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 50% at 50% 35%, var(--white), transparent 75%),
+    linear-gradient(180deg, #fdf3f3, var(--sky-50));
+  box-shadow: var(--shadow-lift);
+}
+
+.pulpArt {
+  width: 78%;
+  height: auto;
+  justify-self: center;
+}
+
+.inflamed {
+  animation: throb 1.2s ease-in-out 0.6s 2, fade-out 0.6s ease 3s forwards;
+}
+
+@keyframes throb {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.sealed {
+  opacity: 0;
+  animation: fade-in 0.8s ease 3.1s forwards;
+}
+
+.sealed path:first-child {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.2s var(--ease-in-out) 3.2s forwards;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.pulpTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pulpTags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-s);
+  font-size: var(--step-label);
+  font-weight: 600;
+}
+
+.tagRed {
+  background: #fdecec;
+  color: #a33434;
+}
+
+.tagSky {
+  background: var(--navy-800);
+  color: var(--white);
+  animation: fade-in-tag 0.6s ease 3.6s both;
+}
+
+@keyframes fade-in-tag {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+/* ───────── Why: keep vs gap ───────── */
+.why {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.whyCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.keep {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.keepCard {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 1.75rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  text-align: center;
+  color: var(--slate-on-navy);
+}
+
+.keepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 0.4rem;
+  border-radius: 999px 999px var(--radius-m) var(--radius-m);
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+.keepName {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.keepNote {
+  font-size: var(--step-small);
+}
+
+.gapCard {
+  background: var(--pearl-100);
+  color: var(--slate-600);
+  border: 1px dashed var(--line-strong);
+}
+
+.gapCard .keepName {
+  color: var(--navy-800);
+}
+
+.gapCard .keepIcon {
+  background: var(--white);
+  color: var(--slate-500);
+}
+
+/* ───────── Signs: pain cards ───────── */
+.signs {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, #fdf3f3, var(--white));
+}
+
+.signsHead {
+  display: grid;
+  gap: 1rem;
+  max-width: 52rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+.painCards {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Three across, then two wider */
+.painCards li {
+  grid-column: span 2;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border: 1px solid #f3d3d3;
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.painCards li:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.painCards strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.painIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: #fdecec;
+  color: #c43d3d;
+  animation: pain-pulse 2.4s ease-in-out calc(var(--i) * 0.3s) infinite;
+}
+
+@keyframes pain-pulse {
+  50% {
+    box-shadow: 0 0 0 6px rgb(196 61 61 / 0.08);
+  }
+}
+
+.signsAfter {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border-left: 4px solid var(--sky-500);
+  color: var(--ink);
+}
+
+.signsAfter svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Steps: two appointments ───────── */
+.steps {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.stepsHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.appts {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 1.25rem;
+}
+
+.apptOne,
+.apptTwo {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border-radius: var(--radius-l);
+}
+
+.apptOne {
+  background: linear-gradient(180deg, var(--sky-50), var(--white) 70%);
+  border: 1px solid var(--sky-200);
+}
+
+.apptTwo {
+  background: linear-gradient(170deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.apptTwo h3 {
+  color: var(--white);
+}
+
+.apptTwo a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.apptOne h3,
+.apptTwo h3 {
+  font-size: var(--step-h3);
+}
+
+/* Each step goes a little deeper into the tooth */
+.depth {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.depth li {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.depth strong {
+  color: var(--navy-800);
+}
+
+.depthMark {
+  position: relative;
+  display: block;
+  width: 0.5rem;
+  margin: 0.35rem auto 0;
+  height: calc(0.75rem + var(--i) * 0.5rem);
+  border-radius: 0 0 var(--radius-pill) var(--radius-pill);
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+  transform-origin: top;
+  transition: transform 0.6s var(--ease-out) calc(0.2s + var(--i) * 0.15s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .depthMark {
+  transform: scaleY(0);
+}
+
+.apptIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+.apptNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-on-navy);
+  font-size: var(--step-small);
+}
+
+.apptNote svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+/* ───────── Hurt: comfort card ───────── */
+.hurt {
+  padding-block: 0 var(--space-section);
+  background: var(--white);
+}
+
+.hurtCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 90% at 0% 50%, var(--sky-100), transparent 70%),
+    var(--pearl-100);
+}
+
+.hurtIcons {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.hurtIcons span {
+  display: inline-grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+.hurtIcons span:nth-child(2) {
+  translate: 1.25rem 0;
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.hurtCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+/* ───────── Crown after ───────── */
+.crown {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.crownGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.crownArt {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  border-radius: 999px 999px var(--radius-l) var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.crownArt svg {
+  width: min(100%, 12rem);
+  height: auto;
+}
+
+.crownCap {
+  transition: translate 1.2s var(--ease-out) 0.3s, opacity 0.6s ease 0.3s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .crownCap {
+  translate: 0 -30px;
+  opacity: 0;
+}
+
+.crownCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+/* ───────── Save or remove ───────── */
+.or {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.orGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.orCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.orCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.paths {
+  display: grid;
+  gap: 1rem;
+}
+
+.pathCard {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  border: 1px dashed var(--line-strong);
+}
+
+.pathSave {
+  background: linear-gradient(140deg, var(--sky-100), var(--white));
+  border: 1px solid var(--sky-300);
+}
+
+.pathTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.pathSteps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--sky-700);
+}
+
+.pathSteps span {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Emergency panel ───────── */
+.emergency {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.emergencyCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid #f3c9c9;
+  border-top: 6px solid #c43d3d;
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, #fff6f6, var(--white));
+}
+
+.emergencyIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-m);
+  background: #c43d3d;
+  color: var(--white);
+}
+
+.emergencyCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.emergencyCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.safety {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: #c43d3d;
+  color: var(--white);
+}
+
+.safety svg {
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 1199px) {
+  .painCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .painCards li,
+  .painCards li:nth-child(n + 4) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .whyGrid,
+  .appts,
+  .crownGrid,
+  .orGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .crownArt {
+    justify-self: center;
+    width: min(100%, 18rem);
+  }
+}
+
+@media (max-width: 575px) {
+  .painCards,
+  .keep {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hurtCard,
+  .emergencyCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hurtIcons {
+    grid-auto-flow: column;
+    justify-content: start;
+  }
+
+  .hurtIcons span:nth-child(2) {
+    translate: 0 0;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .signsAfter,
+  .apptNote,
+  .safety,
+  .pulpTags span,
+  .depth li {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+  }
+
+  .depthMark {
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inflamed {
+    animation: none;
+    opacity: 0;
+  }
+
+  .sealed,
+  .sealed path:first-child,
+  .tagSky,
+  .painIcon {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,575 @@
+/* ───────── Hero: the layered filling ───────── */
+.fill {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 50% at 70% 10%, rgb(169 218 243 / 0.4), transparent 70%),
+    var(--pearl-50);
+  box-shadow: var(--shadow-lift);
+}
+
+.fillArt {
+  width: 100%;
+  height: auto;
+}
+
+.beam {
+  opacity: 0;
+  animation: beam 0.6s ease 1s forwards, beam-pulse 2.2s ease-in-out 1.6s infinite;
+}
+
+@keyframes beam {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes beam-pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.layer {
+  fill: #f1e6cf;
+  stroke: #d9c9a3;
+  stroke-width: 1;
+  animation: layer-in 0.6s var(--ease-out) both;
+}
+
+.l1 {
+  animation-delay: 1.3s;
+}
+
+.l2 {
+  fill: #f6eedd;
+  animation-delay: 1.9s;
+}
+
+.l3 {
+  fill: #fbf6ec;
+  animation-delay: 2.5s;
+}
+
+@keyframes layer-in {
+  from {
+    opacity: 0;
+    translate: 0 -10px;
+  }
+}
+
+.fillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.fillTags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.fillTags svg {
+  color: var(--sky-300);
+}
+
+/* ───────── Signs: watch-list ───────── */
+.signs {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.signsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem clamp(2rem, 5vw, 5rem);
+}
+
+.signsCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.watch {
+  display: grid;
+  margin: 0;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  list-style: none;
+}
+
+.watch li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.watch li + li {
+  border-top: 1px dashed var(--line-strong);
+}
+
+.watchIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fdf3df, var(--white));
+  border: 1px solid #f4dfb4;
+  color: #9a6514;
+}
+
+.signsAfter {
+  grid-column: 1 / -1;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+.signsAfter a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Composite: property cards ───────── */
+.composite {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--pearl-50), var(--white));
+}
+
+.compositeHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.compositeCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+/* What composite is made of: resin plus a powdered glass filler */
+.mix {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.1rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.mixPart {
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.resin,
+.glass {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-m);
+}
+
+.resin {
+  background: linear-gradient(160deg, #fbf6ec, #efe2c6);
+  border: 1px solid #e7dcc2;
+}
+
+.glass {
+  background:
+    radial-gradient(circle, rgb(109 189 232 / 0.55) 0 2px, transparent 2.5px) 0 0 / 9px 9px,
+    var(--sky-50);
+  border: 1px solid var(--sky-200);
+}
+
+.mixPlus {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+.mixResult {
+  grid-column: 1 / -1;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--line-strong);
+  font-size: var(--step-small);
+  font-weight: 700;
+  text-align: center;
+  color: var(--navy-800);
+}
+
+.whyTitle {
+  margin-bottom: 1.25rem;
+  font-size: var(--step-h3);
+}
+
+.props {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.props li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border-top: 4px solid #e7dcc2;
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.props strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.propIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: #fbf6ec;
+  color: var(--navy-800);
+}
+
+.compositeAfter {
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+/* ───────── Steps: layer by layer ───────── */
+.steps {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.stepsCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.microscope {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.microscope svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+.stack {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack li {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.1rem;
+  padding: 0.85rem 1.1rem 0.85rem 0.85rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  color: var(--slate-600);
+}
+
+.stack strong {
+  color: var(--navy-800);
+}
+
+/* Each step's bar is one layer thicker */
+.stackBar {
+  display: grid;
+  align-items: end;
+  height: 2.5rem;
+  padding: 0.25rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.stackBar span {
+  display: block;
+  height: calc(16% + var(--i) * 16%);
+  border-radius: var(--radius-xs);
+  background: linear-gradient(180deg, #fbf6ec, #e7dcc2);
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease-out) calc(0.2s + var(--i) * 0.15s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .stackBar span {
+  transform: scaleY(0);
+}
+
+/* ───────── Coverage ───────── */
+.coverage {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, var(--sky-50), var(--white));
+}
+
+.coverageHead {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.options li {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.options strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  color: var(--navy-800);
+}
+
+.options strong a {
+  color: var(--navy-800);
+}
+
+.topView {
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.coverageAfter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.coverageAfter svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── After ───────── */
+.after {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.afterGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.afterCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.afterNote {
+  padding-left: 1rem;
+  border-left: 3px solid var(--sky-500);
+}
+
+.afterNote a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.habits {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  color: var(--white);
+}
+
+.habitsIntro {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+.habits ul {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.habits li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.06);
+}
+
+.habits li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+@media (max-width: 1199px) {
+  .props {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .signsGrid,
+  .compositeHead,
+  .stepsGrid,
+  .afterGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .options li {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+@media (max-width: 575px) {
+  .props {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stack li {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .watch li,
+  .microscope,
+  .habits li,
+  .fillTags span,
+  .options li,
+  .stack li {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+    justify-items: start;
+  }
+
+  .stackBar {
+    width: 4rem;
+  }
+
+  .coverageAfter {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beam,
+  .layer {
+    animation: none;
+    opacity: 1;
+  }
+}

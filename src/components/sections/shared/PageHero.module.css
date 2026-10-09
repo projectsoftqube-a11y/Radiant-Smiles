@@ -47,6 +47,17 @@
   animation: hero-fade 0.9s var(--ease-out) 0.7s both;
 }
 
+.more {
+  max-width: 62ch;
+  color: var(--slate-600);
+  animation: hero-fade 0.9s var(--ease-out) 0.75s both;
+}
+
+.callout {
+  width: 100%;
+  animation: hero-fade 0.9s var(--ease-out) 0.8s both;
+}
+
 /* Quick points (hub, cleaning, children's): ticks on a soft sky line */
 .points {
   display: grid;
@@ -173,6 +184,8 @@
   .crumbs,
   .label,
   .intro,
+  .more,
+  .callout,
   .points,
   .ctas,
   .extra,

@@ -1,0 +1,416 @@
+/* ───────── Hero: X-ray view ───────── */
+.xray {
+  display: grid;
+  gap: 0.9rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 60% at 50% 50%, rgb(109 189 232 / 0.18), transparent 70%),
+    #07142a;
+  box-shadow: var(--shadow-lift);
+}
+
+.xrayTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.xrayArt {
+  width: 100%;
+  height: auto;
+}
+
+.wisdom {
+  animation: wisdom-in 1.2s var(--ease-out) 0.8s both;
+}
+
+@keyframes wisdom-in {
+  from {
+    opacity: 0;
+    translate: 20px 20px;
+  }
+}
+
+.pressure {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: pressure 1.8s ease-in-out 2s infinite;
+}
+
+@keyframes pressure {
+  0%,
+  100% {
+    opacity: 0.2;
+    scale: 0.8;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.15;
+  }
+}
+
+.xrayKey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.xrayKey span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.xrayKey span::before {
+  content: "";
+  width: 0.9rem;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.keyOk::before {
+  background: var(--sky-300);
+}
+
+.keyBad::before {
+  background: #e5959c;
+}
+
+/* ───────── Problems ───────── */
+.problems {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.problems li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, #fdf3f3, var(--white) 70%);
+  border: 1px solid #f3d3d3;
+  color: var(--slate-600);
+}
+
+.problems strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.problemIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: #a5505b;
+  box-shadow: var(--shadow-soft);
+}
+
+.watch {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.watch svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--sky-300);
+}
+
+/* ───────── Now / later / never ───────── */
+.choice {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.choiceRow {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.choiceName {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.choiceNote {
+  color: var(--slate-600);
+}
+
+.choiceNow {
+  border-left: 5px solid #c43d3d;
+}
+
+.choiceNow .choiceName {
+  color: #a33434;
+}
+
+.choiceLater {
+  border-left: 5px solid #d4952b;
+}
+
+.choiceLater .choiceName {
+  color: #9a6514;
+}
+
+.choiceNever {
+  border-left: 5px solid #3f9e6b;
+}
+
+.choiceNever .choiceName {
+  color: #24704a;
+}
+
+/* ───────── Age band ───────── */
+.band {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+}
+
+.bandBar {
+  position: relative;
+  display: block;
+  height: 1.25rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--sky-100), var(--sky-100) 66%, #f6cfd0 66%);
+  overflow: hidden;
+}
+
+/* The easiest window, mid-teens to early twenties */
+.bandEasy {
+  position: absolute;
+  left: 18%;
+  width: 40%;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+  transform-origin: left;
+  transition: transform 1.2s var(--ease-out) 0.3s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .bandEasy {
+  transform: scaleX(0);
+}
+
+.bandLabels {
+  display: grid;
+  grid-template-columns: 18% 48% 34%;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.bandLabels span:last-child {
+  text-align: right;
+  color: #a5505b;
+}
+
+.bandBest {
+  color: var(--navy-800);
+}
+
+.timeCopy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  color: var(--slate-600);
+}
+
+/* ───────── Steps ───────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.steps strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.stepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ───────── First days ───────── */
+.days {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.days li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  color: var(--slate-600);
+}
+
+.days strong {
+  display: block;
+  color: var(--navy-800);
+}
+
+.dayIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.callIf {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: #fdf3f3;
+  border-left: 4px solid #e5959c;
+  color: var(--ink);
+}
+
+.callIf svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: #c86b76;
+}
+
+.callIf a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+@media (max-width: 1199px) {
+  .problems,
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .days {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .timeCopy {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bandLabels {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .bandLabels span:last-child {
+    text-align: left;
+  }
+}
+
+@media (max-width: 575px) {
+  .problems,
+  .steps,
+  .days {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .choiceRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .watch,
+  .callIf,
+  .days li,
+  .xrayTitle {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wisdom,
+  .pressure {
+    animation: none;
+    opacity: 1;
+  }
+}

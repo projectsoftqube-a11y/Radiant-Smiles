@@ -1,0 +1,413 @@
+/* ───────── Hero: the full set ───────── */
+.set {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 50% at 50% 50%, var(--mouth-mid), transparent 75%),
+    linear-gradient(180deg, var(--mouth-edge), var(--pearl-50));
+  box-shadow: var(--shadow-lift);
+}
+
+.setArt {
+  width: 100%;
+  height: auto;
+}
+
+.base {
+  fill: none;
+  stroke: #e5959c;
+  stroke-width: 26;
+  stroke-linecap: round;
+}
+
+.setTooth {
+  fill: var(--white);
+  stroke: var(--navy-800);
+  stroke-width: 1.6;
+}
+
+.upper {
+  animation: upper-in 1s var(--ease-out) 0.5s both;
+}
+
+.lower {
+  animation: lower-in 1.2s var(--ease-out) 0.8s both;
+}
+
+@keyframes upper-in {
+  from {
+    opacity: 0;
+    translate: 0 -20px;
+  }
+}
+
+@keyframes lower-in {
+  from {
+    opacity: 0;
+    translate: 0 30px;
+  }
+}
+
+.setTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.setTags span {
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.setTags span:first-child {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* ───────── Types gallery ───────── */
+.types {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* Two wide on top, three below */
+.type {
+  grid-column: span 3;
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+}
+
+.type:nth-child(n + 3) {
+  grid-column: span 2;
+}
+
+.type:first-child {
+  background: linear-gradient(160deg, var(--mouth-edge), var(--white) 60%);
+  border-color: #f2d5d5;
+}
+
+.type h3 {
+  font-size: 1.25rem;
+}
+
+.type a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.typeArt {
+  width: 5rem;
+  height: auto;
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.type:first-child .typeArt {
+  stroke: #c86b76;
+}
+
+/* ───────── Journey ───────── */
+.journeyWrap {
+  position: relative;
+}
+
+.journey {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journeyLine {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 1.6rem;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--line);
+  overflow: hidden;
+}
+
+.journeyLine span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #e5959c, var(--sky-500), var(--navy-800));
+}
+
+.journey li {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.9rem;
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.journey strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.journeyIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 4px solid var(--pearl-50);
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ───────── Nightstand care ───────── */
+.careWarn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: #fff7e6;
+  border: 1px solid #f4dfb4;
+  color: var(--ink);
+}
+
+.careWarn svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: #b7791f;
+}
+
+.nightstand {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    linear-gradient(180deg, transparent calc(100% - 1.25rem), var(--pearl-200) calc(100% - 1.25rem)),
+    linear-gradient(160deg, var(--navy-700), var(--navy-950));
+  list-style: none;
+}
+
+.nightstand li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.06);
+  color: var(--slate-on-navy);
+}
+
+.nightstand li:last-child {
+  margin-bottom: 1rem;
+}
+
+.nightstand strong {
+  display: block;
+  color: var(--white);
+}
+
+.nightIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: rgb(109 189 232 / 0.15);
+  color: var(--sky-300);
+}
+
+/* ───────── Annual exam clipboard ───────── */
+.clipboard {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding: 2.75rem clamp(1.5rem, 3.5vw, 2.25rem) clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  border: 10px solid #d9c9a3;
+  box-shadow: var(--shadow-lift);
+}
+
+.clip {
+  position: absolute;
+  left: 50%;
+  top: -1.4rem;
+  width: 6rem;
+  height: 2rem;
+  border-radius: var(--radius-s);
+  background: linear-gradient(180deg, #a3adbb, #6b7787);
+  translate: -50% 0;
+}
+
+.clipTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.clipList {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clipList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px dashed var(--line-strong);
+  color: var(--ink);
+}
+
+.clipList li:last-child {
+  border-bottom: 0;
+}
+
+.clipList li > span:first-child {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.15rem;
+  border-radius: var(--radius-xs);
+  background: #3f9e6b;
+  color: var(--white);
+}
+
+.clipList a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Reline trio ───────── */
+.trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trio li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, #fdf3f3, var(--white) 70%);
+  border-top: 4px solid #e5959c;
+  color: var(--slate-600);
+}
+
+.trio strong {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  color: var(--navy-800);
+}
+
+.trioIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: #a5505b;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 1199px) {
+  .journey {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+
+  .journeyLine {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .types {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .type,
+  .type:nth-child(n + 3) {
+    grid-column: auto;
+  }
+
+  .trio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .types,
+  .journey {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .journey li {
+    justify-items: start;
+    text-align: left;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .nightstand li,
+  .clipList li,
+  .careWarn {
+    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .upper,
+  .lower {
+    animation: none;
+  }
+}

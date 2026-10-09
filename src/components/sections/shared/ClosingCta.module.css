@@ -58,6 +58,11 @@
   color: var(--slate-600);
 }
 
+.sub {
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
 .ctas {
   display: flex;
   flex-wrap: wrap;
