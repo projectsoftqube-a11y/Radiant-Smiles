@@ -1,0 +1,506 @@
+/* ───────── Hero: resin layers ───────── */
+.resin {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 24rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.resinTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.resinArt {
+  display: grid;
+  place-items: center;
+  padding: 0 0.5rem 0.75rem;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  background: radial-gradient(70% 70% at 50% 60%, #fdf3f3, var(--pearl-50));
+}
+
+.resinSvg {
+  width: min(100%, 12rem);
+  height: auto;
+  overflow: visible;
+}
+
+.neighbour {
+  fill: var(--white);
+  stroke: rgb(27 61 110 / 0.2);
+  stroke-width: 2;
+}
+
+.gum {
+  fill: #f2b7bc;
+  stroke: #d98089;
+  stroke-width: 1.5;
+}
+
+.enamel {
+  fill: var(--white);
+  stroke: rgb(27 61 110 / 0.35);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+/* Each layer of resin goes on in turn */
+.layer {
+  fill: rgb(109 189 232 / 0.32);
+  animation: layer-on 0.6s var(--ease-out) calc(0.9s + var(--i) * 0.55s) both;
+}
+
+@keyframes layer-on {
+  from {
+    opacity: 0;
+    translate: 3px 3px;
+  }
+}
+
+.rebuilt {
+  fill: none;
+  stroke: var(--sky-600);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+  animation: fade 0.6s var(--ease-out) 2.6s both;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The polish: a highlight glides along the new edge */
+.polish {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 8 40;
+  animation: polish 1.8s var(--ease-in-out) 3s infinite;
+}
+
+@keyframes polish {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.visit {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.visitLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.visitLabel svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.visitBar {
+  display: block;
+  height: 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--pearl-100);
+  overflow: hidden;
+}
+
+.visitBar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+  transform-origin: left;
+  animation: visit-fill 2.4s var(--ease-out) 0.9s both;
+}
+
+@keyframes visit-fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* ───────── What it fixes: the pinned tooth ───────── */
+.pinned {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.pinArt {
+  position: relative;
+  width: min(100%, 20rem);
+  justify-self: center;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: radial-gradient(70% 70% at 50% 50%, var(--sky-50), var(--pearl-50));
+}
+
+.pinSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chipGap {
+  fill: none;
+  stroke: #c86b76;
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+}
+
+.crack {
+  fill: none;
+  stroke: rgb(27 61 110 / 0.55);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.spot {
+  fill: #c9a86a;
+  opacity: 0.7;
+}
+
+.pin {
+  position: absolute;
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  translate: -50% -50%;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: var(--shadow-soft);
+  transition:
+    opacity 0.5s var(--ease-out) calc(0.3s + var(--i) * 0.15s),
+    scale 0.5s var(--ease-out) calc(0.3s + var(--i) * 0.15s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .pin {
+  opacity: 0;
+  scale: 0.6;
+}
+
+.pinList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pinList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.pinList strong {
+  display: block;
+  color: var(--navy-800);
+}
+
+.pinChip {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── One appointment ───────── */
+.appointment {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.apptBar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.apptBar span {
+  height: 0.85rem;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+  transform-origin: left;
+  transition: transform 0.55s var(--ease-out) calc(0.2s + var(--i) * 0.4s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .apptBar span {
+  transform: scaleX(0);
+}
+
+.apptSteps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.apptSteps li {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  color: var(--slate-600);
+}
+
+.apptSteps strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.apptIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+.scope {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: 52rem;
+  margin: 2rem auto 0;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  font-weight: 500;
+  color: var(--white);
+}
+
+.scope svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+/* ───────── Versus: copy beside the table ───────── */
+.versus {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.versusAfter {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.versusAfter a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.table {
+  --table-min: 32rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ───────── Lifespan band ───────── */
+.band {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.bandTrack {
+  position: relative;
+  display: block;
+  height: 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--pearl-100);
+}
+
+/* Years three to five, on a scale that runs to six */
+.bandRange {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 33.33%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--sky-500), var(--navy-800));
+  transform-origin: left;
+  transition: transform 1s var(--ease-out) 0.3s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .bandRange {
+  transform: scaleX(0);
+}
+
+.bandScale {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--step-label);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+  color: var(--slate-600);
+}
+
+.bandNote {
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.keepers {
+  display: grid;
+  gap: 1rem;
+}
+
+.keepersTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.keepers ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.keepers li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.keeperIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.keepersAfter {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.keepersAfter svg {
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .apptSteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.5rem;
+  }
+
+  .pinList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .pinned,
+  .versus {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .apptSteps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bandScale span:nth-child(even) {
+    visibility: hidden;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .pinList li,
+  .keepers li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scope,
+  .keepersAfter,
+  .visitLabel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer,
+  .rebuilt,
+  .polish,
+  .visitBar span {
+    animation: none;
+  }
+}

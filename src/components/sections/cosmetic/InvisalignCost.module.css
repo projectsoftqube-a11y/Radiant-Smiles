@@ -1,0 +1,508 @@
+/* ───────── Hero: two quotes ───────── */
+.quotes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.sheet {
+  display: grid;
+  gap: 0.7rem;
+  min-height: 15rem;
+  padding: 1.25rem 1.1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.sheetOther {
+  rotate: -4deg;
+  opacity: 0.85;
+  animation: sheet-in 0.8s var(--ease-out) 0.7s both;
+}
+
+.sheetOurs {
+  margin-top: 1.5rem;
+  rotate: 2deg;
+  border-top: 5px solid var(--sky-500);
+  animation: sheet-in 0.8s var(--ease-out) 1s both;
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+}
+
+.sheetTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.line {
+  display: block;
+  height: 0.55rem;
+  border-radius: var(--radius-pill);
+  background: var(--pearl-100);
+}
+
+.sheetRow {
+  display: grid;
+  gap: 0.1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px dashed var(--line);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.sheetRow strong {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+}
+
+.stamp {
+  position: absolute;
+  left: 50%;
+  bottom: 0.5rem;
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-small);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--white);
+  box-shadow: var(--shadow-lift);
+  animation: stamp 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 1.7s both;
+}
+
+.stamp svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+@keyframes stamp {
+  from {
+    opacity: 0;
+    scale: 1.4;
+  }
+}
+
+/* ───────── Price sheet ───────── */
+.price {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.sheetCard {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 26rem);
+  justify-self: center;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.sheetCardTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.sheetCardTop svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.priceTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.priceTable th,
+.priceTable td {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.priceTable tr:last-child th,
+.priceTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.priceTable th {
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.priceTable td {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  text-align: right;
+  color: var(--navy-800);
+}
+
+.priceTable .cellOffer {
+  color: var(--sky-700);
+}
+
+.priceTable .cellFree {
+  color: #2f8a5b;
+}
+
+/* ───────── Factor sliders ───────── */
+.factorsTitle {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.factors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.factor {
+  display: grid;
+  align-content: space-between;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.factor strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.slider {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.sliderTrack {
+  position: relative;
+  display: block;
+  height: 0.45rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--sky-200), var(--navy-800));
+}
+
+.sliderKnob {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--at) * 100%);
+  width: 1.15rem;
+  height: 1.15rem;
+  translate: -50% -50%;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+  transition: left 1s var(--ease-out) calc(0.3s + var(--i) * 0.15s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .sliderKnob {
+  left: 0;
+}
+
+.sliderEnds {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+}
+
+/* ───────── Two maximums ───────── */
+.maxes {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+}
+
+.jars {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
+  gap: 1rem;
+}
+
+.jar {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.jarGlass {
+  position: relative;
+  display: block;
+  width: min(100%, 7rem);
+  height: 8rem;
+  border: 3px solid var(--sky-300);
+  border-top-width: 6px;
+  border-radius: 0.6rem 0.6rem 1.2rem 1.2rem;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.jarFill {
+  position: absolute;
+  inset: auto 0 0;
+  height: calc(var(--fill) * 100%);
+  background: linear-gradient(180deg, var(--sky-300), var(--sky-500));
+  transform-origin: bottom;
+  transition: transform 1.2s var(--ease-out) 0.3s;
+}
+
+.jarOrtho .jarGlass {
+  border-color: var(--navy-800);
+}
+
+.jarOrtho .jarFill {
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+}
+
+.motion [data-inview]:not([data-inview="in"]) .jarFill {
+  transform: scaleY(0);
+}
+
+.jarName {
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.jarSep {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  align-self: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+}
+
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.plansLabel {
+  flex-basis: 100%;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.plan {
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Wallet ───────── */
+.wallet {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.payCard {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.payCard strong {
+  color: var(--navy-800);
+}
+
+.payCard a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* CareCredit: the wide card in navy, like the card itself */
+.pay_carecredit {
+  grid-column: span 2;
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgb(109 189 232 / 0.25), transparent 70%),
+    linear-gradient(150deg, var(--navy-700), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.pay_carecredit strong {
+  color: var(--white);
+}
+
+.pay_carecredit a {
+  color: var(--sky-300);
+}
+
+.payTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--sky-700);
+}
+
+.pay_carecredit .payTop {
+  color: var(--sky-300);
+}
+
+/* Payment methods: a full-width strip under the cards */
+.pay_methods {
+  grid-column: 1 / -1;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  padding-block: 1.1rem;
+}
+
+.pay_methods .payTop {
+  gap: 1rem;
+}
+
+/* A card chip, for the look of a payment card */
+.payChip {
+  width: 2.4rem;
+  height: 1.8rem;
+  border-radius: 0.35rem;
+  background:
+    linear-gradient(90deg, transparent 45%, rgb(0 0 0 / 0.12) 45% 55%, transparent 55%),
+    linear-gradient(180deg, transparent 45%, rgb(0 0 0 / 0.12) 45% 55%, transparent 55%),
+    linear-gradient(135deg, #f1d58a, #c9a24a);
+}
+
+.payCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .wallet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .price {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sheetCard {
+    justify-self: start;
+  }
+
+  .factors {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .wallet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pay_carecredit {
+    grid-column: auto;
+  }
+
+  .pay_methods {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quotes {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .sheet {
+    min-height: 12rem;
+    padding: 1rem 0.8rem;
+  }
+
+  .jars {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .jarSep {
+    display: none;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .sheetCardTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheetOther,
+  .sheetOurs,
+  .stamp {
+    animation: none;
+  }
+}

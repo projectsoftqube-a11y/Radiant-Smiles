@@ -1,0 +1,8 @@
+/* The Invisalign rail marks its pages in sky rather than the dentures' blush */
+span.title {
+  color: var(--sky-700);
+}
+
+.current[aria-current] {
+  border-bottom-color: var(--sky-500);
+}

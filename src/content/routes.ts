@@ -99,14 +99,14 @@ export const routes: RouteEntry[] = [
   r("/restorative-dentistry/periodontal-services/", "Periodontal Services", "restorative", true),
 
   // Cosmetic
-  r("/cosmetic-dentistry/", "Cosmetic Dentistry", "cosmetic", false),
-  r("/cosmetic-dentistry/dental-veneers-dentistry/", "Veneers", "cosmetic", false),
-  r("/cosmetic-dentistry/teeth-whitening/", "Teeth Whitening", "cosmetic", false),
-  r("/cosmetic-dentistry/dental-bonding/", "Dental Bonding", "cosmetic", false),
-  r("/cosmetic-dentistry/inlays-onlays/", "Inlays & Onlays", "cosmetic", false),
-  r("/cosmetic-dentistry/invisalign/", "Invisalign", "cosmetic", false),
-  r("/cosmetic-dentistry/invisalign/invisalign-teen/", "Invisalign Teen", "cosmetic", false),
-  r("/cosmetic-dentistry/invisalign/invisalign-cost/", "Invisalign Cost", "cosmetic", false),
+  r("/cosmetic-dentistry/", "Cosmetic Dentistry", "cosmetic", true),
+  r("/cosmetic-dentistry/dental-veneers-dentistry/", "Porcelain Veneers", "cosmetic", true),
+  r("/cosmetic-dentistry/teeth-whitening/", "Teeth Whitening", "cosmetic", true),
+  r("/cosmetic-dentistry/dental-bonding/", "Dental Bonding", "cosmetic", true),
+  r("/cosmetic-dentistry/inlays-onlays/", "Inlays & Onlays", "cosmetic", true),
+  r("/cosmetic-dentistry/invisalign/", "Invisalign", "cosmetic", true),
+  r("/cosmetic-dentistry/invisalign/invisalign-teen/", "Invisalign Teen", "cosmetic", true),
+  r("/cosmetic-dentistry/invisalign/invisalign-cost/", "Invisalign Cost", "cosmetic", true),
 
   // Locations
   r("/areas-we-serve/", "Areas We Serve", "location", false),

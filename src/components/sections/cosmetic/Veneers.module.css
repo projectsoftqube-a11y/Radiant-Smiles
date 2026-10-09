@@ -1,0 +1,703 @@
+/* ───────── Hero: the shell settles onto the tooth ───────── */
+.shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 1.25rem;
+  width: min(100%, 31rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.shellArt {
+  position: relative;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fdf3f3, var(--sky-50));
+  overflow: hidden;
+}
+
+.shellSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.toothBody {
+  fill: var(--white);
+  stroke: #a9daf3;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.gumBack {
+  fill: #f2b7bc;
+  stroke: #d98089;
+  stroke-width: 1.5;
+}
+
+/* The porcelain shell on the front face */
+.shellLayer {
+  fill: none;
+  stroke: var(--sky-500);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.shell .shellLayer {
+  animation: shell-on 1.4s var(--ease-out) 0.9s both;
+}
+
+@keyframes shell-on {
+  from {
+    opacity: 0;
+    translate: -26px 8px;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+.shellNote {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.6rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-xs);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--white);
+  animation: fade-in 0.6s var(--ease-out) 2s both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.match {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.match li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: var(--step-small);
+  color: var(--slate-600);
+  animation: match-in 0.6s var(--ease-out) calc(1.6s + var(--i) * 0.25s) both;
+}
+
+@keyframes match-in {
+  from {
+    opacity: 0;
+    translate: 8px 0;
+  }
+}
+
+.match strong {
+  color: var(--navy-800);
+}
+
+.matchTick {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.match .matchScope {
+  align-items: center;
+  margin-top: 0.25rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.matchScope svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Hero quote ───────── */
+.quote {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 34rem;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--sky-500);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  background: rgb(255 255 255 / 0.7);
+  color: var(--slate-600);
+}
+
+.quoteIntro {
+  font-size: var(--step-small);
+}
+
+.quote blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.quoteBy {
+  font-size: var(--step-small);
+  font-weight: 600;
+}
+
+/* ───────── What veneers fix ───────── */
+.fixes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fix {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1rem 1rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.fixArt {
+  display: block;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fdf3f3, var(--pearl-50));
+}
+
+.fixSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fixGum {
+  fill: #f2b7bc;
+}
+
+.fixTooth {
+  fill: var(--white);
+  stroke: rgb(27 61 110 / 0.35);
+  stroke-width: 1.5;
+}
+
+.fixStain {
+  fill: #e2c98e;
+  stroke: rgb(27 61 110 / 0.35);
+  stroke-width: 1.5;
+}
+
+/* The veneer that corrects each problem, drawn in once the row is in view */
+.fixVeneer {
+  fill: rgb(109 189 232 / 0.16);
+  stroke: var(--sky-600);
+  stroke-width: 1.8;
+  stroke-dasharray: 4 3;
+  transition: opacity 0.7s var(--ease-out) calc(0.5s + var(--i) * 0.18s);
+}
+
+.fixVeneerFill {
+  fill: var(--white);
+  stroke: var(--sky-600);
+  stroke-width: 1.8;
+  transition: opacity 0.9s var(--ease-out) calc(0.5s + var(--i) * 0.18s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .fixVeneer,
+.motion [data-inview]:not([data-inview="in"]) .fixVeneerFill {
+  opacity: 0;
+}
+
+.fixText {
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--navy-800);
+}
+
+.fixAfter {
+  max-width: 56rem;
+}
+
+/* ───────── Weigh-up cards ───────── */
+.weighTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.weighTitle svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.weigh {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.weigh li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 4px solid var(--sky-300);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.weigh strong {
+  color: var(--navy-800);
+}
+
+.weigh a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.weigh .weighFirst {
+  border-top-color: #e5959c;
+}
+
+.weighIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.weighFirst .weighIcon {
+  background: #fbe4e5;
+  color: #9c3f4b;
+}
+
+.consult {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.consult p {
+  flex: 1 1 22rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* ───────── Versus: material swatches ───────── */
+.swatches {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-left: min(25%, 14rem);
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-m);
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.swatch strong {
+  color: var(--navy-800);
+}
+
+.swatchChip {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+}
+
+.porcelain {
+  background: var(--sky-50);
+}
+
+.porcelain .swatchChip {
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 0.95) 0 30%, transparent 31%),
+    linear-gradient(180deg, #ffffff, #e3f1fa);
+  box-shadow:
+    inset 0 0 0 1px #a9daf3,
+    0 6px 14px rgb(27 61 110 / 0.12);
+}
+
+.resin {
+  background: var(--pearl-50);
+}
+
+.resin .swatchChip {
+  background: radial-gradient(circle at 35% 35%, #fbf6ec, #eee1c4);
+  box-shadow: inset 0 0 0 1px #e2d2ad;
+}
+
+.table {
+  --table-min: 36rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ───────── Steps: one tooth through four steps ───────── */
+.stages {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.stage strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.stageArt {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 9rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fdf3f3, var(--sky-50));
+  overflow: hidden;
+}
+
+.stageSvg {
+  flex: none;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 110 / 140;
+  overflow: visible;
+}
+
+.prepLine {
+  fill: none;
+  stroke: #c86b76;
+  stroke-width: 1.8;
+  stroke-dasharray: 4 3;
+}
+
+.designLine {
+  fill: none;
+  stroke: var(--sky-600);
+  stroke-width: 1.8;
+  stroke-dasharray: 4 3;
+}
+
+.lens {
+  fill: rgb(109 189 232 / 0.18);
+  stroke: var(--navy-800);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.stageIcon {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ───────── Lifespan: the decade bar ───────── */
+.decade {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(70% 70% at 100% 0%, var(--sky-100), transparent 70%),
+    var(--pearl-50);
+}
+
+.decadeTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* Ten solid years and a few more fading on */
+.years {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.years span {
+  height: 2rem;
+  border-radius: var(--radius-xs);
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+  transform-origin: bottom;
+  transition: transform 0.5s var(--ease-out) calc(0.2s + var(--i) * 0.07s);
+}
+
+.years .yearPlus {
+  background: linear-gradient(180deg, var(--sky-200), var(--sky-300));
+}
+
+.years .yearPlus:last-child {
+  opacity: 0.5;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .years span {
+  transform: scaleY(0.15);
+}
+
+.resists {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resists > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.resists svg {
+  color: #8a5a10;
+}
+
+.resists .resistNote {
+  background: none;
+  padding-inline: 0.25rem;
+  color: var(--sky-700);
+}
+
+/* Four veneers, one swapped for a new one */
+.swap {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 0.5rem;
+}
+
+.swap span {
+  height: 3.5rem;
+  border: 1.5px solid #a9daf3;
+  border-radius: 6px 6px 1.25rem 1.25rem;
+  background: var(--white);
+}
+
+.swap .swapNew {
+  border: 2px dashed var(--sky-600);
+  background: var(--sky-50);
+  animation: swap-in 2.8s var(--ease-in-out) 1s infinite;
+}
+
+@keyframes swap-in {
+  0%,
+  60%,
+  100% {
+    translate: 0 0;
+  }
+  30% {
+    translate: 0 -8px;
+  }
+}
+
+.swapNote {
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+/* ───────── Care routine ───────── */
+.care {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.care li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+}
+
+.careIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.careAvoid .careIcon {
+  background: #fbe4e5;
+  color: #9c3f4b;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .fixes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .care {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .swatches {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .weigh,
+  .care {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fixes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .shellArt {
+    width: min(100%, 12rem);
+    justify-self: center;
+  }
+
+  .stages,
+  .swatches {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .weigh li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .weighTitle,
+  .match li,
+  .swatch {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fixes {
+    gap: 0.6rem;
+  }
+
+  .fix {
+    padding: 0.6rem 0.6rem 0.9rem;
+  }
+
+  .fixText {
+    font-size: var(--step-small);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell .shellLayer,
+  .shellNote,
+  .match li,
+  .swap .swapNew {
+    animation: none;
+  }
+}

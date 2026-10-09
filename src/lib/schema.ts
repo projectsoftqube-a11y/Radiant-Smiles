@@ -411,6 +411,7 @@ export function treatmentPage({
   name,
   description,
   main,
+  mainPath,
   lastReviewed,
   mainEntity,
   specialty,
@@ -419,6 +420,8 @@ export function treatmentPage({
   name: string;
   description: string;
   main?: string;
+  /** The page whose `#main` node this page is about (default: this page; Invisalign Cost) */
+  mainPath?: string;
   /** ISO date for schema lastReviewed (optional) */
   lastReviewed?: string;
   /** Make the main node (or a given @id key) the page's mainEntity */
@@ -431,7 +434,7 @@ export function treatmentPage({
       path,
       name,
       description,
-      about: main ? [{ "@id": `${absoluteUrl(path)}#${main}` }, { "@id": ids.dentist }] : { "@id": ids.dentist },
+      about: main ? [{ "@id": `${absoluteUrl(mainPath ?? path)}#${main}` }, { "@id": ids.dentist }] : { "@id": ids.dentist },
       provider: { "@id": ids.dentist },
       ...(mainEntity ? { mainEntity: { "@id": `${absoluteUrl(path)}#${mainEntity}` } } : {}),
     }),
@@ -447,6 +450,8 @@ export function medicalProcedure({
   alternateName,
   description,
   specialty,
+  noninvasive,
+  bodyLocation,
 }: {
   path: string;
   name: string;
@@ -454,6 +459,9 @@ export function medicalProcedure({
   description: string;
   /** relevantSpecialty: Dentistry (restorative handoffs) */
   specialty?: boolean;
+  /** procedureType: NoninvasiveProcedure (cosmetic handoffs: whitening, bonding, Invisalign) */
+  noninvasive?: boolean;
+  bodyLocation?: string;
 }): Json {
   return {
     "@type": "MedicalProcedure",
@@ -461,6 +469,8 @@ export function medicalProcedure({
     name,
     ...(alternateName ? { alternateName } : {}),
     description,
+    ...(noninvasive ? { procedureType: "https://schema.org/NoninvasiveProcedure" } : {}),
+    ...(bodyLocation ? { bodyLocation } : {}),
     ...(specialty ? { relevantSpecialty: "https://schema.org/Dentistry" } : {}),
     url: absoluteUrl(path),
   };

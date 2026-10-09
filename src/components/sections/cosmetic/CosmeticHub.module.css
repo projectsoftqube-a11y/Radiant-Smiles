@@ -1,0 +1,1046 @@
+/* ───────── Hero: the smile plan ───────── */
+.plan {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 28rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.planTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.planArt {
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fdf3f3, var(--pearl-50) 60%, var(--white));
+  overflow: hidden;
+}
+
+.planSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gum {
+  fill: #f2b7bc;
+  stroke: #d98089;
+  stroke-width: 2;
+}
+
+.crown {
+  fill: var(--white);
+  stroke: #a9daf3;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+/* Straighten first: the gap closes and the turned canine comes round */
+.shift {
+  animation: close-gap 1.1s var(--ease-out) 0.9s both;
+}
+
+@keyframes close-gap {
+  from {
+    translate: 10px 0;
+  }
+}
+
+.turn {
+  animation: turn-in 1.1s var(--ease-out) 0.9s both;
+}
+
+@keyframes turn-in {
+  from {
+    rotate: 9deg;
+  }
+}
+
+/* Then whiten: the yellowed teeth brighten */
+.stain {
+  animation: whiten 1.2s var(--ease-out) 2.1s both;
+}
+
+@keyframes whiten {
+  from {
+    fill: #ecd9a6;
+  }
+}
+
+/* Then bond: resin rebuilds the chipped corner */
+.resin {
+  fill: var(--white);
+  stroke: var(--sky-500);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 2;
+  animation: resin-in 0.9s var(--ease-out) 3.2s both;
+}
+
+@keyframes resin-in {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+}
+
+.planSteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.planSteps li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.5rem;
+  border-radius: var(--radius-s);
+  background: var(--pearl-50);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+  animation: step-on 0.5s var(--ease-out) calc(0.9s + var(--i) * 1.15s) both;
+}
+
+.planSteps svg {
+  flex: none;
+}
+
+@keyframes step-on {
+  to {
+    background: var(--navy-800);
+    color: var(--white);
+  }
+}
+
+/* ───────── What: the five qualities ───────── */
+.qualities {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "a tooth b"
+    "c tooth d"
+    ". e .";
+  align-items: center;
+  gap: 1rem 0.75rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 60% at 50% 40%, var(--sky-100), transparent 70%),
+    var(--pearl-50);
+}
+
+.bigTooth {
+  grid-area: tooth;
+  justify-self: center;
+  width: min(100%, 11rem);
+  height: auto;
+  fill: var(--white);
+  stroke: var(--navy-800);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 18px 24px rgb(27 61 110 / 0.12));
+}
+
+.bigToothShine {
+  fill: none;
+  stroke: var(--sky-300);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.quality {
+  justify-self: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+  transition:
+    opacity 0.6s var(--ease-out) calc(0.3s + var(--i) * 0.12s),
+    translate 0.6s var(--ease-out) calc(0.3s + var(--i) * 0.12s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .quality {
+  opacity: 0;
+  translate: 0 10px;
+}
+
+.qa {
+  grid-area: a;
+  justify-self: end;
+}
+
+.qb {
+  grid-area: b;
+  justify-self: start;
+}
+
+.qc {
+  grid-area: c;
+  justify-self: end;
+}
+
+.qd {
+  grid-area: d;
+  justify-self: start;
+}
+
+.qe {
+  grid-area: e;
+}
+
+/* ───────── Procedures: the staircase ───────── */
+.stairs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: end;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stair {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  margin-top: calc((4 - var(--i)) * 2.25rem);
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.stair:last-child {
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.stairTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stairIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.stair:last-child .stairIcon {
+  background: rgb(109 189 232 / 0.18);
+  color: var(--sky-300);
+}
+
+/* How involved each treatment is, one to five */
+.pips {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.pips span {
+  width: 6px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.pips .pipOn {
+  background: var(--sky-500);
+}
+
+.stairLink {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+  text-decoration: underline;
+  text-decoration-color: var(--sky-300);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.stairLink:hover {
+  text-decoration-color: currentColor;
+}
+
+.stairColon {
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.stair:last-child .stairLink,
+.stair:last-child .stairColon {
+  color: var(--white);
+}
+
+.axis {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+}
+
+.axisLine {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sky-300), var(--navy-800));
+}
+
+.axisLine::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--navy-800);
+  border-right: 2px solid var(--navy-800);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* ───────── Makeover: copy + the plan card ───────── */
+.makeover {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.order {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--sky-700);
+}
+
+.order span {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.planCard {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+/* The plan card's binding edge */
+.planCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  border-radius: var(--radius-l) 0 0 var(--radius-l);
+  background: linear-gradient(180deg, var(--sky-500), var(--navy-800));
+}
+
+.planCardTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--pearl-100);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy-800);
+}
+
+.planCard h3 {
+  font-size: var(--step-h3);
+}
+
+.planList {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* A dashed thread joining the four steps */
+.planList::before {
+  content: "";
+  position: absolute;
+  left: 1.3rem;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  border-left: 2px dashed var(--sky-300);
+}
+
+.planList li {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.planList strong {
+  color: var(--navy-800);
+}
+
+.planIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Treatment spec cards ───────── */
+.specsWrap {
+  background: var(--white);
+}
+
+.specSection + .specSection {
+  padding-top: 0;
+}
+
+.specGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.specFlip .specGrid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+.specFlip .spec {
+  order: 2;
+}
+
+.spec {
+  --tint: var(--sky-100);
+  --ink-tint: var(--navy-800);
+  display: grid;
+  width: min(100%, 24rem);
+  justify-self: center;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.spec_veneers .spec {
+  --tint: var(--pearl-100);
+}
+
+.spec_whitening .spec {
+  --tint: var(--sky-100);
+}
+
+.spec_bonding .spec {
+  --tint: #fbe4e5;
+  --ink-tint: #9c3f4b;
+}
+
+.spec_inlays .spec {
+  --tint: #fbefd2;
+  --ink-tint: #8a5a10;
+}
+
+.spec_invisalign .spec {
+  --tint: var(--navy-800);
+  --ink-tint: var(--sky-300);
+}
+
+.specSwatch {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background:
+    radial-gradient(60% 80% at 50% 100%, rgb(255 255 255 / 0.55), transparent 70%),
+    var(--tint);
+  color: var(--ink-tint);
+  overflow: hidden;
+}
+
+/* The brand's light rays rising behind the treatment's mark */
+.specRays {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 150%;
+  translate: -50% 4%;
+  stroke: var(--sky-500);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.spec_invisalign .specRays {
+  stroke: var(--sky-300);
+  opacity: 0.45;
+}
+
+.specIcon {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: 0 14px 30px rgb(27 61 110 / 0.14);
+  color: var(--navy-800);
+}
+
+.spec_bonding .specIcon {
+  color: #9c3f4b;
+}
+
+.spec_inlays .specIcon {
+  color: #8a5a10;
+}
+
+.specOffer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+}
+
+.specRows {
+  display: grid;
+}
+
+.specRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.25rem;
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.specRow + .specRow {
+  border-top: 1px solid var(--line);
+}
+
+.specRow svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Goal table ───────── */
+.goal {
+  max-width: 62rem;
+  margin-inline: auto;
+}
+
+.goalTable {
+  --table-min: 30rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.goalNote {
+  justify-content: center;
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+/* ───────── Precision: the navy zoom band ───────── */
+.zoomSection {
+  background:
+    radial-gradient(50% 70% at 100% 0%, rgb(109 189 232 / 0.18), transparent 70%),
+    linear-gradient(170deg, var(--navy-800), var(--navy-950));
+  color: var(--slate-on-navy);
+}
+
+.zoomGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.zoomCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.zoomCopy h2 {
+  color: var(--white);
+}
+
+.zoomCopy a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.zoomTech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.zoomTech span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--line-on-navy);
+  border-radius: var(--radius-s);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.zoomTech svg {
+  color: var(--sky-300);
+}
+
+.zoom {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 1rem;
+}
+
+.zoomPanel {
+  display: grid;
+  gap: 0.6rem;
+  transition:
+    opacity 0.7s var(--ease-out) calc(0.2s + var(--i) * 0.2s),
+    translate 0.7s var(--ease-out) calc(0.2s + var(--i) * 0.2s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .zoomPanel {
+  opacity: 0;
+  translate: 0 14px;
+}
+
+.zoomView {
+  position: relative;
+  display: block;
+  border: 1px solid rgb(109 189 232 / 0.35);
+  border-radius: var(--radius-m);
+  background: radial-gradient(70% 70% at 50% 40%, rgb(109 189 232 / 0.16), rgb(7 20 42 / 0.6));
+  overflow: hidden;
+}
+
+.zoomFit {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--sky-300);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-950);
+}
+
+.zoomPanel:last-child .zoomView {
+  border-color: var(--sky-300);
+  box-shadow: 0 0 0 4px rgb(109 189 232 / 0.15);
+}
+
+.zoomSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zoomName {
+  font-size: var(--step-label);
+  font-weight: 700;
+  text-align: center;
+  color: var(--white);
+}
+
+/* ───────── Results: the before/after split ───────── */
+.results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(135deg, var(--pearl-100), var(--sky-50));
+}
+
+.resultsCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+/* Two halves of one smile: the handle sweeps across, then settles in the middle */
+.split {
+  --pos: 58%;
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fdf3f3, var(--white));
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.splitBefore,
+.splitAfter {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: rgb(27 61 110 / 0.18);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.splitBefore {
+  fill: #e6cf98;
+}
+
+.splitAfter {
+  fill: var(--white);
+  clip-path: inset(0 0 0 var(--pos));
+}
+
+.splitGum {
+  fill: #f2b7bc;
+  stroke: #d98089;
+}
+
+.splitTag {
+  position: absolute;
+  bottom: 0.75rem;
+  z-index: 2;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.tagBefore {
+  left: 0.75rem;
+}
+
+.tagAfter {
+  right: 0.75rem;
+}
+
+.splitHandle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.splitHandle svg {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.4rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.split[data-inview="in"] {
+  animation: sweep 2.4s var(--ease-in-out) 0.2s both;
+}
+
+@property --pos {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+@keyframes sweep {
+  0% {
+    --pos: 50%;
+  }
+  35% {
+    --pos: 22%;
+  }
+  70% {
+    --pos: 78%;
+  }
+  100% {
+    --pos: 58%;
+  }
+}
+
+/* ───────── Dentists ───────── */
+.temple {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.temple svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.dentists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dentist {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.dentistPhoto {
+  width: 100%;
+}
+
+.dentistCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.dentistName {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+  text-decoration: underline;
+  text-decoration-color: var(--sky-300);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.dentistName:hover {
+  text-decoration-color: currentColor;
+}
+
+.dentistTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.dentistTags span {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-50);
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .stairs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .stair {
+    margin-top: 0;
+  }
+
+  .dentist {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+  }
+
+  .dentistPhoto {
+    width: min(100%, 11rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .makeover,
+  .specGrid,
+  .specFlip .specGrid,
+  .zoomGrid,
+  .results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specFlip .spec {
+    order: 0;
+  }
+
+  .spec {
+    justify-self: start;
+  }
+
+  .stairs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .dentists {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dentist {
+    grid-template-columns: minmax(0, 9rem) minmax(0, 1fr);
+  }
+
+  .zoom {
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .stairs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .qualities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "tooth tooth"
+      "a b"
+      "c d"
+      "e e";
+  }
+
+  .qa,
+  .qb,
+  .qc,
+  .qd {
+    justify-self: stretch;
+    text-align: center;
+  }
+
+  .dentist {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .zoomName {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .planList li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .planList::before {
+    display: none;
+  }
+
+  .planSteps li {
+    flex-direction: column;
+  }
+
+  .temple {
+    flex-direction: column;
+  }
+
+  .zoom {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .zoomPanel:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .goalNote {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shift,
+  .turn,
+  .stain,
+  .resin,
+  .planSteps li {
+    animation: none;
+  }
+
+  .planSteps li {
+    background: var(--navy-800);
+    color: var(--white);
+  }
+
+  .split[data-inview="in"] {
+    animation: none;
+  }
+}

@@ -16,6 +16,8 @@ type ButtonProps = {
   trackData?: Record<string, string>;
   className?: string;
   external?: boolean;
+  /** A long label: smaller type on phones, and no icon below 390px, so it stays on one line */
+  long?: boolean;
 };
 
 /**
@@ -23,9 +25,9 @@ type ButtonProps = {
  * only colours change (CLAUDE.md). tel:/external links are plain anchors; internal
  * links go through SiteLink.
  */
-export function Button({ href, children, variant = "primary", icon, iconEnd, track, trackData, className, external }: ButtonProps) {
+export function Button({ href, children, variant = "primary", icon, iconEnd, track, trackData, className, external, long }: ButtonProps) {
   const extra = Object.fromEntries(Object.entries(trackData ?? {}).map(([key, value]) => [`data-track-${key}`, value]));
-  const classes = [styles.button, styles[variant], className].filter(Boolean).join(" ");
+  const classes = [styles.button, styles[variant], long ? styles.long : undefined, className].filter(Boolean).join(" ");
   const content = (
     <>
       {icon ? <Icon name={icon} size={18} /> : null}

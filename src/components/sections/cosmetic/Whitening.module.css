@@ -1,0 +1,687 @@
+/* ───────── Hero: the tray and the nights ───────── */
+.tray {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.trayTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.trayTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.trayOffer {
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+  color: var(--sky-200);
+}
+
+.trayOffer strong {
+  font-weight: 800;
+  color: var(--white);
+}
+
+.trayArt {
+  position: relative;
+  padding: 0.75rem 0.75rem 2.75rem;
+  border-radius: var(--radius-m);
+  background: radial-gradient(70% 80% at 50% 30%, var(--sky-100), var(--sky-50) 70%);
+}
+
+.traySvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.trayShell {
+  fill: none;
+  stroke: rgb(109 189 232 / 0.4);
+  stroke-width: 30;
+  stroke-linecap: round;
+}
+
+.archTooth {
+  fill: #ecd9a6;
+  stroke: rgb(27 61 110 / 0.3);
+  stroke-width: 1;
+  animation: brighten 1.6s var(--ease-out) calc(1.4s + var(--i) * 0.06s) both;
+}
+
+@keyframes brighten {
+  to {
+    fill: #ffffff;
+  }
+}
+
+.gel {
+  fill: var(--sky-500);
+  opacity: 0;
+  animation: gel-in 0.5s var(--ease-out) calc(0.6s + var(--i) * 0.04s) both;
+}
+
+@keyframes gel-in {
+  from {
+    opacity: 0;
+    scale: 0.3;
+  }
+  to {
+    opacity: 0.85;
+    scale: 1;
+  }
+}
+
+.ready {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--step-label);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--navy-800);
+}
+
+.ready svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.nights {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.nightsLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.nightsLabel svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* One to two weeks: the first week solid, the second as needed */
+.nightRow {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.nightRow span {
+  height: 0.75rem;
+  border-radius: 3px;
+  background: var(--navy-800);
+  animation: night-on 0.4s var(--ease-out) calc(0.8s + var(--i) * 0.08s) both;
+}
+
+.nightRow .nightMaybe {
+  background: var(--sky-300);
+}
+
+@keyframes night-on {
+  from {
+    background: var(--line);
+  }
+}
+
+.nightScale {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.nightScale span:last-child {
+  text-align: right;
+}
+
+/* ───────── How it works: the timeline ───────── */
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The line joining the four moments, drawn across once in view */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.6rem;
+  right: calc((100% - 3.75rem) / 4 - 1.6rem);
+  top: 1.6rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sky-300), var(--navy-800));
+  transform-origin: left;
+  transition: transform 1.4s var(--ease-out) 0.2s;
+}
+
+.motion .timeline[data-inview]:not([data-inview="in"])::before {
+  transform: scaleX(0);
+}
+
+.moment {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.moment strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.momentNode {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 4px solid var(--white);
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: var(--shadow-soft);
+}
+
+.moment:nth-child(3) .momentNode {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+/* The wait before this step, sitting on the line halfway back to the previous node */
+.gap {
+  position: absolute;
+  top: 1.6rem;
+  left: calc(1.6rem - (100% + 1.25rem) / 2);
+  translate: -50% -50%;
+  z-index: 1;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  font-size: var(--step-label);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--navy-800);
+}
+
+.keep {
+  max-width: 50rem;
+}
+
+/* ───────── Fit comparison ───────── */
+.fits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fit {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 1.25rem 1rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.fitSvg {
+  width: min(100%, 9.5rem);
+  height: auto;
+}
+
+.fitGum {
+  fill: #f2b7bc;
+  stroke: #d98089;
+  stroke-width: 1.5;
+}
+
+.fitTooth {
+  fill: #ffffff;
+  stroke: rgb(27 61 110 / 0.3);
+  stroke-width: 1.5;
+}
+
+.fitGel {
+  fill: none;
+  stroke: var(--sky-500);
+  stroke-width: 3;
+  opacity: 0.8;
+}
+
+.fitTray {
+  fill: none;
+  stroke: rgb(109 189 232 / 0.55);
+  stroke-width: 4;
+}
+
+.fitTrayLoose {
+  fill: none;
+  stroke: rgb(27 61 110 / 0.25);
+  stroke-width: 4;
+  stroke-dasharray: 6 4;
+}
+
+.leak {
+  fill: var(--sky-500);
+  opacity: 0.65;
+}
+
+.fitName {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.fitGood .fitName svg {
+  color: #2f8a5b;
+}
+
+.fitBad .fitName svg {
+  color: #c43d3d;
+}
+
+.fitNote {
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+/* ───────── Who: arch choice + limits ───────── */
+.who {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.arches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.arch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.arch svg {
+  flex: none;
+  width: 2.75rem;
+  height: auto;
+}
+
+.archOn {
+  fill: none;
+  stroke: var(--sky-500);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.archOff {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.limits {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+}
+
+.limitsTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.limits ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.limits li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--slate-600);
+}
+
+.limits strong {
+  color: var(--navy-800);
+}
+
+.limits a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.limitIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Pace control ───────── */
+.pace {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.paceTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.paceTrack {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.paceTrack span {
+  height: 2.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--navy-800);
+  transform-origin: bottom;
+  transition: transform 0.45s var(--ease-out) calc(0.2s + var(--i) * 0.06s);
+}
+
+.paceTrack .paceRest {
+  background: repeating-linear-gradient(135deg, var(--sky-100) 0 5px, var(--white) 5px 10px);
+  box-shadow: inset 0 0 0 1px var(--sky-200);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .paceTrack span {
+  transform: scaleY(0.2);
+}
+
+.paceKey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.paceKey span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.paceKeyRest::before {
+  content: "";
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 3px;
+  background: repeating-linear-gradient(135deg, var(--sky-100) 0 3px, var(--white) 3px 6px);
+  box-shadow: inset 0 0 0 1px var(--sky-200);
+}
+
+.paceButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pauseBtn,
+.playBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-s);
+  font-size: var(--step-small);
+  font-weight: 700;
+}
+
+.pauseBtn {
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.playBtn {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.pauseGlyph {
+  width: 0.7rem;
+  height: 0.8rem;
+  border-inline: 3px solid currentColor;
+}
+
+.playGlyph {
+  width: 0;
+  height: 0;
+  border-block: 0.42rem solid transparent;
+  border-left: 0.65rem solid currentColor;
+}
+
+/* ───────── Results last: culprits + habits ───────── */
+.lastHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.culprits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(135deg, #fbefd2, #f6e4d6);
+}
+
+.culprit {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: rgb(255 255 255 / 0.7);
+  font-weight: 600;
+  color: #6e4a12;
+}
+
+.rinse {
+  display: inline-flex;
+  flex-basis: 100%;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.rinse svg {
+  flex: none;
+  color: var(--sky-600);
+}
+
+.habits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.habits li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  color: var(--ink);
+}
+
+.habits a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.habitIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+
+  .timeline::before,
+  .gap {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .who,
+  .lastHead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .habits {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .timeline,
+  .fits {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fit {
+    grid-template-columns: minmax(0, 7rem) minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+  }
+
+  .fitSvg {
+    grid-row: span 2;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .limits li,
+  .habits li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .arch,
+  .nightsLabel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archTooth,
+  .gel,
+  .nightRow span {
+    animation: none;
+  }
+
+  .archTooth {
+    fill: #ffffff;
+  }
+
+  .gel {
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,444 @@
+/* ───────── Hero: the aligner and its indicator ───────── */
+.indicator {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.indTitle {
+  justify-self: start;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.indArt {
+  position: relative;
+  padding: 1rem;
+  border-radius: var(--radius-m);
+  background: radial-gradient(70% 80% at 50% 30%, var(--sky-50), var(--pearl-50));
+}
+
+.indSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.alignerBody {
+  fill: none;
+  stroke: rgb(169 218 243 / 0.45);
+  stroke-width: 34;
+  stroke-linecap: round;
+}
+
+.alignerEdge {
+  fill: none;
+  stroke: rgb(109 189 232 / 0.6);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 4;
+}
+
+.archTooth {
+  fill: var(--white);
+  stroke: rgb(27 61 110 / 0.3);
+  stroke-width: 1;
+}
+
+/* The compliance indicator, fading as the aligner is worn, then a fresh set */
+.dot {
+  fill: #2f7fd8;
+  stroke: var(--white);
+  stroke-width: 2.5;
+  animation: indicator-fade 5s var(--ease-in-out) 1s infinite;
+}
+
+@keyframes indicator-fade {
+  0%,
+  10% {
+    fill-opacity: 1;
+  }
+  80%,
+  92% {
+    fill-opacity: 0.12;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+.dotCallout {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: #2f7fd8;
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.fadeScale {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.fadeBar {
+  display: block;
+  height: 0.6rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, #2f7fd8, rgb(47 127 216 / 0.1));
+}
+
+.fadeLabels {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+/* ───────── Sticker tiles ───────── */
+.stickers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sticker {
+  --tilt: -1.5deg;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: 0 14px 30px rgb(27 61 110 / 0.1);
+  color: var(--slate-600);
+  rotate: var(--tilt);
+  transition: rotate var(--dur-ui) var(--ease-out), translate var(--dur-ui) var(--ease-out);
+}
+
+.sticker:nth-child(2) {
+  --tilt: 1.5deg;
+  background: var(--sky-100);
+}
+
+.sticker:nth-child(3) {
+  --tilt: -1deg;
+  background: #fbe4e5;
+}
+
+.sticker:nth-child(4) {
+  --tilt: 1.2deg;
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.sticker:hover {
+  rotate: 0deg;
+  translate: 0 -4px;
+}
+
+.sticker strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--navy-800);
+}
+
+.sticker:nth-child(4) strong {
+  color: var(--white);
+}
+
+.stickerIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.sticker:nth-child(4) .stickerIcon {
+  background: var(--sky-500);
+  color: var(--navy-950);
+}
+
+/* ───────── Compliance scale ───────── */
+.compliance {
+  display: grid;
+  gap: 1rem;
+}
+
+.scale {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.scaleTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.dots {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.scaleDot {
+  aspect-ratio: 1;
+  border-radius: var(--radius-m);
+  background: rgb(47 127 216 / var(--o));
+  box-shadow: inset 0 0 0 1px rgb(47 127 216 / 0.25);
+  transition: background 0.8s ease calc(0.3s + var(--i) * 0.25s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .scaleDot {
+  background: #2f7fd8;
+}
+
+.scaleLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+}
+
+.lost {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.lostIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: rgb(109 189 232 / 0.18);
+  color: var(--sky-300);
+}
+
+/* ───────── Aligner lanes ───────── */
+.lanes {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lane {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(0, 18rem);
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.lane strong {
+  color: var(--navy-800);
+}
+
+.laneIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.laneTrack {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.laneBar {
+  display: flex;
+  gap: 4px;
+  height: 0.8rem;
+}
+
+.laneIn {
+  flex: 1;
+  border-radius: var(--radius-pill);
+  background: var(--navy-800);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out) calc(0.2s + var(--i) * 0.2s);
+}
+
+.laneOut {
+  flex: 0.6;
+  border-radius: var(--radius-pill);
+  background: repeating-linear-gradient(135deg, var(--sky-100) 0 5px, var(--white) 5px 10px);
+  box-shadow: inset 0 0 0 1px var(--sky-200);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .laneIn {
+  transform: scaleX(0);
+}
+
+.laneNote {
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+/* ───────── One place ───────── */
+.place {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.placeTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.placeTitle svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.placeRecords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.placeRecords span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.placeArrow {
+  justify-self: center;
+  rotate: 90deg;
+  color: var(--sky-500);
+}
+
+.placeMap {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(170deg, var(--navy-800), var(--navy-950));
+  font-weight: 600;
+  text-align: center;
+  color: var(--white);
+}
+
+.placeFoot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.placeFoot svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .stickers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lane {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .laneTrack {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 575px) {
+  .stickers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lane {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .laneTrack {
+    grid-column: auto;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .lost,
+  .placeTitle,
+  .placeFoot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+
+  .sticker {
+    transition: none;
+  }
+}

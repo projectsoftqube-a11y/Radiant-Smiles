@@ -1,0 +1,579 @@
+/* ───────── Shared molar drawing ───────── */
+.molar {
+  fill: var(--white);
+  stroke: rgb(27 61 110 / 0.4);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.grooves {
+  fill: none;
+  stroke: rgb(27 61 110 / 0.22);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.cover {
+  fill: rgb(109 189 232 / 0.35);
+  stroke: var(--sky-600);
+  stroke-width: 1.4;
+}
+
+/* ───────── Hero: the onlay drops in ───────── */
+.drop {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.dropArt {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem 1rem;
+  border-radius: var(--radius-m);
+  background: radial-gradient(60% 60% at 50% 50%, #fdf3f3, var(--pearl-50));
+}
+
+.dropSvg {
+  width: min(100%, 13rem);
+  height: auto;
+  filter: drop-shadow(0 16px 22px rgb(27 61 110 / 0.12));
+}
+
+/* The prepared area, waiting for its onlay */
+.prep {
+  fill: #f1e3e3;
+  stroke: #c86b76;
+  stroke-width: 1.2;
+  stroke-dasharray: 3 2;
+}
+
+.piece {
+  fill: #fdfdfb;
+  stroke: var(--sky-600);
+  stroke-width: 1.6;
+  filter: drop-shadow(0 4px 4px rgb(27 61 110 / 0.18));
+  animation: piece-in 1.3s var(--ease-out) 0.9s both;
+}
+
+@keyframes piece-in {
+  from {
+    opacity: 0;
+    translate: 0 -22px;
+    scale: 1.12;
+  }
+  55% {
+    opacity: 1;
+  }
+}
+
+.dropTag {
+  position: absolute;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-xs);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--white);
+  animation: tag-in 0.5s var(--ease-out) 2.1s both;
+}
+
+@keyframes tag-in {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+}
+
+.tagCusp {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.tagCenter {
+  bottom: 0.75rem;
+  left: 0.75rem;
+  background: var(--sky-500);
+  color: var(--navy-950);
+  animation-delay: 2.35s;
+}
+
+.dropFoot {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.dropFoot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.dropFoot svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Coverage row ───────── */
+.coverage {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.coverItem {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 1.25rem 1rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+}
+
+.coverSvg {
+  width: min(100%, 7rem);
+  height: auto;
+}
+
+.coverItem .cover {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition:
+    opacity 0.6s var(--ease-out) calc(0.3s + var(--i) * 0.2s),
+    scale 0.6s var(--ease-out) calc(0.3s + var(--i) * 0.2s);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .coverItem .cover {
+  opacity: 0;
+  scale: 0.6;
+}
+
+.coverName {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.coverAxis {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+}
+
+.coverLine {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sky-200), var(--navy-800));
+}
+
+.table {
+  --table-min: 34rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ───────── X-ray case cards ───────── */
+.cases {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1rem 1rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.xray {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-radius: var(--radius-m);
+  background: radial-gradient(70% 70% at 50% 40%, #1d3354, #07142a);
+}
+
+.xraySvg {
+  width: min(100%, 11rem);
+  height: auto;
+}
+
+.xrayTooth {
+  fill: rgb(220 236 248 / 0.75);
+  stroke: rgb(255 255 255 / 0.85);
+  stroke-width: 1.4;
+}
+
+.xrayDark {
+  fill: #0b1d37;
+  stroke: none;
+}
+
+.xrayBright {
+  fill: #ffffff;
+  stroke: none;
+}
+
+.xrayCrack {
+  fill: none;
+  stroke: #0b1d37;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.caseText {
+  padding-inline: 0.25rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--navy-800);
+}
+
+/* ───────── Material samples ───────── */
+.samples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sample {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1rem 1rem 1.5rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.sample strong {
+  color: var(--navy-800);
+}
+
+.sampleBlock {
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  border-radius: var(--radius-m);
+}
+
+.sampleSvg {
+  width: min(100%, 7.5rem);
+  height: auto;
+}
+
+.sample_porcelain .sampleBlock {
+  background: linear-gradient(135deg, var(--sky-50), #ffffff);
+}
+
+.sample_porcelain .cover {
+  fill: #fbfdff;
+  stroke: var(--sky-500);
+}
+
+.sample_gold .sampleBlock {
+  background: linear-gradient(135deg, #fbefd2, #fff8e8);
+}
+
+.sample_gold .cover {
+  fill: #e0b54f;
+  stroke: #a77a1c;
+}
+
+.sample_composite .sampleBlock {
+  background: linear-gradient(135deg, var(--pearl-100), #ffffff);
+}
+
+.sample_composite .cover {
+  fill: #f1e7d0;
+  stroke: #c9b48a;
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ───────── Two visits ───────── */
+.visits {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.visit {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.visitLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--navy-800);
+}
+
+.visitLabel span {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.visitSteps {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visitSteps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+  color: var(--slate-600);
+}
+
+.visitIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* The lab between the visits: a slim column with a dashed thread through it */
+.lab {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  width: 7.5rem;
+  padding: 1rem 0.5rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--navy-800);
+}
+
+.lab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: -1;
+  border-left: 2px dashed var(--sky-300);
+}
+
+.lab svg {
+  flex: none;
+  box-sizing: content-box;
+  padding: 0.6rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.lab span {
+  padding: 0.25rem 0.4rem;
+  border-radius: var(--radius-xs);
+  background: var(--sky-50);
+}
+
+/* ───────── Range ───────── */
+.range {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(135deg, #fbefd2, var(--pearl-50));
+}
+
+.rangeFigure {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: var(--navy-800);
+}
+
+.rangeFigure span {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.rangeFigure small {
+  flex-basis: 100%;
+  margin-top: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.rangeTrack {
+  position: relative;
+  display: block;
+  height: 0.9rem;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.8);
+}
+
+.rangeFill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, #e0b54f, var(--navy-800));
+  transform-origin: left;
+  transition: transform 1.1s var(--ease-out) 0.3s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .rangeFill {
+  transform: scaleX(0);
+}
+
+.rangeScale {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--step-label);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+  color: var(--slate-600);
+}
+
+.depends {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.depends span {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.depends .dependsLabel {
+  padding-inline: 0;
+  background: none;
+  color: var(--slate-600);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 991px) {
+  .cases,
+  .samples {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case,
+  .sample {
+    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .visits {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .lab {
+    grid-auto-flow: column;
+    justify-content: center;
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .coverage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .case,
+  .sample {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .visitSteps li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .visitLabel,
+  .dropFoot span {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .piece,
+  .dropTag {
+    animation: none;
+  }
+}

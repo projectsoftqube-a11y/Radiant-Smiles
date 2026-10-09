@@ -34,6 +34,7 @@ export function CtaButtons({ buttons, track, className }: { buttons: CtaButton[]
             icon={button.href.startsWith("tel:") ? "phone" : undefined}
             iconEnd={button.external ? "arrowUpRight" : undefined}
             external={button.external}
+            long={button.label.length > 28}
             track={button.track ?? `cta_click_${track}`}
           >
             {button.label}

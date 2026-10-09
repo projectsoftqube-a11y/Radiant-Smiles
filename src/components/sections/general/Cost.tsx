@@ -7,9 +7,9 @@ import styles from "./Cost.module.css";
 const payIcon = (lead: string): IconName =>
   /insurance:/i.test(lead) && !/no insurance/i.test(lead)
     ? "shield"
-    : /financ/i.test(lead)
+    : /financ|carecredit/i.test(lead)
       ? "banknote"
-      : /membership plan:/i.test(lead)
+      : /membership plan:|fsa/i.test(lead)
         ? "card"
         : "tag";
 
