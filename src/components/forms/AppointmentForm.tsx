@@ -9,6 +9,9 @@ import { practice } from "@/content/site";
 import { submitAppointment } from "@/lib/appointment";
 import {
   fieldLimits,
+  formatPhone,
+  phoneDigits,
+  requiredFields,
   validateAppointment,
   type AppointmentState,
   type FieldErrors,
@@ -28,8 +31,9 @@ function pushEvent(event: string, variant: FormVariant) {
  * content file says:
  *   contact     the contact page form (phone or email; optional message)
  *   scheduling  the scheduling page form (name and phone required; reason as a select)
- * The same rules run in the browser (instant messages) and on the server (the real check).
- * On success the thank-you message replaces the form in place. Events: form_start on the
+ * Required fields carry an asterisk. The same rules run in the browser (a field is checked
+ * when you leave it, and again as you type while it shows a message) and on the server (the
+ * real check). The phone number is tidied to (215) 860-4600 format when you leave it. On success the thank-you message replaces the form in place. Events: form_start on the
  * first edit, then form_submit (contact) or generate_lead (scheduling).
  */
 export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant }) {
@@ -61,21 +65,44 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
     }
   };
 
-  // First edit: form_start. Editing a field clears its message (and the shared phone/email one).
+  const required = requiredFields[variant];
+  const fieldNames: FieldName[] = ["name", "phone", "email", "patient", "times", "message", "reason"];
+
+  // Check one field against the shared rules and show or clear its message
+  const checkField = (name: FieldName) => {
+    if (!formRef.current) return;
+    const error = validateAppointment(new FormData(formRef.current)).errors[name];
+    setLocalErrors((current) => {
+      if (current[name] === error) return current;
+      const next = { ...current };
+      if (error) next[name] = error;
+      else delete next[name];
+      return next;
+    });
+  };
+
+  // First edit: form_start. While a field shows a message, it is re-checked as you type.
   const onInput = (event: FormEvent<HTMLFormElement>) => {
     if (!started.current) {
       started.current = true;
       pushEvent("form_start", variant);
     }
-    const name = (event.target as HTMLInputElement).name as FieldName;
-    if (!localErrors[name]) return;
-    const next = { ...localErrors };
-    delete next[name];
-    if (!scheduling && (name === "phone" || name === "email")) {
-      delete next.phone;
-      delete next.email;
+    const target = event.target as HTMLInputElement;
+    const name = target.name as FieldName;
+    // Choices (radio, select) are checked as soon as they change
+    if (errors[name] || target.type === "radio" || target.tagName === "SELECT") checkField(name);
+  };
+
+  // Leaving a field checks it; a valid phone number is tidied to (215) 860-4600
+  const onBlur = (event: FormEvent<HTMLFormElement>) => {
+    const target = event.target as HTMLInputElement;
+    const name = target.name as FieldName;
+    if (!fieldNames.includes(name) || target.type === "radio") return;
+    if (name === "phone") {
+      const digits = phoneDigits(target.value.trim());
+      if (digits) target.value = formatPhone(digits);
     }
-    setLocalErrors(next);
+    checkField(name);
   };
 
   if (state.status === "sent") {
@@ -101,6 +128,8 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
   const field = (name: FieldName, extra?: string) => ({
     id: `appt-${name}`,
     name,
+    required: required.includes(name),
+    "aria-required": required.includes(name) ? true : undefined,
     "aria-invalid": errors[name] ? true : undefined,
     "aria-describedby": describedBy(name, extra),
   });
@@ -108,38 +137,48 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
   const message = (name: FieldName) =>
     errors[name] ? (
       <p id={`appt-${name}-error`} className={styles.error}>
-        <Icon name="alert" size={16} />
         {errors[name]}
       </p>
     ) : null;
 
   const copy = scheduling ? schedulingForm : appointmentForm;
 
+  // Required fields carry an asterisk (the user's request: no "(required)" / "(optional)" text)
+  const req = (name: FieldName) =>
+    required.includes(name) ? (
+      <span className={styles.req} aria-hidden="true">
+        *
+      </span>
+    ) : null;
+
   return (
     <div id="appointment-form" className={styles.card}>
       <p className={styles.heading}>{copy.heading}</p>
-      <form ref={formRef} action={formAction} onSubmit={onSubmit} onInput={onInput} noValidate className={styles.form}>
+      <form ref={formRef} action={formAction} onSubmit={onSubmit} onInput={onInput} onBlur={onBlur} noValidate className={styles.form}>
         <input type="hidden" name="variant" value={variant} />
         <div className={styles.field}>
           <label htmlFor="appt-name">
             {copy.fields.name}
-            {scheduling ? <span className={styles.req}> (required)</span> : null}
+            {req("name")}
           </label>
-          <input {...field("name")} type="text" autoComplete="name" maxLength={fieldLimits.name} required />
+          <input {...field("name")} type="text" autoComplete="name" maxLength={fieldLimits.name} />
           {message("name")}
         </div>
         <div className={`${styles.row} ${styles.two}`}>
           <div className={styles.field}>
             <label htmlFor="appt-phone">
               {copy.fields.phone}
-              {scheduling ? <span className={styles.req}> (required)</span> : null}
+              {req("phone")}
             </label>
-            <input {...field("phone")} type="tel" autoComplete="tel" inputMode="tel" maxLength={fieldLimits.phone} required={scheduling} />
+            <input {...field("phone")} type="tel" autoComplete="tel" inputMode="tel" maxLength={fieldLimits.phone} placeholder="(215) 555-0123" />
             {message("phone")}
           </div>
           <div className={styles.field}>
-            <label htmlFor="appt-email">{copy.fields.email}</label>
-            <input {...field("email")} type="email" autoComplete="email" maxLength={fieldLimits.email} />
+            <label htmlFor="appt-email">
+              {copy.fields.email}
+              {req("email")}
+            </label>
+            <input {...field("email")} type="email" autoComplete="email" inputMode="email" maxLength={fieldLimits.email} placeholder="name@example.com" />
             {message("email")}
           </div>
         </div>
@@ -147,7 +186,10 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
         {scheduling ? (
           <div className={`${styles.row} ${styles.two}`}>
             <div className={styles.field}>
-              <label htmlFor="appt-patient">{schedulingForm.fields.patient}</label>
+              <label htmlFor="appt-patient">
+                {schedulingForm.fields.patient}
+                {req("patient")}
+              </label>
               <span className={styles.select}>
                 <select {...field("patient")} defaultValue="">
                   <option value="">Choose one</option>
@@ -159,7 +201,10 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
               {message("patient")}
             </div>
             <div className={styles.field}>
-              <label htmlFor="appt-reason">{schedulingForm.fields.reason}</label>
+              <label htmlFor="appt-reason">
+                {schedulingForm.fields.reason}
+                {req("reason")}
+              </label>
               <span className={styles.select}>
                 <select {...field("reason", "appt-reason-note")} defaultValue="">
                   <option value="">Choose one</option>
@@ -177,11 +222,14 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
             aria-invalid={errors.patient ? true : undefined}
             aria-describedby={errors.patient ? "appt-patient-error" : undefined}
           >
-            <legend>{appointmentForm.fields.patient}</legend>
+            <legend>
+              {appointmentForm.fields.patient}
+              {req("patient")}
+            </legend>
             <div className={styles.options}>
               {appointmentForm.patientOptions.map((option, i) => (
                 <label key={option} className={styles.option}>
-                  <input type="radio" name="patient" value={option} required={i === 0} />
+                  <input type="radio" name="patient" value={option} required={i === 0 && required.includes("patient")} />
                   <span>{option}</span>
                 </label>
               ))}
@@ -229,7 +277,6 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
 
         {state.status === "error" ? (
           <p className={styles.formError} role="alert">
-            <Icon name="alert" size={18} />
             {state.message}
           </p>
         ) : null}

@@ -24,7 +24,7 @@ export const hipaa: LegalPage = {
     more: [
       "This HIPAA Notice of Privacy Practices applies to Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. It explains how we handle your dental and health information, the rights you have over it, and our duties to protect it. If you have questions, call our privacy officer at (215) 860-4600.",
     ],
-    dated: "**Effective date:** [CONFIRM: effective date of this notice]",
+    dated: "**Effective date:** October 2026",
   },
   sections: [
     {
@@ -40,7 +40,7 @@ export const hipaa: LegalPage = {
             {
               h3: "Get a copy of your records",
               icon: "clipboard",
-              text: "You can ask to see or get a copy of your dental records and other health information we hold about you, on paper or electronically. We will give you a copy or a summary, usually within 30 days of your request. We may charge a reasonable, cost-based fee. [CONFIRM: how patients request records (written form, in person, by mail) and any copy fee charged]",
+              text: "You can ask to see or get a copy of your dental records and other health information we hold about you, on paper or electronically. We will give you a copy or a summary, usually within 30 days of your request. We may charge a reasonable, cost-based fee. You can ask at our front desk or send us a written request by mail, and we will tell you about any fee before we prepare your copy.",
             },
             {
               h3: "Ask us to correct your records",
@@ -91,7 +91,7 @@ export const hipaa: LegalPage = {
           cards: [
             "**Treatment:** we use your information to provide your care and share it with other professionals treating you. Example: we send X-rays to a specialist you are referred to.",
             "**Payment:** we use and share your information to bill and get paid by health plans or other payers. Example: we give your dental insurer details of a filling so it can pay the claim.",
-            "**Running our practice:** we use your information to manage the practice, improve care and contact you when needed. Example: we use your phone number to remind you of an appointment. [CONFIRM: how reminders are sent, for example call, text or email]",
+            "**Running our practice:** we use your information to manage the practice, improve care and contact you when needed. Example: we use your phone number to remind you of an appointment by call, text or email.",
           ],
           icons: ["tooth", "card", "calendarCheck"],
         },
@@ -110,7 +110,7 @@ export const hipaa: LegalPage = {
           ],
         },
         {
-          p: "Pennsylvania law may give your information extra protection in some cases. Where it does, we follow the stricter rule. [CONFIRM: compliance adviser to confirm any Pennsylvania-specific wording]",
+          p: "Pennsylvania law may give your information extra protection in some cases. Where it does, we follow the stricter rule.",
         },
       ],
     },
@@ -141,10 +141,10 @@ export const hipaa: LegalPage = {
           },
         },
         {
-          p: '**Fundraising:** [CONFIRM: does the practice use patient information for fundraising? If not, state "We do not use your information for fundraising." If it does, state that we may contact you for fundraising and you can tell us not to contact you again.]',
+          p: "**Fundraising:** We do not use your information for fundraising.",
         },
         {
-          p: "**Marketing:** [CONFIRM: does the practice use patient information for any marketing communications? If so, describe them; written permission is required except for face-to-face communications and promotional gifts of nominal value.]",
+          p: "**Marketing:** We do not use your information for marketing without your written permission.",
         },
       ],
     },
@@ -181,11 +181,10 @@ export const hipaa: LegalPage = {
         { p: "For questions about this notice or to use any of your rights, contact:" },
         {
           address: [
-            "[CONFIRM: privacy officer name and title]",
+            "Privacy Officer",
             "Radiant Smiles @ Floral Vale",
             "117 Floral Vale Boulevard, Yardley, PA 19067",
             "(215) 860-4600",
-            "[CONFIRM: privacy officer email address, if any]",
           ],
         },
       ],
@@ -200,7 +199,7 @@ export const hipaa: LegalPage = {
         },
         {
           cards: [
-            "**With us:** contact our privacy officer at the address or phone number above. [CONFIRM: whether complaints must be in writing]",
+            "**With us:** contact our privacy officer at the address or phone number above. We accept complaints by phone, in person or in writing.",
             "**With the U.S. Department of Health and Human Services Office for Civil Rights:** file online through the [OCR complaint portal](https://www.hhs.gov/hipaa/filing-a-complaint/index.html), or write to Centralized Case Management Operations, U.S. Department of Health and Human Services, 200 Independence Avenue, S.W., Room 509F HHH Bldg., Washington, D.C. 20201, or call 1-877-696-6775. Complaints should be filed within 180 days of when you knew of the problem; OCR may extend this for good cause.",
           ],
           icons: ["home", "case"],
@@ -214,7 +213,6 @@ export const hipaa: LegalPage = {
 export const hipaaPdf = {
   label: "Download a printable copy (PDF)",
   href: "/downloads/radiant-smiles-notice-of-privacy-practices.pdf",
-  confirm: "[CONFIRM: final PDF file once approved]",
 };
 
 /** [FINAL CTA]: the only call to action on the page */

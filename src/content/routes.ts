@@ -146,8 +146,8 @@ export const routes: RouteEntry[] = [
   r("/patient-information/terms/privacy/", "Privacy Policy", "legal", true),
   r("/patient-information/terms/web-accessibility/", "Web Accessibility", "legal", true),
   r("/hipaa-notice-of-privacy-practices/", "HIPAA Notice of Privacy Practices", "legal", true),
-  // The approved notice as a PDF (HIPAA handoff); flip to true once the file is in public/downloads/
-  r("/downloads/radiant-smiles-notice-of-privacy-practices.pdf", "Notice of Privacy Practices (PDF)", "legal", false, true),
+  // The notice as a PDF (HIPAA handoff), printed from the page by tools/make_notice_pdf.mjs; noindex keeps it out of sitemap.xml
+  r("/downloads/radiant-smiles-notice-of-privacy-practices.pdf", "Notice of Privacy Practices (PDF)", "legal", true, true),
 
   // Utility
   r("/sitemap/", "Sitemap", "utility", true),

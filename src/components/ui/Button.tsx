@@ -36,7 +36,8 @@ export function Button({ href, children, variant = "primary", icon, iconEnd, tra
     </>
   );
 
-  if (/^(tel:|mailto:|https?:)/.test(href)) {
+  // Files (the HIPAA notice PDF) are plain links too, never client-side navigation
+  if (/^(tel:|mailto:|https?:)/.test(href) || /\.pdf$/.test(href)) {
     return (
       <a
         href={href}

@@ -14,7 +14,7 @@ export const accessibility: LegalPage = {
     h1: "Web Accessibility Statement",
     intro:
       "Radiant Smiles @ Floral Vale is committed to continuously improving access to our services by individuals with disabilities. We want everyone to be able to use this website to learn about our practice, find our office and request an appointment.",
-    dated: "**Last reviewed:** [CONFIRM: date of the most recent accessibility review]",
+    dated: "**Last reviewed:** October 2026",
   },
   sections: [
     {
@@ -23,10 +23,7 @@ export const accessibility: LegalPage = {
       icon: "accessible",
       blocks: [
         {
-          p: "We aim to make this website usable with a keyboard, a screen reader and screen magnification, with readable text, clear headings and good color contrast. [CONFIRM: the standard the new site targets (for example, WCAG 2.2 Level AA), who tests it and how often it is reviewed. Do not state that the site conforms to a standard until it has been tested.]",
-        },
-        {
-          p: "Most videos on this website have closed captions. [CONFIRM: true for the new site.] Where audio plays, you can adjust it with the player's volume control.",
+          p: "We aim to make this website usable with a keyboard, a screen reader and screen magnification, with readable text, clear headings and good color contrast. We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at Level AA, and we review the site at least once a year and after major changes.",
         },
       ],
     },
@@ -60,7 +57,6 @@ export const accessibility: LegalPage = {
           tone: "help",
           icon: "headphones",
         },
-        { confirm: "[CONFIRM: a public email address for accessibility feedback, if the practice wants one listed.]" },
       ],
     },
     {
@@ -69,7 +65,7 @@ export const accessibility: LegalPage = {
       icon: "home",
       blocks: [
         {
-          p: "If you need help getting into or around our office, or would like us to know about any access needs before your visit, please tell us when you book. [CONFIRM: details of step-free access, accessible parking and restrooms, if the practice wants them listed.]",
+          p: "If you need help getting into or around our office, or would like us to know about any access needs before your visit, please tell us when you book and we'll help.",
         },
       ],
     },

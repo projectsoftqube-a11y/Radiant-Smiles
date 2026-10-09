@@ -33,6 +33,7 @@
 
 .field {
   display: grid;
+  align-content: start;
   gap: 0.4rem;
 }
 
@@ -128,28 +129,19 @@
 }
 
 .error {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
   font-size: 0.875rem;
   font-weight: 600;
+  line-height: 1.4;
   color: #b3261e;
 }
 
+
 .formError {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
   padding: 0.9rem 1rem;
   border-radius: var(--radius-s);
   background: #fdecec;
   font-size: var(--step-small);
   color: #8f1d17;
-}
-
-.formError svg {
-  flex: none;
-  margin-top: 0.15rem;
 }
 
 .trap {
@@ -261,8 +253,9 @@
 }
 
 .req {
-  font-weight: 500;
-  color: var(--slate-500);
+  margin-left: 0.15rem;
+  font-weight: 700;
+  color: #b3261e;
 }
 
 /* Native select with a custom chevron */

@@ -30,7 +30,7 @@ export const schedulingForm = {
   fields: {
     name: "First and last name",
     phone: "Phone",
-    email: "Email (optional)",
+    email: "Email",
     patient: "New or existing patient",
     times: "Preferred days and times",
     reason: "Reason for visit",

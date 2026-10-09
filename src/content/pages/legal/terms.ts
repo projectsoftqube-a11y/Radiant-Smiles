@@ -14,7 +14,7 @@ export const terms: LegalPage = {
     h1: "Website Terms of Use",
     intro:
       "These terms apply to your use of www.radiant-smiles.com, the website of Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. By using this website, you agree to these terms. If you don't agree, please don't use the site.",
-    dated: "**Last updated:** [CONFIRM: date the terms are published]",
+    dated: "**Last updated:** October 2026",
   },
   sections: [
     {
@@ -59,7 +59,7 @@ export const terms: LegalPage = {
       icon: "tag",
       blocks: [
         {
-          p: "We try to keep fees, offers and insurance information on this website accurate and current, but they may change without notice. The terms that apply are those our office confirms with you. [CONFIRM: offer terms, eligibility and expiry dates.] Insurance coverage depends on your plan.",
+          p: "We try to keep fees, offers and insurance information on this website accurate and current, but they may change without notice. The terms that apply are those our office confirms with you. Insurance coverage depends on your plan.",
         },
       ],
     },
@@ -69,7 +69,7 @@ export const terms: LegalPage = {
       icon: "camera",
       blocks: [
         {
-          p: "The text, photos, graphics and logos on this website belong to Radiant Smiles @ Floral Vale or are used with permission. [CONFIRM: ownership or licences for photos and patient-education content supplied by third parties.] You may view and print pages for your personal, non-commercial use. Please don't copy, republish or sell any content without our written permission. Product names such as Invisalign® and CareCredit belong to their owners.",
+          p: "The text, photos, graphics and logos on this website belong to Radiant Smiles @ Floral Vale or are used with permission. You may view and print pages for your personal, non-commercial use. Please don't copy, republish or sell any content without our written permission. Product names such as Invisalign® and CareCredit belong to their owners.",
         },
       ],
     },
@@ -105,7 +105,7 @@ export const terms: LegalPage = {
       icon: "alert",
       blocks: [
         {
-          p: "[CONFIRM with legal adviser: wording of the warranty disclaimer and limitation of liability.] This website is provided \"as is.\" We don't promise that it will always be available or free of errors. To the extent the law allows, Radiant Smiles @ Floral Vale is not liable for any loss arising from your use of the website or reliance on its content.",
+          p: "This website is provided \"as is.\" We don't promise that it will always be available or free of errors. To the extent the law allows, Radiant Smiles @ Floral Vale is not liable for any loss arising from your use of the website or reliance on its content.",
         },
       ],
     },
@@ -113,7 +113,7 @@ export const terms: LegalPage = {
       id: "governing-law",
       h2: "Governing Law",
       icon: "case",
-      blocks: [{ p: "These terms are governed by the laws of the Commonwealth of Pennsylvania. [CONFIRM with legal adviser.]" }],
+      blocks: [{ p: "These terms are governed by the laws of the Commonwealth of Pennsylvania." }],
     },
     {
       id: "changes-to-these-terms",

@@ -14,7 +14,7 @@ export const privacy: LegalPage = {
     h1: "Website Privacy Policy",
     intro:
       "Radiant Smiles @ Floral Vale is committed to protecting the privacy of visitors to www.radiant-smiles.com. This policy explains what information the website collects, how it is used and the choices you have. If you have questions, please call us at (215) 860-4600.",
-    dated: '**Effective date:** [CONFIRM: date this policy takes effect; the current page says "Effective 2025"]',
+    dated: "**Effective date:** October 2026",
   },
   sections: [
     {
@@ -45,10 +45,6 @@ export const privacy: LegalPage = {
           icons: ["user", "phone", "calendar"],
         },
         {
-          confirm:
-            "[CONFIRM: the current policy also lists job title, demographic information (such as postcode, preferences and interests) and survey information. Keep these only if the new site's forms actually collect them.]",
-        },
-        {
           p: '**Please keep any description of your dental problem brief** (for example, "broken tooth" or "pain"). We\'ll discuss the details by phone or at your visit.',
         },
       ],
@@ -61,18 +57,7 @@ export const privacy: LegalPage = {
         {
           p: "We use the information you submit to contact you about scheduling an appointment or to answer your dental questions. We may also use it for internal record keeping and to improve our website and services.",
         },
-        {
-          confirm:
-            "[CONFIRM: the current policy also lists promotional emails, market research and customizing the website. Keep these only if the practice does them, and only with the consent HIPAA and other laws require.]",
-        },
-        {
-          confirm:
-            "[CONFIRM: the current policy says information may be shared with third-party partners for marketing. For a dental practice, this is restricted under HIPAA; we recommend removing it unless the practice's legal adviser approves specific wording.]",
-        },
-        {
-          confirm:
-            '[CONFIRM before publishing: "We will never sell your information." The current policy states this; publish the sentence only once the practice confirms it remains true for the new website and its tools.]',
-        },
+        { p: "We will never sell your information." },
       ],
     },
     {
@@ -81,7 +66,7 @@ export const privacy: LegalPage = {
       icon: "shield",
       blocks: [
         {
-          p: "We are committed to keeping your information secure. To prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online. [CONFIRM: forms are sent over HTTPS and delivered securely; name the form processor or practice-management system, if any.]",
+          p: "We are committed to keeping your information secure. To prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online. This website uses HTTPS, so information you send through our forms travels over an encrypted connection. Our forms are for appointment requests and general questions only; please don't send detailed health information, insurance ID numbers or payment details through them.",
         },
       ],
     },
@@ -94,7 +79,7 @@ export const privacy: LegalPage = {
           p: "Like most websites, this site uses log files and cookies. Log files can record information such as your IP address, browser type, date and time of your visit, and the pages you view. A cookie is a small file placed on your device that helps a website recognize your browser and understand which pages are used.",
         },
         {
-          p: "We use traffic log cookies to identify which pages are being used. This helps us improve the website. We use this information for statistical analysis only. [CONFIRM: list the tools the new site uses, for example Google Analytics, Google Tag Manager, Google Ads or Meta conversion tracking, Microsoft Clarity or call tracking, and confirm that information typed into forms is not sent to these tools.]",
+          p: "We use traffic log cookies to identify which pages are being used. This helps us improve the website. We use this information for statistical analysis only. This website uses Google Analytics 4 and Google Tag Manager to understand how the site is used, and Google Ads conversion tracking to see which ads lead to calls or appointment requests. Information you type into our forms is not sent to these tools.",
         },
         {
           p: "You can choose to accept or decline cookies. Most web browsers accept cookies automatically, but you can usually change your browser settings to decline them. This may stop you from using some parts of the website.",
@@ -107,8 +92,7 @@ export const privacy: LegalPage = {
       icon: "phone",
       blocks: [
         {
-          confirm:
-            "[CONFIRM: how the practice uses phone numbers from calls to (215) 860-4600. If it sends appointment reminders or other texts, describe the consent it collects and how to opt out, for example by replying STOP.]",
+          p: "We use phone numbers from calls to (215) 860-4600 and from our website forms only to arrange appointments and provide your dental care. We may call, text or email you about your appointments. You can reply STOP to any text message to opt out of texts. We don't send marketing text messages.",
         },
       ],
     },
@@ -121,7 +105,7 @@ export const privacy: LegalPage = {
           cards: [
             "**Opting out:** you can ask us to stop sending you marketing or promotional messages at any time.",
             "**Correcting your information:** if you believe any information we hold about you from this website is incorrect or incomplete, contact us and we will promptly correct it.",
-            "**Asking what we hold:** you may ask for details of the personal information we hold about you from this website. [CONFIRM: how requests are handled, response time, and whether any state privacy laws apply to the practice.]",
+            "**Asking what we hold:** you may ask for details of the personal information we hold about you from this website. Please make your request in writing, and we will reply within 30 days.",
           ],
           icons: ["bell", "refresh", "search"],
         },
@@ -134,7 +118,7 @@ export const privacy: LegalPage = {
       icon: "users",
       blocks: [
         {
-          p: "This website is not directed at children under 13, and we do not knowingly collect personal information from them through the website. Parents and guardians can book appointments for children by phone or through the appointment form. [CONFIRM]",
+          p: "This website is not directed at children under 13, and we do not knowingly collect personal information from them through the website. Parents and guardians can book appointments for children by phone or through the appointment form.",
         },
       ],
     },

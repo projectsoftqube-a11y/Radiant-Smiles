@@ -35,7 +35,7 @@ export const appointmentForm = {
     email: "Email",
     patient: "New or existing patient",
     times: "Preferred days and times",
-    message: "Message (optional)",
+    message: "Message",
   },
   patientOptions: ["New patient", "Existing patient"],
   messageNote: "Please don't include medical details.",

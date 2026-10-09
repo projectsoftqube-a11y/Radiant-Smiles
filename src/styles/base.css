@@ -289,4 +289,9 @@
   [data-print-handout] section:last-of-type {
     display: none !important;
   }
+
+  /* No room for the (hidden) fixed header on legal pages */
+  body:has([data-legal-doc]) #main {
+    padding-top: 0 !important;
+  }
 }

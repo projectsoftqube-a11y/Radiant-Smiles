@@ -17,7 +17,7 @@ export const disclaimer: LegalPage = {
     h1: "Website Disclaimer",
     intro:
       "This website is provided for information and education purposes only. No doctor/patient relationship is established by your use of this site.",
-    dated: "**Last updated:** [CONFIRM: date the page is published]",
+    dated: "**Last updated:** October 2026",
   },
   sections: [
     {
@@ -59,7 +59,7 @@ export const disclaimer: LegalPage = {
       icon: "tag",
       blocks: [
         {
-          p: "Offers, fees and payment options shown on this website may change. The terms that apply are those confirmed by our office at the time of your visit. [CONFIRM: offer terms, eligibility and expiry dates for each published offer.] Insurance coverage depends on your plan; please contact us to verify your benefits.",
+          p: "Offers, fees and payment options shown on this website may change. The terms that apply are those confirmed by our office at the time of your visit. Insurance coverage depends on your plan; please contact us to verify your benefits.",
         },
       ],
     },
@@ -93,7 +93,8 @@ export const disclaimer: LegalPage = {
       h2: "Contact Us",
       icon: "pin",
       contact: true,
-      blocks: [{ p: legalNap }, { p: "© [CONFIRM: year of publication] Radiant Smiles @ Floral Vale. All rights reserved." }],
+      blocks: [{ p: legalNap }, // The year follows the current year (set when the site is built)
+        { p: `© ${new Date().getFullYear()} Radiant Smiles @ Floral Vale. All rights reserved.` }],
     },
   ],
 };

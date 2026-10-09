@@ -18,6 +18,7 @@ while queue:
     seen.add(p)
     code, src = get(p); status[p] = code
     if code != 200: problems["page not 200"].append((p, code)); continue
+    if p.endswith(".pdf"): ids[p] = set(); continue  # files: status only, not parsed as pages
     ids[p] = set(re.findall(r'\bid="([^"]+)"', src))
     for tag in re.findall(r"<a\b[^>]*>", src):
         m = re.search(r'\shref="([^"]*)"', tag)

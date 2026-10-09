@@ -1,4 +1,4 @@
-import { LegalDocument, LegalHero, LegalText } from "@/components/sections/legal/Legal";
+import { LegalDocument, LegalHero } from "@/components/sections/legal/Legal";
 import { PrintButton } from "@/components/sections/legal/LegalTools";
 import { HipaaCall, NoticeRecord } from "@/components/sections/legal/LegalVisuals";
 import { Button } from "@/components/ui/Button";
@@ -35,7 +35,6 @@ export default function HipaaNoticePage() {
               {hipaaPdf.label}
             </Button>
             <PrintButton label="Print this notice" className={styles.heroPrint} />
-            <LegalText text={hipaaPdf.confirm} />
           </>
         }
       />
