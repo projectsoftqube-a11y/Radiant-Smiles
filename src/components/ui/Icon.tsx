@@ -362,6 +362,14 @@ const paths = {
       <path d="M17.8 3.6v3.6h-3.6M6.2 20.4v-3.6h3.6" />
     </>
   ),
+  download: <path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14" />,
+  printer: (
+    <>
+      <path d="M7 8.5V3.5h10v5" />
+      <rect x="3.5" y="8.5" width="17" height="8" rx="2" />
+      <path d="M7 14h10v6.5H7Z" />
+    </>
+  ),
   link: (
     <>
       <path d="M10.2 13.8a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.1 1.1" />

@@ -1,0 +1,692 @@
+/* ───────── Hero additions ───────── */
+.dated {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.6rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.7);
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.dated > svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.dated strong {
+  color: var(--navy-800);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.heroPrint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.25rem;
+  border: 1.5px solid var(--navy-800);
+  border-radius: 8px;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--navy-800);
+  cursor: pointer;
+  transition: background var(--dur-ui) ease, color var(--dur-ui) ease;
+}
+
+.heroPrint:hover {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* ───────── Document: index beside a sheet of paper on pearl ───────── */
+.doc {
+  padding-block: clamp(3rem, 6vw, 5rem) var(--space-section);
+  background: var(--pearl-50);
+}
+
+.docGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 54rem);
+  justify-content: center;
+  align-items: start;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.aside {
+  height: 100%;
+}
+
+.asideInner {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.indexTitle {
+  margin-bottom: 0.75rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+}
+
+.index ol {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--line);
+  list-style: none;
+}
+
+.index a {
+  display: block;
+  margin-left: -2px;
+  padding: 0.45rem 0 0.45rem 1rem;
+  border-left: 2px solid transparent;
+  font-size: var(--step-small);
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  color: var(--slate-600);
+  transition: color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+}
+
+.index a:hover {
+  color: var(--navy-800);
+}
+
+.index a[aria-current="true"] {
+  border-left-color: var(--sky-500);
+  color: var(--navy-800);
+}
+
+.print {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  font: inherit;
+  font-size: var(--step-small);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--navy-800);
+  cursor: pointer;
+  transition: border-color var(--dur-ui) ease, background var(--dur-ui) ease;
+}
+
+.print:hover {
+  border-color: var(--navy-800);
+}
+
+.sheet {
+  display: grid;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: 0 30px 60px -45px rgb(15 35 70 / 0.35);
+}
+
+/* A section of the document */
+.part {
+  padding-block: clamp(1.75rem, 3vw, 2.25rem);
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+
+.part:first-child {
+  padding-top: 0;
+}
+
+.part + .part {
+  border-top: 1px solid var(--line);
+}
+
+.partHead {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.partHead h2 {
+  font-size: clamp(1.5rem, 1.25rem + 0.8vw, 1.875rem);
+  line-height: 1.25;
+}
+
+.partIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--navy-800);
+}
+
+.partBody {
+  display: grid;
+  gap: 1rem;
+  padding-left: 3.4rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.partBody a,
+.contact a {
+  font-weight: 600;
+  color: var(--navy-800);
+  text-decoration-color: var(--sky-300);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.partBody strong {
+  color: var(--navy-800);
+}
+
+.confirm {
+  margin: 0;
+}
+
+.subhead {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+}
+
+/* Plain list */
+.list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem;
+  line-height: 1.65;
+}
+
+.bullet {
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: 0.65em;
+  border-radius: 2px;
+  background: var(--sky-500);
+  rotate: 45deg;
+}
+
+/* Cards (bold-led items) */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.5rem), 1fr));
+  gap: 0.85rem;
+  margin: 0.25rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Rows: icon beside the text */
+.cardRows {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cardRows .card {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.card {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cardIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-200);
+}
+
+/* "Please don't" */
+.donts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.donts li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-m);
+  background: #fdf3f2;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.dontIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  color: #b42318;
+}
+
+/* Policy links */
+.policies {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.policy {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  transition: border-color var(--dur-ui) ease, background var(--dur-ui) ease;
+}
+
+.policy:hover {
+  border-color: var(--sky-300);
+  background: var(--sky-50);
+}
+
+.policyIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--navy-800);
+}
+
+.policy:hover .policyIcon {
+  background: var(--white);
+}
+
+.policyCopy {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.partBody .policyLink {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+/* The link covers the whole card */
+.policyLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.policy:has(.policyLink:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.policyLink:focus-visible {
+  outline: none;
+}
+
+.policyText {
+  font-size: var(--step-small);
+  line-height: 1.5;
+  color: var(--slate-600);
+}
+
+.policyArrow {
+  color: var(--navy-800);
+}
+
+/* HIPAA rights: all visible, two by two */
+.rights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.right {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  padding: 1.35rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.right h3 {
+  font-size: 1.1875rem;
+  line-height: 1.3;
+}
+
+.rightIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.15rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Choice panels */
+.panel {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius-l);
+}
+
+.panelAllow {
+  border: 1px solid var(--sky-200);
+  background: var(--sky-50);
+}
+
+.panelNever {
+  border: 1px solid #f3cdc8;
+  background: #fdf3f2;
+}
+
+.panelTitle {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.panelIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+}
+
+.panelAllow .panelIcon {
+  color: var(--navy-800);
+}
+
+.panelNever .panelIcon {
+  color: #b42318;
+}
+
+.panel ul {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0 0 0 2.75rem;
+}
+
+/* Highlighted notes */
+.callout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius-l);
+}
+
+.calloutAlert {
+  border-left: 4px solid #c4372c;
+  background: #fdf0ef;
+}
+
+.calloutHelp {
+  border-left: 4px solid var(--sky-500);
+  background: var(--sky-50);
+}
+
+.calloutIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+}
+
+.calloutAlert .calloutIcon {
+  color: #c4372c;
+}
+
+.calloutHelp .calloutIcon {
+  color: var(--navy-800);
+}
+
+/* Privacy officer */
+.address {
+  display: grid;
+  justify-items: start;
+  gap: 0.35rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--navy-800);
+  border-radius: 0 var(--radius-l) var(--radius-l) 0;
+  background: var(--pearl-50);
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.address > span:nth-child(2) {
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* Contact Us: the closing card */
+.contact {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: linear-gradient(135deg, var(--sky-50), var(--pearl-50));
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+
+.contactIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-200);
+}
+
+.contactCopy {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.contactCopy h2 {
+  font-size: 1.5rem;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .docGrid {
+    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  }
+
+  .partBody {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .docGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aside {
+    height: auto;
+  }
+
+  .asideInner {
+    position: static;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-l);
+    background: var(--white);
+  }
+
+  .index ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .rights,
+  .policies,
+  .donts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .index ol {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .partBody {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .sheet {
+    padding: 1.25rem;
+  }
+
+  .right,
+  .callout,
+  .panel {
+    padding: 1.1rem;
+  }
+
+  .panel ul {
+    padding-left: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .callout,
+  .contact,
+  .cardRows .card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .policy {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .policyIcon {
+    grid-column: 1 / -1;
+  }
+
+  .panelTitle {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ───────── Print: the document only ───────── */
+@media print {
+  .doc {
+    padding: 0;
+    background: none;
+  }
+
+  .docGrid {
+    display: block;
+  }
+
+  .sheet {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .part {
+    break-inside: avoid-page;
+  }
+
+  .right,
+  .card,
+  .policy,
+  .panel,
+  .callout {
+    break-inside: avoid;
+  }
+}

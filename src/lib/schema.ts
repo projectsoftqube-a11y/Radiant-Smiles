@@ -240,6 +240,24 @@ export function innerPage({
 }
 
 /**
+ * Legal pages (09 Compliance handoffs 3a): WebPage + BreadcrumbList only, the practice
+ * referenced by @id as publisher; no Dentist node, FAQPage, Review or Offer markup.
+ */
+export function legalPage({ path, name, description }: { path: string; name: string; description: string }): Json {
+  return {
+    "@type": "WebPage",
+    "@id": ids.webpage(path),
+    url: absoluteUrl(path),
+    name,
+    description,
+    inLanguage: "en-US",
+    isPartOf: { "@id": ids.website },
+    breadcrumb: { "@id": ids.breadcrumb(path) },
+    publisher: { "@id": ids.dentist },
+  };
+}
+
+/**
  * Contact page: a short Dentist node with the same @id as the home page (so the two
  * merge) carrying the visible NAP, hours and an appointments ContactPoint (English only
  * until the practice confirms phone support in other languages).

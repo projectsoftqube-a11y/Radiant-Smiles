@@ -141,14 +141,16 @@ export const routes: RouteEntry[] = [
   r("/blog/best-candidate-for-dental-implants-in-yardley/", "Candidates for Dental Implants in Yardley", "content", true),
 
   // Legal
-  r("/disclaimer/", "Disclaimer", "legal", false),
-  r("/patient-information/terms/", "Terms", "legal", false),
-  r("/patient-information/terms/privacy/", "Privacy Policy", "legal", false),
-  r("/patient-information/terms/web-accessibility/", "Web Accessibility", "legal", false),
-  r("/hipaa-notice-of-privacy-practices/", "HIPAA Notice of Privacy Practices", "legal", false),
+  r("/disclaimer/", "Disclaimer", "legal", true),
+  r("/patient-information/terms/", "Terms of Use", "legal", true),
+  r("/patient-information/terms/privacy/", "Privacy Policy", "legal", true),
+  r("/patient-information/terms/web-accessibility/", "Web Accessibility", "legal", true),
+  r("/hipaa-notice-of-privacy-practices/", "HIPAA Notice of Privacy Practices", "legal", true),
+  // The approved notice as a PDF (HIPAA handoff); flip to true once the file is in public/downloads/
+  r("/downloads/radiant-smiles-notice-of-privacy-practices.pdf", "Notice of Privacy Practices (PDF)", "legal", false, true),
 
   // Utility
-  r("/sitemap/", "Sitemap", "utility", false),
+  r("/sitemap/", "Sitemap", "utility", true),
 
   // Paid traffic (noindex)
   r("/lp/dental-implants/", "Dental Implants (paid)", "paid", false, true),

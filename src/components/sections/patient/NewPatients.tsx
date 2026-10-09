@@ -3,6 +3,7 @@ import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Rich } from "@/components/ui/Rich";
 import SiteLink from "@/components/ui/SiteLink";
 import { images } from "@/content/images";
+import { noticeLink } from "@/content/pages/legal/common";
 import { npBring, npExpect, npFacts, npForms, npSpecial } from "@/content/pages/patient/new-patients";
 import styles from "./NewPatients.module.css";
 
@@ -170,6 +171,10 @@ export function FormsSlip() {
             <div className={styles.slipActions}>
               <SiteLink href={npForms.link.href} className="text-link" data-track="click_patient_forms">
                 {npForms.link.label} <Icon name="arrow" size={16} />
+              </SiteLink>
+              {/* HIPAA handoff: the notice is linked from New Patients */}
+              <SiteLink href={noticeLink.href} className="text-link">
+                {noticeLink.label} <Icon name="arrow" size={16} />
               </SiteLink>
             </div>
           </div>

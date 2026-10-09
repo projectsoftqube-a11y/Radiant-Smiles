@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Rich } from "@/components/ui/Rich";
 import SiteLink from "@/components/ui/SiteLink";
+import { noticeLink } from "@/content/pages/legal/common";
 import { regGetting, regPrivacy, regSections } from "@/content/pages/patient/registration";
 import styles from "./Registration.module.css";
 
@@ -113,6 +114,10 @@ export function PrivacyBanner() {
             </p>
             <SiteLink href={regPrivacy.link.href} className={`text-link ${styles.lightLink}`}>
               {regPrivacy.link.label} <Icon name="arrow" size={16} />
+            </SiteLink>
+            {/* HIPAA handoff: the notice is linked from Patient Registration */}
+            <SiteLink href={noticeLink.href} className={`text-link ${styles.lightLink}`}>
+              {noticeLink.label} <Icon name="arrow" size={16} />
             </SiteLink>
           </div>
         </div>

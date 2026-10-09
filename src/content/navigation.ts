@@ -77,9 +77,10 @@ export const footerColumns: FooterMenu[][] = [
 
 export const legalNav: LinkItem[] = [
   { label: "Disclaimer", href: "/disclaimer/" },
-  { label: "Terms", href: "/patient-information/terms/" },
+  { label: "Terms of Use", href: "/patient-information/terms/" },
   { label: "Privacy Policy", href: "/patient-information/terms/privacy/" },
   { label: "Web Accessibility", href: "/patient-information/terms/web-accessibility/" },
-  { label: "HIPAA Notice", href: "/hipaa-notice-of-privacy-practices/" },
+  // HIPAA handoff: footer anchor text "Notice of Privacy Practices" on every page
+  { label: "Notice of Privacy Practices", href: "/hipaa-notice-of-privacy-practices/" },
   { label: "Sitemap", href: "/sitemap/" },
 ];

@@ -279,6 +279,12 @@
   body:has([data-print-handout]) > header,
   body:has([data-print-handout]) > footer,
   body:has([data-print-handout]) [data-mobile-bar],
+  /* Legal pages (09 Compliance handoffs): the document only */
+  body:has([data-legal-doc]) > header,
+  body:has([data-legal-doc]) > footer,
+  body:has([data-legal-doc]) [data-mobile-bar],
+  [data-legal-doc] [data-print-hide],
+  [data-legal-doc] nav[aria-label="Breadcrumb"],
   [data-print-handout] nav[aria-label="Care & Comfort pages"],
   [data-print-handout] section:last-of-type {
     display: none !important;
