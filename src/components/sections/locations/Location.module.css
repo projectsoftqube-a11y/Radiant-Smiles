@@ -1,0 +1,320 @@
+/* ───────── Hero: the route map ───────── */
+.route {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 28rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.routeTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+}
+
+.drive {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 2.75rem);
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  color: var(--navy-800);
+}
+
+.driveNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.driveNote svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.routeMap {
+  border-radius: var(--radius-m);
+  background:
+    linear-gradient(135deg, var(--pearl-50) 0 45%, var(--sky-50) 55% 100%);
+  overflow: hidden;
+}
+
+.routeSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.river {
+  fill: none;
+  stroke: var(--sky-200);
+  stroke-width: 34;
+  stroke-linecap: round;
+}
+
+.riverLine {
+  fill: none;
+  stroke: var(--sky-300);
+  stroke-width: 2;
+  stroke-dasharray: 10 10;
+}
+
+.otherDot {
+  fill: rgb(27 61 110 / 0.16);
+}
+
+.routeLine {
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  animation: route-draw 1.6s var(--ease-out) 0.7s both;
+}
+
+@keyframes route-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.townDot {
+  fill: var(--sky-500);
+  stroke: var(--white);
+  stroke-width: 5;
+}
+
+.officePin {
+  fill: var(--navy-800);
+  stroke: var(--white);
+  stroke-width: 5;
+}
+
+.mapLabel {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  fill: var(--navy-800);
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-width: 8px;
+  stroke-linejoin: round;
+}
+
+.mapLabelOffice {
+  fill: var(--sky-700);
+}
+
+.stateLabel {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  fill: rgb(27 61 110 / 0.22);
+}
+
+.routeFoot {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.roads {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.roads svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chips span {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-50);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* ───────── Getting here ───────── */
+.here {
+  padding-block: var(--space-section);
+  background: var(--white);
+}
+
+.hereGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.hereCopy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  gap: 1.1rem;
+  color: var(--slate-600);
+}
+
+.hereCopy a:not(:global(.text-link)) {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.blockH3 {
+  margin-top: 0.5rem;
+  font-size: var(--step-h3);
+}
+
+.blockList {
+  display: grid;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blockList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+}
+
+.blockList strong {
+  color: var(--navy-800);
+}
+
+.blockTick {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.blockTable {
+  width: 100%;
+}
+
+.mapCard {
+  position: sticky;
+  top: calc(var(--header-h) + 1.5rem);
+  display: grid;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.mapFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--sky-50);
+}
+
+.mapFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.mapAddress {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.mapAddress svg {
+  flex: none;
+  margin-top: 0.1rem;
+  color: var(--sky-700);
+}
+
+/* ───────── Safety line ───────── */
+.safety {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: #b42828;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.safetyIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  color: #b42828;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 991px) {
+  .hereGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mapCard {
+    position: static;
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .blockList li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .safety,
+  .driveNote,
+  .roads,
+  .mapAddress {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .routeLine {
+    animation: none;
+  }
+}

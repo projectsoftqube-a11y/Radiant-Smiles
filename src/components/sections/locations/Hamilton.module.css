@@ -1,0 +1,228 @@
+/* ───────── Neighbourhood postcards ───────── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: translate var(--dur-ui) var(--ease-out), box-shadow var(--dur-ui) ease;
+}
+
+.card:hover {
+  translate: 0 -4px;
+  box-shadow: var(--shadow-lift);
+}
+
+/* The postcard's top: a postmark on the left, the ZIP stamp on the right */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 5rem;
+  padding: 1rem 1.25rem;
+  background:
+    repeating-linear-gradient(135deg, rgb(255 255 255 / 0.18) 0 6px, transparent 6px 12px),
+    linear-gradient(135deg, var(--sky-300), var(--sky-500));
+}
+
+.postmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.55rem;
+  border: 1.5px solid rgb(255 255 255 / 0.85);
+  border-radius: var(--radius-s);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.postmark svg {
+  flex: none;
+}
+
+/* The ZIP as a postage stamp: the same size on every card */
+.stamp {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 5rem;
+  height: 3rem;
+  border: 2px dashed var(--sky-500);
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.04em;
+  color: var(--navy-800);
+  box-shadow: 0 6px 14px rgb(27 61 110 / 0.15);
+}
+
+.cardText {
+  padding: 1.25rem;
+  color: var(--slate-600);
+}
+
+.cardText strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  color: var(--navy-800);
+}
+
+/* ───────── Saturday calendar page ───────── */
+.calendar {
+  display: grid;
+  width: min(100%, 24rem);
+  justify-self: center;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.calTop {
+  padding: 1rem;
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--white);
+}
+
+.calBody {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.calHours {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  text-align: center;
+  color: var(--navy-800);
+}
+
+.calList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.calList span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.calList svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Denture shelf ───────── */
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shelf li {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-bottom: 5px solid var(--sky-300);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.shelf strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--navy-800);
+}
+
+.shelf a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.shelf .shelfRepair {
+  border-bottom-color: var(--navy-800);
+}
+
+.shelfTop {
+  display: grid;
+  justify-items: start;
+  gap: 0.6rem;
+}
+
+.shelfIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: #fbe4e5;
+  color: #9c3f4b;
+}
+
+.shelfWhen {
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-50);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shelf {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .shelf {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .cards,
+  .shelf {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

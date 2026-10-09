@@ -501,3 +501,48 @@ export function medicalTherapy({ path, name, description, drug }: { path: string
     drug: { "@type": "Drug", ...drug },
   };
 }
+
+/* ───────── Location pages (06 Locations handoffs, 3a) ───────── */
+
+/** A served area: a Pennsylvania place, a Mercer County, NJ place, or Mercer County itself */
+export type ServedArea = {
+  type: "City" | "Place" | "AdministrativeArea";
+  name: string;
+  state: "PA" | "NJ" | "NJ-county";
+};
+
+const pennsylvania = { "@type": "State", name: "Pennsylvania" };
+const newJersey = { "@type": "State", name: "New Jersey" };
+
+function areaNode(area: ServedArea): Json {
+  const containedInPlace =
+    area.state === "PA"
+      ? pennsylvania
+      : area.state === "NJ-county"
+        ? newJersey
+        : { "@type": "AdministrativeArea", name: "Mercer County, New Jersey", containedInPlace: newJersey };
+  return { "@type": area.type, name: area.name, containedInPlace };
+}
+
+/**
+ * The short Dentist node every location page carries: the same @id as the home page, the
+ * real Yardley address (never an address in the town) and the areas this page serves.
+ */
+export function locationDentist(areas: ServedArea[]): Json {
+  return {
+    "@type": "Dentist",
+    "@id": ids.dentist,
+    name: practice.name,
+    url: absoluteUrl("/"),
+    telephone: practice.phone.schema,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: practice.address.street,
+      addressLocality: practice.address.city,
+      addressRegion: practice.address.region,
+      postalCode: practice.address.postalCode,
+      addressCountry: practice.address.country,
+    },
+    areaServed: areas.map(areaNode),
+  };
+}

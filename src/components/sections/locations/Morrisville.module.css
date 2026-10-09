@@ -1,0 +1,214 @@
+/* ───────── Same-day card ───────── */
+.sameDay {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.sameDay a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.counts {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-top: 6px solid #c43d3d;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.countsTop {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: #fde8e8;
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: #9b2a2a;
+}
+
+.countsTop svg {
+  flex: none;
+}
+
+.countsTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.counts ul {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.counts li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.countIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: #fde8e8;
+  color: #b42828;
+}
+
+/* ───────── Repair bench ───────── */
+.benchHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 1.5rem clamp(2rem, 5vw, 5rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.scope {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  font-weight: 500;
+  color: var(--white);
+}
+
+.scope svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+.bench {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each repair as a tool on the bench: a tinted top edge, the icon, the line */
+.tool {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
+  border-top: 4px solid var(--sky-300);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.tool:nth-child(even) {
+  border-top-color: var(--navy-800);
+}
+
+.tool strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.tool a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.toolIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--navy-800);
+}
+
+/* ───────── Household card ───────── */
+.who {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  color: var(--slate-600);
+}
+
+.who h3 {
+  font-size: var(--step-h3);
+}
+
+.who a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.whoFaces {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.whoFace {
+  width: 5.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .bench {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .sameDay,
+  .benchHead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .bench {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Phones (480px and under): each icon sits above its text instead of beside it */
+@media (max-width: 480px) {
+  .counts li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scope,
+  .countsTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

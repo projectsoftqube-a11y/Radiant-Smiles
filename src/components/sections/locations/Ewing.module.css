@@ -1,0 +1,222 @@
+/* ───────── Township tags ───────── */
+.tags {
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.tagsTitle,
+.tagsFoot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.tagsTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+}
+
+.tagsTitle svg,
+.tagsFoot svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.tagsFoot {
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line-strong);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tagCloud span {
+  padding: 0.6rem 0.95rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.tagCloud .tagMain {
+  background: var(--navy-800);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--white);
+}
+
+/* ───────── Gum path ───────── */
+.path {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* The line joining the four nodes, drawn across once in view */
+.path::before {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: 1.6rem;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, #e5959c, var(--sky-500), var(--navy-800));
+  transform-origin: left;
+  transition: transform 1.4s var(--ease-out) 0.2s;
+}
+
+.motion .path[data-inview]:not([data-inview="in"])::before {
+  transform: scaleX(0);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  color: var(--slate-600);
+}
+
+.step h3 {
+  font-size: 1.1875rem;
+}
+
+.step a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.stepNode {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 4px solid var(--white);
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: var(--shadow-soft);
+}
+
+.step:first-child .stepNode {
+  background: #e5959c;
+  color: var(--white);
+}
+
+/* ───────── After-work clock ───────── */
+.clock {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.clockTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.bar {
+  display: flex;
+  height: 1.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--pearl-100);
+  overflow: hidden;
+}
+
+.barWork {
+  flex: 8;
+  background: linear-gradient(90deg, var(--sky-200), var(--sky-300));
+}
+
+/* The after-work hour, filling in once the card is in view */
+.barLate {
+  flex: 1.4;
+  background: var(--navy-800);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-out) 0.5s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .barLate {
+  transform: scaleX(0);
+}
+
+.barScale {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+}
+
+.clockNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.clockNote svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.sat {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+.sat strong {
+  margin-right: 0.35rem;
+  color: var(--navy-800);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+
+  .path::before {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .path {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .tagsTitle,
+  .tagsFoot,
+  .clockNote {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

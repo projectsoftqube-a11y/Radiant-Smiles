@@ -26,6 +26,10 @@ export function TrackClicks() {
         event.stopPropagation();
       }
 
+      // Location pages measure conversions per town (handoffs: page_area on every event)
+      const pageArea = document.querySelector<HTMLElement>("[data-page-area]")?.dataset.pageArea;
+      const area = pageArea ? { page_area: pageArea } : {};
+
       // Handoff events on every page: click_call for any tel: link, click_request_appointment
       // for any link to the scheduling page or its form
       const anchor = (event.target as Element | null)?.closest<HTMLAnchorElement>("a[href]");
@@ -38,7 +42,7 @@ export function TrackClicks() {
             : null;
         const push = (name: string) => {
           window.dataLayer = window.dataLayer ?? [];
-          window.dataLayer.push({ event: name, link_url: anchor.href, page_path: window.location.pathname });
+          window.dataLayer.push({ event: name, ...area, link_url: anchor.href, page_path: window.location.pathname });
         };
         if (generic) push(generic);
         // Treatment-page handoffs name the events click_book / call_click / appointment_click
@@ -48,6 +52,9 @@ export function TrackClicks() {
           push("appointment_click");
         }
         if (href.includes("/carecredit/")) push("financing_click");
+        // Google Maps directions to the office (location handoffs: directions_click)
+        // (unless the link already names its own directions event)
+        if (href.includes("google.com/maps/dir") && !anchor.dataset.track?.includes("directions_click")) push("directions_click");
         // A page can add its own call event for every phone link on it (emergency:
         // click_call_emergency), set once on the page's wrapper
         const scoped = generic === "click_call" ? document.querySelector<HTMLElement>("[data-call-event]")?.dataset.callEvent : undefined;
@@ -72,6 +79,7 @@ export function TrackClicks() {
       for (const name of names.split(",")) {
         window.dataLayer.push({
           event: name.trim(),
+          ...area,
           ...details,
           link_url: target instanceof HTMLAnchorElement ? target.href : undefined,
           page_path: window.location.pathname,

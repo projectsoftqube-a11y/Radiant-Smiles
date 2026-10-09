@@ -1,0 +1,300 @@
+/* ───────── County towns ───────── */
+.towns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.towns a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.links li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--sky-700);
+  transition: box-shadow var(--dur-ui) ease, translate var(--dur-ui) ease;
+}
+
+.links li:hover {
+  translate: 0 -2px;
+  box-shadow: var(--shadow-lift);
+}
+
+.links li svg {
+  flex: none;
+  margin-left: auto;
+}
+
+.linkNum {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 800;
+  color: var(--white);
+}
+
+/* The whole card is the link's hit area */
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.towns .link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.map {
+  border-radius: var(--radius-l);
+  background: linear-gradient(135deg, var(--pearl-100) 0 30%, var(--sky-50) 45% 100%);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.mapSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.river {
+  fill: none;
+  stroke: var(--sky-200);
+  stroke-width: 34;
+  stroke-linecap: round;
+}
+
+.spoke {
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+  opacity: 0.5;
+}
+
+.townDot {
+  fill: var(--navy-800);
+  stroke: var(--white);
+  stroke-width: 5;
+}
+
+.townLetter {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  text-anchor: middle;
+  fill: var(--white);
+}
+
+.office {
+  fill: var(--sky-500);
+  stroke: var(--white);
+  stroke-width: 5;
+}
+
+.officeLabel {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  text-anchor: middle;
+  fill: var(--sky-700);
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-width: 7px;
+}
+
+.state {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-anchor: end;
+  fill: rgb(27 61 110 / 0.22);
+}
+
+/* ───────── Family checklist ───────── */
+.checklist {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  color: var(--slate-600);
+}
+
+.checklist a {
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.checkIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Call-first panel ───────── */
+.emergency {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.emergencyIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-l);
+  background: #b42828;
+  color: var(--white);
+}
+
+.emergencyCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.emergencyCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+/* ───────── Offer coupons ───────── */
+.coupons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.coupon {
+  display: grid;
+  grid-template-columns: minmax(0, 9rem) minmax(0, 1fr);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.coupon p {
+  padding: 1.5rem;
+  color: var(--slate-600);
+}
+
+.coupon p strong {
+  color: var(--navy-800);
+}
+
+.coupon a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.couponStub {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  padding: 1.25rem 0.75rem;
+  border-right: 2px dashed var(--line-strong);
+  background: var(--navy-800);
+  text-align: center;
+  color: var(--sky-300);
+}
+
+.couponStub strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 991px) {
+  .towns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .map {
+    width: min(100%, 28rem);
+  }
+
+  .coupons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .emergency {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .checklist li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coupon {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .couponStub {
+    border-right: 0;
+    border-bottom: 2px dashed var(--line-strong);
+  }
+}

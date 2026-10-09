@@ -1,0 +1,403 @@
+/* ───────── Routine-care menu ───────── */
+.menuGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.menuGrid a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.menu {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  color: var(--slate-600);
+  transition: border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease;
+}
+
+.menu li:hover {
+  border-color: var(--sky-300);
+  box-shadow: var(--shadow-soft);
+}
+
+.menu a {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+}
+
+.menuIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+/* ───────── Children: protection layers ───────── */
+.kids {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.kids a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.layersIntro {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.layerList {
+  display: grid;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.layerList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+}
+
+.layerIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.toothCard {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.birthday {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: #fbefd2;
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: #8a5a10;
+}
+
+.birthday svg {
+  flex: none;
+}
+
+.toothSvg {
+  width: min(100%, 12rem);
+  height: auto;
+}
+
+.toothBody {
+  fill: var(--white);
+  stroke: var(--navy-800);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+/* Three protective layers settle over the crown in turn */
+.toothLayer {
+  fill: none;
+  stroke-width: 7;
+  stroke-linecap: round;
+  transition:
+    opacity 0.6s var(--ease-out) calc(0.3s + var(--i) * 0.3s),
+    translate 0.6s var(--ease-out) calc(0.3s + var(--i) * 0.3s);
+}
+
+.toothLayer:nth-of-type(2) {
+  stroke: var(--sky-500);
+}
+
+.toothLayer:nth-of-type(3) {
+  stroke: var(--sky-300);
+}
+
+.toothLayer:nth-of-type(4) {
+  stroke: var(--sky-200);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .toothLayer {
+  opacity: 0;
+  translate: 0 -14px;
+}
+
+.layerKey {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.layerKey span {
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-s);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.layerKey span:nth-child(1) {
+  background: var(--sky-100);
+}
+
+.layerKey span:nth-child(2) {
+  background: rgb(109 189 232 / 0.35);
+}
+
+.layerKey span:nth-child(3) {
+  background: rgb(109 189 232 / 0.6);
+}
+
+/* Cavity prevention at home */
+.home {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.homeCopy {
+  display: grid;
+  gap: 1rem;
+  color: var(--slate-600);
+}
+
+.homeCopy h3 {
+  font-size: var(--step-h3);
+}
+
+.homeCopy a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.homeTips {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.timer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  font-size: var(--step-small);
+  color: var(--slate-on-navy);
+}
+
+.timer strong {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--white);
+}
+
+.timer svg {
+  flex: none;
+  color: var(--sky-300);
+}
+
+.tip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.tip svg {
+  flex: none;
+  color: #2f8a5b;
+}
+
+/* ───────── Household pass ───────── */
+.pass {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 50% at 100% 0%, rgb(109 189 232 / 0.22), transparent 70%),
+    var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.passTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--line-strong);
+}
+
+.passName {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.passPeople {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.person {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.person small {
+  font-size: var(--step-label);
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+}
+
+.personMore {
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.plus {
+  font-weight: 800;
+  color: var(--sky-700);
+}
+
+.passTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.passTable th,
+.passTable td {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.passTable thead th {
+  padding-top: 0;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+}
+
+.passTable tbody th {
+  padding-right: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.passTable td,
+.passTable thead th:last-child {
+  text-align: right;
+}
+
+.passTable td {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
+  color: var(--navy-800);
+}
+
+.passTable tr:last-child th,
+.passTable tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 991px) {
+  .menuGrid,
+  .kids,
+  .home {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .menu li,
+  .layerList li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .homeTips {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .timer,
+  .birthday {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .passTable td {
+    white-space: normal;
+  }
+}

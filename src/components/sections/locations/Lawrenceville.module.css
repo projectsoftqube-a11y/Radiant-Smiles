@@ -1,0 +1,314 @@
+/* ───────── Six-week timeline ───────── */
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 1.5rem clamp(2rem, 5vw, 5rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.strip {
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.stripTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.stripTitle svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* Six week segments; a pin marks the end of weeks 2 and 4 (new aligners) and 6 (check-up) */
+.weeks {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px;
+  padding-top: 2.4rem;
+}
+
+.week {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.weekBar {
+  display: block;
+  height: 0.75rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--sky-200), var(--sky-300));
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-out) calc(0.15s + var(--i) * 0.15s);
+}
+
+.week:last-child .weekBar {
+  background: linear-gradient(90deg, var(--sky-300), var(--navy-800));
+}
+
+.motion [data-inview]:not([data-inview="in"]) .weekBar {
+  transform: scaleX(0);
+}
+
+.weekLabel {
+  font-size: var(--step-label);
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--slate-600);
+}
+
+.pinSwap,
+.pinVisit {
+  position: absolute;
+  right: -1rem;
+  top: -2.5rem;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--white);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-soft);
+  transition:
+    opacity 0.4s ease calc(0.3s + var(--i) * 0.15s),
+    translate 0.4s ease calc(0.3s + var(--i) * 0.15s);
+}
+
+.pinSwap {
+  background: var(--sky-300);
+  color: var(--navy-800);
+}
+
+.pinVisit {
+  right: -0.25rem;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.motion [data-inview]:not([data-inview="in"]) .pinSwap,
+.motion [data-inview]:not([data-inview="in"]) .pinVisit {
+  opacity: 0;
+  translate: 0 -6px;
+}
+
+.stripKey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--line-strong);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+}
+
+.stripKey span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.stripKey svg {
+  box-sizing: content-box;
+  flex: none;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.keySwap svg {
+  background: var(--sky-300);
+  color: var(--navy-800);
+}
+
+.keyVisit svg {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* ───────── Steps ───────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  color: var(--slate-600);
+}
+
+.steps strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.stepIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.more {
+  margin-top: 1.25rem;
+}
+
+/* ───────── Braces table + teen card ───────── */
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+  align-items: start;
+  gap: 1.25rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.braces {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.braces h3,
+.teen h3 {
+  font-size: var(--step-h3);
+}
+
+.teen {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.teen h3 {
+  color: var(--white);
+}
+
+.teen a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+/* The blue indicator dots, fading with wear */
+.teenDots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.teenDots span {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: rgb(47 127 216 / var(--o));
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.4);
+}
+
+/* ───────── Rest of care ───────── */
+.rest {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.rest a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.chips {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.chips li span {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .head,
+  .pair,
+  .rest {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .weekLabel {
+    font-size: 0.8125rem;
+  }
+
+  .weekWord {
+    display: none;
+  }
+
+  .chips li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

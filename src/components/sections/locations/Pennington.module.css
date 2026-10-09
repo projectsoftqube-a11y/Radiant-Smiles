@@ -1,0 +1,187 @@
+/* ───────── Calm card ───────── */
+.calm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.order {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--sky-700);
+}
+
+.order span {
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.order .orderYou {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.comfort {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.comfort h3 {
+  font-size: var(--step-h3);
+}
+
+.comfort ul {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comfort li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--slate-600);
+}
+
+.comfort strong {
+  color: var(--navy-800);
+}
+
+.comfortIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+/* A slow, steady glow to breathe along with */
+.breath {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.breathDot {
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sky-300), var(--sky-500));
+  animation: breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    scale: 0.7;
+    opacity: 0.6;
+  }
+  50% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.breathText {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+/* ───────── Chair-side technology ───────── */
+.tech {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 1rem;
+  padding: 1.75rem 1.25rem;
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, var(--pearl-50), var(--white));
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  color: var(--slate-600);
+}
+
+.tool strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.toolIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: 0 12px 24px rgb(27 61 110 / 0.18);
+}
+
+.techLink {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .tech {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .calm {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .tech {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .comfort li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathDot {
+    animation: none;
+  }
+}
