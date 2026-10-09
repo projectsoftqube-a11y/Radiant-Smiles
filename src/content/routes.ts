@@ -123,9 +123,9 @@ export const routes: RouteEntry[] = [
   r("/dentist-mercer-county-nj/", "Mercer County, NJ", "location", true),
 
   // Service + location (conditional: build only if the Semrush rerun shows demand)
-  r("/dental-implants-mercer-county-nj/", "Dental Implants, Mercer County NJ", "service-location", false),
-  r("/emergency-dentist-trenton-nj/", "Emergency Dentist, Trenton NJ", "service-location", false),
-  r("/invisalign-trenton-nj/", "Invisalign, Trenton NJ", "service-location", false),
+  r("/dental-implants-mercer-county-nj/", "Dental Implants, Mercer County NJ", "service-location", true),
+  r("/emergency-dentist-trenton-nj/", "Emergency Dentist, Trenton NJ", "service-location", true),
+  r("/invisalign-trenton-nj/", "Invisalign, Trenton NJ", "service-location", true),
 
   // Content
   r("/blog/", "Blog", "content", false),

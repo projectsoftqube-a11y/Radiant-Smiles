@@ -1,0 +1,353 @@
+/* ───────── Hero: the Trenton → Yardley pass ───────── */
+.pass {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 8rem;
+  width: min(100%, 31rem);
+  margin-inline: auto;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+  animation: pass-in 0.8s var(--ease-out) 0.7s both;
+}
+
+@keyframes pass-in {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+    rotate: -2deg;
+  }
+}
+
+.passMain {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem;
+}
+
+.route {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stop {
+  display: grid;
+  line-height: 1.1;
+}
+
+.stop small,
+.fields small {
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+}
+
+.stop strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy-800);
+}
+
+.stop em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--sky-700);
+}
+
+.stopEnd {
+  text-align: right;
+}
+
+.trip {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  color: var(--sky-700);
+}
+
+.trip small {
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--navy-800);
+  white-space: nowrap;
+}
+
+.tripLine {
+  width: 100%;
+  border-top: 3px dashed var(--sky-300);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.fields span {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.fields strong {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+}
+
+/* The tear-off stub, perforated from the main pass */
+.stub {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.35rem;
+  padding: 1rem 0.75rem;
+  border-left: 2px dashed rgb(255 255 255 / 0.5);
+  background: linear-gradient(170deg, var(--navy-800), var(--navy-950));
+  text-align: center;
+  color: var(--sky-300);
+}
+
+.stub strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.stub small {
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--sky-200);
+}
+
+/* ───────── Reasons panel ───────── */
+.why {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.panel {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(60% 60% at 100% 0%, rgb(109 189 232 / 0.25), transparent 70%),
+    linear-gradient(170deg, var(--navy-800), var(--navy-950));
+  list-style: none;
+  color: var(--slate-on-navy);
+}
+
+.panel li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line-on-navy);
+  border-radius: var(--radius-m);
+}
+
+.panel strong {
+  color: var(--white);
+}
+
+.panel a {
+  font-weight: 600;
+  color: var(--sky-300);
+}
+
+.panelIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: var(--radius-m);
+  background: rgb(109 189 232 / 0.18);
+  color: var(--sky-300);
+}
+
+/* ───────── Straightening steps ───────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.1rem 1.1rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.steps strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--navy-800);
+}
+
+.stepArt {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  border-radius: var(--radius-m);
+  background: linear-gradient(180deg, #fdf3f3, var(--sky-50));
+}
+
+.stepRow {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.steps li:last-child .stepArt {
+  background: linear-gradient(180deg, var(--sky-100), var(--white));
+  box-shadow: inset 0 0 0 2px var(--sky-300);
+}
+
+.afterRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.noWires,
+.teen {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius-l);
+  color: var(--slate-600);
+}
+
+.noWires {
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.noWires a,
+.teen a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.noIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-100);
+  color: var(--navy-800);
+}
+
+.teen {
+  background: var(--white);
+  box-shadow: inset 4px 0 0 #2f7fd8, var(--shadow-soft);
+}
+
+.teen strong {
+  color: var(--navy-800);
+}
+
+/* The blue indicator dots, fading */
+.teenDots {
+  display: inline-flex;
+  flex: none;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+}
+
+.teenDots span {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: #2f7fd8;
+}
+
+.teenDots span:nth-child(2) {
+  opacity: 0.55;
+}
+
+.teenDots span:nth-child(3) {
+  opacity: 0.2;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .why,
+  .afterRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pass {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stub {
+    grid-auto-flow: column;
+    border-left: 0;
+    border-top: 2px dashed rgb(255 255 255 / 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .panel li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .noWires,
+  .teen {
+    flex-direction: column;
+  }
+
+  .stop strong {
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pass {
+    animation: none;
+  }
+}

@@ -452,9 +452,12 @@ export function medicalProcedure({
   specialty,
   noninvasive,
   bodyLocation,
+  key = "procedure",
 }: {
   path: string;
   name: string;
+  /** The node's @id fragment (service + location handoffs use #service) */
+  key?: string;
   alternateName?: string;
   description: string;
   /** relevantSpecialty: Dentistry (restorative handoffs) */
@@ -465,7 +468,7 @@ export function medicalProcedure({
 }): Json {
   return {
     "@type": "MedicalProcedure",
-    "@id": `${absoluteUrl(path)}#procedure`,
+    "@id": `${absoluteUrl(path)}#${key}`,
     name,
     ...(alternateName ? { alternateName } : {}),
     description,

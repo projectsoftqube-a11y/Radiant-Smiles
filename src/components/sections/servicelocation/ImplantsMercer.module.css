@@ -1,0 +1,342 @@
+/* ───────── Hero: the quote check ───────── */
+.quote {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.quoteTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.quoteTitle {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.stamp {
+  display: grid;
+  flex: none;
+  justify-items: center;
+  padding: 0.55rem 0.8rem;
+  border: 2px dashed var(--sky-500);
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  rotate: 4deg;
+  animation: stamp-in 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 1.6s both;
+}
+
+@keyframes stamp-in {
+  from {
+    opacity: 0;
+    scale: 1.4;
+  }
+}
+
+.stamp strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  color: var(--navy-800);
+}
+
+.stamp small {
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+}
+
+.parts {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.part {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-m);
+  background: var(--pearl-50);
+  animation: part-in 0.5s var(--ease-out) calc(0.8s + var(--i) * 0.2s) both;
+}
+
+@keyframes part-in {
+  from {
+    opacity: 0;
+    translate: -10px 0;
+  }
+}
+
+.partTick {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.partText {
+  display: grid;
+}
+
+.partText strong {
+  font-family: var(--font-display);
+  color: var(--navy-800);
+}
+
+.partText small {
+  font-size: var(--step-small);
+  color: var(--slate-600);
+}
+
+.quoteFoot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--line-strong);
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.quoteFoot svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+/* ───────── Four reasons ───────── */
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reasons li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  color: var(--slate-600);
+}
+
+.reasons strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.reasons a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.reasonIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.dentists {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--sky-50);
+  font-weight: 500;
+  color: var(--navy-800);
+}
+
+.faces {
+  display: flex;
+  flex: none;
+}
+
+.face {
+  width: 3.5rem;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.face + .face {
+  margin-left: -0.75rem;
+}
+
+/* ───────── Implant runway ───────── */
+.runway {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.runwayTrack {
+  display: block;
+  height: 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--pearl-100);
+  overflow: hidden;
+}
+
+.runwayFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sky-300), var(--sky-500) 60%, var(--navy-800));
+  transform-origin: left;
+  transition: transform 1.8s var(--ease-out) 0.2s;
+}
+
+.motion [data-inview]:not([data-inview="in"]) .runwayFill {
+  transform: scaleX(0);
+}
+
+.runwayScale {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--slate-600);
+}
+
+.visits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visits li {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: 1.5rem 1.25rem;
+  border-top: 4px solid var(--sky-300);
+  border-radius: var(--radius-l);
+  background: var(--pearl-50);
+  color: var(--slate-600);
+}
+
+.visits li:last-child {
+  border-top-color: var(--navy-800);
+}
+
+.visits strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--navy-800);
+}
+
+.visitIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: var(--shadow-soft);
+}
+
+.tip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-l);
+  background: var(--navy-800);
+  color: var(--slate-on-navy);
+}
+
+.tip strong {
+  color: var(--white);
+}
+
+.tipIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-m);
+  background: rgb(109 189 232 / 0.18);
+  color: var(--sky-300);
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 1199px) {
+  .visits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .reasons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .visits {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .runwayScale span:nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .reasons li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dentists,
+  .tip,
+  .quoteTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp,
+  .part {
+    animation: none;
+  }
+}
