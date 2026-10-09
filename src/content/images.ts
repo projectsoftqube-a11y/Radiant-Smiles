@@ -1,3 +1,13 @@
+import blog0Img from "@/assets/images/blog/welcome-to-your-dentist-in-yardley.jpg";
+import blog1Img from "@/assets/images/blog/what-to-expect-with-teeth-whitening-in-yardley.jpg";
+import blog2Img from "@/assets/images/blog/affordable-dentist-in-my-area-yardley.jpg";
+import blog3Img from "@/assets/images/blog/affordable-toothache-relief-treatment-near-me-yardley.jpg";
+import blog4Img from "@/assets/images/blog/general-dental-care-near-me-in-yardley.jpg";
+import blog5Img from "@/assets/images/blog/general-dental-exam-in-yardley.jpg";
+import blog6Img from "@/assets/images/blog/preventive-dental-treatments-near-me-in-yardley.jpg";
+import blog7Img from "@/assets/images/blog/natural-looking-dental-crowns-in-yardley.jpg";
+import blog8Img from "@/assets/images/blog/dental-implants-associated-costs-in-yardley.jpg";
+import blog9Img from "@/assets/images/blog/best-candidate-for-dental-implants-in-yardley.jpg";
 import type { StaticImageData } from "next/image";
 import drGadriaImg from "@/assets/images/dr-jaspreet-gadria-portrait.jpg";
 import familyImg from "@/assets/images/home-family-child-checkup.jpg";
@@ -25,8 +35,9 @@ import techXrayImg from "@/assets/images/home-tech-xray.jpg";
  * Sourcing rules (CLAUDE.md): no AI-generated or retouched images. Generic photos come
  * from free stock (Pexels licence: free for commercial use, no attribution required).
  * Stock photos are never presented as the practice's team, office or patient results.
- * The old site's Shutterstock files are not reused: their licence belongs to the old
- * web vendor.
+ * The old site's Shutterstock files were not reused, as their licence may belong to the old
+ * web vendor, except the 10 blog post images the user asked to carry over from the live
+ * site (9 Oct 2026; `provider: "oldsite"`, licence to confirm with the practice).
  *
  * `src: null` means the slot waits for a real photo; the page shows a labelled
  * "to confirm" placeholder there.
@@ -40,7 +51,7 @@ export type SiteImage = {
   /** CSS object-position for art-directed crops */
   position?: string;
   source: {
-    provider: "pexels" | "practice" | "freepik";
+    provider: "pexels" | "practice" | "freepik" | "oldsite";
     id?: string;
     url?: string;
     author?: string;
@@ -215,6 +226,126 @@ export const images = {
     alt: "Dr. Urvishkumar Bhalala at Radiant Smiles @ Floral Vale in Yardley, PA",
     brief: "Headshot to confirm: the current site shows a \"Coming Soon\" silhouette",
     source: { provider: "practice" },
+  },
+  blogWelcomeToYourDentistInYardley: {
+    src: blog0Img,
+    alt: "Empty dental treatment room with a patient chair and an X-ray screen",
+    brief: "Blog: welcome-to-your-dentist-in-yardley",
+    position: "50% 55%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/about-41.jpg",
+      licence: "Image from the practice's current site (blog post); carried over at the user's request, 9 Oct 2026. Origin and licence to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogWhatToExpectWithTeethWhiteningInYardley: {
+    src: blog1Img,
+    alt: "Woman in a dental chair smiling at her whiter teeth in a hand mirror",
+    brief: "Blog: what-to-expect-with-teeth-whitening-in-yardley",
+    position: "55% 40%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/shutterstock_1070557808.jpg",
+      licence: "Shutterstock image uploaded to the practice's current site by the previous web vendor; carried over at the user's request, 9 Oct 2026. Licence transfer to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogAffordableDentistInMyAreaYardley: {
+    src: blog2Img,
+    alt: "Family holding up large photos of smiles in front of their faces",
+    brief: "Blog: affordable-dentist-in-my-area-yardley",
+    position: "50% 40%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/shutterstock_1054009919-1.jpg",
+      licence: "Shutterstock image uploaded to the practice's current site by the previous web vendor; carried over at the user's request, 9 Oct 2026. Licence transfer to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogAffordableToothacheReliefTreatmentNearMeYardley: {
+    src: blog3Img,
+    alt: "Man holding his jaw because of a toothache",
+    brief: "Blog: affordable-toothache-relief-treatment-near-me-yardley",
+    position: "60% 35%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/shutterstock_1523641001.jpg",
+      licence: "Shutterstock image uploaded to the practice's current site by the previous web vendor; carried over at the user's request, 9 Oct 2026. Licence transfer to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogGeneralDentalCareNearMeInYardley: {
+    src: blog4Img,
+    alt: "Dentist showing a patient in the chair an image of her teeth on a screen",
+    brief: "Blog: general-dental-care-near-me-in-yardley",
+    position: "50% 40%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/General-Near-Me1.jpg",
+      licence: "Image from the practice's current site (blog post); carried over at the user's request, 9 Oct 2026. Origin and licence to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogGeneralDentalExamInYardley: {
+    src: blog5Img,
+    alt: "Woman smiling in a dental chair during a dental exam",
+    brief: "Blog: general-dental-exam-in-yardley",
+    position: "45% 40%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/shutterstock_1958166625.jpg",
+      licence: "Shutterstock image uploaded to the practice's current site by the previous web vendor; carried over at the user's request, 9 Oct 2026. Licence transfer to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogPreventiveDentalTreatmentsNearMeInYardley: {
+    src: blog6Img,
+    alt: "Dentist showing a woman how to brush her teeth on a model",
+    brief: "Blog: preventive-dental-treatments-near-me-in-yardley",
+    position: "50% 35%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/Routine-Near-Me1.jpg",
+      licence: "Image from the practice's current site (blog post); carried over at the user's request, 9 Oct 2026. Origin and licence to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogNaturalLookingDentalCrownsInYardley: {
+    src: blog7Img,
+    alt: "Dentist talking with a smiling patient in a dental chair",
+    brief: "Blog: natural-looking-dental-crowns-in-yardley",
+    position: "45% 35%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/shutterstock_1104382202.jpg",
+      licence: "Shutterstock image uploaded to the practice's current site by the previous web vendor; carried over at the user's request, 9 Oct 2026. Licence transfer to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogDentalImplantsAssociatedCostsInYardley: {
+    src: blog8Img,
+    alt: "Smiling couple sitting together at home",
+    brief: "Blog: dental-implants-associated-costs-in-yardley",
+    position: "55% 35%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/shutterstock_2222594219.jpg",
+      licence: "Shutterstock image uploaded to the practice's current site by the previous web vendor; carried over at the user's request, 9 Oct 2026. Licence transfer to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
+  },
+  blogBestCandidateForDentalImplantsInYardley: {
+    src: blog9Img,
+    alt: "Smiling woman pointing at her teeth",
+    brief: "Blog: best-candidate-for-dental-implants-in-yardley",
+    position: "50% 30%",
+    source: {
+      provider: "oldsite",
+      url: "https://www.radiant-smiles.com/wp-content/uploads/sites/7463/2025/12/shutterstock_1576853824-1.jpg",
+      licence: "Shutterstock image uploaded to the practice's current site by the previous web vendor; carried over at the user's request, 9 Oct 2026. Licence transfer to confirm with the practice.",
+      downloaded: "2026-10-06",
+    },
   },
 } satisfies Record<string, SiteImage>;
 

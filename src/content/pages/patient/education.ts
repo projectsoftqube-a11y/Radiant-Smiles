@@ -1,4 +1,5 @@
 import { napCtaLine, type ClosingCta, type PageHeroContent, type PageMeta } from "../shared";
+import { postDate, postPath, posts } from "../blog/hub";
 import { piCrumbs } from "./common";
 
 /**
@@ -23,9 +24,14 @@ export const eduHero: PageHeroContent = {
   buttons: [{ label: "Read the Dental Health Blog", href: "/blog/" }],
 };
 
-/** Blog posts for the Latest Guides block (newest first). Empty until the blog is built. */
+/** Blog posts for the Latest Guides block (newest first), read from the blog at build time */
 export type BlogPostSummary = { title: string; href: string; date: string; summary: string };
-export const latestPosts: BlogPostSummary[] = [];
+export const latestPosts: BlogPostSummary[] = posts.map((post) => ({
+  title: post.title,
+  href: postPath(post.slug),
+  date: postDate(post.date),
+  summary: post.excerpt,
+}));
 
 export const eduLatest = {
   title: "Latest Guides",

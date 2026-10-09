@@ -128,7 +128,17 @@ export const routes: RouteEntry[] = [
   r("/invisalign-trenton-nj/", "Invisalign, Trenton NJ", "service-location", true),
 
   // Content
-  r("/blog/", "Blog", "content", false),
+  r("/blog/", "Blog", "content", true),
+  r("/blog/welcome-to-your-dentist-in-yardley/", "Welcome to Your Dentist in Yardley", "content", true),
+  r("/blog/what-to-expect-with-teeth-whitening-in-yardley/", "What to Expect with Teeth Whitening in Yardley", "content", true),
+  r("/blog/affordable-dentist-in-my-area-yardley/", "Affordable Dentist In My Area, Yardley", "content", true),
+  r("/blog/affordable-toothache-relief-treatment-near-me-yardley/", "Affordable Toothache Relief & Treatment Near Me, Yardley", "content", true),
+  r("/blog/general-dental-care-near-me-in-yardley/", "General Dental Care Near Me in Yardley", "content", true),
+  r("/blog/general-dental-exam-in-yardley/", "General Dental Exam in Yardley", "content", true),
+  r("/blog/preventive-dental-treatments-near-me-in-yardley/", "Preventive Dental Treatments Near Me in Yardley", "content", true),
+  r("/blog/natural-looking-dental-crowns-in-yardley/", "Natural Looking Dental Crowns in Yardley", "content", true),
+  r("/blog/dental-implants-associated-costs-in-yardley/", "Dental Implant Costs in Yardley", "content", true),
+  r("/blog/best-candidate-for-dental-implants-in-yardley/", "Candidates for Dental Implants in Yardley", "content", true),
 
   // Legal
   r("/disclaimer/", "Disclaimer", "legal", false),

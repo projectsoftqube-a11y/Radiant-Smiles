@@ -1,0 +1,231 @@
+/* Shared teaser parts */
+.link {
+  color: var(--navy-800);
+  text-decoration: none;
+}
+
+/* The title link covers the whole teaser */
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.row:has(.link:focus-visible),
+.card:has(.link:focus-visible),
+.mini:has(.link:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.topic {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.35rem;
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sky-700);
+}
+
+.excerpt {
+  font-size: var(--step-small);
+  line-height: 1.65;
+  color: var(--slate-600);
+}
+
+.meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-600);
+}
+
+/* ───────── Row (hub feed) ───────── */
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  padding: 1rem;
+  border-radius: var(--radius-l);
+  transition: background var(--dur-ui) ease;
+}
+
+.row:hover {
+  background: var(--pearl-50);
+}
+
+.rowMedia {
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  aspect-ratio: 16 / 10;
+}
+
+.rowImage {
+  border-radius: 0;
+  transition: scale 0.6s var(--ease-out);
+}
+
+.row:hover .rowImage {
+  scale: 1.04;
+}
+
+.rowBody {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 40rem;
+}
+
+.rowTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  font-variant-numeric: lining-nums;
+}
+
+.row:hover .link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.go {
+  display: inline-grid;
+  place-items: center;
+  align-self: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  color: var(--navy-800);
+  transition: background var(--dur-ui) ease, color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+}
+
+.row:hover .go {
+  border-color: var(--navy-800);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* ───────── Card (post page "More From the Blog") ───────── */
+.card {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  height: 100%;
+}
+
+.cardImage {
+  transition: filter var(--dur-ui) ease;
+}
+
+.card:hover .cardImage {
+  filter: saturate(1.08) brightness(1.03);
+}
+
+.cardBody {
+  display: grid;
+  gap: 0.55rem;
+  padding-inline: 0.25rem;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  font-variant-numeric: lining-nums;
+}
+
+.card:hover .link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* ───────── Mini (hub hero "Also new") ───────── */
+.mini {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-l);
+  transition: background var(--dur-ui) ease;
+}
+
+.mini:hover {
+  background: var(--white);
+}
+
+.miniImage {
+  border-radius: var(--radius-m);
+}
+
+.miniBody {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.miniTitle {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  font-variant-numeric: lining-nums;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 991px) {
+  .row {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    padding: 0.75rem;
+  }
+
+  .go {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .row:hover {
+    background: none;
+  }
+
+  .rowBody {
+    padding-inline: 0.25rem;
+  }
+}
+
+@media (max-width: 389px) {
+  .mini {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rowImage {
+    transition: none;
+  }
+}

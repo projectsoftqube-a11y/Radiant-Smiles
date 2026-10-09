@@ -8,6 +8,7 @@ import { appointmentLink, callLink, type CtaButton } from "@/content/pages/share
  * CareCredit link). Analytics events: TrackClicks adds click_call / click_request_appointment.
  */
 export function CtaButtons({ buttons, track, className }: { buttons: CtaButton[]; track: string; className?: string }) {
+  if (!buttons.length) return null;
   return (
     <div className={className}>
       {buttons.map((button, i) => {

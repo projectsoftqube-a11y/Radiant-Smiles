@@ -3,8 +3,8 @@
  * Source: "Redirects (301)" tab of the Keyword Map & Sitemap workbook, plus the legacy
  * URLs the old WordPress site already redirected (seo-inventory.csv; agreed 7 Oct 2026).
  * Chains are collapsed: every old URL points straight at its final page.
- * The blog-post redirects in the workbook are marked "review, then 301" and are added
- * with the blog folder.
+ * The 13 blog posts the workbook retires (marked "review, then 301") are redirected here;
+ * they are never listed on the blog.
  */
 export const redirects: { source: string; destination: string }[] = [
   // Duplicates and thin pages merged by the SEO team
@@ -27,6 +27,21 @@ export const redirects: { source: string; destination: string }[] = [
   { source: "/restorative-dentistry/soft-liners/", destination: "/restorative-dentistry/dentures/denture-relines/" },
   { source: "/restorative-dentistry/rebase-repairs/", destination: "/restorative-dentistry/dentures/denture-relines/" },
   { source: "/about-us/blog/", destination: "/blog/" },
+
+  // Blog posts retired by the SEO team (workbook: duplicates and posts competing with service pages)
+  { source: "/blog/teeth-implants-faq-in-yardley-2-2/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/teeth-implants-faq-in-yardley-2/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/dental-implants-near-me-in-yardley-2/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/dental-implants-in-yardley-2/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/dental-implants-near-me-in-yardley/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/dental-implants-in-yardley/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/best-dental-implants-treament-near-me-in-yardley-pa/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/best-dental-implant-dentist-near-me-in-yardley-pa/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/best-dental-implant-dentist-in-yardley-pa/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/top-rated-dental-implant-dentist-in-yardley-pa/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/dental-implant-specialist-in-yardley/", destination: "/restorative-dentistry/dental-implants/" },
+  { source: "/blog/dental-crowns-near-me-in-yardley/", destination: "/restorative-dentistry/dental-crowns/" },
+  { source: "/blog/teeth-cleaning-near-me-in-yardley/", destination: "/preventative-care/teeth-cleaning-and-check-ups/" },
 
   // Legacy URLs the old site already redirected (kept so old links and bookmarks still land)
   { source: "/services/dental-implants/", destination: "/restorative-dentistry/dental-implants/" },

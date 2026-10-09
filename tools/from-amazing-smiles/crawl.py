@@ -34,7 +34,8 @@ while queue:
             if not re.fullmatch(r"(tel|sms):\+1\d{10}", href): problems["bad tel/sms"].append((p, href))
             continue
         if href.startswith("mailto:"):
-            if not re.fullmatch(r"mailto:[^@\s]+@[^@\s]+\.\w+", href): problems["bad mailto"].append((p, href))
+            # A share link (no recipient, subject/body only) is valid too
+            if not re.fullmatch(r"mailto:[^@\s]+@[^@\s]+\.\w+", href) and not re.fullmatch(r"mailto:\?subject=[^&\s]+&body=\S+", href): problems["bad mailto"].append((p, href))
             continue
         if href.startswith("http"):
             if "amazingsmilesbydesign.com" in href and "vercel" not in href:
