@@ -68,7 +68,7 @@
   gap: 0.85rem;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-m);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   animation: part-in 0.5s var(--ease-out) calc(0.8s + var(--i) * 0.2s) both;
 }
 
@@ -203,7 +203,7 @@
   display: block;
   height: 0.9rem;
   border-radius: var(--radius-pill);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   overflow: hidden;
 }
 
@@ -245,7 +245,7 @@
   padding: 1.5rem 1.25rem;
   border-top: 4px solid var(--sky-300);
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   color: var(--slate-600);
 }
 

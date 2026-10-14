@@ -4,8 +4,9 @@
  * Contrast notes (WCAG): logo sky fails as text on white (2.2:1), so sky is used for
  * lines, light rays and fills only; accent text on light backgrounds uses --sky-700
  * (5.3:1). On navy, sky text passes (6.1:1 on --navy-900).
- * Neutrals lean warm ("pearl") so the site reads differently from the cool ice/porcelain
- * of the sister practice's site.
+ * Section backgrounds are light blue "washes" (client feedback, 14 Oct 2026: "more towards
+ * blue background"; they were warm pearl before). The client compared a deeper-blue option
+ * and chose this light blue.
  */
 
 :root {
@@ -21,13 +22,14 @@
   --sky-200: #cde9f8;
   --sky-100: #e5f4fb;
   --sky-50: #f3fafd;
-  --pearl-200: #ece6dc;
-  --pearl-100: #f5f1ea;
-  --pearl-50: #faf8f4;
-  /* Inside of the mouth (home Family section, between the teeth): soft rose near the
-     teeth, pale blush where the text sits. To revert to white, set both to #ffffff. */
-  --mouth-edge: #f6e0e0;
-  --mouth-mid: #fdf8f6;
+  /* Section background washes (light blue), lightest to strongest */
+  --wash-200: #d6e8f6;
+  --wash-100: #e8f2fb;
+  --wash-50: #f2f8fd;
+  /* Inside of the mouth (home Family section, between the teeth): a soft blue near the
+     teeth, paler where the text sits (was rose/blush before the blue feedback). */
+  --mouth-edge: #e3f0fa;
+  --mouth-mid: #f4f9fd;
   --white: #ffffff;
 
   /* Neutrals biased toward the brand navy */

@@ -8,7 +8,7 @@
   border-radius: var(--radius-l);
   background:
     radial-gradient(70% 50% at 50% 45%, var(--mouth-mid), transparent 75%),
-    linear-gradient(180deg, var(--mouth-edge), var(--pearl-50));
+    linear-gradient(180deg, var(--mouth-edge), var(--wash-50));
   box-shadow: var(--shadow-lift);
 }
 
@@ -210,7 +210,7 @@
   margin-top: clamp(2.5rem, 5vw, 4rem);
   padding: clamp(1.5rem, 3.5vw, 2.5rem);
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .eruptionCopy {
@@ -339,7 +339,7 @@
 /* ───────── Protect: two cards ───────── */
 .protect {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .protectHead {

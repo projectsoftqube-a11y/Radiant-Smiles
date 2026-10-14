@@ -182,8 +182,8 @@
 /* ───────── The sequence ───────── */
 .steps {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .stepsInner {
@@ -222,7 +222,7 @@
   border-radius: var(--radius-l);
   background: var(--navy-800);
   color: var(--sky-300);
-  box-shadow: 0 0 0 8px var(--pearl-50);
+  box-shadow: 0 0 0 8px var(--wash-50);
 }
 
 .stepCopy {

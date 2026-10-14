@@ -71,7 +71,7 @@
 .recordFoot span {
   height: 0.5rem;
   border-radius: 4px;
-  background: var(--pearl-100);
+  background: var(--wash-100);
 }
 
 .noticeLines span:nth-child(2),
@@ -291,7 +291,7 @@
   height: 2.4rem;
   border: 1px solid var(--line-strong);
   border-radius: 8px;
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .message > span {

@@ -45,6 +45,35 @@ export const schedulingForm = {
     "Thanks, we've received your request. It isn't a confirmed booking yet: our team will contact you to confirm the day and time. If you're in pain or it's urgent, please call [(215) 860-4600](tel:+12158604600) now. New patient? Here's [how to get your patient forms](/patient-information/patient-registration/) before you arrive.",
 };
 
+/**
+ * The New Patient / Existing Patient workflow around the form fields above (client feedback,
+ * 14 Oct 2026). Our wording, not the content file's: the SEO team may want to review it.
+ */
+export const schedulingWorkflow = {
+  steps: ["About you", "Contact details", "Your visit"],
+  start: "Are you new to Radiant Smiles @ Floral Vale?",
+  paths: {
+    new: {
+      title: "I'm a new patient",
+      text: "First visit with us. No insurance? Your first visit is $89.",
+    },
+    existing: {
+      title: "I'm an existing patient",
+      text: "Welcome back. Book your next checkup or treatment.",
+    },
+  },
+  fields: {
+    insurance: "Dental insurance",
+    plan: "Insurance plan name",
+    heard: "How did you hear about us?",
+    dentist: "Preferred dentist",
+  },
+  planHint: 'e.g. "Delta Dental PPO"',
+  next: "Continue",
+  back: "Back",
+  change: "Change",
+};
+
 export const schedHours = {
   title: "Office Hours",
   note: "Working weekdays? Wednesday and Thursday run until 6:00 pm, and Saturday appointments start at 8:00 am.",

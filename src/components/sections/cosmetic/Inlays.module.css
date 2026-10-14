@@ -37,7 +37,7 @@
   place-items: center;
   padding: 1.5rem 1rem;
   border-radius: var(--radius-m);
-  background: radial-gradient(60% 60% at 50% 50%, #fdf3f3, var(--pearl-50));
+  background: radial-gradient(60% 60% at 50% 50%, #fdf3f3, var(--wash-50));
 }
 
 .dropSvg {
@@ -137,7 +137,7 @@
   gap: 0.6rem;
   padding: 1.25rem 1rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .coverSvg {
@@ -308,7 +308,7 @@
 }
 
 .sample_composite .sampleBlock {
-  background: linear-gradient(135deg, var(--pearl-100), #ffffff);
+  background: linear-gradient(135deg, var(--wash-100), #ffffff);
 }
 
 .sample_composite .cover {
@@ -432,7 +432,7 @@
   gap: 0.9rem;
   padding: clamp(1.5rem, 3.5vw, 2.25rem);
   border-radius: var(--radius-l);
-  background: linear-gradient(135deg, #fbefd2, var(--pearl-50));
+  background: linear-gradient(135deg, var(--sky-100), var(--wash-50));
 }
 
 .rangeFigure {

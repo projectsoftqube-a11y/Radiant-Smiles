@@ -215,7 +215,7 @@
 
 .megaGrid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   /* Row 1: group titles (one shared height); row 2: the link lists, all starting level */
   grid-template-rows: auto auto;
   column-gap: 1.5rem;
@@ -281,7 +281,7 @@
   margin-top: 1.25rem;
   padding: 1rem 1.5rem;
   border-radius: var(--radius-m);
-  background: linear-gradient(100deg, var(--sky-100), var(--pearl-100));
+  background: linear-gradient(100deg, var(--sky-100), var(--wash-100));
 }
 
 .megaPromoFigure {

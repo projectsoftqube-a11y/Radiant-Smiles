@@ -201,7 +201,7 @@
   height: 2.25rem;
   border: 0;
   border-radius: var(--radius-s);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--navy-800);
   cursor: pointer;
 }
@@ -214,7 +214,7 @@
 /* ───────── Directory ───────── */
 .directory {
   padding-block: clamp(3rem, 6vw, 5rem) var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .noMatch {

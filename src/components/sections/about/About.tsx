@@ -25,6 +25,7 @@ import styles from "./About.module.css";
  */
 export function AboutBento() {
   const gadria = images.drGadria;
+  const bhalala = images.drBhalala;
   return (
     <div className={styles.bento} aria-hidden="true">
       <div className={`${styles.tile} ${styles.tilePhoto}`}>
@@ -45,7 +46,12 @@ export function AboutBento() {
       <div className={`${styles.tile} ${styles.tileDocs}`}>
         <span className={styles.avatars}>
           <span className={styles.avatar}>
-            <ToothMark className={styles.avatarMark} />
+            {/* His placeholder portrait (or real photo once it arrives); the logo mark if neither */}
+            {bhalala.src ? (
+              <Image src={bhalala.src} alt="" fill sizes="56px" style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+            ) : (
+              <ToothMark className={styles.avatarMark} />
+            )}
           </span>
           <span className={styles.avatar}>
             {gadria.src ? <Image src={gadria.src} alt="" fill sizes="56px" style={{ objectFit: "cover", objectPosition: "60% 20%" }} /> : null}

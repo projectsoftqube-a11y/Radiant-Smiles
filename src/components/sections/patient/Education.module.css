@@ -206,7 +206,7 @@
 }
 
 .guide:nth-child(5) {
-  background: linear-gradient(160deg, var(--pearl-100), var(--white) 70%);
+  background: linear-gradient(160deg, var(--wash-100), var(--white) 70%);
 }
 
 .guide:hover {

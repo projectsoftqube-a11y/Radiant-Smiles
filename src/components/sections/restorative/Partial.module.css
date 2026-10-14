@@ -75,7 +75,7 @@
 }
 
 .tagNatural {
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--navy-800);
 }
 
@@ -200,7 +200,7 @@
   gap: 0.9rem;
   padding: clamp(1.5rem, 3.5vw, 2.25rem);
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   border: 1px dashed var(--line-strong);
   color: var(--slate-600);
 }

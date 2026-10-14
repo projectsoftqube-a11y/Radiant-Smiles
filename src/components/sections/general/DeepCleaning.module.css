@@ -63,7 +63,7 @@
 .probe {
   position: relative;
   border-radius: var(--radius-s);
-  background: linear-gradient(90deg, #f6cfd0 0 30%, var(--pearl-100) 30% 70%, #f6cfd0 70%);
+  background: linear-gradient(90deg, #f6cfd0 0 30%, var(--wash-100) 30% 70%, #f6cfd0 70%);
   overflow: hidden;
 }
 
@@ -168,7 +168,7 @@
 /* ───────── Signs ───────── */
 .signs {
   padding-block: var(--space-section);
-  background: linear-gradient(180deg, var(--pearl-50), var(--white));
+  background: linear-gradient(180deg, var(--wash-50), var(--white));
 }
 
 .signsGrid {

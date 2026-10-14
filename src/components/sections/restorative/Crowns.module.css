@@ -9,7 +9,7 @@
   padding-top: clamp(2.5rem, 5vw, 3.5rem);
   background:
     radial-gradient(60% 50% at 50% 30%, var(--white), transparent 75%),
-    linear-gradient(180deg, var(--sky-100), var(--pearl-50));
+    linear-gradient(180deg, var(--sky-100), var(--wash-50));
   box-shadow: var(--shadow-lift);
 }
 
@@ -150,7 +150,7 @@
   margin-top: 1.5rem;
   padding: 1.1rem 1.4rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--ink);
 }
 
@@ -167,7 +167,7 @@
 /* ───────── Materials ───────── */
 .materials {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .materialsGrid {

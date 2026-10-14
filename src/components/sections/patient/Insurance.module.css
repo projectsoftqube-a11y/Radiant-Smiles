@@ -175,8 +175,8 @@
 /* ───────── Benefits: plan year ───────── */
 .benefits {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .benefitsGrid {
@@ -360,8 +360,8 @@
 }
 
 .payCard {
-  border: 1px solid var(--pearl-200);
-  background: var(--pearl-50);
+  border: 1px solid var(--wash-200);
+  background: var(--wash-50);
   color: var(--slate-600);
 }
 

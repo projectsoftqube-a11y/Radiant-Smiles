@@ -31,7 +31,7 @@
   gap: 0.5rem;
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-s);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   font-size: var(--step-label);
   font-weight: 600;
   color: var(--slate-600);
@@ -75,7 +75,7 @@
   min-height: 2.5rem;
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-m);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   animation: slot-in 0.6s var(--ease-out) calc(0.8s + var(--i) * 0.12s) both;
 }
 
@@ -249,7 +249,7 @@
   gap: 1rem;
   padding: clamp(1.25rem, 3vw, 1.75rem);
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   border: 1px solid var(--line);
 }
 
@@ -332,7 +332,7 @@
 /* ───────── Field guide ───────── */
 .guide {
   padding-block: var(--space-section);
-  background: linear-gradient(180deg, var(--pearl-50), var(--white) 40%);
+  background: linear-gradient(180deg, var(--wash-50), var(--white) 40%);
 }
 
 .guideGrid {
@@ -631,7 +631,7 @@
 /* ───────── Pay ───────── */
 .pay {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .payGrid {

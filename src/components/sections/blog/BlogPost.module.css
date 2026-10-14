@@ -28,7 +28,7 @@
   padding-top: clamp(1.75rem, 3vw, 2.75rem);
   background:
     radial-gradient(50% 60% at 50% 0%, var(--sky-100), transparent 70%),
-    linear-gradient(180deg, var(--pearl-50) 0, var(--pearl-50) calc(100% - clamp(5rem, 13vw, 12rem)), var(--white) calc(100% - clamp(5rem, 13vw, 12rem)));
+    linear-gradient(180deg, var(--wash-50) 0, var(--wash-50) calc(100% - clamp(5rem, 13vw, 12rem)), var(--white) calc(100% - clamp(5rem, 13vw, 12rem)));
 }
 
 .heroInner {
@@ -347,7 +347,7 @@
   gap: 1.25rem;
   padding: 1.5rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   font-size: var(--step-small);
   line-height: 1.6;
   color: var(--slate-600);
@@ -465,7 +465,7 @@
 }
 
 .pagerLink:hover {
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .pagerNext .pagerLink {
@@ -516,7 +516,7 @@
 /* ───────── More from the blog ───────── */
 .more {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .moreHead {
@@ -563,7 +563,7 @@
     gap: 1.5rem 3rem;
     padding: 1.25rem 1.5rem;
     border-radius: var(--radius-l);
-    background: var(--pearl-50);
+    background: var(--wash-50);
   }
 
   .railInner:has(> :only-child) {

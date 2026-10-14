@@ -10,9 +10,10 @@ import { homeServices } from "@/content/pages/home";
 import styles from "./Services.module.css";
 
 /**
- * The five service groups as tabs (≥992px): group names on the left, the chosen group's
+ * The six service groups as tabs (≥992px): group names on the left, the chosen group's
  * photo and services on the right, all on one even line. Every panel (with its H3 and
- * links) is always in the HTML; below 992px the tabs hide and all five panels stack.
+ * links) is always in the HTML; below 992px the tabs hide and all six panels stack. A group
+ * with a current special (Dental Implants: $500 off) shows it as a ticket under its links.
  *
  * Scroll-driven (≥992px, motion allowed): the block pins under the header and the groups
  * take turns as the page scrolls, one after another; the active tab's line fills with
@@ -150,6 +151,18 @@ export function ServiceTabs() {
                   </li>
                 ))}
               </ul>
+              {group.offer ? (
+                <SiteLink href={group.offer.href} className={styles.offer} data-track="offer_click" data-track-offer={group.offer.label}>
+                  <span className={styles.offerIcon} aria-hidden="true">
+                    <Icon name="tag" size={20} />
+                  </span>
+                  <span className={styles.offerText}>
+                    <strong>{group.offer.label}</strong>
+                    <span>{group.offer.detail}</span>
+                  </span>
+                  <Icon name="arrow" size={18} className={styles.offerArrow} />
+                </SiteLink>
+              ) : null}
               {group.hub ? (
                 <SiteLink href={group.hub.href} className={`text-link ${styles.hub}`}>
                   {group.hub.label} <Icon name="arrow" size={16} />

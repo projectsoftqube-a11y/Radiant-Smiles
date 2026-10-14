@@ -121,7 +121,7 @@
 }
 
 .dayClosed {
-  background: repeating-linear-gradient(135deg, var(--pearl-100) 0 6px, var(--pearl-50) 6px 12px);
+  background: repeating-linear-gradient(135deg, var(--wash-100) 0 6px, var(--wash-50) 6px 12px);
 }
 
 .daySat {
@@ -232,8 +232,8 @@
 /* ───────── Hours as tiles (a real table) ───────── */
 .hours {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .hoursHead {
@@ -282,7 +282,7 @@
   gap: 1.5rem;
   min-height: 9rem;
   padding: 1.1rem 1rem;
-  border: 1px solid var(--pearl-200);
+  border: 1px solid var(--wash-200);
   border-radius: var(--radius-l);
   background: var(--white);
   transition: translate 0.35s var(--ease-out), box-shadow 0.35s ease;
@@ -331,7 +331,7 @@
 }
 
 .tileClosed {
-  background: repeating-linear-gradient(135deg, var(--pearl-100) 0 8px, var(--pearl-50) 8px 16px) !important;
+  background: repeating-linear-gradient(135deg, var(--wash-100) 0 8px, var(--wash-50) 8px 16px) !important;
 }
 
 .tileToday {

@@ -1,4 +1,4 @@
-import { AppointmentForm } from "@/components/forms/AppointmentForm";
+import { SchedulingForm } from "@/components/forms/SchedulingForm";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Rich } from "@/components/ui/Rich";
 import SiteLink from "@/components/ui/SiteLink";
@@ -46,7 +46,7 @@ export function RequestDesk() {
           </ol>
         </div>
         <div className={styles.formWrap} data-reveal>
-          <AppointmentForm variant="scheduling" />
+          <SchedulingForm />
         </div>
       </div>
     </section>

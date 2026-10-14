@@ -133,8 +133,8 @@
 }
 
 .chapter:nth-child(even) {
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .chapterGrid {

@@ -251,6 +251,62 @@
   margin-left: 1rem;
 }
 
+/* A current special under a group's links (Dental Implants: $500 off): a dashed-edge
+   coupon in the sky tint; hover changes colour only */
+.offer {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  margin-inline: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1.5px dashed var(--sky-300);
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-ui) ease,
+    background-color var(--dur-ui) ease;
+}
+
+.offer:hover {
+  border-color: var(--navy-800);
+  background: var(--sky-100);
+}
+
+.offerIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-s);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.offerText {
+  display: grid;
+  gap: 0.15rem;
+  line-height: 1.4;
+}
+
+.offerText strong {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+.offerText span {
+  font-size: 0.875rem;
+  color: var(--slate-600);
+}
+
+.offerArrow {
+  color: var(--sky-700);
+}
+
 @media (max-width: 991px) {
   .head {
     grid-template-columns: 1fr;

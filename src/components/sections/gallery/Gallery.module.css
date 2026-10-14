@@ -206,8 +206,8 @@
 /* ───────── Whitening ───────── */
 .whitening {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .whiteningHead {
@@ -441,7 +441,7 @@
   gap: clamp(1.25rem, 3vw, 2rem);
   padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 4vw, 3rem);
   border-radius: var(--radius-l);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--slate-600);
 }
 

@@ -71,7 +71,7 @@
 
 .map {
   border-radius: var(--radius-l);
-  background: linear-gradient(135deg, var(--pearl-100) 0 30%, var(--sky-50) 45% 100%);
+  background: linear-gradient(135deg, var(--wash-100) 0 30%, var(--sky-50) 45% 100%);
   box-shadow: var(--shadow-lift);
   overflow: hidden;
 }
@@ -153,7 +153,7 @@
   gap: 1rem;
   padding: 1.1rem 1.25rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   color: var(--slate-600);
 }
 

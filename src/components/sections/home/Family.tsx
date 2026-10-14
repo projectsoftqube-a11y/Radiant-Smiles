@@ -142,7 +142,7 @@ export function Family() {
             ))}
           </ol>
         </div>
-        <Jaw jaw="lower" outside="var(--pearl-50)" />
+        <Jaw jaw="lower" outside="var(--wash-50)" />
       </div>
     </section>
   );

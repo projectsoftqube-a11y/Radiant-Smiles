@@ -8,7 +8,7 @@
   border-radius: var(--radius-l);
   background:
     radial-gradient(60% 50% at 50% 30%, var(--white), transparent 75%),
-    linear-gradient(180deg, var(--sky-100), var(--pearl-50));
+    linear-gradient(180deg, var(--sky-100), var(--wash-50));
   box-shadow: var(--shadow-lift);
 }
 
@@ -270,7 +270,7 @@
 }
 
 .days {
-  background: var(--pearl-100);
+  background: var(--wash-100);
 }
 
 .daysBadge {
@@ -386,7 +386,7 @@
   border-radius: var(--radius-l);
   background:
     radial-gradient(60% 90% at 100% 0%, var(--sky-100), transparent 70%),
-    var(--pearl-100);
+    var(--wash-100);
 }
 
 .wisdomIcon {

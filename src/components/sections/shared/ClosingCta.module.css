@@ -15,7 +15,7 @@
   border: 1px solid var(--sky-200);
   background:
     radial-gradient(60% 90% at 82% 100%, var(--white) 0%, transparent 65%),
-    linear-gradient(135deg, var(--sky-100) 0%, var(--sky-50) 55%, var(--pearl-100) 100%);
+    linear-gradient(135deg, var(--sky-100) 0%, var(--sky-50) 55%, var(--wash-100) 100%);
   color: var(--slate-600);
 }
 

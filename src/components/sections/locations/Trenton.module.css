@@ -129,7 +129,7 @@
   padding: 1.25rem;
   border-left: 4px solid var(--sky-300);
   border-radius: var(--radius-m);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   color: var(--slate-600);
 }
 
@@ -175,7 +175,7 @@
   gap: 0.25rem;
   padding: 0.75rem 0.15rem;
   border-radius: var(--radius-m);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   color: var(--slate-600);
 }
 
@@ -200,7 +200,7 @@
 }
 
 .days .dayClosed {
-  background: repeating-linear-gradient(135deg, var(--pearl-50) 0 5px, var(--pearl-100) 5px 10px);
+  background: repeating-linear-gradient(135deg, var(--wash-50) 0 5px, var(--wash-100) 5px 10px);
   opacity: 0.7;
 }
 

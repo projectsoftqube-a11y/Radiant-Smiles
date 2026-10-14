@@ -127,7 +127,7 @@
 /* ───────── Signs: the morning ───────── */
 .signs {
   padding-block: var(--space-section);
-  background: linear-gradient(180deg, #fff8ec, var(--white) 55%);
+  background: linear-gradient(180deg, var(--wash-100), var(--white) 55%);
 }
 
 .signsHead {
@@ -188,7 +188,7 @@
 }
 
 .tmj {
-  background: var(--pearl-100);
+  background: var(--wash-100);
 }
 
 .force {
@@ -251,7 +251,7 @@
 /* ───────── Make: the lab journey ───────── */
 .make {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .makeHead {
@@ -366,7 +366,7 @@
   border-radius: var(--radius-l);
   background:
     radial-gradient(60% 90% at 0% 50%, var(--sky-100), transparent 70%),
-    var(--pearl-100);
+    var(--wash-100);
 }
 
 .shielded {

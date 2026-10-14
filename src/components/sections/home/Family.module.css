@@ -114,7 +114,7 @@
   left: 0;
   right: 0;
   height: 3000px;
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 /* Lower teeth: rounded crowns pointing up, bases tucked into the lower gum (<Jaw jaw="lower">) */
@@ -228,7 +228,7 @@
 @media (max-width: 1199px) {
   .section {
     padding-bottom: var(--space-section);
-    border-bottom: 1px solid var(--pearl-200);
+    border-bottom: 1px solid var(--wash-200);
   }
 
   .tongue,

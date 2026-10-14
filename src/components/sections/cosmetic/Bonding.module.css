@@ -23,7 +23,7 @@
   padding: 0 0.5rem 0.75rem;
   overflow: hidden;
   border-radius: var(--radius-m);
-  background: radial-gradient(70% 70% at 50% 60%, #fdf3f3, var(--pearl-50));
+  background: radial-gradient(70% 70% at 50% 60%, #fdf3f3, var(--wash-50));
 }
 
 .resinSvg {
@@ -120,7 +120,7 @@
   display: block;
   height: 0.6rem;
   border-radius: var(--radius-pill);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   overflow: hidden;
 }
 
@@ -153,7 +153,7 @@
   justify-self: center;
   padding: 1.5rem;
   border-radius: var(--radius-l);
-  background: radial-gradient(70% 70% at 50% 50%, var(--sky-50), var(--pearl-50));
+  background: radial-gradient(70% 70% at 50% 50%, var(--sky-50), var(--wash-50));
 }
 
 .pinSvg {
@@ -362,7 +362,7 @@
   display: block;
   height: 1rem;
   border-radius: var(--radius-pill);
-  background: var(--pearl-100);
+  background: var(--wash-100);
 }
 
 /* Years three to five, on a scale that runs to six */

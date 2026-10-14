@@ -2,8 +2,8 @@
   padding-block: var(--space-section);
   background:
     radial-gradient(40% 50% at 100% 100%, var(--sky-100) 0%, transparent 70%),
-    var(--pearl-50);
-  border-top: 1px solid var(--pearl-200);
+    var(--wash-50);
+  border-top: 1px solid var(--wash-200);
 }
 
 .head {

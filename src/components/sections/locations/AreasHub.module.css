@@ -51,7 +51,7 @@
   display: block;
   height: 0.7rem;
   border-radius: var(--radius-pill);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 /* Each town's range on the shared 0–30 minute scale (a single value shows as a short mark) */
@@ -246,7 +246,7 @@
 }
 
 .bankPa {
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--navy-800);
 }
 

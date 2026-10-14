@@ -223,8 +223,8 @@
 /* ───────── Role chapters with a sticky menu ───────── */
 .roles {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .rolesGrid {
@@ -245,7 +245,7 @@
   margin: 0;
   padding: 0 0 0 1.1rem;
   list-style: none;
-  border-left: 2px solid var(--pearl-200);
+  border-left: 2px solid var(--wash-200);
 }
 
 .roleLink {
@@ -317,7 +317,7 @@
   gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: start;
   padding: clamp(1.75rem, 3.5vw, 3rem);
-  border: 1px solid var(--pearl-200);
+  border: 1px solid var(--wash-200);
   border-radius: var(--radius-l);
   background: var(--white);
   scroll-margin-top: calc(var(--header-h) + 2rem);
@@ -356,7 +356,7 @@
   .roleNav ol {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0.4rem;
-    border: 1px solid var(--pearl-200);
+    border: 1px solid var(--wash-200);
     border-radius: var(--radius-m);
     background: rgb(255 255 255 / 0.92);
     backdrop-filter: blur(8px);

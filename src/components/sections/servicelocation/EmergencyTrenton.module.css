@@ -129,7 +129,7 @@
 }
 
 .relayFoot .closed {
-  background: var(--pearl-100);
+  background: var(--wash-100);
 }
 
 /* ───────── Hero safety note ───────── */
@@ -201,7 +201,7 @@
 }
 
 .booked {
-  background: repeating-linear-gradient(135deg, var(--pearl-50) 0 6px, var(--pearl-100) 6px 12px);
+  background: repeating-linear-gradient(135deg, var(--wash-50) 0 6px, var(--wash-100) 6px 12px);
 }
 
 .held {
@@ -229,7 +229,7 @@
   gap: 1rem;
   padding: 1.25rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   color: var(--slate-600);
 }
 

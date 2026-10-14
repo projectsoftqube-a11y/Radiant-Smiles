@@ -18,7 +18,9 @@ export const homeMeta = {
 export type LinkItem = { label: string; href: string };
 
 export const homeHero = {
-  h1: "Dentist in Yardley, PA for Family, Cosmetic & Restorative Care",
+  // Client feedback (14 Oct 2026): Family, Cosmetic & Implant, in that order. The content file
+  // had "…Family, Cosmetic & Restorative Care"; the title tag and meta are unchanged.
+  h1: "Dentist in Yardley, PA for Family, Cosmetic & Implant Dentistry",
   intro:
     "Radiant Smiles @ Floral Vale is a family dentist in Yardley, PA, where two Temple-trained dentists use dental microscopes and 3D imaging so repairs fit right, and explain what they found, and what it costs, before anything starts. Open Saturdays 8 am to 2 pm. Same-day emergency slots every business day. No insurance? Your first visit is $89.",
   callLabel: "Call (215) 860-4600",
@@ -74,11 +76,20 @@ export const homeOffers = {
 export type ServiceGroup = {
   id: string;
   title: string;
-  image: "servicePreventive" | "serviceGum" | "serviceRestorative" | "serviceDentures" | "serviceCosmetic";
+  image: "servicePreventive" | "serviceGum" | "serviceRestorative" | "serviceDentures" | "serviceCosmetic" | "serviceImplants";
   links: LinkItem[];
   hub?: LinkItem;
+  /** A current special shown on the group's panel (Implants: the $500-off offer) */
+  offer?: { label: string; detail: string; href: string };
 };
 
+/**
+ * Group order: Family → Cosmetic → Dental Implants → Restorative → Gum Care → Dentures, so
+ * Family, Cosmetic and Implant dentistry come first (client feedback, 14 Oct 2026). Dental
+ * Implants is its own group now (it was the first Restorative link); its wording is ours,
+ * not the content file's. The same list drives the home tabs, both Services menus, the
+ * footer menus and the schema.
+ */
 export const homeServices: { title: string; intro: string; groups: ServiceGroup[] } = {
   title: "Dental Services at Our Yardley Office",
   intro: "Most checkups, gum care, repairs, replacements and cosmetic work happen in one office. Choose a service to learn more.",
@@ -101,45 +112,6 @@ export const homeServices: { title: string; intro: string; groups: ServiceGroup[
       hub: { label: "All preventative care", href: "/preventative-care/" },
     },
     {
-      id: "gum",
-      title: "Gum Care",
-      image: "serviceGum",
-      links: [
-        { label: "Deep teeth cleaning (scaling & root planing)", href: "/preventative-care/deep-teeth-cleaning/" },
-        { label: "Periodontal maintenance", href: "/preventative-care/periodontal-maintenance/" },
-        { label: "Gum disease laser therapy", href: "/preventative-care/gum-disease-laser-therapy/" },
-        { label: "Arestin antibiotic treatment", href: "/preventative-care/arestin/" },
-        { label: "Periodontal services", href: "/restorative-dentistry/periodontal-services/" },
-      ],
-    },
-    {
-      id: "restorative",
-      title: "Restorative Dentistry",
-      image: "serviceRestorative",
-      links: [
-        { label: "Dental implants", href: "/restorative-dentistry/dental-implants/" },
-        { label: "Dental crowns", href: "/restorative-dentistry/dental-crowns/" },
-        { label: "Tooth-colored fillings", href: "/restorative-dentistry/dental-fillings/" },
-        { label: "Dental bridges", href: "/restorative-dentistry/dental-bridges/" },
-        { label: "Root canal therapy", href: "/restorative-dentistry/root-canal/" },
-        { label: "Tooth extractions", href: "/restorative-dentistry/tooth-extractions/" },
-        { label: "Wisdom teeth removal", href: "/restorative-dentistry/wisdom-teeth-removal/" },
-      ],
-      hub: { label: "All restorative dentistry", href: "/restorative-dentistry/" },
-    },
-    {
-      id: "dentures",
-      title: "Dentures",
-      image: "serviceDentures",
-      links: [
-        { label: "Full dentures", href: "/restorative-dentistry/dentures/" },
-        { label: "Partial dentures", href: "/restorative-dentistry/dentures/partial-dentures/" },
-        { label: "Immediate dentures", href: "/restorative-dentistry/dentures/immediate-dentures/" },
-        { label: "Implant-retained dentures", href: "/restorative-dentistry/dentures/implant-retained-dentures/" },
-        { label: "Denture relines & repairs", href: "/restorative-dentistry/dentures/denture-relines/" },
-      ],
-    },
-    {
       id: "cosmetic",
       title: "Cosmetic Dentistry",
       image: "serviceCosmetic",
@@ -152,6 +124,59 @@ export const homeServices: { title: string; intro: string; groups: ServiceGroup[
         { label: "Invisalign Teen", href: "/cosmetic-dentistry/invisalign/invisalign-teen/" },
       ],
       hub: { label: "All cosmetic dentistry", href: "/cosmetic-dentistry/" },
+    },
+    {
+      id: "implants",
+      title: "Dental Implants",
+      image: "serviceImplants",
+      links: [
+        { label: "Dental implants", href: "/restorative-dentistry/dental-implants/" },
+        { label: "Implant-retained dentures", href: "/restorative-dentistry/dentures/implant-retained-dentures/" },
+        { label: "Dental implants for Mercer County, NJ", href: "/dental-implants-mercer-county-nj/" },
+      ],
+      offer: {
+        label: "$500 off dental implants",
+        detail: "Implant, abutment and crown (regular price $3,500), with a free consultation and second opinion",
+        href: "/special-offers/",
+      },
+    },
+    {
+      id: "restorative",
+      title: "Restorative Dentistry",
+      image: "serviceRestorative",
+      links: [
+        { label: "Dental crowns", href: "/restorative-dentistry/dental-crowns/" },
+        { label: "Tooth-colored fillings", href: "/restorative-dentistry/dental-fillings/" },
+        { label: "Dental bridges", href: "/restorative-dentistry/dental-bridges/" },
+        { label: "Root canal therapy", href: "/restorative-dentistry/root-canal/" },
+        { label: "Tooth extractions", href: "/restorative-dentistry/tooth-extractions/" },
+        { label: "Wisdom teeth removal", href: "/restorative-dentistry/wisdom-teeth-removal/" },
+      ],
+      hub: { label: "All restorative dentistry", href: "/restorative-dentistry/" },
+    },
+    {
+      id: "gum",
+      title: "Gum Care",
+      image: "serviceGum",
+      links: [
+        { label: "Deep teeth cleaning (scaling & root planing)", href: "/preventative-care/deep-teeth-cleaning/" },
+        { label: "Periodontal maintenance", href: "/preventative-care/periodontal-maintenance/" },
+        { label: "Gum disease laser therapy", href: "/preventative-care/gum-disease-laser-therapy/" },
+        { label: "Arestin antibiotic treatment", href: "/preventative-care/arestin/" },
+        { label: "Periodontal services", href: "/restorative-dentistry/periodontal-services/" },
+      ],
+    },
+    {
+      id: "dentures",
+      title: "Dentures",
+      image: "serviceDentures",
+      links: [
+        { label: "Full dentures", href: "/restorative-dentistry/dentures/" },
+        { label: "Partial dentures", href: "/restorative-dentistry/dentures/partial-dentures/" },
+        { label: "Immediate dentures", href: "/restorative-dentistry/dentures/immediate-dentures/" },
+        { label: "Implant-retained dentures", href: "/restorative-dentistry/dentures/implant-retained-dentures/" },
+        { label: "Denture relines & repairs", href: "/restorative-dentistry/dentures/denture-relines/" },
+      ],
     },
   ],
 };
@@ -193,6 +218,8 @@ export const homeDoctors = {
       key: "bhalala" as const,
       name: "Dr. Urvishkumar Bhalala, DMD",
       image: "drBhalala" as const,
+      // Short chips from the bio (design summary; the bio below is the content file's)
+      focus: ["Temple University DMD", "Trained in the US & India"],
       bio: "Dr. Bhalala graduated from Temple University Kornberg School of Dentistry and worked at several dental practices before opening his own, bringing skills gained in the United States and in India.",
       link: { label: "Read Dr. Bhalala's bio", href: "/about-us/dr-urvishkumar-bhalala/" },
     },
@@ -200,10 +227,23 @@ export const homeDoctors = {
       key: "gadria" as const,
       name: "Dr. Jaspreet Gadria, DMD",
       image: "drGadria" as const,
+      focus: ["General, cosmetic & restorative care", "English, Punjabi & some Hindi"],
       bio: "Dr. Gadria earned her DMD with high honors from Temple University's Kornberg School of Dentistry, after a BDS degree in Amritsar, India. She focuses on general, cosmetic and restorative dentistry, and speaks English and Punjabi fluently, plus some Hindi.",
       link: { label: "Read Dr. Gadria's bio", href: "/about-us/dr-jaspreet-gadria-dmd/" },
     },
   ],
+  /**
+   * Two more dentists are joining (client feedback, 14 Oct 2026). Shown as "joining soon"
+   * cards with a placeholder portrait until the practice sends each one's name, degree,
+   * photo and bio; then they move into `doctors` (and site.ts `dentists`), and the title
+   * and intro above, which name two dentists, need updating with the SEO team.
+   */
+  upcoming: [
+    { key: "new-1", label: "New dentist", status: "Joining soon" },
+    { key: "new-2", label: "New dentist", status: "Joining soon" },
+  ],
+  upcomingText: "We'll introduce them here when they join the practice.",
+  upcomingNote: "Name, degree, photo and bio to come from the practice",
 };
 
 export const homeTechnology = {

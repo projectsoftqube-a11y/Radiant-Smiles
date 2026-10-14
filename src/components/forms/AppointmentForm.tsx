@@ -4,7 +4,6 @@ import { useActionState, useEffect, useRef, useState, type FormEvent } from "rea
 import { Icon } from "@/components/ui/Icon";
 import { Rich } from "@/components/ui/Rich";
 import { appointmentForm } from "@/content/pages/contact";
-import { schedulingForm } from "@/content/pages/patient/scheduling";
 import { practice } from "@/content/site";
 import { submitAppointment } from "@/lib/appointment";
 import {
@@ -27,22 +26,21 @@ function pushEvent(event: string, variant: FormVariant) {
 }
 
 /**
- * Appointment request form (id="appointment-form"), in two versions, each worded as its
- * content file says:
- *   contact     the contact page form (phone or email; optional message)
- *   scheduling  the scheduling page form (name and phone required; reason as a select)
- * Required fields carry an asterisk. The same rules run in the browser (a field is checked
+ * Appointment request form on the Contact page (id="appointment-form"), worded as its
+ * content file says. The Scheduling page has its own step-by-step New / Existing Patient
+ * version (SchedulingForm.tsx) on the same rules and server action. Required fields carry an
+ * asterisk. The same rules run in the browser (a field is checked
  * when you leave it, and again as you type while it shows a message) and on the server (the
  * real check). The phone number is tidied to (215) 860-4600 format when you leave it. On success the thank-you message replaces the form in place. Events: form_start on the
- * first edit, then form_submit (contact) or generate_lead (scheduling).
+ * first edit, then form_submit.
  */
-export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant }) {
+export function AppointmentForm() {
+  const variant: FormVariant = "contact";
   const [state, formAction, pending] = useActionState<AppointmentState, FormData>(submitAppointment, { status: "idle" });
   const [localErrors, setLocalErrors] = useState<FieldErrors>({});
   const formRef = useRef<HTMLFormElement>(null);
   const doneRef = useRef<HTMLDivElement>(null);
   const started = useRef(false);
-  const scheduling = variant === "scheduling";
 
   const serverErrors = state.status === "invalid" ? state.errors : {};
   const errors: FieldErrors = { ...serverErrors, ...localErrors };
@@ -50,7 +48,7 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
   useEffect(() => {
     if (state.status === "sent") {
       doneRef.current?.focus();
-      pushEvent(variant === "scheduling" ? "generate_lead" : "form_submit", variant);
+      pushEvent("form_submit", variant);
     }
     if (state.status === "invalid") formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
   }, [state, variant]);
@@ -112,7 +110,7 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
           <span className={styles.doneIcon} aria-hidden="true">
             <Icon name="check" size={30} strokeWidth={2.2} />
           </span>
-          <p className={styles.doneText}>{scheduling ? <Rich text={schedulingForm.thanks} /> : appointmentForm.thanks}</p>
+          <p className={styles.doneText}>{appointmentForm.thanks}</p>
           <a href={practice.phone.href} className={styles.donePhone} data-track={`call_click_${variant}_form`}>
             <Icon name="phone" size={18} />
             {practice.phone.display}
@@ -141,7 +139,7 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
       </p>
     ) : null;
 
-  const copy = scheduling ? schedulingForm : appointmentForm;
+  const copy = appointmentForm;
 
   // Required fields carry an asterisk (the user's request: no "(required)" / "(optional)" text)
   const req = (name: FieldName) =>
@@ -183,91 +181,42 @@ export function AppointmentForm({ variant = "contact" }: { variant?: FormVariant
           </div>
         </div>
 
-        {scheduling ? (
-          <div className={`${styles.row} ${styles.two}`}>
-            <div className={styles.field}>
-              <label htmlFor="appt-patient">
-                {schedulingForm.fields.patient}
-                {req("patient")}
+        <fieldset
+          className={styles.choice}
+          aria-invalid={errors.patient ? true : undefined}
+          aria-describedby={errors.patient ? "appt-patient-error" : undefined}
+        >
+          <legend>
+            {appointmentForm.fields.patient}
+            {req("patient")}
+          </legend>
+          <div className={styles.options}>
+            {appointmentForm.patientOptions.map((option, i) => (
+              <label key={option} className={styles.option}>
+                <input type="radio" name="patient" value={option} required={i === 0 && required.includes("patient")} />
+                <span>{option}</span>
               </label>
-              <span className={styles.select}>
-                <select {...field("patient")} defaultValue="">
-                  <option value="">Choose one</option>
-                  {schedulingForm.patientOptions.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </select>
-              </span>
-              {message("patient")}
-            </div>
-            <div className={styles.field}>
-              <label htmlFor="appt-reason">
-                {schedulingForm.fields.reason}
-                {req("reason")}
-              </label>
-              <span className={styles.select}>
-                <select {...field("reason", "appt-reason-note")} defaultValue="">
-                  <option value="">Choose one</option>
-                  {schedulingForm.reasonOptions.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </select>
-              </span>
-              {message("reason")}
-            </div>
+            ))}
           </div>
-        ) : (
-          <fieldset
-            className={styles.choice}
-            aria-invalid={errors.patient ? true : undefined}
-            aria-describedby={errors.patient ? "appt-patient-error" : undefined}
-          >
-            <legend>
-              {appointmentForm.fields.patient}
-              {req("patient")}
-            </legend>
-            <div className={styles.options}>
-              {appointmentForm.patientOptions.map((option, i) => (
-                <label key={option} className={styles.option}>
-                  <input type="radio" name="patient" value={option} required={i === 0 && required.includes("patient")} />
-                  <span>{option}</span>
-                </label>
-              ))}
-            </div>
-            {message("patient")}
-          </fieldset>
-        )}
+          {message("patient")}
+        </fieldset>
+
 
         <div className={styles.field}>
           <label htmlFor="appt-times">{copy.fields.times}</label>
-          <input
-            {...field("times", scheduling ? "appt-times-hint" : undefined)}
-            type="text"
-            maxLength={fieldLimits.times}
-          />
-          {scheduling ? (
-            <p id="appt-times-hint" className={styles.note}>
-              {schedulingForm.timesHint}
-            </p>
-          ) : null}
+          <input {...field("times")} type="text" maxLength={fieldLimits.times} />
           {message("times")}
         </div>
 
-        {scheduling ? (
-          <p id="appt-reason-note" className={styles.privacyNote}>
-            <Icon name="shield" size={18} />
-            {schedulingForm.note}
+        <div className={styles.field}>
+          <label htmlFor="appt-message">{appointmentForm.fields.message}</label>
+          <textarea {...field("message", "appt-message-note")} rows={4} maxLength={fieldLimits.message} />
+          <p id="appt-message-note" className={styles.note}>
+            {appointmentForm.messageNote}
           </p>
-        ) : (
-          <div className={styles.field}>
-            <label htmlFor="appt-message">{appointmentForm.fields.message}</label>
-            <textarea {...field("message", "appt-message-note")} rows={4} maxLength={fieldLimits.message} />
-            <p id="appt-message-note" className={styles.note}>
-              {appointmentForm.messageNote}
-            </p>
-            {message("message")}
-          </div>
-        )}
+          {message("message")}
+        </div>
+
 
         {/* Honeypot: hidden from people and screen readers */}
         <div className={styles.trap} aria-hidden="true" data-decor-bleed>

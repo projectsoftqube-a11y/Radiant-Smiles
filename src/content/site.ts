@@ -9,7 +9,9 @@ export const SITE_URL = "https://www.radiant-smiles.com";
 
 export const practice = {
   name: "Radiant Smiles @ Floral Vale",
-  tagline: "Family, Cosmetic, & Restorative Dentistry",
+  // Client feedback (14 Oct 2026): Family, Cosmetic & Implant, in that order (the current
+  // site's line was "Family, Cosmetic, & Restorative Dentistry"). Footer and schema slogan.
+  tagline: "Family, Cosmetic & Implant Dentistry",
   address: {
     street: "117 Floral Vale Boulevard",
     city: "Yardley",

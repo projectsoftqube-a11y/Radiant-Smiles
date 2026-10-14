@@ -187,7 +187,7 @@
 .fixArt {
   display: block;
   border-radius: var(--radius-m);
-  background: linear-gradient(180deg, #fdf3f3, var(--pearl-50));
+  background: linear-gradient(180deg, #fdf3f3, var(--wash-50));
 }
 
 .fixSvg {
@@ -372,7 +372,7 @@
 }
 
 .resin {
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .resin .swatchChip {
@@ -479,7 +479,7 @@
   border-radius: var(--radius-l);
   background:
     radial-gradient(70% 70% at 100% 0%, var(--sky-100), transparent 70%),
-    var(--pearl-50);
+    var(--wash-50);
 }
 
 .decadeTitle {

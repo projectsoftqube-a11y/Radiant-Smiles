@@ -7,6 +7,8 @@ import familyPillImg from "@/assets/images/home-family-pill-patient.jpg";
 import heroImg from "@/assets/images/home-hero-patient-mirror.jpg";
 import npHeroImg from "@/assets/images/new-patients-hero-welcome.jpg";
 import cosmeticImg from "@/assets/images/home-services-cosmetic-smile.jpg";
+import implantsImg from "@/assets/images/home-service-implants.jpg";
+import portraitPlaceholderImg from "@/assets/images/portrait-placeholder.jpg";
 import denturesImg from "@/assets/images/home-services-dentures-smile.jpg";
 import gumImg from "@/assets/images/home-services-gum-care.jpg";
 import preventiveImg from "@/assets/images/home-services-preventive-cleaning.jpg";
@@ -41,7 +43,8 @@ export type SiteImage = {
   /** CSS object-position for art-directed crops */
   position?: string;
   source: {
-    provider: "pexels" | "practice" | "freepik";
+    /** "placeholder": a portrait silhouette drawn in code (no AI), until a real photo arrives */
+    provider: "pexels" | "practice" | "freepik" | "placeholder";
     id?: string;
     url?: string;
     author?: string;
@@ -124,6 +127,14 @@ export const images = {
     brief: "Dentures",
     position: "50% 72%",
     source: pexels("12644996", "https://www.pexels.com/photo/portrait-of-smiling-elderly-woman-12644996/", "BOOM Photography"),
+  },
+  // Home services "Dental Implants" tab (client feedback, 14 Oct 2026: highlight implants)
+  serviceImplants: {
+    src: implantsImg,
+    alt: "Dental implant model showing a titanium post between natural teeth, with a crown beside it",
+    brief: "Dental implants",
+    position: "55% 55%",
+    source: pexels("6502343", "https://www.pexels.com/photo/close-up-shot-of-dental-implant-model-6502343/", "cottonbro studio"),
   },
   serviceCosmetic: {
     src: cosmeticImg,
@@ -211,11 +222,25 @@ export const images = {
       downloaded: "2026-10-08",
     },
   },
+  /*
+   * Dr. Bhalala has no photo yet (the current site shows a "Coming Soon" silhouette too).
+   * Client feedback, 14 Oct 2026: show a placeholder portrait until his headshot arrives.
+   * To swap: import his photo here as src and set provider "practice".
+   */
   drBhalala: {
-    src: null,
-    alt: "Dr. Urvishkumar Bhalala at Radiant Smiles @ Floral Vale in Yardley, PA",
-    brief: "Headshot to confirm: the current site shows a \"Coming Soon\" silhouette",
-    source: { provider: "practice" },
+    src: portraitPlaceholderImg,
+    alt: "Dr. Urvishkumar Bhalala (photo coming soon)",
+    brief: "Headshot to confirm: placeholder silhouette until the practice sends his photo",
+    position: "50% 30%",
+    source: { provider: "placeholder", licence: "Drawn in code for the site (no stock, no AI)" },
+  },
+  /** The two dentists joining the practice (client feedback, 14 Oct 2026): names and photos to come */
+  doctorPlaceholder: {
+    src: portraitPlaceholderImg,
+    alt: "Placeholder portrait: a new dentist joining Radiant Smiles @ Floral Vale",
+    brief: "New dentist: photo to come from the practice",
+    position: "50% 30%",
+    source: { provider: "placeholder", licence: "Drawn in code for the site (no stock, no AI)" },
   },
   blogWelcomeToYourDentistInYardley: {
     src: restorativeImg,

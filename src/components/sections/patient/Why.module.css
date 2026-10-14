@@ -80,7 +80,7 @@
 }
 
 .arch-pearl {
-  background: linear-gradient(180deg, var(--pearl-100), var(--pearl-50));
+  background: linear-gradient(180deg, var(--wash-100), var(--wash-50));
   color: var(--navy-800);
 }
 
@@ -169,8 +169,8 @@
 /* ───────── Precision ───────── */
 .precision {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .precisionGrid {
@@ -437,12 +437,12 @@
 }
 
 .stripOff {
-  background: var(--pearl-100);
+  background: var(--wash-100);
   box-shadow: none;
 }
 
 .stripOff .stripMark {
-  background: var(--pearl-200);
+  background: var(--wash-200);
   color: var(--slate-500);
 }
 
@@ -490,7 +490,7 @@
 }
 
 .quoteWide {
-  background: linear-gradient(150deg, var(--pearl-100), var(--pearl-50));
+  background: linear-gradient(150deg, var(--wash-100), var(--wash-50));
 }
 
 @media (max-width: 991px) {

@@ -171,7 +171,7 @@
   gap: clamp(2rem, 5vw, 5rem);
   padding: clamp(1.75rem, 4vw, 3rem);
   border-radius: var(--radius-l);
-  background: linear-gradient(135deg, #fdf3f3, var(--pearl-50));
+  background: linear-gradient(135deg, var(--sky-100), var(--wash-50));
 }
 
 .forkCopy {

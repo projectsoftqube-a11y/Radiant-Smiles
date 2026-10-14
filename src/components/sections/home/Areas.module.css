@@ -38,9 +38,9 @@
   container-type: inline-size;
   aspect-ratio: 1000 / 700;
   overflow: hidden;
-  border: 1px solid var(--pearl-200);
+  border: 1px solid var(--wash-200);
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   box-shadow: var(--shadow-soft);
 }
 

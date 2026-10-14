@@ -8,15 +8,16 @@
 }
 
 .pearl {
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .sky {
   background: linear-gradient(180deg, var(--sky-50), var(--white));
 }
 
+/* Was a blush tint; light blue since the client's "more towards blue" feedback (14 Oct 2026) */
 .blush {
-  background: linear-gradient(180deg, #fdf3f3, var(--white));
+  background: linear-gradient(180deg, var(--wash-100), var(--white));
 }
 
 .head {

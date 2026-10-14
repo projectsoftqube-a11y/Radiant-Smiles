@@ -101,7 +101,7 @@
 }
 
 .member:nth-child(4) .memberTooth {
-  fill: var(--pearl-100);
+  fill: var(--wash-100);
 }
 
 .memberName {
@@ -241,7 +241,7 @@
 /* ───────── General dentistry: definition card ───────── */
 .general {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .generalGrid {
@@ -492,7 +492,7 @@
 /* ───────── Cosmetic band ───────── */
 .cosmetic {
   padding-block: var(--space-section);
-  background: var(--pearl-100);
+  background: var(--wash-100);
 }
 
 .cosmeticGrid {
@@ -614,7 +614,7 @@
   padding: 1.25rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-l);
-  background: linear-gradient(160deg, var(--pearl-50), var(--white));
+  background: linear-gradient(160deg, var(--wash-50), var(--white));
   color: var(--slate-600);
 }
 

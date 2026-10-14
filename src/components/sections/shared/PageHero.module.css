@@ -6,7 +6,7 @@
   border-bottom: 1px solid var(--line);
   background:
     radial-gradient(55% 75% at 85% 30%, var(--sky-100) 0%, transparent 70%),
-    linear-gradient(180deg, var(--pearl-50) 0%, var(--white) 100%);
+    linear-gradient(180deg, var(--wash-50) 0%, var(--white) 100%);
 }
 
 

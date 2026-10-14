@@ -1,7 +1,6 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
-import { MediaFrame } from "@/components/ui/MediaFrame";
-import { Rays } from "@/components/ui/Rays";
 import { RiseWords } from "@/components/ui/RiseWords";
 import SiteLink from "@/components/ui/SiteLink";
 import { images } from "@/content/images";
@@ -11,14 +10,32 @@ import { Jaw } from "./Jaw";
 import styles from "./Hero.module.css";
 
 /**
- * Hero: the H1 rises word by word ("Dentist in Yardley, PA" in the heavy weight), light
- * rays draw out behind an arched photo (aligned to the container's right edge), and the
- * quick facts are arch-topped tiles cut through the middle by a smile-shaped line: the top
- * half sits in the hero and the bottom half in the white below, like teeth in an open smile.
+ * Hero: the H1 rises word by word ("Dentist in Yardley, PA" in the heavy weight) beside an
+ * open banner photo. The photo is unframed and runs to the screen's right edge, fading into
+ * the blue on its left and at the bottom (client feedback, 14 Oct 2026: "keep the banner
+ * photo open, with a fading effect"; it was an arched frame with rays before). The quick
+ * facts below are the upper teeth set in the gum.
  */
 export function Hero() {
+  const photo = images.homeHero;
   return (
     <section className={styles.hero} aria-labelledby="home-hero-title">
+      <div className={styles.top}>
+      {photo.src ? (
+        <div className={styles.banner}>
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            priority
+            quality={85}
+            placeholder="blur"
+            sizes="(max-width: 991px) 100vw, 62vw"
+            className={styles.bannerImg}
+            style={{ objectPosition: photo.position }}
+          />
+        </div>
+      ) : null}
       <div className={`container ${styles.grid}`}>
         <div className={styles.copy}>
           <p className={`label ${styles.label}`}>{practice.name}</p>
@@ -39,18 +56,8 @@ export function Hero() {
           </SiteLink>
         </div>
 
+        {/* Holds the banner's space on phones and anchors the Saturday card */}
         <div className={styles.visual}>
-          <Rays className={styles.rays} animate count={25} />
-          <MediaFrame
-            image={images.homeHero}
-            ratio="4 / 5"
-            arch
-            priority
-            reveal="load"
-            sizes="(max-width: 991px) 88vw, 40vw"
-            quality={85}
-            className={styles.photo}
-          />
           <p className={styles.badge}>
             <span className={styles.badgeIcon}>
               <Icon name="calendar" size={20} />
@@ -61,6 +68,7 @@ export function Hero() {
             </span>
           </p>
         </div>
+      </div>
       </div>
 
       <div className={styles.rail}>

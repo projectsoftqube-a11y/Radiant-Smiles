@@ -195,8 +195,8 @@
 /* ───────── Detail cards ───────── */
 .details {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .detailGrid {

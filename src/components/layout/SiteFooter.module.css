@@ -2,8 +2,8 @@
 .footer {
   position: relative;
   overflow: hidden;
-  background: var(--pearl-50);
-  border-top: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-top: 1px solid var(--wash-200);
   color: var(--slate-600);
   font-size: 1rem;
 }
@@ -93,7 +93,7 @@
   max-width: 24rem;
   margin-top: 0.75rem;
   padding: 1.2rem 1.35rem 1rem;
-  border: 1px solid var(--pearl-200);
+  border: 1px solid var(--wash-200);
   border-radius: var(--radius-m);
   background: var(--white);
 }
@@ -212,7 +212,7 @@
 /* Hover tint is a deeper shade of the footer's own warm pearl, so it sits with the background */
 .link:hover,
 .link:focus-visible {
-  background: var(--pearl-200);
+  background: var(--wash-200);
   color: var(--navy-800);
 }
 
@@ -226,7 +226,7 @@
 /* Base line */
 .base {
   position: relative;
-  border-top: 1px solid var(--pearl-200);
+  border-top: 1px solid var(--wash-200);
   font-size: 0.9375rem;
 }
 

@@ -296,7 +296,7 @@
 .adults span {
   padding: 0.3rem 0.65rem;
   border-radius: var(--radius-s);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   font-size: var(--step-label);
   font-weight: 600;
   color: var(--navy-800);
@@ -444,7 +444,7 @@
   margin-bottom: 2rem;
   padding: clamp(1.5rem, 3.5vw, 2.25rem);
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .yearTitle {

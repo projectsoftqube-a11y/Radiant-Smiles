@@ -304,8 +304,8 @@
 /* ───────── Leave a review: three steps ───────── */
 .leave {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .leaveHead {
@@ -410,9 +410,9 @@
   align-items: center;
   gap: clamp(1.5rem, 4vw, 3.5rem);
   padding: clamp(1.75rem, 4vw, 3rem);
-  border: 1px solid var(--pearl-200);
+  border: 1px solid var(--wash-200);
   border-radius: var(--radius-l);
-  background: linear-gradient(120deg, var(--pearl-100) 0%, var(--pearl-50) 60%, var(--white) 100%);
+  background: linear-gradient(120deg, var(--wash-100) 0%, var(--wash-50) 60%, var(--white) 100%);
 }
 
 /* The price on an arched tile (the tooth crown again) */

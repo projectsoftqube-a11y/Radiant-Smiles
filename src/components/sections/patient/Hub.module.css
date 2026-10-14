@@ -185,8 +185,8 @@
 
 .card-forms {
   grid-area: forms;
-  background: var(--pearl-50);
-  border-color: var(--pearl-200);
+  background: var(--wash-50);
+  border-color: var(--wash-200);
 }
 
 .card-comfort {

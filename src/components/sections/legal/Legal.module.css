@@ -54,7 +54,7 @@
 /* ───────── Document: index beside a sheet of paper on pearl ───────── */
 .doc {
   padding-block: clamp(3rem, 6vw, 5rem) var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .docGrid {
@@ -409,7 +409,7 @@
   gap: 0.6rem;
   padding: 1.35rem 1.4rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   font-size: 1rem;
   line-height: 1.65;
 }
@@ -525,7 +525,7 @@
   padding: 1.25rem 1.5rem;
   border-left: 3px solid var(--navy-800);
   border-radius: 0 var(--radius-l) var(--radius-l) 0;
-  background: var(--pearl-50);
+  background: var(--wash-50);
   font-style: normal;
   line-height: 1.5;
 }
@@ -544,7 +544,7 @@
   margin-top: clamp(1rem, 2vw, 1.5rem);
   padding: clamp(1.25rem, 3vw, 1.75rem);
   border-radius: var(--radius-l);
-  background: linear-gradient(135deg, var(--sky-50), var(--pearl-50));
+  background: linear-gradient(135deg, var(--sky-50), var(--wash-50));
   scroll-margin-top: calc(var(--header-h) + 1.5rem);
 }
 

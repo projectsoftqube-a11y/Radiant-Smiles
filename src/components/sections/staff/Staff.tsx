@@ -33,7 +33,11 @@ export function StaffHeroCards() {
       <div className={styles.crewHead}>
         <span className={styles.crewAvatars}>
           <span className={styles.crewAvatar}>
-            <ToothMark className={styles.crewMark} />
+            {images.drBhalala.src ? (
+              <Image src={images.drBhalala.src} alt="" fill sizes="64px" style={{ objectFit: "cover", objectPosition: "50% 25%" }} />
+            ) : (
+              <ToothMark className={styles.crewMark} />
+            )}
           </span>
           <span className={styles.crewAvatar}>
             {images.drGadria.src ? (

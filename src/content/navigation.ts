@@ -10,7 +10,7 @@ export type NavItem = {
   href: string;
   /** Simple dropdown */
   children?: LinkItem[];
-  /** Services mega menu: the five service groups from the home page */
+  /** Services mega menu: the six service groups from the home page */
   mega?: boolean;
 };
 
@@ -71,8 +71,8 @@ const patientInfo: FooterMenu = {
 
 export const footerColumns: FooterMenu[][] = [
   [group("preventive"), group("dentures")],
-  [group("gum"), group("restorative")],
-  [group("cosmetic"), patientInfo],
+  [group("cosmetic"), group("implants"), group("gum")],
+  [group("restorative"), patientInfo],
 ];
 
 export const legalNav: LinkItem[] = [

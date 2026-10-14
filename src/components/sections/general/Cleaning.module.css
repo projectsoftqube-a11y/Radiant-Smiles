@@ -59,11 +59,11 @@
   gap: 0.3rem;
   padding: 0.6rem 0.5rem;
   border-radius: var(--radius-m);
-  background: linear-gradient(180deg, #f6cfd0 0 22%, var(--pearl-50) 22%);
+  background: linear-gradient(180deg, #f6cfd0 0 22%, var(--wash-50) 22%);
 }
 
 .lower .teeth {
-  background: linear-gradient(0deg, #f6cfd0 0 22%, var(--pearl-50) 22%);
+  background: linear-gradient(0deg, #f6cfd0 0 22%, var(--wash-50) 22%);
 }
 
 .slot {
@@ -247,7 +247,7 @@
   gap: 1rem;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   font-weight: 500;
   color: var(--navy-800);
 }
@@ -295,7 +295,7 @@
 /* ───────── Professional cleaning ───────── */
 .cleaning {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .cleaningGrid {
@@ -622,7 +622,7 @@
   display: block;
   height: 8rem;
   border-radius: var(--radius-s);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   overflow: hidden;
 }
 
@@ -760,7 +760,7 @@
 /* ───────── Cost ───────── */
 .cost {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .costHead {

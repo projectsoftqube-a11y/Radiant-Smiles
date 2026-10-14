@@ -254,7 +254,7 @@
   padding: 1.5rem 1.75rem;
   border-left: 4px solid var(--sky-500);
   border-radius: 0 var(--radius-l) var(--radius-l) 0;
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--slate-600);
 }
 
@@ -407,8 +407,8 @@
 /* ───────── No insurance ───────── */
 .noInsurance {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
-  border-block: 1px solid var(--pearl-200);
+  background: var(--wash-50);
+  border-block: 1px solid var(--wash-200);
 }
 
 .noInsuranceHead {
@@ -496,7 +496,7 @@
   width: 3rem;
   height: 3rem;
   border-radius: var(--radius-s);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--navy-800);
 }
 

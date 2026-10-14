@@ -170,7 +170,7 @@
 /* ───────── Who: risk chips ───────── */
 .who {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .whoGrid {
@@ -352,7 +352,7 @@
   margin: 2rem auto 0;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius-l);
-  background: var(--pearl-100);
+  background: var(--wash-100);
   color: var(--ink);
 }
 
@@ -443,7 +443,7 @@
 /* ───────── Cost: the member price tag ───────── */
 .cost {
   padding-block: var(--space-section);
-  background: var(--pearl-50);
+  background: var(--wash-50);
 }
 
 .costGrid {
@@ -560,7 +560,7 @@
   padding: 1.5rem;
   border-top: 4px solid #e5959c;
   border-radius: var(--radius-s) var(--radius-s) var(--radius-l) var(--radius-l);
-  background: var(--pearl-50);
+  background: var(--wash-50);
   font-weight: 500;
   color: var(--ink);
 }
