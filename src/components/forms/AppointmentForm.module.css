@@ -37,7 +37,8 @@
   gap: 0.4rem;
 }
 
-.field label {
+.field label,
+.choice legend {
   font-size: var(--step-small);
   font-weight: 600;
   color: var(--navy-800);
@@ -74,6 +75,267 @@
 
 .field [aria-invalid="true"] {
   border-color: #c62828;
+}
+
+/* ───────── Step 1: existing or new patient, two square boxes side by side ───────── */
+.chooser,
+.details {
+  display: grid;
+  gap: 1.15rem;
+  animation: step-in 0.45s var(--ease-out) both;
+}
+
+.chooser[hidden],
+.details[hidden] {
+  display: none;
+}
+
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.chooserTitle {
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.1rem);
+}
+
+/* A square card: icon, type, one line; the whole box is the button (a card, so it may lift) */
+.path {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.6rem;
+  aspect-ratio: 1 / 1;
+  padding: 1.25rem;
+  border: 1.5px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: linear-gradient(180deg, var(--sky-50), var(--white) 70%);
+  font: inherit;
+  text-align: center;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    translate 0.35s var(--ease-out),
+    border-color var(--dur-ui) ease,
+    background-color var(--dur-ui) ease,
+    box-shadow 0.35s ease;
+}
+
+.path:hover {
+  translate: 0 -4px;
+  border-color: var(--sky-500);
+  box-shadow: var(--shadow-lift);
+}
+
+.path:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(109 189 232 / 0.5);
+}
+
+/* The type chosen before "Change" */
+.path[aria-pressed="true"] {
+  border-color: var(--navy-800);
+  background: var(--sky-50);
+}
+
+.pathIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 0.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--white);
+  transition: background-color var(--dur-ui) ease;
+}
+
+.path:hover .pathIcon {
+  background: var(--sky-700);
+}
+
+.pathTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy-800);
+}
+
+.pathText {
+  max-width: 24ch;
+  font-size: var(--step-small);
+  line-height: 1.5;
+  color: var(--slate-600);
+}
+
+.pathGo {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-s);
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: background-color var(--dur-ui) ease, color var(--dur-ui) ease;
+}
+
+.path:hover .pathGo {
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+/* ───────── Step 2: the chosen type, with a way back ───────── */
+.chosen {
+  display: inline-flex;
+  justify-self: start;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.6rem 0.45rem 0.45rem;
+  border-radius: var(--radius-s);
+  background: var(--sky-50);
+  outline: none;
+}
+
+.chosen:focus-visible {
+  box-shadow: 0 0 0 3px rgb(109 189 232 / 0.45);
+}
+
+.chosenIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.chosenName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+
+/* A text link: colour change only */
+.change {
+  margin-left: 0.35rem;
+  padding: 0.2rem 0.3rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--step-small);
+  font-weight: 600;
+  color: var(--sky-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color var(--dur-ui) ease;
+}
+
+.change:hover {
+  color: var(--navy-800);
+}
+
+/* The services group (checkboxes) */
+.choice {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choice legend {
+  margin-bottom: 0.4rem;
+  padding: 0;
+}
+
+.legendHint {
+  margin-left: 0.5rem;
+  font-weight: 500;
+  color: var(--slate-500);
+}
+
+/* Services: one checkbox per row, the name over a short hint */
+.checks {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.check {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.85rem;
+  align-items: start;
+  margin-inline: -0.6rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  transition: background-color var(--dur-ui) ease;
+}
+
+.check:hover {
+  background: var(--sky-50);
+}
+
+/* A squared box that fills navy with a white tick when ticked */
+.check input {
+  grid-row: span 2;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin: 0.05rem 0 0;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 5px;
+  background: var(--white) center / 0.9rem no-repeat;
+  appearance: none;
+  cursor: pointer;
+  transition: background-color var(--dur-ui) ease, border-color var(--dur-ui) ease;
+}
+
+.check input:checked {
+  border-color: var(--navy-800);
+  background-color: var(--navy-800);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3.2L13 5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.check input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(109 189 232 / 0.45);
+}
+
+.check input[aria-invalid="true"]:not(:checked) {
+  border-color: #c62828;
+}
+
+.checkName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy-800);
+}
+
+.checkHint {
+  grid-column: 2;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--slate-500);
 }
 
 .note {
@@ -199,6 +461,23 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Phones: the boxes stay side by side; the line under the type is left out */
+  .path {
+    gap: 0.45rem;
+    padding: 0.85rem;
+    border-radius: var(--radius-m);
+  }
+
+  .pathIcon {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .pathText,
+  .pathGo {
+    display: none;
+  }
+
   .submit {
     width: 100%;
   }
@@ -210,46 +489,13 @@
   color: #b3261e;
 }
 
-/* Native select with a custom chevron */
-.select {
-  position: relative;
-  display: block;
-}
+@media (prefers-reduced-motion: reduce) {
+  .chooser,
+  .details {
+    animation: none;
+  }
 
-.select::after {
-  content: "";
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  width: 0.55rem;
-  height: 0.55rem;
-  border-right: 2px solid var(--navy-800);
-  border-bottom: 2px solid var(--navy-800);
-  translate: 0 -70%;
-  rotate: 45deg;
-  pointer-events: none;
-}
-
-.select select {
-  width: 100%;
-  min-width: 0;
-  padding: 0.8rem 2.5rem 0.8rem 0.95rem;
-  border: 1.5px solid var(--line-strong);
-  border-radius: var(--radius-s);
-  background: var(--white);
-  font: inherit;
-  color: var(--ink);
-  appearance: none;
-  cursor: pointer;
-  transition: border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease;
-}
-
-.select select:focus {
-  outline: none;
-  border-color: var(--sky-600);
-  box-shadow: 0 0 0 3px rgb(109 189 232 / 0.3);
-}
-
-.select select[aria-invalid="true"] {
-  border-color: #c62828;
+  .path:hover {
+    translate: none;
+  }
 }

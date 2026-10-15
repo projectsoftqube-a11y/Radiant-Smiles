@@ -1,4 +1,4 @@
-import { membershipPlan, practice } from "@/content/site";
+import { membershipPlan, offers, practice } from "@/content/site";
 import type { LinkItem } from "./home";
 
 /** The two calls to action every Core page repeats (labels verbatim from the content files). */
@@ -46,15 +46,23 @@ export const napCtaLine = `${practice.name}, ${practice.address.street}, ${pract
 export type FaqBlock = { title: string; items: { question: string; answer: string }[] };
 
 /**
- * The five fields both forms ask, Contact Us and Scheduling (the user's request, 15 Oct 2026).
- * The service choices live in lib/appointment-validation.ts (shared with the server check).
+ * The fields both forms ask, Contact Us and Scheduling (the user's requests, 15 Oct 2026): first
+ * existing or new patient (two boxes), then the form. The patient and service choices live in
+ * lib/appointment-validation.ts (shared with the server).
  */
 export const formFields = {
+  /** The opening question: two square boxes, then the form */
+  patientPrompt: "Are you an existing or new patient?",
+  paths: {
+    existing: "Welcome back. Book your next checkup or treatment.",
+    new: `Your first visit with us. No insurance? It's $${offers.newPatient.price}.`,
+  },
+  change: "Change",
   name: "Full Name",
   phone: "Phone Number",
   email: "Email Address",
   service: "Services",
-  servicePlaceholder: "Choose a service",
+  serviceHint: "Select all that apply",
   message: "Message",
   messagePlaceholder: "Anything we should know, such as the days and times that suit you",
 };
