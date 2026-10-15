@@ -164,6 +164,11 @@ export function MembershipTable() {
               ))}
             </tbody>
           </table>
+          <ul role="list" className={styles.planTerms}>
+            {insMembership.terms.map((term) => (
+              <li key={term}>{term}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

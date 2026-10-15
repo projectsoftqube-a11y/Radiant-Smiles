@@ -16,7 +16,7 @@ import styles from "./Why.module.css";
 
 const reasons: { icon: IconName; title: string; tone: string }[] = [
   { icon: "graduation", title: "Two Temple-trained dentists", tone: "navy" },
-  { icon: "microscope", title: "Dental microscopes", tone: "sky" },
+  { icon: "layers", title: "3D imaging", tone: "sky" },
   { icon: "calendar", title: "Saturday appointments", tone: "white" },
   { icon: "badgeDollar", title: "A clear price first", tone: "pearl" },
 ];
@@ -82,14 +82,14 @@ export function UnderOneRoof() {
   );
 }
 
-/** Precision: the microscope photo, the copy and Candice's review */
+/** Precision: the 3D scan photo, the copy and Candice's review */
 export function Precision() {
   const { quote } = whyPrecision;
   return (
     <section className={styles.precision} aria-labelledby="why-precision-title">
       <div className={`container ${styles.precisionGrid}`}>
         <div className={styles.precisionMedia}>
-          <MediaFrame image={images.techMicroscope} ratio="4 / 5" sizes="(max-width: 991px) 80vw, 40vw" arch reveal="scroll" />
+          <MediaFrame image={images.techCbct} ratio="4 / 5" sizes="(max-width: 991px) 80vw, 40vw" arch reveal="scroll" />
         </div>
         <div className={styles.precisionCopy}>
           <p className="label" data-reveal>

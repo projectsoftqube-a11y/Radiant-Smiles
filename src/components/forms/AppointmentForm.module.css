@@ -37,8 +37,7 @@
   gap: 0.4rem;
 }
 
-.field label,
-.choice legend {
+.field label {
   font-size: var(--step-small);
   font-weight: 600;
   color: var(--navy-800);
@@ -61,6 +60,11 @@
   resize: vertical;
 }
 
+.field ::placeholder {
+  color: var(--slate-500);
+  opacity: 1;
+}
+
 .field input:focus,
 .field textarea:focus {
   outline: none;
@@ -70,59 +74,6 @@
 
 .field [aria-invalid="true"] {
   border-color: #c62828;
-}
-
-.choice {
-  display: grid;
-  gap: 0.5rem;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.choice legend {
-  margin-bottom: 0.4rem;
-  padding: 0;
-}
-
-.options {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.6rem;
-}
-
-/* Squared choice tiles; the chosen one turns navy */
-.option {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.8rem 0.95rem;
-  border: 1.5px solid var(--line-strong);
-  border-radius: var(--radius-s);
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--navy-800);
-  transition: border-color var(--dur-ui) ease, background-color var(--dur-ui) ease;
-}
-
-.option input {
-  /* Keeps its size when the label wraps to two lines */
-  flex: none;
-  width: 1.1rem;
-  height: 1.1rem;
-  margin: 0;
-  accent-color: var(--navy-800);
-}
-
-.option:has(input:checked) {
-  border-color: var(--navy-800);
-  background: var(--sky-50);
-}
-
-.option:has(input:focus-visible) {
-  box-shadow: 0 0 0 3px rgb(109 189 232 / 0.4);
 }
 
 .note {
@@ -244,8 +195,7 @@
 }
 
 @media (max-width: 575px) {
-  .two,
-  .options {
+  .two {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -302,22 +252,4 @@
 
 .select select[aria-invalid="true"] {
   border-color: #c62828;
-}
-
-/* "Please don't include medical details" (scheduling form) */
-.privacyNote {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  padding: 0.85rem 1rem;
-  border-radius: var(--radius-s);
-  background: var(--sky-50);
-  font-size: var(--step-small);
-  color: var(--slate-600);
-}
-
-.privacyNote svg {
-  flex: none;
-  margin-top: 0.15rem;
-  color: var(--sky-700);
 }

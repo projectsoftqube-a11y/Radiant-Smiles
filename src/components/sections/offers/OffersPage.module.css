@@ -1,7 +1,8 @@
 /* ───────── Hero: the offer board (the summary strip, plain text) ───────── */
 .board {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* The $99 tile full width, then the $80 visit and the three savings two by two */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
   width: min(100%, 32rem);
   margin-inline: auto;
@@ -677,3 +678,146 @@
     animation: none;
   }
 }
+
+/* Board: the $80 emergency tile reads red */
+.boardEmergency .boardIcon {
+  background: #fdecea;
+  color: #b42318;
+}
+
+.boardEmergency .boardFigure {
+  color: #8f1d17;
+}
+
+/* ───────── $80 Emergency Visit: copy beside a red emergency slip ───────── */
+.emergency {
+  padding-block: var(--space-section);
+  background: linear-gradient(180deg, #fff6f5, var(--white) 70%);
+  scroll-margin-top: var(--header-h);
+}
+
+.emergencyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.emergencyCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.15rem;
+}
+
+.emergencySub {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #b42318;
+}
+
+.erSlip {
+  display: grid;
+  border: 1px solid #f3cdc8;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+.erSlipTop {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem;
+  background: linear-gradient(135deg, #c4372c, #9b2119);
+  color: var(--white);
+}
+
+.erSlipAlert {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: #c4372c;
+}
+
+.erSlipLabel {
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.erSlipPrice {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 2.2rem + 1.6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+}
+
+.erSlipList {
+  display: grid;
+  margin: 0;
+  padding: 0.5rem 1.6rem;
+  list-style: none;
+}
+
+.erSlipList li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.erSlipList li + li {
+  border-top: 1px dashed #f3cdc8;
+}
+
+.erSlipIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-s);
+  background: #fdecea;
+  color: #b42318;
+}
+
+.erSlipButton {
+  justify-self: stretch;
+  margin: 0.5rem 1.6rem 1.6rem;
+}
+
+@media (max-width: 991px) {
+  .emergencyGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .erSlipTop {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .erSlipPrice {
+    grid-column: 1 / -1;
+  }
+
+  .erSlipList,
+  .erSlipTop {
+    padding-inline: 1.1rem;
+  }
+
+  .erSlipButton {
+    margin-inline: 1.1rem;
+  }
+}
+

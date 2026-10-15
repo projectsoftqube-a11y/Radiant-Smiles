@@ -56,7 +56,7 @@ export function CosmeticRoad() {
 
 /** A visit planned around the drive: the copy beside the one-visit checklist and the hours */
 export function OneTrip() {
-  const jobs = ["Digital X-rays", "Teeth & gums checked under magnification", "A cleaning", "Whitening, bonding or veneers talked through"];
+  const jobs = ["Digital X-rays", "Teeth & gums checked", "A cleaning", "Whitening, bonding or veneers talked through"];
   return (
     <section className={`${c.section} ${c.pearl}`} aria-labelledby="nh-planned-title">
       <div className={`container ${c.split}`}>

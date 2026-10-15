@@ -7,7 +7,7 @@ export const tcMeta: PageMeta = {
   path: "/preventative-care/teeth-cleaning-and-check-ups/",
   title: "Dental Cleaning in Yardley, PA | Checkups & X-Rays",
   description:
-    "Dental cleaning, exams and digital X-rays in Yardley, PA. No insurance? Your first visit is $89, with cleaning, X-rays and exam. (215) 860-4600.",
+    "Dental cleaning, exams and digital X-rays in Yardley, PA. No insurance? Your first visit is $99, with cleaning, X-rays and exam. (215) 860-4600.",
 };
 
 export const tcCrumbs = pcCrumbs("Teeth Cleaning & Checkups", tcMeta.path);
@@ -20,7 +20,7 @@ export const tcHero: PageHeroContent = {
 };
 
 export const tcHeroPoints: Point[] = [
-  { lead: "No insurance?", text: "Your first visit (cleaning, X-rays and exam) is $89." },
+  { lead: "No insurance?", text: "Your first visit (cleaning, X-rays and exam) is $99." },
   { lead: "Insured?", text: "Many plans cover two cleanings a year. We accept many PPO plans." },
   { lead: "Weekdays full?", text: "We're open Saturdays from 8 am to 2 pm." },
 ];
@@ -106,10 +106,10 @@ export const tcCost = {
   intro: "Your cost depends on whether you have insurance and what your visit includes. Here's how it works at our Yardley office:",
   head: ["Your situation", "What you pay"],
   rows: [
-    ["New patient without insurance", "$89 for a cleaning, X-rays and exam. [See special offers](/special-offers/)"],
+    ["New patient without insurance", "$99 for a cleaning, X-rays and exam. [See special offers](/special-offers/)"],
     [
       "Membership plan member",
-      "$150 a year covers 2 cleanings, exams and X-rays. Each additional family member is $75. Members also get 15% off dental treatment.",
+      "$150 a year covers 2 cleanings, exams and X-rays, and extra cleanings are $75 each. Each additional family member is $100. Members also get 20% off other dental treatment.",
     ],
     ["PPO insurance", "Many plans cover two cleanings a year. Coverage depends on your plan."],
   ],
@@ -144,7 +144,7 @@ export const tcFaqs: FaqBlock = {
     {
       question: "How much is a teeth cleaning without insurance?",
       answer:
-        "New patients without insurance pay $89 for a cleaning, X-rays and an exam at Radiant Smiles @ Floral Vale. After that, our in-office membership plan is $150 a year and covers 2 cleanings, exams and X-rays, plus 15% off any dental treatment you need.",
+        "New patients without insurance pay $99 for a cleaning, X-rays and an exam at Radiant Smiles @ Floral Vale. After that, our in-office membership plan is $150 a year and covers 2 cleanings, exams and X-rays, plus 20% off any other dental treatment you need.",
     },
     {
       question: "Does insurance cover dental cleanings?",

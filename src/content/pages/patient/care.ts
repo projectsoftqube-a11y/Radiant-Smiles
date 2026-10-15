@@ -65,7 +65,6 @@ export const careTech = {
     { icon: "toothClean", lead: "Electric hand-pieces:", text: "less vibration and noise than traditional air-driven drills." },
     { icon: "bolt", lead: "Dental lasers:", text: "for some gum and soft-tissue procedures, often with only a light anesthetic spray." },
     { icon: "xray", lead: "Digital X-rays:", text: "less radiation than conventional film, with images on screen right away." },
-    { icon: "microscope", lead: "Dental microscopes:", text: "a magnified view for a precise fit and finish on restorations." },
   ],
   link: { label: "Learn about our advanced dental technology", href: "/patient-information/care-and-comfort/advanced-technology/" },
 };
@@ -109,7 +108,7 @@ export const techMeta: PageMeta = {
   path: "/patient-information/care-and-comfort/advanced-technology/",
   title: "CBCT Scan in Yardley, PA | Advanced Dental Technology",
   description:
-    "Need a CBCT scan in Yardley? Radiant Smiles @ Floral Vale uses 3D cone beam CT, iTero digital scans, digital X-rays and dental microscopes. (215) 860-4600.",
+    "Need a CBCT scan in Yardley? Radiant Smiles @ Floral Vale uses 3D cone beam CT, iTero digital scans, digital X-rays and dental lasers. (215) 860-4600.",
 };
 
 export const techCrumbs = piCrumbs("Advanced Technology", techMeta.path, true);
@@ -117,7 +116,7 @@ export const techCrumbs = piCrumbs("Advanced Technology", techMeta.path, true);
 export const techHero: PageHeroContent = {
   h1: "Advanced Dental Technology & CBCT Scans in Yardley",
   intro:
-    "Radiant Smiles @ Floral Vale offers 3D imaging with a CBCT scan in Yardley, alongside iTero digital impressions, digital X-rays and dental microscopes. Each tool has a practical job: to see problems clearly, plan treatment accurately and make your visit more comfortable.",
+    "Radiant Smiles @ Floral Vale offers 3D imaging with a CBCT scan in Yardley, alongside iTero digital impressions, digital X-rays and an intraoral camera. Each tool has a practical job: to see problems clearly, plan treatment accurately and make your visit more comfortable.",
   buttons: ["appointment", "call"],
 };
 
@@ -126,13 +125,13 @@ export const techFacts = [
   { icon: "tooth", text: "3D cone beam CT (CBCT)", target: "cbct" },
   { icon: "camera", text: "iTero intraoral scanner", target: "itero" },
   { icon: "xray", text: "Digital X-rays and intraoral camera", target: "xrays" },
-  { icon: "microscope", text: "High-power dental microscopes", target: "microscopes" },
+  { icon: "toothClean", text: "Electric hand-pieces", target: "handpieces" },
   { icon: "bolt", text: "Dental lasers", target: "lasers" },
 ] as const;
 
 export type TechSection = {
   id: string;
-  image: "techCbct" | "techScan" | "techXray" | "techMicroscope" | "techLaser";
+  image: "techCbct" | "techScan" | "techXray" | "serviceRestorative" | "techLaser";
   title: string;
   paragraphs: string[];
   listIntro?: string;
@@ -179,16 +178,14 @@ export const techSections: TechSection[] = [
     },
   },
   {
-    id: "microscopes",
-    image: "techMicroscope",
-    title: "Dental Microscopes for Precise Restorations",
+    // The practice has no dental microscope (client, 15 Oct 2026): this chapter is the
+    // electric hand-pieces, which were its sub-section
+    id: "handpieces",
+    image: "serviceRestorative",
+    title: "Electric Hand-Pieces for Precise Restorations",
     paragraphs: [
-      "Our dentists work under high-power dental microscopes, similar to the one an ophthalmologist uses. The microscope shines light directly on the tooth, minimizing glare, and magnifies the area being treated. That detail supports dental restorations, such as fillings and crowns, with a precise fit and finish.",
+      "Traditional air-driven drills can wobble slightly as they spin. Electric hand-pieces run more steadily, with less vibration and noise, which allows very precise edges on restorations such as fillings and crowns.",
     ],
-    sub: {
-      title: "Electric hand-pieces",
-      text: "Traditional air-driven drills can wobble slightly as they spin. Electric hand-pieces run more steadily, with less vibration and noise, which allows very precise edges on restorations.",
-    },
   },
   {
     id: "lasers",

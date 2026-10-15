@@ -50,7 +50,7 @@ export function ShellSettle() {
           </li>
         ))}
         <li className={styles.matchScope} style={{ "--i": 3 } as CSSProperties}>
-          <Icon name="microscope" size={18} /> Fit and finish checked under the microscope
+          <Icon name="check" size={18} /> Fit and finish checked before bonding
         </li>
       </ul>
     </div>

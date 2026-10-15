@@ -209,11 +209,11 @@ export const emPay = {
   items: [
     {
       lead: "Membership plan members only:",
-      text: "an emergency exam with an X-ray is $65 per visit. If you're not a member, ask about the exam fee when you call.",
+      text: "an emergency visit is $50. If you're not a member, our $80 Emergency Visit includes a limited emergency exam, diagnostic X-rays and an immediate care plan.",
     },
     {
       lead: "Membership plan:",
-      text: "$150 a year covers 2 cleanings, exams and X-rays, and gives 15% off treatment, including emergency treatment.",
+      text: "$150 a year covers 2 cleanings, exams and X-rays, with an emergency visit for $50 and 20% off other treatment, including emergency treatment.",
     },
     { lead: "Financing:", text: "CareCredit, subject to credit approval. [CareCredit financing](/patient-information/carecredit/)" },
     { lead: "Insurance:", text: "we accept many PPO plans. [Insurance and payment](/patient-information/insurance-payment-options/)" },
@@ -247,7 +247,7 @@ export const emFaqs: FaqBlock = {
     {
       question: "Do you treat dental emergencies for patients without insurance?",
       answer:
-        "Yes. You don't need insurance to be seen. The dentist explains your treatment and its cost before starting. Members of our in-office membership plan pay $65 for an emergency exam with an X-ray, and CareCredit financing is available, subject to credit approval.",
+        "Yes. You don't need insurance to be seen. The dentist explains your treatment and its cost before starting. Members of our in-office membership plan pay $50 for an emergency visit, everyone else can book our $80 Emergency Visit, and CareCredit financing is available, subject to credit approval.",
     },
     {
       question: "Do you see new patients for emergencies?",

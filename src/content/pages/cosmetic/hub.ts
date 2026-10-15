@@ -21,7 +21,7 @@ export const cdHero: PageHeroContent = {
   intro:
     "Radiant Smiles @ Floral Vale is a cosmetic dentist in Yardley, PA, at 117 Floral Vale Boulevard. Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria offer porcelain veneers, teeth whitening, dental bonding, inlays and onlays, and Invisalign clear aligners, and plan smile makeovers that combine them. Call (215) 860-4600 to book.",
   more: [
-    "Whether you want to brighten a few shades, fix one chipped front tooth or rethink your whole smile, the first step is the same: a conversation about what bothers you and what you'd like to see in the mirror. We check your teeth and gums under magnification, explain the options that fit, and tell you what each one costs before anything starts.",
+    "Whether you want to brighten a few shades, fix one chipped front tooth or rethink your whole smile, the first step is the same: a conversation about what bothers you and what you'd like to see in the mirror. We check your teeth and gums, explain the options that fit, and tell you what each one costs before anything starts.",
   ],
   buttons: ["appointment", "call"],
 };
@@ -94,9 +94,9 @@ export const cdMakeover = {
     steps: [
       { icon: "chat", lead: "Talk about your goals.", text: "Tell us what you'd change: color, a gap, a chip, crowding, worn or uneven edges." },
       {
-        icon: "microscope",
+        icon: "xray",
         lead: "Examine your teeth and gums.",
-        text: "We look at your teeth under a high-power dental microscope and take digital X-rays. Healthy gums and sound teeth come first, because cosmetic work lasts longer on a healthy base.",
+        text: "We examine your teeth and gums and take digital X-rays. Healthy gums and sound teeth come first, because cosmetic work lasts longer on a healthy base.",
       },
       {
         icon: "clipboard",
@@ -182,7 +182,7 @@ export const cdWhich = {
 export const cdPrecision = {
   title: "Precision You Can See",
   paragraphs: [
-    "Cosmetic work is judged up close, so we work up close too. Our dentists use high-power dental microscopes, similar to the one an ophthalmologist uses, to check the fit and finish of veneers, bonding and other restorations. Edges that fit closely look more natural and are easier to keep clean.",
+    "Cosmetic work is judged up close, so we check it up close too. Our dentists check the fit and finish of veneers, bonding and other restorations before you leave, and send lab work back if it isn't right. Edges that fit closely look more natural and are easier to keep clean.",
     "We also use digital X-rays, an intraoral camera that lets you see what we see, and an iTero scanner for digital impressions. [See our technology](/patient-information/care-and-comfort/advanced-technology/)",
   ],
 };
@@ -207,7 +207,7 @@ export const cdCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "our in-office membership plan is $150 a year and includes 15% off dental treatment.",
+      text: "our in-office membership plan is $150 a year and includes 20% off dental treatment.",
     },
   ],
   after: ["We accept cash, check, Visa, MasterCard, Discover and American Express. Payment is due at the time of service."],

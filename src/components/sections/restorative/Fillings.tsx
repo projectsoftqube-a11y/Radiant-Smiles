@@ -155,8 +155,8 @@ export function LayerSteps() {
           <p className="lead" data-reveal>
             {fiPlace.intro}
           </p>
-          <p className={styles.microscope} data-reveal>
-            <Icon name="microscope" size={22} />
+          <p className={styles.fitNote} data-reveal>
+            <Icon name="check" size={22} />
             <span>{fiPlace.after}</span>
           </p>
         </div>

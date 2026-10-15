@@ -174,14 +174,14 @@ export function LeaveReview() {
   );
 }
 
-/** New patients welcome: a banner with the $89 figure */
+/** New patients welcome: a banner with the $99 figure */
 export function NewPatientsBanner() {
   return (
     <section className={styles.welcome} aria-labelledby="reviews-welcome-title">
       <div className="container">
         <div className={styles.banner} data-reveal>
           <span className={styles.bannerFigure} aria-hidden="true">
-            $89
+            $99
             <small>first visit</small>
           </span>
           <div className={styles.bannerCopy}>

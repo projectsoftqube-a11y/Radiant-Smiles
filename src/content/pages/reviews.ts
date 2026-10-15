@@ -66,7 +66,7 @@ export const reviewsLeave = {
 
 export const reviewsNewPatients = {
   title: "New Patients Welcome",
-  text: "New patients without insurance can start with an $89 visit that includes a cleaning, X-rays and an exam, and we're open Saturday mornings.",
+  text: "New patients without insurance can start with a $99 visit that includes a cleaning, X-rays and an exam, and we're open Saturday mornings.",
   links: [
     { label: "See our special offers", href: "/special-offers/" },
     { label: "Hours & directions", href: "/contact-us/" },

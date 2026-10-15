@@ -26,7 +26,7 @@ export const cdHero: PageHeroContent = {
 export const cdHeroPoints: Point[] = [
   { lead: "First visit:", text: "just after your child's first birthday" },
   { lead: "Saturday appointments:", text: "8 am to 2 pm, outside school hours" },
-  { lead: "Family membership:", text: "$150 a year for the first member, $75 for each additional family member" },
+  { lead: "Family membership:", text: "$150 a year for the first member, $100 for each additional family member" },
 ];
 
 /** Schema: Service description (handoff 3a) */
@@ -107,7 +107,7 @@ export const cdFamily = {
   payTitle: "Paying for your child's visits:",
   pay: [
     "We accept many PPO plans, including Delta Dental, Cigna PPO, Guardian and MetLife. Coverage depends on your plan.",
-    "Our in-office membership plan is $150 a year for the first person and $75 for each additional family member. It covers 2 cleanings, exams and X-rays a year, plus 15% off treatment.",
+    "Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. It covers 2 cleanings, exams and X-rays a year, plus 20% off other treatment.",
   ],
 };
 

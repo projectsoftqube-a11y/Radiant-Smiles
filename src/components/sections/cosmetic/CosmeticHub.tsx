@@ -384,7 +384,7 @@ export function ZoomStrip() {
   const panels = [
     { name: "At a glance", scale: 1 },
     { name: "Closer", scale: 2.2 },
-    { name: "Under the microscope", scale: 5 },
+    { name: "At the edge", scale: 5 },
   ];
   return (
     <section className={`${c.section} ${styles.zoomSection}`} aria-labelledby="cd-precision-title">

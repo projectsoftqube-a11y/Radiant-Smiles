@@ -1,5 +1,5 @@
 import type { CostBlock } from "../general/common";
-import type { FaqBlock, PageHeroContent, PageMeta } from "../shared";
+import { membershipRows, type FaqBlock, type PageHeroContent, type PageMeta } from "../shared";
 import type { ServedArea } from "@/lib/schema";
 import { areaCrumbs, hoursLine, townCta, type Block, type RouteFacts } from "./common";
 
@@ -61,12 +61,12 @@ export const moSameDay = {
     { icon: "tooth", text: "A lost filling or crown, or swelling around a tooth" },
   ],
   after:
-    "For more on what to do before you arrive, see our [emergency dentist care for Morrisville patients](/emergency-dentistry/). Membership plan members pay $65 for an emergency exam with X-ray.",
+    "For more on what to do before you arrive, see our [emergency dentist care for Morrisville patients](/emergency-dentistry/). Membership plan members pay $50 for an emergency visit.",
 };
 
 export const moRepairs = {
   title: "Quick Repairs, Done Carefully",
-  intro: "When a tooth needs repairing, our dentists work under high-power dental microscopes for a precise fit and finish.",
+  intro: "When a tooth needs repairing, our dentists check every repair for a precise fit and finish.",
   items: [
     {
       key: "filling",
@@ -103,7 +103,7 @@ export const moFamily = {
 export const moCost: CostBlock = {
   title: "New Patient Special & Insurance",
   paragraphs: [
-    "No insurance? Our $89 New Patient Visit Special covers a cleaning, X-rays and an exam. After that, the in-office membership plan is $150 a year and includes two cleanings, exams, X-rays and 15% off treatment. We also accept many PPO plans, including Blue Cross Blue Shield, Capital Blue Cross and United Concordia Elite Plus, and coverage depends on your plan. For larger repairs, CareCredit offers no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Current offers](/special-offers/) · [Insurance and payment](/patient-information/insurance-payment-options/)",
+    "No insurance? Our $99 New Patient Visit Special covers a cleaning, X-rays and an exam. After that, the in-office membership plan is $150 a year and includes two cleanings, exams, X-rays and 20% off treatment. We also accept many PPO plans, including Blue Cross Blue Shield, Capital Blue Cross and United Concordia Elite Plus, and coverage depends on your plan. For larger repairs, CareCredit offers no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Current offers](/special-offers/) · [Insurance and payment](/patient-information/insurance-payment-options/)",
   ],
 };
 
@@ -141,7 +141,7 @@ export const wcMeta: PageMeta = {
   path: "/dentist-washington-crossing-pa/",
   title: "Dentist near Washington Crossing, PA | Radiant Smiles",
   description:
-    "Washington Crossing, PA dentist 15-20 minutes down River Road: crowns and onlays fitted under dental microscopes, plus root canals. Call (215) 860-4600.",
+    "Washington Crossing, PA dentist 15-20 minutes down River Road: crowns and onlays made for a precise fit, plus root canals. Call (215) 860-4600.",
 };
 
 export const wcCrumbs = areaCrumbs("Washington Crossing, PA", wcMeta.path);
@@ -153,7 +153,7 @@ export const wcAreas: ServedArea[] = [
 export const wcHero: PageHeroContent = {
   h1: "Your Dentist near Washington Crossing, PA",
   intro:
-    "Radiant Smiles @ Floral Vale is about 15 to 20 minutes from Washington Crossing, PA, depending on traffic, via River Road (PA-32) and I-295. For the village and the rest of Upper Makefield Township, it's a short drive for careful restorative work: crowns, inlays and onlays fitted under high-power dental microscopes, plus root canal therapy, with 3D imaging when a case needs it.",
+    "Radiant Smiles @ Floral Vale is about 15 to 20 minutes from Washington Crossing, PA, depending on traffic, via River Road (PA-32) and I-295. For the village and the rest of Upper Makefield Township, it's a short drive for careful restorative work: crowns, inlays and onlays made for a precise fit, plus root canal therapy, with 3D imaging when a case needs it.",
   buttons: ["appointment", "call"],
 };
 
@@ -189,7 +189,7 @@ export const wcVillages = {
 export const wcRestorative = {
   title: "Restorative Care Worth the Drive Down River Road",
   intro:
-    "Crowns, onlays and root canals are work you'll rely on for years. Restorations are fitted under a high-power dental microscope, similar to the one an ophthalmologist uses, so margins and bite can be checked at magnification rather than by eye.",
+    "Crowns, onlays and root canals are work you'll rely on for years. Each restoration's margins and bite are checked carefully before it's cemented.",
   items: [
     {
       key: "crown",
@@ -230,7 +230,7 @@ export const wcFamily = {
 export const wcCost: CostBlock = {
   title: "Paying for Restorative Work",
   paragraphs: [
-    "We accept many PPO plans, including Lincoln Financial and Mutual of Omaha, and coverage for crowns and onlays depends on your plan, so call and we'll check before treatment. Without insurance, our membership plan ($150 a year) gives 15% off all dental treatment, and CareCredit lets you spread the cost: no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
+    "We accept many PPO plans, including Lincoln Financial and Mutual of Omaha, and coverage for crowns and onlays depends on your plan, so call and we'll check before treatment. Without insurance, our membership plan ($150 a year) gives 20% off all dental treatment, and CareCredit lets you spread the cost: no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
   ],
 };
 
@@ -251,11 +251,6 @@ export const wcFaqs: FaqBlock = {
       question: "I live on the New Jersey side of Washington Crossing. Which page is mine?",
       answer:
         "Our Hopewell, NJ page. Washington Crossing, NJ and Titusville are part of Hopewell Township in Mercer County, on the other side of the toll-free Washington Crossing Bridge. That page covers the route from the New Jersey side, the drive time and the services patients there ask about.",
-    },
-    {
-      question: "Why do you use a dental microscope?",
-      answer:
-        "For precision. A high-power dental microscope, similar to the one an ophthalmologist uses, lets the dentist see the edges of a filling, crown or onlay at magnification. That helps us check the fit and finish of each restoration before it's cemented, rather than relying on the naked eye.",
     },
   ],
 };
@@ -305,7 +300,7 @@ export const lmHere: { title: string; blocks: Block[] } = {
 export const lmEveryAge = {
   title: "A Dentist in Lower Makefield Township for Every Age",
   intro:
-    "Routine care is the heart of what we do for township families. A typical check-up includes digital X-rays, an exam under magnification, a professional cleaning and an oral cancer screening, which we include at every visit. Before anything else happens, the dentist explains what they found and what any treatment would cost.",
+    "Routine care is the heart of what we do for township families. A typical check-up includes digital X-rays, a thorough exam, a professional cleaning and an oral cancer screening, which we include at every visit. Before anything else happens, the dentist explains what they found and what any treatment would cost.",
   items: [
     { icon: "toothClean", text: "[Teeth cleaning & check-ups](/preventative-care/teeth-cleaning-and-check-ups/)" },
     { icon: "search", text: "[Oral cancer screening](/preventative-care/oral-cancer-screening/)" },
@@ -339,16 +334,12 @@ export const lmKids = {
 export const lmMembership = {
   title: "A Membership Plan for Households Without Insurance",
   intro:
-    "If your family doesn't have dental insurance, our in-office membership plan keeps routine care predictable. It costs $150 a year for the first member and $75 for each additional family member.",
-  head: ["Included each year", "Member price"],
-  rows: [
-    ["2 cleanings, exams and X-rays", "Included"],
-    ["Additional cleanings or periodontal maintenance", "$75 each"],
-    ["Emergency exam with X-ray", "$65 per visit"],
-    ["All other dental treatment", "15% off"],
-  ],
+    "If your family doesn't have dental insurance, our in-office membership plan keeps routine care predictable. It costs $150 a year for the first member and $100 for each additional family member.",
+  head: ["Member service", "Member price"],
+  // From site.ts (final rate card, 15 Oct 2026), without the two yearly-fee rows (in the intro)
+  rows: membershipRows.slice(2).map((row) => [row.item, row.price] as const),
   after:
-    "New patients without insurance can also start with the $89 New Patient Visit Special: a cleaning, X-rays and an exam. [Current offers](/special-offers/)",
+    "New patients without insurance can also start with the $99 New Patient Visit Special: a cleaning, X-rays and an exam. [Current offers](/special-offers/)",
 };
 
 export const lmCost: CostBlock = {
@@ -374,7 +365,7 @@ export const lmFaqs: FaqBlock = {
     {
       question: "Is there a dental plan for a family without insurance?",
       answer:
-        "Yes. Our in-office membership plan is $150 a year for the first person and $75 for each additional family member. It includes two cleanings, exams and X-rays each year, plus 15% off all dental treatment. Additional cleanings are $75, and an emergency exam with X-ray is $65.",
+        "Yes. Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. It includes two cleanings, exams and X-rays each year, plus 20% off all dental treatment. Additional cleanings and periodontal maintenance are $75, and an emergency visit is $50.",
     },
     {
       question: "Can my children be seen on a Saturday?",
@@ -457,7 +448,7 @@ export const nhCosmetic = {
 export const nhPlanned = {
   title: "A New Hope Dentist Visit Planned Around the Drive",
   paragraphs: [
-    "The first appointment does several jobs at once, so you aren't making extra trips. At a new patient visit we take digital X-rays, check your teeth and gums under magnification and clean your teeth. If you're thinking about cosmetic work, tell us when you book, and the dentist can talk through whitening, bonding or veneers at the same appointment. Without insurance, that first visit is $89 under our New Patient Visit Special.",
+    "The first appointment does several jobs at once, so you aren't making extra trips. At a new patient visit we take digital X-rays, check your teeth and gums and clean your teeth. If you're thinking about cosmetic work, tell us when you book, and the dentist can talk through whitening, bonding or veneers at the same appointment. Without insurance, that first visit is $99 under our New Patient Visit Special.",
     "Saturday hours run 8 am to 2 pm, and we're open until 6 pm on Wednesdays and Thursdays. [New patients](/patient-information/new-patients/) · [Special offers](/special-offers/)",
   ],
 };

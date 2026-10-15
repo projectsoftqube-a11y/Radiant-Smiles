@@ -325,3 +325,15 @@
     width: 2.1em;
   }
 }
+
+/* Hover zoom on every homepage photo (user, 15 Oct 2026): a slow push-in, only with a
+   mouse and when motion is allowed */
+.pill img {
+  transition: scale 0.8s var(--ease-out);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pill:hover img {
+    scale: 1.12;
+  }
+}

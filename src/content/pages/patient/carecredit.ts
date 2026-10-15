@@ -54,7 +54,7 @@ export const ccFinance = {
     {
       icon: "implant",
       link: { label: "Dental implants", href: "/restorative-dentistry/dental-implants/" } as LinkItem,
-      text: ": our current offer takes $500 off an implant, abutment and crown (regular price $3,500).",
+      text: ": our current offer takes $500 off an implant, abutment and crown (regular price $4,500).",
     },
     {
       icon: "aligner",
@@ -95,7 +95,7 @@ export const ccOther = {
     {
       icon: "badgeDollar",
       lead: "In-office membership plan:",
-      text: "$150 a year for two cleanings, exams and X-rays, plus 15% off dental treatment.",
+      text: "$150 a year for two cleanings, exams and X-rays, plus 20% off dental treatment.",
     },
     { icon: "banknote", lead: "Pay at the visit:", text: "cash, check, Visa, MasterCard, Discover or American Express." },
   ],

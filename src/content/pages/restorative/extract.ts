@@ -96,7 +96,7 @@ export const exReplace = {
     {
       icon: "implant",
       lead: "[Dental implants](/restorative-dentistry/dental-implants/):",
-      text: "a titanium post that replaces the root. In some cases the implant can be placed at the same appointment as the extraction. Our current offer is $500 off the regular $3,500 for an implant, abutment and crown.",
+      text: "a titanium post that replaces the root. In some cases the implant can be placed at the same appointment as the extraction. Our current offer is $500 off the regular $4,500 for an implant, abutment and crown.",
     },
     { icon: "layers", lead: "[Dental bridges](/restorative-dentistry/dental-bridges/):", text: "a fixed replacement tooth supported by the teeth beside the gap." },
     { icon: "case", lead: "[Partial dentures](/restorative-dentistry/dentures/partial-dentures/):", text: "a removable option that can fill one or several gaps." },
@@ -123,7 +123,7 @@ export const exCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may cover part of an extraction. We accept many PPO plans, including Colonial Life, Delta Dental, Mutual of Omaha and United Concordia Elite Plus; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 15% off all treatment, and an emergency exam with X-ray is $65 for members." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all treatment, and an emergency visit is $50 for members." },
     { lead: "Financing:", text: "[CareCredit](/patient-information/carecredit/) is accepted, subject to credit approval." },
   ],
 };
@@ -257,7 +257,7 @@ export const wtCost: CostBlock = {
       lead: "Insurance:",
       text: "the team will help you make the most of your dental insurance. We accept many PPO plans, including Aetna, Cigna PPO, Horizon Blue Cross and Delta Dental; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 15% off all treatment." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all treatment." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) is available, with no interest on qualifying purchases of $200 or more paid in full within 6 months, subject to credit approval.",
@@ -409,7 +409,7 @@ export const psCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "the $150-a-year membership plan includes two cleanings, exams and X-rays, takes 15% off all treatment and prices periodontal maintenance at $75 a visit.",
+      text: "the $150-a-year membership plan includes two cleanings, exams and X-rays, takes 20% off all treatment and prices periodontal maintenance at $75 a visit.",
     },
     { lead: "Financing:", text: "[CareCredit](/patient-information/carecredit/) can cover treatment over several visits, subject to credit approval." },
   ],

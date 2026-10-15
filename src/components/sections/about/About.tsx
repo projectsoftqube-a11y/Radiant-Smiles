@@ -225,20 +225,20 @@ export function AboutStaff() {
   );
 }
 
-/** Technology: the page's one navy band, microscope photo in an arch, rays in light */
+/** Technology: the page's one navy band, the 3D scan photo in an arch, rays in light */
 export function AboutTechnology() {
   const tools: { name: string; icon: IconName }[] = [
-    { name: "Dental microscopes", icon: "microscope" },
     { name: "Cone beam CT", icon: "tooth" },
     { name: "iTero scanner", icon: "camera" },
     { name: "Digital X-rays", icon: "xray" },
+    { name: "Dental lasers", icon: "bolt" },
   ];
   return (
     <section className={styles.tech} aria-labelledby="about-tech-title">
       <Rays className={styles.techRays} count={19} spread={160} inner={0.25} scroll />
       <div className={`container ${styles.techGrid}`}>
         <div className={styles.techMedia}>
-          <MediaFrame image={images.techMicroscope} ratio="4 / 5" sizes="(max-width: 991px) 80vw, 40vw" arch reveal="scroll" />
+          <MediaFrame image={images.techCbct} ratio="4 / 5" sizes="(max-width: 991px) 80vw, 40vw" arch reveal="scroll" />
         </div>
         <div className={styles.techCopy}>
           <p className="label label-inverse" data-reveal>

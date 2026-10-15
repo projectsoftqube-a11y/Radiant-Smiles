@@ -4,6 +4,7 @@ import { Rich } from "@/components/ui/Rich";
 import { lmEveryAge, lmKids, lmMembership } from "@/content/pages/locations/pa";
 import c from "../restorative/Common.module.css";
 import styles from "./LowerMakefield.module.css";
+import { membershipPlan } from "@/content/site";
 
 /**
  * Lower Makefield, PA sections (order and heading levels follow 02 Content.md). No ZIP and no
@@ -161,17 +162,17 @@ export function HouseholdPass() {
             <span className={styles.passPeople}>
               <span className={styles.person}>
                 <Icon name="user" size={18} />
-                <small>$150</small>
+                <small>${membershipPlan.yearly}</small>
               </span>
               <span className={styles.plus}>+</span>
               <span className={`${styles.person} ${styles.personMore}`}>
                 <Icon name="users" size={18} />
-                <small>$75 each</small>
+                <small>${membershipPlan.additionalMember} each</small>
               </span>
             </span>
           </span>
           <table className={styles.passTable}>
-            <caption className="visually-hidden">Membership plan: what&apos;s included each year and the member price</caption>
+            <caption className="visually-hidden">Membership plan: member prices</caption>
             <thead>
               <tr>
                 {m.head.map((h) => (

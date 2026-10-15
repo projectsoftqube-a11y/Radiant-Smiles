@@ -27,7 +27,7 @@ export function QuoteCheck() {
         <span className={styles.quoteTitle}>One fee covers all three</span>
         <span className={styles.stamp}>
           <strong>$500 off</strong>
-          <small>regular $3,500</small>
+          <small>regular $4,500</small>
         </span>
       </span>
       <span className={styles.parts}>

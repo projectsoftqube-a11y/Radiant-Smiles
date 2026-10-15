@@ -23,7 +23,7 @@ export const brHero: PageHeroContent = {
   h1: "Dental Bridges in Yardley, PA",
   intro:
     "A dental bridge replaces one or more missing teeth with an artificial tooth held in place by the natural teeth on either side of the gap, called abutment teeth. At Radiant Smiles @ Floral Vale in Yardley, PA, a bridge usually takes two or three appointments and, with good care, should last seven to ten years or longer.",
-  more: ["Metal-free, tooth-colored bridges are available, and Radiant Smiles uses high-power dental microscopes for precise fit and finish."],
+  more: ["Metal-free, tooth-colored bridges are available, and every bridge is made for a precise fit and finish."],
   buttons: ["appointment", "call"],
 };
 
@@ -81,7 +81,7 @@ export const brVersus = {
     ["Changes neighboring teeth?", "Usually, they're shaped for crowns", "No"],
     ["Helps preserve jawbone?", "No", "Yes"],
     ["Typical timeline", "Two or three appointments", "Usually 6 to 8 months"],
-    ["Published price", "Given at your exam", "$3,500 regular for implant, abutment and crown; currently $500 off"],
+    ["Published price", "Given at your exam", "$4,500 regular for implant, abutment and crown; currently $500 off"],
   ],
   after:
     "A bridge can make sense when the neighboring teeth already need crowns, or when you'd like the replacement finished in a few appointments rather than several months. An implant may suit you better if the teeth beside the gap are healthy and you'd rather not have them shaped. Read more about [dental implants](/restorative-dentistry/dental-implants/).",
@@ -126,7 +126,7 @@ export const brCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may cover part of a bridge. We accept many PPO plans, including Ameritas, Cigna PPO, Delta Dental and Humana; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 15% off all dental treatment." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all dental treatment." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) lets you spread the cost: no interest if a qualifying purchase of $200 or more is paid in full within 6 months, subject to credit approval.",
@@ -173,7 +173,7 @@ export const imMeta: PageMeta = {
   path: "/restorative-dentistry/dental-implants/",
   title: "Dental Implants in Yardley, PA | $500 Off | Radiant Smiles",
   description:
-    "Dental implants in Yardley, PA: $500 off implant, abutment and crown (reg. $3,500), free consult and second opinion, CareCredit. Call (215) 860-4600.",
+    "Dental implants in Yardley, PA: $500 off implant, abutment and crown (reg. $4,500), free consult and second opinion, CareCredit. Call (215) 860-4600.",
 };
 
 export const imCrumbs = rdCrumbs("Dental Implants", imMeta.path);
@@ -181,7 +181,7 @@ export const imCrumbs = rdCrumbs("Dental Implants", imMeta.path);
 export const imHero: PageHeroContent = {
   h1: "Dental Implants in Yardley, PA",
   intro:
-    "Dental implants in Yardley, PA at Radiant Smiles @ Floral Vale come with $500 off the regular $3,500 for an implant, abutment and crown, plus a free consultation and second opinion. Your evaluation includes an exam, X-rays and, where needed, cone beam CT (3D) imaging, and the office uses high-power dental microscopes for precise fit and finish of crowns and other restorations.",
+    "Dental implants in Yardley, PA at Radiant Smiles @ Floral Vale come with $500 off the regular $4,500 for an implant, abutment and crown, plus a free consultation and second opinion. Your evaluation includes an exam, X-rays and, where needed, cone beam CT (3D) imaging.",
   buttons: [
     { label: "Book Your Free Implant Consultation", href: "/patient-information/scheduling/", track: "implant_consult_click,appointment_click_im_hero" },
     "call",
@@ -190,7 +190,7 @@ export const imHero: PageHeroContent = {
 
 export const imOffer = {
   lead: "Current offer:",
-  text: "$500 off an implant, abutment and crown (regular price $3,500), including a free consultation and second opinion.",
+  text: "$500 off an implant, abutment and crown (regular price $4,500), including a free consultation and second opinion.",
 };
 
 export const imProcedureDescription =
@@ -249,12 +249,12 @@ export const imProcess = {
 };
 
 export const imImaging = {
-  title: "3D Imaging & Microscopes for Implant Care",
+  title: "3D Imaging for Implant Care",
   paragraphs: [
     "The office has cone beam CT (3D) imaging, which can be used to assess the bone before implant treatment. A cone beam scan shows the height and width of the bone, along with the position of nerves and sinuses, where regular X-rays show teeth in only two dimensions.",
     "Seeing the bone in 3D helps the dentist judge the implant's size, angle and depth before treatment starts, and plan around structures that need protecting.",
   ],
-  quoteIntro: "Implant crowns are made with the same attention to fit and finish as all restorations here, aided by high-power dental microscopes. What that looks like in practice, from one patient on crowns for her front teeth:",
+  quoteIntro: "Implant crowns are made with the same attention to fit and finish as all restorations here. What that looks like in practice, from one patient on crowns for her front teeth:",
   quote: "The dentist was unhappy with the labs first ones so sent them back. Made sure they were perfect",
   quoteBy: "(Candice C., September 2026)",
   more: "Read more about the [technology we use](/patient-information/care-and-comfort/advanced-technology/).",
@@ -285,7 +285,7 @@ export const imOptions = {
 export const imCost = {
   title: "Dental Implant Cost in Yardley, PA",
   intro:
-    "A single implant, abutment and crown is regularly $3,500 at Radiant Smiles. Right now you get $500 off that regular price, plus a free consultation and second opinion. See all current savings on our [special offers](/special-offers/) page.",
+    "A single implant, abutment and crown is regularly $4,500 at Radiant Smiles. Right now you get $500 off that regular price, plus a free consultation and second opinion. See all current savings on our [special offers](/special-offers/) page.",
   affectsTitle: "What affects your dental implant cost",
   affectsIntro: "Your final cost depends on your plan. These things can change it:",
   affects: [
@@ -342,9 +342,9 @@ export const imRecovery = {
 export const imYouGet = {
   title: "What You Get With an Implant at Our Yardley Office",
   intro:
-    "Your implant dentist in Yardley explains your options and costs before treatment begins, using 3D imaging where needed and dental microscopes for precise fit and finish. Both dentists, [Dr. Urvishkumar Bhalala](/about-us/dr-urvishkumar-bhalala/) and [Dr. Jaspreet Gadria](/about-us/dr-jaspreet-gadria-dmd/), trained at Temple University's Kornberg School of Dentistry.",
+    "Your implant dentist in Yardley explains your options and costs before treatment begins, using 3D imaging where needed and careful attention to fit and finish. Both dentists, [Dr. Urvishkumar Bhalala](/about-us/dr-urvishkumar-bhalala/) and [Dr. Jaspreet Gadria](/about-us/dr-jaspreet-gadria-dmd/), trained at Temple University's Kornberg School of Dentistry.",
   items: [
-    { icon: "tag", text: "Published pricing: $3,500 regular for implant, abutment and crown, with $500 off right now" },
+    { icon: "tag", text: "Published pricing: $4,500 regular for implant, abutment and crown, with $500 off right now" },
     { icon: "chat", text: "A free consultation and second opinion" },
     { icon: "calendar", text: "Saturday appointments from 8 am to 2 pm" },
     { icon: "car", text: "About 15 minutes from Trenton by bridge, depending on traffic" },
@@ -357,7 +357,7 @@ export const imFaqs: FaqBlock = {
     {
       question: "How much do dental implants cost in Yardley, PA?",
       answer:
-        "A single implant, abutment and crown is regularly $3,500 at Radiant Smiles @ Floral Vale, and the current offer takes $500 off, with a free consultation and second opinion. Your total depends on how many teeth you're replacing and whether you need an extraction first. CareCredit financing is available.",
+        "A single implant, abutment and crown is regularly $4,500 at Radiant Smiles @ Floral Vale, and the current offer takes $500 off, with a free consultation and second opinion. Your total depends on how many teeth you're replacing and whether you need an extraction first. CareCredit financing is available.",
     },
     {
       question: "How long do dental implants last?",

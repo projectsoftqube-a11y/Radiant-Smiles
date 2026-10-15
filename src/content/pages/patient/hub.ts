@@ -22,7 +22,7 @@ export const hubHero: PageHeroContent = {
 export const hubFacts = [
   { icon: "pin", text: "117 Floral Vale Boulevard, Yardley, PA 19067" },
   { icon: "calendar", text: "Open Saturdays, 8:00 am – 2:00 pm" },
-  { icon: "badgeDollar", text: "$89 New Patient Visit Special for uninsured patients" },
+  { icon: "badgeDollar", text: "$99 New Patient Visit Special for uninsured patients" },
   { icon: "shield", text: "Many PPO plans accepted, plus CareCredit" },
 ] as const;
 
@@ -44,7 +44,7 @@ export const hubCards: HubCard[] = [
     title: "New Patients: What Your First Visit Involves",
     paragraphs: [
       "Your first visit at our Yardley dental office is a comprehensive evaluation. We review your medical and dental history, examine your teeth and gums, and talk through your treatment options before anything else happens. Patients under 18 need a parent or guardian with them.",
-      "No insurance? The $89 New Patient Visit Special includes a cleaning, X-rays and an exam.",
+      "No insurance? The $99 New Patient Visit Special includes a cleaning, X-rays and an exam.",
     ],
     links: [
       { label: "What to expect as a new patient", href: "/patient-information/new-patients/" },
@@ -70,7 +70,7 @@ export const hubCards: HubCard[] = [
     bullets: [
       {
         lead: "No insurance:",
-        text: "our in-office membership plan is $150 a year and includes two cleanings, exams and X-rays, plus 15% off treatment.",
+        text: "our in-office membership plan is $150 a year and includes two cleanings, exams and X-rays, plus 20% off treatment.",
       },
       {
         lead: "Ways to pay:",
@@ -126,7 +126,7 @@ export const hubFaqs: FaqBlock = {
     {
       question: "Is Radiant Smiles @ Floral Vale accepting new patients?",
       answer:
-        "Yes. Radiant Smiles @ Floral Vale welcomes new patients at its Yardley dental office, 117 Floral Vale Boulevard. You can request an appointment online or call (215) 860-4600. Patients without insurance can book the $89 New Patient Visit Special, which includes a cleaning, X-rays and an exam.",
+        "Yes. Radiant Smiles @ Floral Vale welcomes new patients at its Yardley dental office, 117 Floral Vale Boulevard. You can request an appointment online or call (215) 860-4600. Patients without insurance can book the $99 New Patient Visit Special, which includes a cleaning, X-rays and an exam.",
     },
     {
       question: "Where is the office?",

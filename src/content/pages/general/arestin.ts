@@ -80,7 +80,7 @@ export const arCost: CostBlock = {
       lead: "Insurance:",
       text: "some dental plans cover Arestin, and others don't. Coverage depends on your plan. We accept many PPO plans. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "Membership plan:", text: "$150 a year, with 15% off dental treatment." },
+    { lead: "Membership plan:", text: "$150 a year, with 20% off dental treatment." },
     { lead: "Financing:", text: "CareCredit, subject to credit approval." },
   ],
 };

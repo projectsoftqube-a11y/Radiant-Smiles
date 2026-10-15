@@ -10,7 +10,7 @@ import styles from "./NewPatients.module.css";
 /**
  * New Patients sections (order and heading levels follow 02 Content.md). Designs used on
  * this page only: the welcome arch with fact chips, the first-visit path, the bring-along
- * checklist with the health note, the $89 band and the forms slip.
+ * checklist with the health note, the $99 band and the forms slip.
  */
 
 /** Hero visual: an arched photo with the quick facts strip pinned around it (a real list) */
@@ -115,7 +115,7 @@ export function BringList() {
   );
 }
 
-/** $89 special for uninsured patients: the page's one navy band */
+/** $99 special for uninsured patients: the page's one navy band */
 export function SpecialBand() {
   return (
     <section className={styles.special} aria-labelledby="np-special-title">

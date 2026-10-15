@@ -4,14 +4,14 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 import { Portrait } from "@/components/ui/Portrait";
 import { Rich } from "@/components/ui/Rich";
 import { images } from "@/content/images";
-import { rdDentists, rdDentureCare, rdExtract, rdGum, rdMagnify, rdRepair, rdReplace, rdSave, rdWhich } from "@/content/pages/restorative/hub";
+import { rdDentists, rdDentureCare, rdExtract, rdGum, rdFitCheck, rdRepair, rdReplace, rdSave, rdWhich } from "@/content/pages/restorative/hub";
 import styles from "./RestorativeHub.module.css";
 
 /**
  * Restorative Dentistry hub sections (order and heading levels follow 02 Content.md).
  * Designs used on this page only: the four tooth states, the damage scale, the navy
  * root canal band with its warning chips, the replacement line art, the denture fit panel,
- * the extraction pair, the healing-gum card, the triage table, the magnification panel and the
+ * the extraction pair, the healing-gum card, the triage table, the fit-check panel and the
  * dentist duo.
  */
 
@@ -79,7 +79,7 @@ export function ToothStates() {
         ))}
       </div>
       <span className={styles.statesFoot}>
-        <Icon name="microscope" size={16} /> Fit checked under the microscope
+        <Icon name="check" size={16} /> Fit checked before it&apos;s placed
       </span>
     </div>
   );
@@ -416,28 +416,28 @@ export function Which() {
   );
 }
 
-/** Working under magnification: an eyepiece panel with the four tools and the remake story */
-export function Magnification() {
+/** Checking the fit: a panel with the four tools and the remake story */
+export function FitCheck() {
   return (
-    <section className={styles.magnify} aria-labelledby="rd-magnify-title">
+    <section className={styles.fitCheck} aria-labelledby="rd-fit-title">
       <div className="container">
-        <div className={styles.eyepiece}>
+        <div className={styles.fitPanel}>
           <div className={styles.eyeHead}>
             <span className={styles.eyeIcon} aria-hidden="true" data-reveal>
-              <Icon name="microscope" size={32} />
+              <Icon name="search" size={32} />
             </span>
             <div className={styles.eyeCopy}>
-              <h2 id="rd-magnify-title" data-reveal>
-                {rdMagnify.title}
+              <h2 id="rd-fit-title" data-reveal>
+                {rdFitCheck.title}
               </h2>
-              <p data-reveal>{rdMagnify.intro}</p>
+              <p data-reveal>{rdFitCheck.intro}</p>
             </div>
           </div>
           <p className={styles.toolsIntro} data-reveal>
-            {rdMagnify.listIntro}
+            {rdFitCheck.listIntro}
           </p>
           <ul role="list" className={styles.tools}>
-            {rdMagnify.items.map((item) => (
+            {rdFitCheck.items.map((item) => (
               <li key={item.lead} data-reveal>
                 <span className={styles.toolIcon} aria-hidden="true">
                   <Icon name={item.icon as IconName} size={22} />
@@ -449,11 +449,11 @@ export function Magnification() {
             ))}
           </ul>
           <p className={styles.toolsMore} data-reveal>
-            <Rich text={rdMagnify.more} />
+            <Rich text={rdFitCheck.more} />
           </p>
           <p className={styles.story} data-reveal>
             <Icon name="refresh" size={22} />
-            <span>{rdMagnify.story}</span>
+            <span>{rdFitCheck.story}</span>
           </p>
         </div>
       </div>

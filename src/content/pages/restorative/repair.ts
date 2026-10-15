@@ -24,7 +24,7 @@ export const crHero: PageHeroContent = {
   intro:
     "A dental crown is a custom cap that covers a cracked, worn, decayed or root-canal-treated tooth to restore its shape, strength and appearance. At Radiant Smiles @ Floral Vale in Yardley, PA, a crown usually takes two visits: the tooth is shaped and fitted with a temporary, then the finished crown is adjusted and cemented.",
   more: [
-    "Radiant Smiles uses high-power dental microscopes for precise fit and finish of restorations, including crowns, and tooth-colored, metal-free options are available.",
+    "Radiant Smiles makes restorations, including crowns, for a precise fit and finish, and tooth-colored, metal-free options are available.",
   ],
   buttons: ["appointment", "call"],
 };
@@ -89,9 +89,9 @@ export const crPlace = {
 };
 
 export const crFit = {
-  title: "Precise Fit, Aided by Dental Microscopes",
+  title: "A Precise Fit, Checked Before It's Cemented",
   paragraphs: [
-    "A crown protects a tooth when its edges seal tightly against it. Gaps at the edge can trap bacteria and lead to new decay underneath. Radiant Smiles uses high-power dental microscopes, similar to the ones eye surgeons use, for precise fit and finish of restorations, including crowns.",
+    "A crown protects a tooth when its edges seal tightly against it. Gaps at the edge can trap bacteria and lead to new decay underneath. That's why we check the fit and finish of every crown before it's cemented, and send lab work back if it isn't right.",
     "That standard shows up in patient experiences. Candice Coverdale had crowns placed on her two front teeth and wrote in a 5-star review in September 2026:",
   ],
   quote: "Look amazing. The dentist was unhappy with the labs first ones so sent them back. Made sure they were perfect",
@@ -108,7 +108,7 @@ export const crCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may pay part of the cost of a crown when it's needed to restore a damaged tooth. We accept many PPO plans, including Anthem Blue Cross, Capital Blue Cross, Delta Dental and Guardian; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the in-office membership plan is $150 a year and takes 15% off all dental treatment, crowns included." },
+    { lead: "No insurance:", text: "the in-office membership plan is $150 a year and takes 20% off all dental treatment, crowns included." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) is accepted. Qualifying purchases of $200 or more carry no interest when paid in full within 6 months, subject to credit approval.",
@@ -236,7 +236,7 @@ export const fiPlace = {
     { lead: "Smooth and polish.", text: "The filling is polished and adjusted so your bite feels right." },
   ],
   after:
-    "Radiant Smiles uses high-power dental microscopes to check the fit and finish of restorations, so the edges of your filling meet the tooth closely.",
+    "Each filling is shaped and polished so its edges meet the tooth closely.",
 };
 
 export const fiWhich = {
@@ -284,7 +284,7 @@ export const fiCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "new patients without insurance can start with the $89 New Patient Visit (cleaning, X-ray and exam). The $150-a-year membership plan then takes 15% off all treatment, fillings included.",
+      text: "new patients without insurance can start with the $99 New Patient Visit (cleaning, X-ray and exam). The $150-a-year membership plan then takes 20% off all treatment, fillings included.",
     },
     { lead: "Financing:", text: "you can pay with [CareCredit](/patient-information/carecredit/), subject to credit approval." },
   ],
@@ -386,7 +386,7 @@ export const rcSteps = {
   secondTitle: "Second appointment: preparing for a crown",
   second:
     "At the second appointment, usually within a few weeks of the root canal, the tooth is prepared for a [dental crown](/restorative-dentistry/dental-crowns/) (or restored). The lab-made crown is then fitted at a later visit.",
-  after: "Radiant Smiles uses high-power dental microscopes, similar to those eye surgeons use, so the dentist can work in fine detail.",
+  after: "Digital X-rays guide each step, so the dentist can work in fine detail.",
 };
 
 export const rcHurt = {
@@ -401,7 +401,7 @@ export const rcCrown = {
   title: "Why You Usually Need a Crown After a Root Canal",
   paragraphs: [
     "A tooth that has had a root canal usually needs a crown, because a large part of the tooth is lost to decay, damage and the treatment itself. Without a crown, the remaining tooth can crack when you bite down.",
-    "A crown covers the whole visible tooth and holds it together. At Radiant Smiles, crowns usually take two visits and are made in tooth-colored, metal-free materials, with other options available. Crowns are made for a precise fit and finish, with the help of high-power dental microscopes.",
+    "A crown covers the whole visible tooth and holds it together. At Radiant Smiles, crowns usually take two visits and are made in tooth-colored, metal-free materials, with other options available. Crowns are made for a precise fit and finish.",
   ],
 };
 
@@ -424,7 +424,7 @@ export const rcCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may pay toward root canal treatment. We accept many plans, including Cigna PPO, Delta Dental, Horizon Blue Cross and UnitedHealthcare; call to verify your coverage. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 15% off all dental treatment, and an emergency exam with X-ray is $65 for members." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all dental treatment, and an emergency visit is $50 for members." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) gives you 6 months with no interest when a qualifying purchase of $200 or more is paid in full in that time, subject to credit approval.",
@@ -457,7 +457,7 @@ export const rcFaqs: FaqBlock = {
     {
       question: "How much does a root canal cost?",
       answer:
-        "The cost depends on which tooth needs treatment and how severe the infection is, and most treated teeth also need a crown. Radiant Smiles @ Floral Vale gives you the full cost before treatment, accepts many PPO plans, and offers CareCredit financing and a membership plan with 15% off treatment.",
+        "The cost depends on which tooth needs treatment and how severe the infection is, and most treated teeth also need a crown. Radiant Smiles @ Floral Vale gives you the full cost before treatment, accepts many PPO plans, and offers CareCredit financing and a membership plan with 20% off treatment.",
     },
     {
       question: "Do I need a crown after a root canal?",

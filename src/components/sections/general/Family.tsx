@@ -172,7 +172,7 @@ export function TwinPanels() {
   );
 }
 
-/** Restorative care: four tiles, then the microscope note */
+/** Restorative care: four tiles, then the fit-and-finish note */
 export function Restorative() {
   return (
     <section className={styles.restore} aria-labelledby="fam-restore-title">
@@ -198,9 +198,9 @@ export function Restorative() {
             </li>
           ))}
         </ul>
-        <p className={styles.microscope} data-reveal>
-          <span className={styles.microscopeIcon} aria-hidden="true">
-            <Icon name="microscope" size={26} />
+        <p className={styles.fitNote} data-reveal>
+          <span className={styles.fitNoteIcon} aria-hidden="true">
+            <Icon name="layers" size={26} />
           </span>
           <span>
             <Rich text={famRestorative.after} />

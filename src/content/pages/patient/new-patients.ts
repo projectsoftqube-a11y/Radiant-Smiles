@@ -27,7 +27,7 @@ export const npFormsLink: LinkItem = {
 
 /** Quick facts strip (plain text) */
 export const npFacts = [
-  { icon: "badgeDollar", text: "$89 New Patient Visit Special (uninsured): cleaning, X-rays and exam" },
+  { icon: "badgeDollar", text: "$99 New Patient Visit Special (uninsured): cleaning, X-rays and exam" },
   { icon: "shield", text: "Many PPO plans accepted" },
   { icon: "calendar", text: "Open Saturdays, 8:00 am – 2:00 pm" },
   { icon: "pin", text: "117 Floral Vale Boulevard, Yardley, PA 19067" },
@@ -83,9 +83,9 @@ export const npBring = {
 };
 
 export const npSpecial = {
-  title: "$89 New Patient Special for Uninsured Patients",
+  title: "$99 New Patient Special for Uninsured Patients",
   paragraphs: [
-    "If you don't have dental insurance, the $89 New Patient Visit Special includes a cleaning, X-rays and an exam. After your first visit, you can join our in-office membership plan for $150 a year to cover your routine care.",
+    "If you don't have dental insurance, the $99 New Patient Visit Special includes a cleaning, X-rays and an exam. After your first visit, you can join our in-office membership plan for $150 a year to cover your routine care.",
     "Have insurance? We accept many PPO plans, including Aetna, Delta Dental, Guardian, Horizon Blue Cross and MetLife. Call us to check your coverage before you come in.",
   ],
   links: [
@@ -129,7 +129,7 @@ export const npFaqs: FaqBlock = {
     {
       question: "Do you see new patients without insurance?",
       answer:
-        "Yes. Uninsured new patients can book the $89 New Patient Visit Special, which includes a cleaning, X-rays and an exam. Our in-office membership plan, at $150 a year, then covers two cleanings, exams and X-rays and gives you 15% off dental treatment.",
+        "Yes. Uninsured new patients can book the $99 New Patient Visit Special, which includes a cleaning, X-rays and an exam. Our in-office membership plan, at $150 a year, then covers two cleanings, exams and X-rays and gives you 20% off dental treatment.",
     },
   ],
 };

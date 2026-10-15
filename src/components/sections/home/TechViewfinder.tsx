@@ -9,7 +9,7 @@ import styles from "./Technology.module.css";
 const ADVANCE_MS = 5000;
 
 /**
- * A microscope viewfinder: the six technologies are a list; the active one shows in the
+ * A camera viewfinder: the five technologies are a list; the active one shows in the
  * viewfinder with a focus pull (blurred and zoomed, then sharp). It advances on its own
  * every few seconds while the section is on screen, and pauses on hover or keyboard focus.
  * No auto-advance for reduced motion. Every name and description is in the DOM.
@@ -72,10 +72,6 @@ export function TechViewfinder() {
         <span className={`${styles.bracket} ${styles.tr}`} aria-hidden="true" />
         <span className={`${styles.bracket} ${styles.bl}`} aria-hidden="true" />
         <span className={`${styles.bracket} ${styles.br}`} aria-hidden="true" />
-        <span className={styles.crosshair} aria-hidden="true" />
-        <span className={styles.scale} aria-hidden="true">
-          <span className={styles.scaleMark} key={active} />
-        </span>
         <span className={styles.readout} aria-hidden="true">
           <span className={styles.recDot} />
           {items[active].name}

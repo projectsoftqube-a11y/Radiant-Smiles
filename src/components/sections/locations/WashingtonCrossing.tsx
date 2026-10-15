@@ -51,7 +51,7 @@ export function VillageStops() {
   );
 }
 
-/** Restorative care: the microscope intro, four treatment cards and the patient quote */
+/** Restorative care: the fit-and-finish intro, four treatment cards and the patient quote */
 export function RestorativeQuartet() {
   const r = wcRestorative;
   const icons: Record<string, IconName> = { crown: "shield", onlay: "layers", root: "toothClean", "3d": "xray" };
@@ -69,7 +69,7 @@ export function RestorativeQuartet() {
           </div>
           <p className={styles.scope} data-reveal>
             <span className={styles.scopeIcon} aria-hidden="true">
-              <Icon name="microscope" size={24} />
+              <Icon name="check" size={24} />
             </span>
             <span>{r.intro}</span>
           </p>

@@ -37,6 +37,10 @@ function openingHours() {
 
 const money = (n: number) => `$${n.toLocaleString("en-US")}`;
 
+/** The membership plan in one sentence (final rate card, site.ts) */
+const membershipSummary = () =>
+  `${money(membershipPlan.yearly)} a year, plus ${money(membershipPlan.additionalMember)} for each additional family member. Includes ${membershipPlan.includedCleanings} cleanings, exams and X-rays a year. Member prices: extra cleaning, exam and X-rays ${money(membershipPlan.extraCleaning)}; periodontal maintenance ${money(membershipPlan.perioMaintenance)}; emergency visit ${money(membershipPlan.emergencyVisit)}; ${membershipPlan.otherServicesDiscountPercent}% off any other dental services. Not dental insurance; good only at Radiant Smiles @ Floral Vale.`;
+
 export function dentistEntity({
   areaServed,
   serviceGroups,
@@ -79,6 +83,15 @@ export function dentistEntity({
       },
       {
         "@type": "Offer",
+        name: offers.emergency.name,
+        price: String(offers.emergency.price),
+        priceCurrency: "USD",
+        url: absoluteUrl("/special-offers/"),
+        description: `Limited emergency exam, diagnostic X-rays and an immediate care plan.`,
+        itemOffered: { "@type": "Service", name: "Emergency dentistry", url: absoluteUrl("/emergency-dentistry/") },
+      },
+      {
+        "@type": "Offer",
         name: offers.implants.name,
         url: absoluteUrl("/special-offers/"),
         description: `${money(offers.implants.discount)} off an implant, abutment and crown (regular price ${money(offers.implants.regular)}). Includes a free consultation and second opinion.`,
@@ -104,7 +117,7 @@ export function dentistEntity({
         price: String(membershipPlan.yearly),
         priceCurrency: "USD",
         url: absoluteUrl("/patient-information/insurance-payment-options/"),
-        description: `${money(membershipPlan.yearly)} a year, plus ${money(membershipPlan.additionalMember)} for each additional family member. Includes 2 cleanings a year, exams and X-rays. Extra cleanings or periodontal maintenance ${money(membershipPlan.extraCleaning)} each, emergency exam with X-ray ${money(membershipPlan.emergencyExam)} per visit, and ${membershipPlan.treatmentDiscountPercent}% off all other dental treatment.`,
+        description: membershipSummary(),
       },
     ],
     hasOfferCatalog: {
@@ -304,6 +317,13 @@ export function specialOffers(path: string): Json[] {
       priceCurrency: "USD",
       description: "Professional cleaning, X-rays and exam for new patients without dental insurance.",
     }),
+    offer("emergency", {
+      name: offers.emergency.name,
+      price: String(offers.emergency.price),
+      priceCurrency: "USD",
+      description: `Limited emergency exam, diagnostic X-rays and an immediate care plan.`,
+      itemOffered: { "@type": "Service", name: "Emergency dentistry", url: absoluteUrl("/emergency-dentistry/") },
+    }),
     offer("implants", {
       name: `Dental Implant Savings: ${money(offers.implants.discount)} Off`,
       description: `${money(offers.implants.discount)} off a dental implant, abutment and crown (regular price ${money(offers.implants.regular)}). Includes a free consultation and second opinion.`,
@@ -323,7 +343,7 @@ export function specialOffers(path: string): Json[] {
       name: "In-office membership plan",
       price: String(membershipPlan.yearly),
       priceCurrency: "USD",
-      description: `${money(membershipPlan.yearly)} a year, plus ${money(membershipPlan.additionalMember)} for each additional family member. Includes 2 cleanings, exams and X-rays each year and ${membershipPlan.treatmentDiscountPercent}% off all other dental treatment. Extra cleanings or periodontal maintenance ${money(membershipPlan.extraCleaning)} each; emergency exam with X-ray ${money(membershipPlan.emergencyExam)}.`,
+      description: membershipSummary(),
     }),
   ];
 }
@@ -408,7 +428,7 @@ export function membershipOffer(path: string): Json {
     "@type": "Offer",
     "@id": `${absoluteUrl(path)}#membership-plan`,
     name: "In-office membership plan",
-    description: `Yearly membership: 2 cleanings, exams and X-rays. Each additional family member ${money(membershipPlan.additionalMember)} a year; additional cleanings or periodontal maintenance ${money(membershipPlan.extraCleaning)} each; emergency exam with X-ray ${money(membershipPlan.emergencyExam)} per visit; ${membershipPlan.treatmentDiscountPercent}% off all other dental treatment.`,
+    description: membershipSummary(),
     price: membershipPlan.yearly.toFixed(2),
     priceCurrency: "USD",
     offeredBy: { "@id": ids.dentist },

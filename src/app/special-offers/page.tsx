@@ -1,4 +1,4 @@
-import { DiscountOffers, NewPatientSpecial, NoInsurance, OfferBoard, OfferTerms } from "@/components/sections/offers/OffersPage";
+import { DiscountOffers, EmergencyVisit, NewPatientSpecial, NoInsurance, OfferBoard, OfferTerms } from "@/components/sections/offers/OffersPage";
 import { ClosingCta } from "@/components/sections/shared/ClosingCta";
 import { FaqAccordion } from "@/components/sections/shared/FaqAccordion";
 import { PageHero } from "@/components/sections/shared/PageHero";
@@ -9,9 +9,9 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata(offersMeta);
 
-const OFFER_KEYS = ["new-patient", "implants", "invisalign", "whitening", "membership"];
+const OFFER_KEYS = ["new-patient", "emergency", "implants", "invisalign", "whitening", "membership"];
 
-/** Handoff 3a: WebPage with an ItemList of the five Offers (prices from site.ts) + breadcrumb. */
+/** Handoff 3a: WebPage with an ItemList of the six Offers (the $80 Emergency Visit added, 15 Oct 2026) (prices from site.ts) + breadcrumb. */
 const schema = graph(
   innerPage({
     type: "WebPage",
@@ -43,6 +43,7 @@ export default function SpecialOffersPage() {
         aside={<OfferBoard />}
       />
       <NewPatientSpecial />
+      <EmergencyVisit />
       <DiscountOffers />
       <NoInsurance />
       <OfferTerms />

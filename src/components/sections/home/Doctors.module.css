@@ -1,153 +1,140 @@
-/* "Your dentists": centred header, then one card per dentist (portrait over its bio).
-   Redesigned for four dentists (client feedback, 14 Oct 2026). */
+/* "Meet Our Dentists" (redesign 5, client feedback 15 Oct 2026): split header, two profile
+   cards with plain rounded portraits, and a slim "joining soon" strip. */
 .section {
   position: relative;
   padding-block: var(--space-section);
   background: linear-gradient(180deg, var(--white) 0%, var(--wash-50) 100%);
-  overflow: hidden;
 }
 
-/* ───────── Header ───────── */
+/* ───────── Header: title and intro beside the Temple credential ───────── */
 .head {
   display: grid;
-  justify-items: center;
-  gap: 1.1rem;
-  max-width: 46rem;
-  margin: 0 auto clamp(2.5rem, 4vw, 3.5rem);
-  text-align: center;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 1.5rem clamp(2rem, 5vw, 5rem);
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
 }
 
-.head :global(.lead) {
-  max-width: 52ch;
+.headCopy {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+
+.headCopy :global(.lead) {
+  max-width: 56ch;
   color: var(--slate-600);
 }
 
-.school {
-  display: inline-flex;
+.credential {
+  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.6rem 0.9rem;
+  gap: 1rem;
+  justify-self: end;
+  padding: 1.1rem 1.35rem;
   border: 1px solid var(--line);
-  border-radius: var(--radius-s);
+  border-radius: var(--radius-l);
   background: var(--white);
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.35;
+  box-shadow: var(--shadow-soft);
+}
+
+.credentialIcon {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-200);
+}
+
+.credential strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  line-height: 1.3;
   color: var(--navy-800);
 }
 
-.school svg {
-  flex: none;
-  color: var(--sky-700);
+.credential small {
+  font-size: var(--step-label);
+  font-weight: 600;
+  color: var(--slate-600);
 }
 
-/* ───────── Cards ───────── */
-.cards {
+/* ───────── Profile cards ───────── */
+.team {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1rem, 1.8vw, 1.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.card {
+.profile {
   display: grid;
-  grid-template-rows: auto 1fr;
-  overflow: hidden;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  align-items: start;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  padding: clamp(1rem, 1.8vw, 1.25rem);
   border: 1px solid var(--line);
   border-radius: var(--radius-l);
   background: var(--white);
   box-shadow: var(--shadow-soft);
-  transition:
-    box-shadow 0.4s var(--ease-out),
-    translate 0.4s var(--ease-out);
+  transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease;
 }
 
-.card:hover {
-  translate: 0 -6px;
+.profile:hover {
+  translate: 0 -4px;
   box-shadow: var(--shadow-lift);
 }
 
-/* Portrait band: sky light with rays rising behind the tooth-shaped frame */
-.portrait {
+.photo {
   position: relative;
-  isolation: isolate;
-  display: grid;
-  justify-items: center;
-  padding: 1.75rem 1.5rem 0;
-  background:
-    radial-gradient(70% 60% at 50% 45%, var(--white) 0%, transparent 70%),
-    linear-gradient(180deg, var(--sky-100) 0%, var(--sky-50) 100%);
 }
 
-.rays {
-  position: absolute;
-  left: 50%;
-  bottom: 22%;
-  z-index: -1;
-  width: 140%;
-  translate: -50% 0;
-  stroke: var(--sky-300);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  opacity: 0.75;
-}
-
-.tooth {
-  width: min(78%, 13rem);
-  transition: scale 0.5s var(--ease-out);
-}
-
-.card:hover .tooth {
-  scale: 1.03;
-}
-
-/* Name plate tucked under the roots, half over the white body */
-.plate {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  justify-items: center;
-  gap: 0.1rem;
-  width: min(100% - 1rem, 15rem);
-  margin-top: -1rem;
-  margin-bottom: -1.4rem;
-  padding: 0.55rem 0.9rem;
-  border: 1px solid var(--line);
+.frame {
   border-radius: var(--radius-m);
-  background: rgb(255 255 255 / 0.95);
-  box-shadow: 0 14px 26px -18px rgb(15 38 69 / 0.45);
-  text-align: center;
+  background: var(--sky-50);
 }
 
-.plateName {
-  font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  line-height: 1.3;
+.frame img {
+  transition: scale 0.8s var(--ease-out);
+}
+
+/* Hover zoom on every homepage photo (user, 15 Oct 2026) */
+.profile:hover .frame img {
+  scale: 1.06;
+}
+
+/* Degree tag on the portrait's lower edge */
+.degree {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-xs);
+  background: var(--white);
+  font-size: var(--step-label);
+  font-weight: 800;
+  letter-spacing: 0.08em;
   color: var(--navy-800);
-}
-
-.plateRole {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--sky-700);
+  box-shadow: var(--shadow-soft);
 }
 
 .body {
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
   align-content: start;
+  justify-items: start;
   gap: 0.85rem;
-  padding: 2.4rem 1.5rem 1.6rem;
+  padding-block: 0.5rem;
 }
 
 .name {
-  font-size: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
-  line-height: 1.3;
+  font-size: clamp(1.35rem, 1.2rem + 0.5vw, 1.625rem);
+  line-height: 1.2;
 }
 
 .focus {
@@ -163,96 +150,120 @@
   padding: 0.3rem 0.6rem;
   border-radius: var(--radius-xs);
   background: var(--sky-50);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--navy-800);
+  font-size: var(--step-label);
+  font-weight: 700;
+  color: var(--sky-700);
 }
 
 .bio {
-  font-size: 0.9375rem;
+  font-size: var(--step-small);
   line-height: 1.65;
   color: var(--slate-600);
 }
 
 .more {
-  justify-self: start;
+  margin-top: 0.25rem;
 }
 
-/* Dentists joining soon: the body is one dashed "joining the team" panel that fills the
-   card, so the row stays even with no empty space */
-.soon .body {
-  grid-template-rows: 1fr;
-}
-
-.soonPanel {
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  gap: 0.75rem;
-  padding: 1.5rem 1.1rem;
+/* ───────── Joining soon: one slim strip ───────── */
+.joining {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  padding: 1.1rem 1.5rem;
   border: 1.5px dashed var(--sky-300);
-  border-radius: var(--radius-m);
-  background: var(--sky-50);
-  text-align: center;
+  border-radius: var(--radius-l);
+  background: rgb(255 255 255 / 0.7);
 }
 
-.soonIcon {
+.joiningFaces {
+  display: flex;
+  flex: none;
+}
+
+/* Round avatars (allowed) for the two dentists still to be named */
+.joiningFace {
   display: inline-grid;
   place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: var(--radius-s);
-  background: var(--navy-800);
-  color: var(--white);
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--sky-100);
+  color: var(--navy-800);
 }
 
-.soonText {
-  max-width: 24ch;
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: var(--slate-600);
+.joiningFace + .joiningFace {
+  margin-left: -0.75rem;
 }
 
-.soonTitle {
+.joiningCopy {
+  flex: 1 1 18rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.joiningTitle {
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 700;
-  line-height: 1.35;
   color: var(--navy-800);
+}
+
+.joiningText {
+  font-size: var(--step-small);
+  color: var(--slate-600);
 }
 
 /* ───────── Responsive ───────── */
 @media (max-width: 1199px) {
-  .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .profile {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .tooth {
-    width: min(62%, 13rem);
+  .frame {
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .credential {
+    justify-self: start;
   }
 }
 
 @media (max-width: 767px) {
-  .body {
-    padding-inline: 1.25rem;
+  .team {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
-@media (max-width: 575px) {
-  .cards {
-    grid-template-columns: minmax(0, 1fr);
+@media (max-width: 480px) {
+  .credential {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .tooth {
-    width: min(58%, 12rem);
+  .joining {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* In a column the 18rem basis would become a height */
+  .joiningCopy {
+    flex: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card,
-  .tooth {
+  .profile,
+  .frame img {
     transition: none;
   }
-
 }

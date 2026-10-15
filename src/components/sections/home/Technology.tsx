@@ -6,7 +6,7 @@ import { TechViewfinder } from "./TechViewfinder";
 import styles from "./Technology.module.css";
 
 /**
- * The page's one deep-navy band: a microscope viewfinder with the six technologies as a
+ * The page's one deep-navy band: a camera viewfinder with the five technologies as a
  * list beside it (focus pull on each change, auto-advance), then the
  * materials note and Candice C.'s crown review under the lead-in "What that looks like
  * in practice:" (plain text, no Review markup, quote verbatim including typos).

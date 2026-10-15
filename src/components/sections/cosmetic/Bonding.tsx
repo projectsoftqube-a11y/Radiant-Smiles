@@ -161,7 +161,7 @@ export function OneAppointment() {
           </ol>
         </div>
         <p className={styles.scope} data-reveal>
-          <Icon name="microscope" size={22} />
+          <Icon name="brush" size={22} />
           <span>{bdProcess.after}</span>
         </p>
       </div>

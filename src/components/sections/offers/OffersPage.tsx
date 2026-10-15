@@ -4,6 +4,7 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 import SiteLink from "@/components/ui/SiteLink";
 import {
   offersDiscounts,
+  offersEmergency,
   offersNewPatient,
   offersNoInsurance,
   offersStrip,
@@ -14,13 +15,14 @@ import styles from "./OffersPage.module.css";
 
 /**
  * Special Offers sections (order and heading levels follow 02 Content.md). Designs used
- * on this page only: the offer board, the $89 visit card, the savings rows (a bar shows
+ * on this page only: the offer board, the $99 visit card, the savings rows (a bar shows
  * the discount against the regular price), the no-insurance options and the terms slip.
  * Prices exactly as written; no expiry dates, countdowns or "limited time" labels.
  */
 
 const stripIcons: Record<string, IconName> = {
   "new-patient": "toothClean",
+  emergency: "firstAid",
   implants: "implant",
   invisalign: "aligner",
   whitening: "whiten",
@@ -28,13 +30,17 @@ const stripIcons: Record<string, IconName> = {
 
 /**
  * Hero visual: the offer summary strip as a board of tiles (plain text, handoff). The
- * $89 visit is the large navy tile; each tile jumps to its offer below.
+ * $99 visit is the large navy tile; each tile jumps to its offer below.
  */
 export function OfferBoard() {
   return (
     <ul role="list" className={styles.board}>
       {offersStrip.map((item, i) => (
-        <li key={item.target} className={i === 0 ? `${styles.boardItem} ${styles.boardMain}` : styles.boardItem} style={{ "--i": i } as CSSProperties}>
+        <li
+          key={item.target}
+          className={[styles.boardItem, i === 0 ? styles.boardMain : null, item.target === "emergency" ? styles.boardEmergency : null].filter(Boolean).join(" ")}
+          style={{ "--i": i } as CSSProperties}
+        >
           <a href={`#${item.target}`} className={styles.boardLink}>
             <span className={styles.boardIcon} aria-hidden="true">
               <Icon name={stripIcons[item.target]} size={22} />
@@ -56,11 +62,11 @@ export function OfferBoard() {
   );
 }
 
-/** Icons for the three parts of the $89 visit, in content order */
+/** Icons for the three parts of the $99 visit, in content order */
 const includeIcons: IconName[] = ["toothClean", "xray", "search"];
 
 /**
- * $89 new patient special: the copy on the left; on the right a navy visit card with the
+ * $99 new patient special: the copy on the left; on the right a navy visit card with the
  * price, what's included (the real list) and the call button. The review closes the copy.
  */
 export function NewPatientSpecial() {
@@ -136,6 +142,75 @@ export function NewPatientSpecial() {
             <strong>{offer.quote.author}</strong>, {offer.quote.date}
           </figcaption>
         </figure>
+      </div>
+    </section>
+  );
+}
+
+/** Icons for the three parts of the $80 emergency visit (site.ts order) */
+const emergencyIcons: IconName[] = ["search", "xray", "clipboard"];
+
+/**
+ * $80 Emergency Visit: a red emergency slip (emergency reads red on this site): the price
+ * on a red band, the three parts of the visit as a checklist, and the call button.
+ */
+export function EmergencyVisit() {
+  const offer = offersEmergency;
+  return (
+    <section id={offer.id} className={styles.emergency} aria-labelledby="offers-emergency-title">
+      <div className={`container ${styles.emergencyGrid}`}>
+        <div className={styles.emergencyCopy}>
+          <p className="label" data-reveal>
+            Emergencies
+          </p>
+          <h2 id="offers-emergency-title" data-reveal>
+            {offer.title}
+          </h2>
+          <p className={styles.emergencySub} data-reveal>
+            {offer.subtitle}
+          </p>
+          <p className="lead" data-reveal>
+            {offer.text}
+          </p>
+          <div data-reveal>
+            <SiteLink href={offer.link.href} className="text-link">
+              {offer.link.label} <Icon name="arrow" size={16} />
+            </SiteLink>
+          </div>
+        </div>
+
+        <div className={styles.erSlip} data-reveal>
+          <div className={styles.erSlipTop}>
+            <span className={styles.erSlipAlert} aria-hidden="true">
+              <Icon name="firstAid" size={24} />
+            </span>
+            <span className={styles.erSlipLabel} aria-hidden="true">
+              Emergency visit
+            </span>
+            <span className={styles.erSlipPrice} aria-hidden="true">
+              $<span data-count={offers.emergency.price}>{offers.emergency.price}</span>
+            </span>
+          </div>
+          <ul role="list" className={styles.erSlipList}>
+            {offers.emergency.includes.map((item, i) => (
+              <li key={item}>
+                <span className={styles.erSlipIcon} aria-hidden="true">
+                  <Icon name={emergencyIcons[i]} size={20} />
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <Button
+            href={practice.phone.href}
+            icon="phone"
+            track="offer_click,emergency_call_click"
+            trackData={{ offer: "emergency" }}
+            className={`${styles.longCta} ${styles.erSlipButton}`}
+          >
+            {offer.button}
+          </Button>
+        </div>
       </div>
     </section>
   );

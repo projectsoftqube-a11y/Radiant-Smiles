@@ -51,10 +51,37 @@
 }
 
 .bar {
+  position: relative;
   background: rgb(255 255 255 / 0.96);
   backdrop-filter: saturate(1.4) blur(10px);
-  box-shadow: 0 1px 0 var(--line);
   transition: box-shadow 0.3s ease;
+}
+
+/* The bar's bottom line, with a break where the hanging logo crosses it (user, 15 Oct 2026:
+   no line through the logo). The break runs from the container's left edge (where the logo
+   starts) to the logo's width, with a little air either side. Once scrolled, the logo sits
+   inside the bar and the header shadow's full line takes over. */
+.bar::after {
+  --logo-gap-start: calc((100% - var(--container)) / 2 - 0.75rem);
+  --logo-gap-end: calc((100% - var(--container)) / 2 + var(--logo-h) * var(--logo-ratio) + 0.75rem);
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--line) var(--logo-gap-start),
+    transparent var(--logo-gap-start) var(--logo-gap-end),
+    var(--line) var(--logo-gap-end)
+  );
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.scrolled .bar::after {
+  opacity: 0;
 }
 
 .barInner {
@@ -64,6 +91,8 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  /* Room for the logo, which sits outside the flow (it hangs below the bar) */
+  padding-left: calc(var(--logo-h) * var(--logo-ratio) + 1rem);
   transition: height 0.35s var(--ease-out);
 }
 
@@ -75,11 +104,30 @@
   box-shadow: var(--shadow-header);
 }
 
-/* The sticky header keeps its full height (user: the logo must not shrink). The logo
-   is sized from the bar height with clear padding above and below it. */
+/* The logo (client feedback, 15 Oct 2026, second round): at the top of the page it is large
+   and sits near the top of the white bar, its lower part hanging over the page below, with
+   no tab behind it. Once the page scrolls (.scrolled) it tucks into the bar, so it never
+   covers sticky rails or side panels. Sizes live in tokens.css (--logo-*). */
+.logo {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: var(--logo-top);
+  transition: top 0.35s var(--ease-out);
+}
+
 .logo img {
   width: auto;
-  height: calc(var(--bar-h) - 1.5rem);
+  height: var(--logo-h);
+  transition: height 0.35s var(--ease-out);
+}
+
+.scrolled .logo {
+  top: calc((var(--bar-h) - var(--logo-h-tucked)) / 2);
+}
+
+.scrolled .logo img {
+  height: var(--logo-h-tucked);
 }
 
 .nav {
@@ -143,6 +191,8 @@
   visibility: hidden;
   translate: 0 6px;
   transition: opacity 0.2s ease, translate 0.25s var(--ease-out), visibility 0.2s;
+  /* Menus open over the hanging logo */
+  z-index: 3;
 }
 
 /* Hover bridge so the pointer can travel from the link into the panel */
@@ -211,6 +261,15 @@
 .hasMenu:hover > .mega,
 .hasMenu:focus-within > .mega {
   translate: -50% 0;
+}
+
+/* A link in a menu was clicked: the menu closes straight away (it would otherwise stay
+   open under the pointer), until the pointer leaves the item or focus comes back to it */
+.navList > li.menuClosed > .dropdown {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: none;
 }
 
 .megaGrid {
@@ -340,19 +399,32 @@
   display: none;
 }
 
+@media (max-width: 1599px) {
+  .navList {
+    gap: 0.1rem;
+  }
+
+  .navLink {
+    padding-inline: 0.55rem;
+  }
+}
+
 @media (max-width: 1439px) {
   .phone {
     display: none;
   }
 }
 
+/* 1200–1279: the slimmest links, so the bigger logo, the menu and the CTA share the bar */
+@media (max-width: 1279px) {
+  .navLink {
+    padding-inline: 0.42rem;
+  }
+}
+
 @media (max-width: 1199px) {
   .nav {
     display: none;
-  }
-
-  .logo img {
-    height: calc(var(--bar-h) - 1.15rem);
   }
 
   /* The menu is hidden: the logo stays left, everything else goes right */
@@ -407,9 +479,14 @@
 
 }
 
-@media (max-width: 389px) {
+@media (max-width: 575px) {
   .menuButton span {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .menuButton {

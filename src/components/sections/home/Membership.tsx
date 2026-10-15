@@ -86,6 +86,12 @@ export function Membership() {
                   ))}
                 </tbody>
               </table>
+              {/* The plan's terms, as fine print on the receipt */}
+              <ul role="list" className={styles.terms}>
+                {homeMembership.terms.map((term) => (
+                  <li key={term}>{term}</li>
+                ))}
+              </ul>
               <span className={styles.barcode} aria-hidden="true" />
             </div>
           </div>

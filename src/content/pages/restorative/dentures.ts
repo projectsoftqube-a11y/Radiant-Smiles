@@ -142,7 +142,7 @@ export const deCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may cover part of the cost of dentures, though many plans limit how often they pay for a new set. We accept many PPO plans, including Delta Dental, Dentegra, GEHA and Physicians Mutual; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "join the in-office membership plan for $150 a year and save 15% on dentures and all other treatment." },
+    { lead: "No insurance:", text: "join the in-office membership plan for $150 a year and save 20% on dentures and all other treatment." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) can split the cost into monthly payments, with no interest on qualifying purchases of $200 or more paid in full within 6 months (subject to credit approval).",
@@ -277,7 +277,7 @@ export const paFit = {
 export const paCost: CostBlock = {
   title: "Partial Denture Cost in Yardley",
   paragraphs: [
-    "The cost of a partial depends on how many teeth it replaces and whether it's metal-and-acrylic or all-acrylic. Your dentist will give you the cost before treatment. Many PPO plans are accepted, the $150-a-year membership plan takes 15% off treatment, and [CareCredit](/patient-information/carecredit/) financing is available.",
+    "The cost of a partial depends on how many teeth it replaces and whether it's metal-and-acrylic or all-acrylic. Your dentist will give you the cost before treatment. Many PPO plans are accepted, the $150-a-year membership plan takes 20% off treatment, and [CareCredit](/patient-information/carecredit/) financing is available.",
   ],
 };
 
@@ -386,7 +386,7 @@ export const idLong = {
 export const idCost: CostBlock = {
   title: "Immediate Denture Cost",
   paragraphs: [
-    "The cost depends on how many teeth are removed, the type of denture and the follow-up relines you'll need. You'll get the full cost, including extractions and relines, before treatment starts. Your PPO plan may cover part of the cost. Without insurance, the $150-a-year membership plan saves 15% on treatment, and [CareCredit](/patient-information/carecredit/) financing can spread the payments.",
+    "The cost depends on how many teeth are removed, the type of denture and the follow-up relines you'll need. You'll get the full cost, including extractions and relines, before treatment starts. Your PPO plan may cover part of the cost. Without insurance, the $150-a-year membership plan saves 20% on treatment, and [CareCredit](/patient-information/carecredit/) financing can spread the payments.",
   ],
 };
 
@@ -652,7 +652,7 @@ export const rlRepair = {
 export const rlCost: CostBlock = {
   title: "Reline & Repair Costs",
   paragraphs: [
-    "The cost depends on whether you need a hard, soft or temporary reline, a rebase or a repair, and how much work the denture needs. You'll get the cost before the work starts. Relines and repairs may be partly covered by your PPO plan; members of the $150-a-year plan get 15% off, and [CareCredit](/patient-information/carecredit/) is accepted.",
+    "The cost depends on whether you need a hard, soft or temporary reline, a rebase or a repair, and how much work the denture needs. You'll get the cost before the work starts. Relines and repairs may be partly covered by your PPO plan; members of the $150-a-year plan get 20% off, and [CareCredit](/patient-information/carecredit/) is accepted.",
   ],
 };
 

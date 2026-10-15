@@ -4,7 +4,8 @@ import { homeOffers } from "@/content/pages/home";
 import styles from "./Offers.module.css";
 
 /**
- * The offers table, laid out as four tear-off tickets: price and offer on a tinted stub,
+ * The offers table, laid out as tear-off tickets (the two visits wide on top, the three
+ * savings below): price and offer on a tinted stub,
  * a dashed tear line, what's included below, and a zigzag bottom edge (user request). Explicit ARIA table roles keep it a real table for
  * screen readers even though CSS lays the rows out as cards.
  * Prices exactly as written; no expiry dates, countdowns or "limited time" labels (handoff).
@@ -41,7 +42,14 @@ export function Offers() {
           </thead>
           <tbody role="rowgroup" className={styles.body}>
             {homeOffers.rows.map((row, i) => (
-              <tr key={row.offer} role="row" className={i === 0 ? `${styles.ticket} ${styles.featured}` : styles.ticket} data-reveal>
+              <tr
+                key={row.offer}
+                role="row"
+                className={[styles.ticket, i === 0 ? styles.featured : null, "tone" in row && row.tone === "emergency" ? styles.emergency : null]
+                  .filter(Boolean)
+                  .join(" ")}
+                data-reveal
+              >
                 <th scope="row" role="rowheader" className={styles.stub}>
                   <span className={styles.figure} aria-hidden="true">
                     {row.figure}

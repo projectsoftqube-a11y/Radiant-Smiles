@@ -154,7 +154,7 @@ export const bhalalaPage: DoctorPage = {
     title: "Approach to Patient Care",
     paragraphs: [
       "Dr. Bhalala aims for a calm, open conversation at every visit. You can ask questions, hear your options in plain words and take time to decide.",
-      "At Radiant Smiles @ Floral Vale, restorations are made with the help of high-power dental microscopes, similar to the one an eye doctor uses, for a precise fit and finish. If you feel nervous about treatment, tell him before you start. You're welcome to bring headphones and music, and you can ask about sedation options.",
+      "At Radiant Smiles @ Floral Vale, restorations are made with careful attention to fit and finish. If you feel nervous about treatment, tell him before you start. You're welcome to bring headphones and music, and you can ask about sedation options.",
     ],
     links: [{ label: "Our technology", href: "/patient-information/care-and-comfort/advanced-technology/" }],
   },
@@ -178,7 +178,7 @@ export const bhalalaPage: DoctorPage = {
       {
         question: "Can I book an appointment with Dr. Bhalala as a new patient?",
         answer:
-          "Yes. Radiant Smiles @ Floral Vale welcomes new patients. Call (215) 860-4600 and ask for Dr. Bhalala, or request an appointment online. If you don't have dental insurance, your first visit costs $89 and includes a cleaning, X-rays and an exam.",
+          "Yes. Radiant Smiles @ Floral Vale welcomes new patients. Call (215) 860-4600 and ask for Dr. Bhalala, or request an appointment online. If you don't have dental insurance, your first visit costs $99 and includes a cleaning, X-rays and an exam.",
       },
     ],
   },

@@ -4,7 +4,7 @@ import familyImg from "@/assets/images/home-family-child-checkup.jpg";
 import whiteningAfterImg from "@/assets/images/gallery-whitening-after.jpg";
 import whiteningBeforeImg from "@/assets/images/gallery-whitening-before.jpg";
 import familyPillImg from "@/assets/images/home-family-pill-patient.jpg";
-import heroImg from "@/assets/images/home-hero-patient-mirror.jpg";
+import heroImg from "@/assets/images/home-hero-family.jpg";
 import npHeroImg from "@/assets/images/new-patients-hero-welcome.jpg";
 import cosmeticImg from "@/assets/images/home-services-cosmetic-smile.jpg";
 import implantsImg from "@/assets/images/home-service-implants.jpg";
@@ -17,7 +17,6 @@ import techCbctImg from "@/assets/images/home-tech-cbct.jpg";
 import techScanImg from "@/assets/images/home-tech-digital-scan.jpg";
 import techCameraImg from "@/assets/images/home-tech-intraoral-camera.jpg";
 import techLaserImg from "@/assets/images/home-tech-laser.jpg";
-import techMicroscopeImg from "@/assets/images/home-tech-microscope.jpg";
 import techXrayImg from "@/assets/images/home-tech-xray.jpg";
 
 /**
@@ -63,12 +62,18 @@ const pexels = (id: string, url: string, author: string) => ({
 });
 
 export const images = {
+  // Client feedback, 15 Oct 2026: the hero photo is the image the user supplied ("Team image.jpg").
+  // It shows a family, not the practice's team or patients, so it's never captioned as either.
   homeHero: {
     src: heroImg,
-    alt: "Smiling woman in a dental chair checking her teeth in a hand mirror",
-    brief: "Hero: happy patient in the chair",
-    position: "62% 40%",
-    source: pexels("6627574", "https://www.pexels.com/photo/smiling-woman-in-dentist-chair-looking-in-mirror-6627574/", "Karola G"),
+    alt: "Smiling three-generation family sitting together on a sofa in a bright living room",
+    brief: "Hero: a happy family at home",
+    position: "70% 40%",
+    source: {
+      provider: "practice",
+      licence: "Supplied by the user for the site (Downloads/Team image 1.jpg, 1206×804, 15 Oct 2026; replaces Team image.jpg); origin and licence on file with the agency",
+      downloaded: "2026-10-15",
+    },
   },
   npHero: {
     src: npHeroImg,
@@ -142,13 +147,6 @@ export const images = {
     brief: "Cosmetic dentistry",
     position: "40% 45%",
     source: pexels("3762400", "https://www.pexels.com/photo/smiling-woman-with-eyes-closed-3762400/", "Shiny Diamond"),
-  },
-  techMicroscope: {
-    src: techMicroscopeImg,
-    alt: "Dentist looking through a dental microscope during treatment",
-    brief: "Dental microscope",
-    position: "50% 35%",
-    source: pexels("3845748", "https://www.pexels.com/photo/dental-clinic-3845748/", "Anna Shvets"),
   },
   techCbct: {
     src: techCbctImg,

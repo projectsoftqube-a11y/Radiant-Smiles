@@ -11,7 +11,7 @@ export const aboutMeta: PageMeta = {
   path: "/about-us/",
   title: "About Radiant Smiles @ Floral Vale | Yardley, PA Dentist",
   description:
-    "About Radiant Smiles @ Floral Vale in Yardley, PA: two Temple-trained dentists, dental microscopes, Saturday hours and clear pricing before treatment.",
+    "About Radiant Smiles @ Floral Vale in Yardley, PA: two Temple-trained dentists, 3D imaging, Saturday hours and clear pricing before treatment.",
 };
 
 export const aboutHero: PageHeroContent = {
@@ -99,7 +99,7 @@ export const aboutStaff = {
 export const aboutTechnology = {
   title: "Technology We Use",
   paragraphs: [
-    "Our dentists work with high-power dental microscopes, similar to the one an eye doctor uses, which help them create restorations with a precise fit and finish. A close fit matters because gaps around a crown or filling can trap bacteria.",
+    "Our dentists plan treatment with 3D cone beam CT, iTero digital scans and digital X-rays, and check the fit and finish of every crown and filling. A close fit matters because gaps around a crown or filling can trap bacteria.",
     "The office also uses cone beam CT for 3D images, an iTero scanner for digital impressions and digital X-rays. Tooth-colored, metal-free options are available for crowns, bridges and fillings.",
   ],
   link: { label: "See our advanced technology", href: "/patient-information/care-and-comfort/advanced-technology/" },
@@ -113,7 +113,7 @@ export const aboutVisit = {
 
 export const aboutCta: ClosingCta = {
   title: "Book Your First Visit at Radiant Smiles",
-  text: "Call (215) 860-4600 or request an appointment online. No dental insurance? Your first visit, with a cleaning, X-rays and an exam, is $89.",
+  text: "Call (215) 860-4600 or request an appointment online. No dental insurance? Your first visit, with a cleaning, X-rays and an exam, is $99.",
 };
 
 export const aboutCrumbs = [

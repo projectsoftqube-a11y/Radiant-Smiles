@@ -115,13 +115,6 @@ const paths = {
       <path d="M6 8c1.8 1.3 4 1.9 6 1.9s4.2-.6 6-1.9" />
     </>
   ),
-  /* Dental microscope */
-  microscope: (
-    <>
-      <path d="m10.4 3 3.6 1.9-3.4 6.6-3.6-1.8Z" />
-      <path d="m8.4 11.3-1 2M5 20.5h13M15.2 20.5a6 6 0 0 0-2.7-10.6M9 17h5" />
-    </>
-  ),
   clipboard: (
     <>
       <rect x="5" y="4.5" width="14" height="16.5" rx="2" />

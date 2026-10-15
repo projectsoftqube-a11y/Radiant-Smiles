@@ -4,7 +4,7 @@ import {
   DentureCare,
   ExtractPair,
   GumPath,
-  Magnification,
+  FitCheck,
   RepairScale,
   ReplaceOptions,
   SaveBand,
@@ -77,7 +77,7 @@ export default function RestorativeDentistryPage() {
       <ExtractPair />
       <GumPath />
       <Which />
-      <Magnification />
+      <FitCheck />
       <DentistDuo />
       <Cost id="rd-cost-title" cost={rdCost} />
       <FaqAccordion id="rd-faq-title" faqs={rdFaqs} track="rd" />

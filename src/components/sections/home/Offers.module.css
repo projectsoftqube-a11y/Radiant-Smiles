@@ -37,9 +37,18 @@
 /* The drop shadow sits on the group, so it follows each ticket's zigzag edge */
 .body {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Six tracks: the two visits ($99, $80) take three each on top, the three savings two each */
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1.5rem;
   filter: drop-shadow(0 16px 22px rgb(15 38 69 / 0.1)) drop-shadow(0 2px 3px rgb(15 38 69 / 0.06));
+}
+
+.ticket {
+  grid-column: span 2;
+}
+
+.ticket:nth-child(-n + 2) {
+  grid-column: span 3;
 }
 
 /* Ticket: stub on top, dashed tear line, details below, zigzag bottom edge */
@@ -147,6 +156,24 @@
   font-weight: 500;
 }
 
+/* The $80 emergency visit reads red (emergency colours, as on the emergency pages) */
+.emergency .stub {
+  background: linear-gradient(160deg, #fde8e6, #fff4f2);
+}
+
+.emergency .stub::after {
+  border-bottom-color: #f0a9a2;
+}
+
+.emergency .figure,
+.emergency .offer {
+  color: #8f1d17;
+}
+
+.emergency .figure small {
+  color: #b42318;
+}
+
 .foot {
   display: flex;
   flex-wrap: wrap;
@@ -166,9 +193,18 @@
   font-weight: 600;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 767px) {
   .body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ticket,
+  .ticket:nth-child(-n + 2) {
+    grid-column: auto;
+  }
+
+  .ticket:last-child {
+    grid-column: 1 / -1;
   }
 }
 
@@ -181,6 +217,10 @@
 @media (max-width: 575px) {
   .body {
     grid-template-columns: 1fr;
+  }
+
+  .ticket:last-child {
+    grid-column: auto;
   }
 
   .stub {

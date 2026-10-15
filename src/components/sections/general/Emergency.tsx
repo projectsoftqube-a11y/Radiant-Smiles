@@ -279,12 +279,12 @@ export function EmergencyPay() {
         <div className={styles.exam} aria-hidden="true" data-reveal>
           <span className={styles.examKicker}>Membership plan members only</span>
           <span className={styles.examPrice}>
-            $<span data-count={membershipPlan.emergencyExam}>{membershipPlan.emergencyExam}</span>
+            $<span data-count={membershipPlan.emergencyVisit}>{membershipPlan.emergencyVisit}</span>
           </span>
-          <span className={styles.examNote}>Emergency exam with an X-ray, per visit</span>
+          <span className={styles.examNote}>Emergency visit, per visit</span>
           <span className={styles.examRule} />
           <span className={styles.examPlus}>
-            <Icon name="card" size={16} /> Plan members: 15% off emergency treatment
+            <Icon name="card" size={16} /> Plan members: {membershipPlan.otherServicesDiscountPercent}% off other treatment
           </span>
         </div>
       </div>

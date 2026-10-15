@@ -26,7 +26,7 @@ export const veHero: PageHeroContent = {
   intro:
     "Chipped front tooth, stains that won't whiten, or teeth that look too small or uneven? Porcelain veneers are thin shells of ceramic bonded to the front of your teeth to change their color, shape or size. At Radiant Smiles @ Floral Vale, Dr. Jaspreet Gadria and Dr. Urvishkumar Bhalala design and place porcelain veneers in Yardley, PA.",
   more: [
-    "The shade, length and shape of each veneer are matched to your other teeth, and the fit and finish are checked under a high-power dental microscope. Each case is designed individually, starting with a consultation about what you'd like to change.",
+    "The shade, length and shape of each veneer are matched to your other teeth, and the fit and finish are checked before they're bonded in place. Each case is designed individually, starting with a consultation about what you'd like to change.",
   ],
   buttons: [veneerConsult, "call"],
 };
@@ -125,9 +125,9 @@ export const veSteps = {
       text: "A thin layer of enamel is removed from the front of each tooth so the veneer sits naturally, and we take precise records of your teeth for the dental lab.",
     },
     {
-      icon: "microscope",
+      icon: "check",
       lead: "Placement.",
-      text: "Once your veneers are ready, we check the fit and color, then bond them permanently to your teeth with advanced bonding materials. The margins are checked and finished under the microscope.",
+      text: "Once your veneers are ready, we check the fit and color, then bond them permanently to your teeth with advanced bonding materials. The margins are checked and finished before you leave.",
     },
   ],
   after: "You'll know how many visits your plan involves before you start.",
@@ -155,7 +155,7 @@ export const veCost: CostBlock = {
       lead: "Financing:",
       text: "CareCredit lets you pay for veneers over time, with no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [CareCredit financing](/patient-information/carecredit/)",
     },
-    { lead: "Membership plan:", text: "members pay $150 a year and get 15% off dental treatment." },
+    { lead: "Membership plan:", text: "members pay $150 a year and get 20% off dental treatment." },
   ],
 };
 
@@ -177,7 +177,7 @@ export const veFaqs: FaqBlock = {
     {
       question: "How much are porcelain veneers?",
       answer:
-        "The price of porcelain veneers depends on how many teeth are treated and what each tooth needs, so it's set after an exam. At Radiant Smiles @ Floral Vale you get the cost of your plan before treatment starts, and CareCredit financing and our membership plan, with 15% off dental treatment, can help spread or reduce the cost.",
+        "The price of porcelain veneers depends on how many teeth are treated and what each tooth needs, so it's set after an exam. At Radiant Smiles @ Floral Vale you get the cost of your plan before treatment starts, and CareCredit financing and our membership plan, with 20% off dental treatment, can help spread or reduce the cost.",
     },
     {
       question: "How long do porcelain veneers last?",
@@ -329,7 +329,7 @@ export const twCost: CostBlock = {
     },
     {
       lead: "Other offers:",
-      text: "see our current [special offers](/special-offers/), including the $89 new-patient visit for uninsured patients.",
+      text: "see our current [special offers](/special-offers/), including the $99 new-patient visit for uninsured patients.",
     },
   ],
   after: ["Thinking about more than whitening? See all our [cosmetic dentistry treatments](/cosmetic-dentistry/)."],
@@ -433,7 +433,7 @@ export const bdProcess = {
     },
   ],
   after:
-    "Our dentists use a high-power dental microscope to check the fit and finish of restorations, which helps the edges of the bonding blend in and stay easy to clean.",
+    "Our dentists shape and polish the edges of the bonding so it blends in and stays easy to clean.",
 };
 
 export const bdVersus = {
@@ -482,7 +482,7 @@ export const bdCost: CostBlock = {
       lead: "Financing:",
       text: "CareCredit offers no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval.",
     },
-    { lead: "Membership plan:", text: "$150 a year, including 15% off dental treatment." },
+    { lead: "Membership plan:", text: "$150 a year, including 20% off dental treatment." },
   ],
 };
 
@@ -609,7 +609,7 @@ export const ioVisits = {
     },
   ],
   after:
-    "Our dentists use a high-power dental microscope to check the fit and finish of restorations, so the edges seal closely against your tooth.",
+    "The fit and bite are checked before your inlay or onlay is bonded, so the edges seal closely against your tooth.",
 };
 
 export const ioLast = {

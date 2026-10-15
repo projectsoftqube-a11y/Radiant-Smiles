@@ -84,7 +84,7 @@ export const pmCost: CostBlock = {
   items: [
     {
       lead: "Membership plan:",
-      text: "$150 a year covers 2 cleanings, exams and X-rays. Additional cleanings or periodontal maintenance visits are $75 each, and members get 15% off dental treatment.",
+      text: "$150 a year covers 2 cleanings, exams and X-rays. Additional cleanings or periodontal maintenance visits are $75 each, and members get 20% off other dental treatment.",
     },
     {
       lead: "Insurance:",

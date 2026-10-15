@@ -23,7 +23,7 @@ export const pcHero: PageHeroContent = {
 };
 
 export const pcHeroPoints: Point[] = [
-  { lead: "No insurance?", text: "Your first visit (cleaning, X-rays and exam) is $89." },
+  { lead: "No insurance?", text: "Your first visit (cleaning, X-rays and exam) is $99." },
   { lead: "Insured?", text: "We accept many PPO plans. Call to check yours." },
   { lead: "Busy week?", text: "We're open Saturday mornings." },
 ];
@@ -194,12 +194,12 @@ export const pcCost = {
     {
       icon: "tag",
       lead: "No insurance:",
-      text: "the $89 new patient visit includes a cleaning, X-rays and an exam. [Special offers](/special-offers/)",
+      text: "the $99 new patient visit includes a cleaning, X-rays and an exam. [Special offers](/special-offers/)",
     },
     {
       icon: "card",
       lead: "Membership plan:",
-      text: "$150 a year covers 2 cleanings, exams and X-rays, plus 15% off dental treatment. Each additional family member is $75.",
+      text: "$150 a year covers 2 cleanings, exams and X-rays, plus 20% off other dental treatment. Each additional family member is $100.",
     },
     {
       icon: "banknote",
@@ -231,7 +231,7 @@ export const pcFaqs: FaqBlock = {
     {
       question: "What if I don't have dental insurance?",
       answer:
-        "You have two options. New patients without insurance can have a cleaning, X-rays and an exam for $89. Our in-office membership plan is $150 a year and covers 2 cleanings, exams and X-rays, plus 15% off dental treatment. CareCredit financing is also available.",
+        "You have two options. New patients without insurance can have a cleaning, X-rays and an exam for $99. Our in-office membership plan is $150 a year and covers 2 cleanings, exams and X-rays, plus 20% off other dental treatment. CareCredit financing is also available.",
     },
   ],
 };

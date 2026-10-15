@@ -74,7 +74,7 @@ export const famRestorative = {
     { icon: "smile", text: "Full, partial and immediate dentures, plus relines and repairs" },
   ],
   after:
-    "The office uses high-power dental microscopes, similar to the kind an eye doctor uses, for a precise fit and finish on fillings and crowns. [Restorative dentistry](/restorative-dentistry/)",
+    "Fillings and crowns are made with careful attention to fit and finish, with 3D imaging and digital scans when a case needs them. [Restorative dentistry](/restorative-dentistry/)",
 };
 
 export const famCosmetic = {
@@ -116,9 +116,9 @@ export const famPay = {
     },
     {
       lead: "Membership plan:",
-      text: "$150 a year for the first person and $75 for each additional family member. It covers 2 cleanings, exams and X-rays a year, plus 15% off dental treatment.",
+      text: "$150 a year for the first person and $100 for each additional family member. It covers 2 cleanings, exams and X-rays a year, plus 20% off other dental treatment.",
     },
-    { lead: "New patients without insurance:", text: "a cleaning, X-rays and exam for $89. [Special offers](/special-offers/)" },
+    { lead: "New patients without insurance:", text: "a cleaning, X-rays and exam for $99. [Special offers](/special-offers/)" },
     { lead: "Financing:", text: "CareCredit, subject to credit approval." },
   ] satisfies Point[],
 };
@@ -129,7 +129,7 @@ export const famFaqs: FaqBlock = {
     {
       question: "Are you accepting new patients?",
       answer:
-        "Yes, new patients are welcome at Radiant Smiles @ Floral Vale in Yardley, PA. Request an appointment online or call (215) 860-4600. New patients without insurance can have a cleaning, X-rays and an exam for $89, and we accept many PPO insurance plans.",
+        "Yes, new patients are welcome at Radiant Smiles @ Floral Vale in Yardley, PA. Request an appointment online or call (215) 860-4600. New patients without insurance can have a cleaning, X-rays and an exam for $99, and we accept many PPO insurance plans.",
     },
     {
       question: "What is the difference between a family dentist and a general dentist?",
@@ -144,7 +144,7 @@ export const famFaqs: FaqBlock = {
     {
       question: "Do you have a dental plan for families without insurance?",
       answer:
-        "Yes. Our in-office membership plan is $150 a year for the first person and $75 for each additional family member. Each member gets 2 cleanings, exams and X-rays a year, plus 15% off dental treatment, with no insurance company involved.",
+        "Yes. Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. Each member gets 2 cleanings, exams and X-rays a year, plus 20% off other dental treatment, with no insurance company involved.",
     },
     {
       question: "Are you open on Saturdays?",

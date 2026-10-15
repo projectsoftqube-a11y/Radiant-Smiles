@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FocusEvent, type MouseEvent } from "react";
 import { Logo } from "@/components/layout/Logo";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { Button } from "@/components/ui/Button";
@@ -14,6 +14,8 @@ import styles from "./SiteHeader.module.css";
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // The desktop menu (by label) closed by a link click; it reopens once the pointer leaves it
+  const [closedMenu, setClosedMenu] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -29,6 +31,20 @@ export function SiteHeader() {
     setLastPath(pathname);
     setMenuOpen(false);
   }
+
+  // Menus open on hover and focus (CSS). After a link is clicked the pointer is still over the
+  // menu, so close it at once and drop focus from the link; leaving or refocusing reopens it.
+  const onMenuClick = (label: string) => (event: MouseEvent<HTMLLIElement>) => {
+    const link = (event.target as Element).closest("a");
+    if (!link) return;
+    setClosedMenu(label);
+    link.blur();
+  };
+  const onMenuLeave = (label: string) => () => setClosedMenu((current) => (current === label ? null : current));
+  const onMenuFocus = (label: string) => (event: FocusEvent<HTMLLIElement>) => {
+    // Focus arriving from outside the item (keyboard) reopens it
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) onMenuLeave(label)();
+  };
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
@@ -62,7 +78,18 @@ export function SiteHeader() {
               {mainNav.map((item) => (
                 <li
                   key={item.label}
-                  className={[item.children || item.mega ? styles.hasMenu : null, item.mega ? styles.megaItem : null].filter(Boolean).join(" ") || undefined}
+                  className={
+                    [
+                      item.children || item.mega ? styles.hasMenu : null,
+                      item.mega ? styles.megaItem : null,
+                      closedMenu === item.label ? styles.menuClosed : null,
+                    ]
+                      .filter(Boolean)
+                      .join(" ") || undefined
+                  }
+                  onClick={item.children || item.mega ? onMenuClick(item.label) : undefined}
+                  onMouseLeave={item.children || item.mega ? onMenuLeave(item.label) : undefined}
+                  onFocus={item.children || item.mega ? onMenuFocus(item.label) : undefined}
                 >
                   <SiteLink href={item.href} className={styles.navLink}>
                     {item.label}

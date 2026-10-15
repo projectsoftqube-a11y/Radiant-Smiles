@@ -5,12 +5,13 @@
  * paragraphs, FAQ answers and the meta description keep "and".
  * Inline markup: **bold** and [label](/path), rendered by <Rich>.
  */
+import { membershipRows, membershipTerms } from "./shared";
 
 export const homeMeta = {
   path: "/",
   title: "Dentist in Yardley, PA | Radiant Smiles @ Floral Vale",
   description:
-    "Dentist in Yardley, PA, open Saturdays, with same-day emergency slots and an $89 new-patient visit for uninsured patients. Call (215) 860-4600.",
+    "Dentist in Yardley, PA, open Saturdays, with same-day emergency slots and a $99 new-patient visit for uninsured patients. Call (215) 860-4600.",
   ogDescription:
     "Family, cosmetic and restorative dentistry in Yardley, PA, open Saturdays, with same-day emergency slots. Call (215) 860-4600.",
 };
@@ -22,16 +23,21 @@ export const homeHero = {
   // had "…Family, Cosmetic & Restorative Care"; the title tag and meta are unchanged.
   h1: "Dentist in Yardley, PA for Family, Cosmetic & Implant Dentistry",
   intro:
-    "Radiant Smiles @ Floral Vale is a family dentist in Yardley, PA, where two Temple-trained dentists use dental microscopes and 3D imaging so repairs fit right, and explain what they found, and what it costs, before anything starts. Open Saturdays 8 am to 2 pm. Same-day emergency slots every business day. No insurance? Your first visit is $89.",
+    "Radiant Smiles @ Floral Vale is a family dentist in Yardley, PA, where two Temple-trained dentists use 3D imaging and digital scans so repairs fit right, and explain what they found, and what it costs, before anything starts. Open Saturdays 8 am to 2 pm. Same-day emergency slots every business day. No insurance? Your first visit is $99.",
   callLabel: "Call (215) 860-4600",
   appointment: { label: "Request an Appointment", href: "/patient-information/scheduling/" },
   newPatient: { label: "New patient? Here's what to expect", href: "/patient-information/new-patients/" },
+  /**
+   * The five upper teeth under the hero: five services, each linking to its page (client
+   * feedback, 15 Oct 2026; they were the quick facts: address, Saturday hours, same-day
+   * emergencies, the new-patient visit and insurance, all still in the hero copy above).
+   */
   facts: [
-    { icon: "pin", text: "117 Floral Vale Boulevard, Yardley, PA 19067" },
-    { icon: "calendarCheck", text: "Open Saturdays, 8 am – 2 pm" },
-    { icon: "firstAid", text: "Same-day emergency slots held every business day" },
-    { icon: "badgeDollar", text: "$89 new-patient visit for uninsured patients" },
-    { icon: "shield", text: "Many PPO plans accepted, plus CareCredit" },
+    { icon: "aligner", text: "Invisalign", href: "/cosmetic-dentistry/invisalign/" },
+    { icon: "implant", text: "Dental Implants", href: "/restorative-dentistry/dental-implants/" },
+    { icon: "whiten", text: "Teeth Whitening", href: "/cosmetic-dentistry/teeth-whitening/" },
+    { icon: "veneer", text: "Porcelain Veneers", href: "/cosmetic-dentistry/dental-veneers-dentistry/" },
+    { icon: "firstAid", text: "Emergency Care", href: "/emergency-dentistry/" },
   ],
 } as const;
 
@@ -55,15 +61,23 @@ export const homeHours = {
 export const homeOffers = {
   title: "New Patient Special & Current Offers",
   intro:
-    "New patients without insurance can start with an $89 visit that includes a cleaning, X-rays and an exam. These are the offers on our specials page right now:",
+    "New patients without insurance can start with a $99 visit that includes a cleaning, X-rays and an exam, and an emergency visit is $80. These are the offers on our specials page right now:",
   columns: ["Offer", "What's included"],
   rows: [
-    { offer: "$89 New Patient Visit", figure: "$89", unit: "visit", detail: "Cleaning, X-rays and exam, for uninsured patients" },
+    { offer: "$99 New Patient Visit", figure: "$99", unit: "visit", detail: "Cleaning, X-rays and exam, for uninsured patients" },
+    // Added with the final rate card (client, 15 Oct 2026)
+    {
+      offer: "$80 Emergency Visit",
+      figure: "$80",
+      unit: "visit",
+      detail: "Relief when you need it: a limited emergency exam, diagnostic X-rays and an immediate care plan",
+      tone: "emergency" as const,
+    },
     {
       offer: "$500 off dental implants",
       figure: "$500",
       unit: "off",
-      detail: "Implant, abutment and crown (regular price $3,500), with a free consultation and second opinion",
+      detail: "Implant, abutment and crown (regular price $4,500), with a free consultation and second opinion",
     },
     { offer: "$1,000 off Invisalign", figure: "$1,000", unit: "off", detail: "Regular price $5,800, with a free consultation and second opinion" },
     { offer: "$100 off teeth whitening", figure: "$100", unit: "off", detail: "Regular price $550" },
@@ -136,7 +150,7 @@ export const homeServices: { title: string; intro: string; groups: ServiceGroup[
       ],
       offer: {
         label: "$500 off dental implants",
-        detail: "Implant, abutment and crown (regular price $3,500), with a free consultation and second opinion",
+        detail: "Implant, abutment and crown (regular price $4,500), with a free consultation and second opinion",
         href: "/special-offers/",
       },
     },
@@ -184,16 +198,11 @@ export const homeServices: { title: string; intro: string; groups: ServiceGroup[
 export const homeMembership = {
   title: "No Insurance? Our In-Office Membership Plan",
   intro:
-    "Our membership plan covers your routine care for one yearly fee and takes 15% off your treatment. There's no insurance company involved.",
+    "Our membership plan covers your routine care for one yearly fee and takes 20% off your treatment. There's no insurance company involved.",
   columns: ["Membership plan", "Price"],
-  rows: [
-    { item: "Yearly membership, first person", price: "$150 a year" },
-    { item: "Each additional family member", price: "$75 a year" },
-    { item: "Included each year", price: "2 cleanings, exams and X-rays" },
-    { item: "Extra cleanings or periodontal maintenance", price: "$75 each" },
-    { item: "Emergency exam with X-ray", price: "$65 per visit" },
-    { item: "All other dental treatment", price: "15% off" },
-  ],
+  // Built from site.ts (final rate card, 15 Oct 2026)
+  rows: membershipRows,
+  terms: membershipTerms,
   link: { label: "Insurance & membership details", href: "/patient-information/insurance-payment-options/" },
 };
 
@@ -210,9 +219,11 @@ export const homeInsurance = {
 };
 
 export const homeDoctors = {
-  title: "Meet Dr. Bhalala & Dr. Gadria",
+  // Client feedback (15 Oct 2026): the title no longer names two dentists, since the team is
+  // growing; the intro names the current two and the two joining.
+  title: "Meet Our Dentists",
   intro:
-    "Two dentists share the care at Radiant Smiles @ Floral Vale, and both trained at Temple University's Kornberg School of Dentistry.",
+    "Dr. Bhalala and Dr. Gadria share the care at Radiant Smiles @ Floral Vale, and both trained at Temple University's Kornberg School of Dentistry. Two more dentists are joining the team soon.",
   doctors: [
     {
       key: "bhalala" as const,
@@ -242,21 +253,17 @@ export const homeDoctors = {
     { key: "new-1", label: "New dentist", status: "Joining soon" },
     { key: "new-2", label: "New dentist", status: "Joining soon" },
   ],
+  upcomingTitle: "Two more dentists are joining our team",
   upcomingText: "We'll introduce them here when they join the practice.",
   upcomingNote: "Name, degree, photo and bio to come from the practice",
 };
 
 export const homeTechnology = {
-  title: "Microscopes & 3D Imaging, So Repairs Fit Right",
+  title: "3D Imaging & Digital Scans, So Repairs Fit Right",
   intro:
-    "Better images and magnification help your dentist find problems early and make repairs that fit well. Our office uses:",
+    "Better images help your dentist find problems early and make repairs that fit well. Our office uses:",
   /** `text` continues the bold name's sentence, with its own leading ", " or " " (verbatim) */
   items: [
-    {
-      name: "Dental microscopes",
-      text: ", similar to the one an eye doctor uses, for a precise fit and finish on crowns and fillings.",
-      image: "techMicroscope" as const,
-    },
     { name: "Cone beam CT", text: " for 3D images of your teeth and jaw bone.", image: "techCbct" as const },
     {
       name: "iTero intraoral scanner",
@@ -283,7 +290,7 @@ export const homeEmergency = {
     "If you have a toothache, a cracked or broken tooth, swelling or a knocked-out tooth, call (215) 860-4600 right away. We reserve same-day emergency openings every business day, and we're open Saturday mornings. Your visit starts with a focused 30-minute exam to find the problem and begin treatment.",
   tips: [
     { lead: "Knocked-out tooth:", text: "keep it moist, ideally in milk or saliva, and call us immediately." },
-    { lead: "Membership plan members:", text: "an emergency exam with X-ray is $65." },
+    { lead: "Membership plan members:", text: "an emergency visit is $50. Not a member? Our $80 Emergency Visit includes a limited emergency exam, diagnostic X-rays and an immediate care plan." },
   ],
   safety:
     "If swelling affects your breathing or swallowing, or you have heavy bleeding after an injury, call 911 or go to the nearest emergency room.",
@@ -379,7 +386,7 @@ export const homeFaqs: { title: string; items: FaqItem[] } = {
     {
       question: "What if I don't have dental insurance?",
       answer:
-        "You have two options. New patients without insurance can book an $89 visit that includes a cleaning, X-rays and an exam. Our in-office membership plan costs $150 a year, plus $75 for each additional family member, and covers 2 cleanings, exams and X-rays, with 15% off treatment.",
+        "You have two options. New patients without insurance can book a $99 visit that includes a cleaning, X-rays and an exam. Our in-office membership plan costs $150 a year, plus $100 for each additional family member, and covers 2 cleanings, exams and X-rays, with 20% off treatment.",
     },
     {
       question: "Can I get a same-day emergency appointment?",
@@ -394,7 +401,7 @@ export const homeFaqs: { title: string; items: FaqItem[] } = {
     {
       question: "Do you offer dental implants?",
       answer:
-        "Yes. We offer single dental implants and implant-retained dentures for missing teeth. Right now there's $500 off an implant, abutment and crown (regular price $3,500), and the offer includes a free consultation and second opinion. CareCredit financing can help spread the cost.",
+        "Yes. We offer single dental implants and implant-retained dentures for missing teeth. Right now there's $500 off an implant, abutment and crown (regular price $4,500), and the offer includes a free consultation and second opinion. CareCredit financing can help spread the cost.",
     },
     {
       question: "Do you see patients from New Jersey?",

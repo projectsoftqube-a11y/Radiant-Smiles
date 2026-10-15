@@ -8,7 +8,7 @@ import styles from "./Crowns.module.css";
  * Dental Crowns sections (order and heading levels follow 02 Content.md). No same-day crowns
  * (handoff). Designs used on this page only: the crown seating onto its tooth, the reason
  * tiles, the two material cross-sections, the visit board with the lab between, the
- * microscope margin band with the review and the care checklist.
+ * close-up margin band with the review and the care checklist.
  */
 
 /** Hero visual: a crown lowering onto a prepared tooth, its edge sealing (decorative) */
@@ -202,17 +202,17 @@ export function VisitBoard() {
   );
 }
 
-/** Precise fit: the page's navy band, a magnified margin and the review */
+/** Precise fit: the page's navy band, a close-up of the margin and the review */
 export function FitBand() {
   return (
     <section className={styles.fit} aria-labelledby="cr-fit-title">
       <div className={`container ${styles.fitGrid}`}>
         <div className={styles.lens} aria-hidden="true" data-inview data-reveal>
           <span className={styles.lensLabel}>
-            <Icon name="microscope" size={16} /> Under the microscope
+            <Icon name="search" size={16} /> Close-up of the margin
           </span>
           <svg viewBox="0 0 240 200" className={styles.lensArt}>
-            {/* Magnified: the crown's edge meeting the tooth at the gumline */}
+            {/* Close-up: the crown's edge meeting the tooth at the gumline */}
             <path d="M0 0h240v200H0Z" fill="transparent" />
             <path d="M60 0c-6 50-10 96-12 128h144c-2-32-6-78-12-128Z" fill="#f5f1ea" />
             <path d="M40 0c-6 52-12 100-16 138 30 10 62 14 96 14s66-4 96-14c-4-38-10-86-16-138" fill="#ffffff" stroke="#a9daf3" strokeWidth="3" />

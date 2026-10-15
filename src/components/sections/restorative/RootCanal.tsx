@@ -167,7 +167,7 @@ export function TwoAppointments() {
               <Rich text={rcSteps.second} />
             </p>
             <p className={styles.apptNote} data-reveal>
-              <Icon name="microscope" size={20} />
+              <Icon name="xray" size={20} />
               <span>{rcSteps.after}</span>
             </p>
           </div>

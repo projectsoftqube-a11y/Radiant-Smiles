@@ -11,7 +11,7 @@ export const whyMeta: PageMeta = {
   path: "/patient-information/why-choose-us/",
   title: "Why Choose Our Yardley Dentists | Radiant Smiles",
   description:
-    "Two Temple-trained Yardley dentists, dental microscopes, Saturday hours and clear prices before treatment. See why patients choose Radiant Smiles.",
+    "Two Temple-trained Yardley dentists, 3D imaging, Saturday hours and clear prices before treatment. See why patients choose Radiant Smiles.",
 };
 
 export const whyCrumbs = piCrumbs("Why Choose Us", whyMeta.path);
@@ -19,7 +19,7 @@ export const whyCrumbs = piCrumbs("Why Choose Us", whyMeta.path);
 export const whyHero: PageHeroContent = {
   h1: "Why Patients Choose Our Yardley Dentists",
   intro:
-    "Patients choose Radiant Smiles @ Floral Vale for personalized, gentle and comprehensive care from two Temple-trained Yardley dentists. You get precise work under dental microscopes, Saturday appointments, and a clear price before any treatment begins.",
+    "Patients choose Radiant Smiles @ Floral Vale for personalized, gentle and comprehensive care from two Temple-trained Yardley dentists. You get precise work planned with 3D imaging, Saturday appointments, and a clear price before any treatment begins.",
   buttons: ["appointment", "call"],
 };
 
@@ -49,7 +49,7 @@ export const whyDentists = {
 
 export const whyPrecision = {
   title: "Precision You Can See",
-  text: "Our Yardley dentists work under high-power dental microscopes, similar to the one an ophthalmologist uses, for a precise fit and finish on fillings, crowns and other restorations. Treatment planning draws on 3D cone beam CT scans, iTero digital impressions and digital X-rays.",
+  text: "Our Yardley dentists check the fit and finish of fillings, crowns and other restorations closely, and treatment planning draws on 3D cone beam CT scans, iTero digital impressions and digital X-rays.",
   quoteIntro: "Precision also means not settling. One patient wrote about her new front crowns:",
   quote: {
     text: "They did my crowns for my front to teeth. Look amazing. The dentist was unhappy with the labs first ones so sent them back. Made sure they were perfect",
@@ -77,7 +77,7 @@ export const whyPrices = {
     {
       icon: "badgeDollar",
       lead: "No insurance:",
-      text: "an $89 New Patient Visit Special, then a $150-a-year membership plan with 15% off treatment.",
+      text: "a $99 New Patient Visit Special, then a $150-a-year membership plan with 20% off treatment.",
     },
     { icon: "card", lead: "Financing:", text: "CareCredit, subject to credit approval." },
   ],
@@ -108,7 +108,7 @@ export const whyFaqs: FaqBlock = {
     {
       question: "What makes Radiant Smiles @ Floral Vale different from other Yardley dentists?",
       answer:
-        "Radiant Smiles @ Floral Vale combines two Temple-trained dentists, dental microscopes for precise restorations and Saturday hours in one Yardley office. Prices are explained before any treatment, and patients without insurance can use an $89 new patient visit and a $150 yearly membership plan.",
+        "Radiant Smiles @ Floral Vale combines two Temple-trained dentists, 3D imaging for precise restorations and Saturday hours in one Yardley office. Prices are explained before any treatment, and patients without insurance can use a $99 new patient visit and a $150 yearly membership plan.",
     },
     {
       question: "Who are the dentists at Radiant Smiles @ Floral Vale?",

@@ -57,7 +57,7 @@ export function SameDayCard() {
   );
 }
 
-/** Quick repairs: the microscope band and four repair tiles */
+/** Quick repairs: the fit-and-finish band and four repair tiles */
 export function RepairBench() {
   const icons: Record<string, IconName> = { filling: "drop", crown: "shield", root: "toothClean", implant: "implant" };
   return (
@@ -73,7 +73,7 @@ export function RepairBench() {
             </h2>
           </div>
           <p className={styles.scope} data-reveal>
-            <Icon name="microscope" size={22} />
+            <Icon name="check" size={22} />
             <span>{moRepairs.intro}</span>
           </p>
         </div>

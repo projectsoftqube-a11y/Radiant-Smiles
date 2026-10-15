@@ -1,4 +1,4 @@
-import { practice } from "@/content/site";
+import { membershipPlan, practice } from "@/content/site";
 import type { LinkItem } from "./home";
 
 /** The two calls to action every Core page repeats (labels verbatim from the content files). */
@@ -44,3 +44,37 @@ export type ClosingCta = {
 export const napCtaLine = `${practice.name}, ${practice.address.street}, ${practice.address.city}, ${practice.address.region} ${practice.address.postalCode} · [${practice.phone.display}](${practice.phone.href})`;
 
 export type FaqBlock = { title: string; items: { question: string; answer: string }[] };
+
+/**
+ * The five fields both forms ask, Contact Us and Scheduling (the user's request, 15 Oct 2026).
+ * The service choices live in lib/appointment-validation.ts (shared with the server check).
+ */
+export const formFields = {
+  name: "Full Name",
+  phone: "Phone Number",
+  email: "Email Address",
+  service: "Services",
+  servicePlaceholder: "Choose a service",
+  message: "Message",
+  messagePlaceholder: "Anything we should know, such as the days and times that suit you",
+};
+
+const usd = (n: number) => `$${n.toLocaleString("en-US")}`;
+
+/**
+ * The in-office membership plan as table rows, built from site.ts (final rate card, client
+ * 15 Oct 2026), so every table on the site shows the same prices.
+ */
+export const membershipRows: { item: string; price: string }[] = [
+  { item: "Yearly membership, first person", price: `${usd(membershipPlan.yearly)} a year` },
+  { item: "Each additional family member", price: `${usd(membershipPlan.additionalMember)} a year` },
+  { item: `${membershipPlan.includedCleanings} cleanings, exams & X-rays a year`, price: "Included" },
+  { item: "Extra cleaning, exam & X-rays", price: `${usd(membershipPlan.extraCleaning)} per visit` },
+  { item: "Periodontal maintenance", price: `${usd(membershipPlan.perioMaintenance)} per visit` },
+  { item: "Emergency visit", price: `${usd(membershipPlan.emergencyVisit)} per visit` },
+  { item: "Any other dental services", price: `${membershipPlan.otherServicesDiscountPercent}% off` },
+];
+
+/** The plan's terms (client's rate card), shown wherever the full plan is listed */
+export const membershipTerms: readonly string[] = membershipPlan.terms;
+

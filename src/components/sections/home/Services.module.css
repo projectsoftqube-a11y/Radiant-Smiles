@@ -73,6 +73,7 @@
 /* Round photo thumb (round avatars and chips are allowed) */
 .thumb {
   position: relative;
+  isolation: isolate;
   width: 3.5rem;
   height: 3.5rem;
   overflow: hidden;
@@ -118,37 +119,6 @@
 .tabActive .tabArrow {
   color: var(--sky-300);
   transform: translateX(3px);
-}
-
-/* Scroll-driven: the active tab's bottom line fills as its share of the scroll passes */
-.tabProgress {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0.45rem;
-  height: 2px;
-  border-radius: var(--radius-pill);
-  background: rgb(255 255 255 / 0.16);
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.tabProgress::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--sky-500);
-  transform: scaleX(var(--tab-progress, 0));
-  transform-origin: left center;
-}
-
-[data-scroll-driven] .tabActive .tabProgress {
-  opacity: 1;
-}
-
-[data-scroll-driven] .tab {
-  transition: border-color var(--dur-ui) ease, background-color 0.45s ease, box-shadow 0.45s ease;
 }
 
 /* Panels: stacked in one grid cell; only the active one shows (≥992px) */
@@ -353,5 +323,21 @@
 
   .panelMedia {
     height: 10rem;
+  }
+}
+
+/* Hover zoom on every homepage photo (user, 15 Oct 2026): a slow push-in, only with a
+   mouse and when motion is allowed */
+.thumb img {
+  transition: scale 0.8s var(--ease-out);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .tab:hover .thumb img {
+    scale: 1.15;
+  }
+
+  .panel .panelMedia:hover img {
+    scale: 1.06;
   }
 }

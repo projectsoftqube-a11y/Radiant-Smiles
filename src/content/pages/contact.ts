@@ -26,18 +26,12 @@ export const contactRequest = {
   urgent: "In pain or have a broken tooth? Don't wait for a reply. Call us, and ask for a same-day emergency appointment.",
 };
 
-/** Appointment form wording (content file, "[Form] Request an appointment") */
+/**
+ * Appointment form wording (content file, "[Form] Request an appointment"); its fields are
+ * the shared five (formFields, shared.ts)
+ */
 export const appointmentForm = {
   heading: "Tell us when suits you and we'll contact you to confirm",
-  fields: {
-    name: "Name",
-    phone: "Phone",
-    email: "Email",
-    patient: "New or existing patient",
-    times: "Preferred days and times",
-    message: "Message",
-  },
-  patientOptions: ["New patient", "Existing patient"],
   messageNote: "Please don't include medical details.",
   privacy: "See our [Privacy Policy](/patient-information/terms/privacy/).",
   button: "Request an Appointment",
@@ -75,7 +69,7 @@ export const contactParking = {
 
 export const contactFirstVisit = {
   title: "Before Your First Visit",
-  text: "New patients can save time by reading what to expect at a first visit. If you don't have insurance, ask about the $89 new patient visit, which includes a cleaning, X-rays and an exam.",
+  text: "New patients can save time by reading what to expect at a first visit. If you don't have insurance, ask about the $99 new patient visit, which includes a cleaning, X-rays and an exam.",
   links: [
     { label: "New patient information", href: "/patient-information/new-patients/" },
     { label: "Current special offers", href: "/special-offers/" },

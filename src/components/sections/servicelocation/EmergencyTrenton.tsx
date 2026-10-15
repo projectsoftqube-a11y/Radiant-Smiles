@@ -8,7 +8,7 @@ import styles from "./EmergencyTrenton.module.css";
 /**
  * Emergency Dentist, Trenton NJ sections (order and heading levels follow 02 Content.md).
  * Call-first: the safety note stays visible and unchanged; no 24/7, Sunday or walk-in wording;
- * the $65 exam keeps its members-only qualifier (handoff). Designs used on this page only:
+ * the $50 member emergency visit keeps its members-only qualifier (handoff). Designs used on this page only:
  * the call → drive → exam relay, the hero safety note, the open-slot planner, the triage
  * badges, and the phone-to-plan timeline.
  */

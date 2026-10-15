@@ -1,56 +1,61 @@
 import { Icon } from "@/components/ui/Icon";
-import { Rays } from "@/components/ui/Rays";
+import { MediaFrame } from "@/components/ui/MediaFrame";
 import SiteLink from "@/components/ui/SiteLink";
 import { ToConfirm } from "@/components/ui/ToConfirm";
-import { ToothFrame } from "@/components/ui/ToothFrame";
 import { images } from "@/content/images";
 import { homeDoctors } from "@/content/pages/home";
 import { dentists } from "@/content/site";
 import styles from "./Doctors.module.css";
 
 /**
- * "Your dentists" (redesigned for the client's feedback, 14 Oct 2026: a better presentation
- * and two more dentists coming). A centred header over one card per dentist: the portrait in
- * the site's tooth-shaped frame on a sky band with light rays, a name plate, focus chips, the
- * bio and its link, so each bio sits with its photo. The two dentists who are joining show as
- * "joining soon" cards (placeholder portrait and a "to confirm" note) until the practice sends
- * their details. Dr. Bhalala's portrait is a placeholder until his headshot arrives.
+ * "Meet Our Dentists" (redesign 5, client feedback 15 Oct 2026: no photos inside tooth frames,
+ * and a title that doesn't name only two dentists). A split header (title and intro beside
+ * the Temple credential), then one profile card per dentist: the portrait in a plain rounded
+ * frame beside the name, focus chips, bio and bio link. The two dentists who are joining show
+ * as one slim strip below until the practice sends their details. Dr. Bhalala's portrait is
+ * a placeholder until his headshot arrives.
  */
 export function Doctors() {
   return (
     <section className={styles.section} aria-labelledby="home-doctors-title">
       <div className="container">
         <header className={styles.head}>
-          <p className="label" data-reveal>
-            Your dentists
-          </p>
-          <h2 id="home-doctors-title" data-reveal>
-            {homeDoctors.title}
-          </h2>
-          <p className="lead" data-reveal>
-            {homeDoctors.intro}
-          </p>
-          <p className={styles.school} data-reveal aria-hidden="true">
-            <Icon name="graduation" size={22} />
-            <span>{dentists.gadria.school}</span>
+          <div className={styles.headCopy}>
+            <p className="label" data-reveal>
+              Your dentists
+            </p>
+            <h2 id="home-doctors-title" data-reveal>
+              {homeDoctors.title}
+            </h2>
+            <p className="lead" data-reveal>
+              {homeDoctors.intro}
+            </p>
+          </div>
+          <p className={styles.credential} data-reveal aria-hidden="true">
+            <span className={styles.credentialIcon}>
+              <Icon name="graduation" size={26} />
+            </span>
+            <span>
+              <strong>{dentists.gadria.school}</strong>
+              <small>Where both our dentists trained</small>
+            </span>
           </p>
         </header>
 
-        <ul role="list" className={styles.cards}>
+        <ul role="list" className={styles.team}>
           {homeDoctors.doctors.map((doctor) => (
-            <li key={doctor.key} className={styles.card} data-reveal>
-              <div className={styles.portrait}>
-                <Rays className={styles.rays} count={15} spread={150} inner={0.4} scroll />
-                <ToothFrame
-                  id={`rs-doctor-tooth-${doctor.key}`}
+            <li key={doctor.key} className={styles.profile} data-reveal>
+              <div className={styles.photo}>
+                <MediaFrame
                   image={images[doctor.image]}
-                  sizes="(max-width: 575px) 60vw, (max-width: 1199px) 30vw, 16vw"
-                  className={styles.tooth}
+                  ratio="4 / 5"
+                  sizes="(max-width: 767px) 90vw, (max-width: 1199px) 45vw, 280px"
+                  position="50% 22%"
+                  className={styles.frame}
                 />
-                <p className={styles.plate} aria-hidden="true">
-                  <span className={styles.plateName}>{doctor.name.replace(/, DMD$/, "")}</span>
-                  <span className={styles.plateRole}>DMD</span>
-                </p>
+                <span className={styles.degree} aria-hidden="true">
+                  DMD
+                </span>
               </div>
               <div className={styles.body}>
                 <h3 className={styles.name}>{doctor.name}</h3>
@@ -66,36 +71,23 @@ export function Doctors() {
               </div>
             </li>
           ))}
-
-          {homeDoctors.upcoming.map((slot) => (
-            <li key={slot.key} className={`${styles.card} ${styles.soon}`} data-reveal>
-              <div className={styles.portrait}>
-                <ToothFrame
-                  id={`rs-doctor-tooth-${slot.key}`}
-                  image={images.doctorPlaceholder}
-                  sizes="(max-width: 575px) 60vw, (max-width: 1199px) 30vw, 16vw"
-                  className={styles.tooth}
-                />
-                <p className={styles.plate} aria-hidden="true">
-                  <span className={styles.plateName}>{slot.label}</span>
-                  <span className={styles.plateRole}>{slot.status}</span>
-                </p>
-              </div>
-              <div className={styles.body}>
-                <div className={styles.soonPanel}>
-                  <span className={styles.soonIcon} aria-hidden="true">
-                    <Icon name="users" size={24} />
-                  </span>
-                  <p className={styles.soonTitle}>
-                    {slot.label}, {slot.status.toLowerCase()}
-                  </p>
-                  <p className={styles.soonText}>{homeDoctors.upcomingText}</p>
-                  <ToConfirm note={homeDoctors.upcomingNote} />
-                </div>
-              </div>
-            </li>
-          ))}
         </ul>
+
+        {/* The two dentists joining soon: one slim strip until their details arrive */}
+        <div className={styles.joining} data-reveal>
+          <span className={styles.joiningFaces} aria-hidden="true">
+            {homeDoctors.upcoming.map((slot) => (
+              <span key={slot.key} className={styles.joiningFace}>
+                <Icon name="user" size={22} />
+              </span>
+            ))}
+          </span>
+          <div className={styles.joiningCopy}>
+            <p className={styles.joiningTitle}>{homeDoctors.upcomingTitle}</p>
+            <p className={styles.joiningText}>{homeDoctors.upcomingText}</p>
+          </div>
+          <ToConfirm note={homeDoctors.upcomingNote} />
+        </div>
       </div>
     </section>
   );

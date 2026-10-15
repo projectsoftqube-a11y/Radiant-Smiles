@@ -88,6 +88,19 @@
   --header-h: 5.75rem;
   --topbar-h: 2.5rem;
 
+  /* Header logo (client feedback, 15 Oct 2026, second round: "like this screenshot"): at the
+     top of the page the logo is large and sits near the top of the white bar, its lower part
+     hanging over the page below (no tab behind it). Once the page scrolls it tucks into the
+     bar at --logo-h-tucked. logo.svg is 253 × 89. */
+  --logo-ratio: 2.843;
+  --logo-h: 6.9rem;
+  --logo-top: 0.8rem;
+  --logo-h-tucked: calc(var(--header-h) - 1.5rem);
+  /* How far the logo hangs below the bar */
+  --logo-overhang: calc(var(--logo-top) + var(--logo-h) - var(--header-h));
+  /* First sections keep at least this much room at the top, so nothing sits under the logo */
+  --logo-clear: calc(var(--logo-overhang) + 1.25rem);
+
   /* Shape: crisp corners on cards, arches on photos (the tooth crown in the logo) */
   --radius-xs: 4px;
   --radius-s: 8px;
@@ -107,10 +120,34 @@
   --dur-hero: 1200ms;
 }
 
+@media (max-width: 1599px) {
+  :root {
+    --logo-h: 6.4rem;
+    --logo-top: 1rem;
+  }
+}
+
+@media (max-width: 1439px) {
+  :root {
+    --logo-h: 6rem;
+    --logo-top: 1.15rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --logo-h: 5.6rem;
+    --logo-top: 1.25rem;
+  }
+}
+
 @media (max-width: 1199px) {
   :root {
     --header-h: 4.75rem;
     --space-section: 80px;
+    --logo-h: 5.5rem;
+    --logo-top: 0.75rem;
+    --logo-h-tucked: calc(var(--header-h) - 1.15rem);
   }
 }
 
@@ -118,5 +155,22 @@
   :root {
     --space-section: 60px;
     --topbar-h: 2.25rem;
+    --logo-h: 5rem;
+    --logo-top: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  :root {
+    --logo-h: 4.6rem;
+    --logo-top: 1.25rem;
+  }
+}
+
+@media (max-width: 389px) {
+  :root {
+    --logo-h: 3.75rem;
+    --logo-top: 1.5rem;
+    --logo-h-tucked: 3.3rem;
   }
 }

@@ -1,5 +1,5 @@
 .section {
-  padding-block: clamp(4rem, 10vw, 8rem);
+  padding-block: max(clamp(4rem, 10vw, 8rem), var(--logo-clear)) clamp(4rem, 10vw, 8rem);
   background: linear-gradient(180deg, var(--white), var(--sky-50));
 }
 

@@ -8,7 +8,7 @@ import styles from "./Implants.module.css";
 
 /**
  * Dental Implants sections (order and heading levels follow 02 Content.md). The offer always
- * reads "$500 off the regular $3,500", never a net price (handoff). Designs used on this page
+ * reads "$500 off the regular $4,500", never a net price (handoff). Designs used on this page
  * only: the exploded implant, the offer callout, the root-and-crown panel, the candidate
  * check with the second-opinion card, the healing timeline, the 3D scan panel, the option
  * cards with implant counts, the offer price card, the three-way table, the aftercare list
@@ -206,7 +206,7 @@ export function HealingTimeline() {
   );
 }
 
-/** 3D imaging and microscopes: a CBCT slice panel beside the copy and the patient line */
+/** 3D imaging: a CBCT slice panel beside the copy and the patient line */
 export function Imaging() {
   return (
     <section className={styles.imaging} aria-labelledby="im-imaging-title">

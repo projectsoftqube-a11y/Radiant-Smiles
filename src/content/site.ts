@@ -58,20 +58,47 @@ export const hours: DayHours[] = [
 
 export const paymentMethods = ["Cash", "Check", "Visa", "MasterCard", "Discover", "American Express", "CareCredit"] as const;
 
-/** Offers as published on the current specials page (no expiry or fine print published). */
+/**
+ * Offers: the practice's final rates (client, 15 Oct 2026). No expiry or fine print published.
+ * Copy that quotes a price must match these figures.
+ */
 export const offers = {
-  newPatient: { name: "$89 New Patient Visit", price: 89 },
-  implants: { name: "$500 off dental implants", discount: 500, regular: 3500 },
+  /** For new patients without dental insurance: cleaning, X-rays and exam */
+  newPatient: { name: "$99 New Patient Visit", price: 99 },
+  /** Emergency promotion: a focused exam and the X-rays needed to diagnose the problem */
+  emergency: {
+    name: "$80 Emergency Visit",
+    price: 80,
+    includes: ["Limited emergency exam", "Diagnostic X-rays", "Immediate care plan"],
+  },
+  implants: { name: "$500 off dental implants", discount: 500, regular: 4500 },
   invisalign: { name: "$1,000 off Invisalign", discount: 1000, regular: 5800 },
   whitening: { name: "$100 off teeth whitening", discount: 100, regular: 550 },
 } as const;
 
+/**
+ * In-office membership plan (final rate card, client 15 Oct 2026). The yearly fee includes
+ * 2 cleanings, exams and X-rays (confirmed by the user, 15 Oct 2026); the rate card's $75
+ * cleaning is the price of each extra one.
+ */
 export const membershipPlan = {
   yearly: 150,
-  additionalMember: 75,
+  /** Each additional family member, a year */
+  additionalMember: 100,
+  /** Cleanings (each with an exam and X-rays) included in the yearly fee */
+  includedCleanings: 2,
+  /** Each extra cleaning, exam and X-rays beyond the included two, per visit */
   extraCleaning: 75,
-  emergencyExam: 65,
-  treatmentDiscountPercent: 15,
+  perioMaintenance: 75,
+  emergencyVisit: 50,
+  /** Off any other dental services */
+  otherServicesDiscountPercent: 20,
+  terms: [
+    "Yearly enrollment fees are non-refundable.",
+    "Payments for services are due at the time of service.",
+    "This is not dental insurance and cannot be combined with dental insurance.",
+    "It is good only for Radiant Smiles @ Floral Vale, therefore it cannot be used at any other offices, including specialists.",
+  ],
 } as const;
 
 /** PPO plans listed on the current insurance page. Wording rule: "accept", never "in-network". */

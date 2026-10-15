@@ -1,4 +1,4 @@
-import { napCtaLine, type ClosingCta, type FaqBlock, type PageHeroContent, type PageMeta } from "../shared";
+import { membershipRows, membershipTerms, napCtaLine, type ClosingCta, type FaqBlock, type PageHeroContent, type PageMeta } from "../shared";
 import { piCrumbs } from "./common";
 
 /**
@@ -40,14 +40,10 @@ export const insMembership = {
   title: "No Insurance? Our In-Office Membership Plan",
   intro: "Our in-office membership plan covers routine care for one yearly fee, with savings on other treatment:",
   head: ["What you get", "Price"],
-  rows: [
-    ["Yearly membership: 2 cleanings, exams and X-rays", "$150 a year"],
-    ["Each additional family member", "$75 a year"],
-    ["Additional cleanings or periodontal maintenance", "$75 each"],
-    ["Emergency exam with X-ray", "$65 per visit"],
-    ["All other dental treatment", "15% off"],
-  ],
-  after: "New to the practice without insurance? Start with the $89 New Patient Visit Special: a cleaning, X-rays and an exam.",
+  // Built from site.ts (final rate card, 15 Oct 2026)
+  rows: membershipRows.map((row) => [row.item, row.price] as const),
+  terms: membershipTerms,
+  after: "New to the practice without insurance? Start with the $99 New Patient Visit Special: a cleaning, X-rays and an exam.",
   link: { label: "See current special offers", href: "/special-offers/" },
 };
 
@@ -73,7 +69,7 @@ export const insFaqs: FaqBlock = {
     {
       question: "Does insurance cover dental implants?",
       answer:
-        "It depends on your plan. Some PPO plans pay toward part of an implant and others don't, so we check your benefits before treatment. Our current offer takes $500 off an implant, abutment and crown (regular price $3,500), and CareCredit can spread the remaining cost.",
+        "It depends on your plan. Some PPO plans pay toward part of an implant and others don't, so we check your benefits before treatment. Our current offer takes $500 off an implant, abutment and crown (regular price $4,500), and CareCredit can spread the remaining cost.",
     },
     {
       question: "Does insurance cover crowns?",
@@ -83,7 +79,7 @@ export const insFaqs: FaqBlock = {
     {
       question: "What if I don't have dental insurance?",
       answer:
-        "You can join our in-office membership plan for $150 a year, plus $75 for each additional family member. It includes two cleanings, exams and X-rays, an emergency exam with X-ray for $65 and 15% off all other dental treatment. CareCredit financing is available too.",
+        "You can join our in-office membership plan for $150 a year, plus $100 for each additional family member. It includes two cleanings, exams and X-rays; extra cleanings and periodontal maintenance are $75 each, an emergency visit is $50, and you get 20% off all other dental treatment. CareCredit financing is available too.",
     },
     {
       question: "When is payment due?",

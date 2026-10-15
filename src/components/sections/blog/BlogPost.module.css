@@ -25,7 +25,8 @@
 
 .hero {
   position: relative;
-  padding-top: clamp(1.75rem, 3vw, 2.75rem);
+  /* At least --logo-clear, so the breadcrumb sits below the hanging logo */
+  padding-top: max(clamp(1.75rem, 3vw, 2.75rem), var(--logo-clear));
   background:
     radial-gradient(50% 60% at 50% 0%, var(--sky-100), transparent 70%),
     linear-gradient(180deg, var(--wash-50) 0, var(--wash-50) calc(100% - clamp(5rem, 13vw, 12rem)), var(--white) calc(100% - clamp(5rem, 13vw, 12rem)));

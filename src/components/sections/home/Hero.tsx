@@ -13,8 +13,8 @@ import styles from "./Hero.module.css";
  * Hero: the H1 rises word by word ("Dentist in Yardley, PA" in the heavy weight) beside an
  * open banner photo. The photo is unframed and runs to the screen's right edge, fading into
  * the blue on its left and at the bottom (client feedback, 14 Oct 2026: "keep the banner
- * photo open, with a fading effect"; it was an arched frame with rays before). The quick
- * facts below are the upper teeth set in the gum.
+ * photo open, with a fading effect"; it was an arched frame with rays before). Below, the
+ * upper teeth set in the gum are five service links (client feedback, 15 Oct 2026).
  */
 export function Hero() {
   const photo = images.homeHero;
@@ -75,10 +75,12 @@ export function Hero() {
         <ul role="list" className={`container ${styles.facts}`}>
           {homeHero.facts.map((fact) => (
             <li key={fact.text} className={styles.fact} data-tooth>
-              <span className={styles.factIcon}>
-                <Icon name={fact.icon as IconName} size={24} strokeWidth={1.7} />
-              </span>
-              <span className={styles.factText}>{fact.text}</span>
+              <SiteLink href={fact.href} className={styles.factLink} data-track="hero_service_click" data-track-service={fact.text}>
+                <span className={styles.factIcon} aria-hidden="true">
+                  <Icon name={fact.icon as IconName} size={24} strokeWidth={1.7} />
+                </span>
+                <span className={styles.factText}>{fact.text}</span>
+              </SiteLink>
             </li>
           ))}
         </ul>

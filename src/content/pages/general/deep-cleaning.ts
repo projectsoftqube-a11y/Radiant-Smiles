@@ -111,7 +111,7 @@ export const dcCost: CostBlock = {
       lead: "Insurance:",
       text: "many dental plans cover deep cleanings. Coverage depends on your plan. We accept many PPO plans. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "Membership plan:", text: "$150 a year, with 15% off dental treatment." },
+    { lead: "Membership plan:", text: "$150 a year, with 20% off dental treatment." },
     { lead: "Financing:", text: "CareCredit, subject to credit approval. [CareCredit financing](/patient-information/carecredit/)" },
   ],
 };
@@ -158,7 +158,7 @@ export const dcFaqs: FaqBlock = {
     {
       question: "How much does a deep cleaning cost?",
       answer:
-        "The cost depends on how many areas of your mouth need treatment and whether an antibiotic is placed in any pockets. You'll know the cost before treatment begins. Many dental plans cover deep cleanings, members of our in-office plan get 15% off, and CareCredit financing is available, subject to credit approval.",
+        "The cost depends on how many areas of your mouth need treatment and whether an antibiotic is placed in any pockets. You'll know the cost before treatment begins. Many dental plans cover deep cleanings, members of our in-office plan get 20% off, and CareCredit financing is available, subject to credit approval.",
     },
     {
       question: "What happens after a deep cleaning?",

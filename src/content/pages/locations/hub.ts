@@ -165,7 +165,7 @@ export const asBridges = {
 export const asCare = {
   title: "Care People Travel For",
   intro:
-    "Whatever brings you across the river, the same two dentists look after you, from check-ups to crowns. Dr. Urvishkumar Bhalala, DMD and Dr. Jaspreet Gadria, DMD both trained at Temple University's Kornberg School of Dentistry, and the office uses dental microscopes, cone beam CT and iTero digital scans.",
+    "Whatever brings you across the river, the same two dentists look after you, from check-ups to crowns. Dr. Urvishkumar Bhalala, DMD and Dr. Jaspreet Gadria, DMD both trained at Temple University's Kornberg School of Dentistry, and the office uses cone beam CT, iTero digital scans and digital X-rays.",
   items: [
     {
       icon: "firstAid",
@@ -175,7 +175,7 @@ export const asCare = {
     {
       icon: "implant",
       lead: "Replacing missing teeth:",
-      text: "$500 off a dental implant (regular $3,500 for implant, abutment and crown), with a free consultation and second opinion. [How dental implants work](/restorative-dentistry/dental-implants/) · [Dental implants for Mercer County, NJ](/dental-implants-mercer-county-nj/)",
+      text: "$500 off a dental implant (regular $4,500 for implant, abutment and crown), with a free consultation and second opinion. [How dental implants work](/restorative-dentistry/dental-implants/) · [Dental implants for Mercer County, NJ](/dental-implants-mercer-county-nj/)",
     },
     {
       icon: "aligner",
@@ -193,7 +193,7 @@ export const asCare = {
 export const asInsurance = {
   title: "Insurance & Cost for Patients From Either State",
   paragraphs: [
-    "We accept many PPO plans, including Horizon Blue Cross, Delta Dental, Aetna and Cigna PPO, whichever side of the river you live on. Coverage depends on your plan, so call us to check yours. Without insurance, the $89 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan is $150 a year. [Insurance and payment options](/patient-information/insurance-payment-options/) · [Current offers](/special-offers/)",
+    "We accept many PPO plans, including Horizon Blue Cross, Delta Dental, Aetna and Cigna PPO, whichever side of the river you live on. Coverage depends on your plan, so call us to check yours. Without insurance, the $99 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan is $150 a year. [Insurance and payment options](/patient-information/insurance-payment-options/) · [Current offers](/special-offers/)",
   ],
 };
 

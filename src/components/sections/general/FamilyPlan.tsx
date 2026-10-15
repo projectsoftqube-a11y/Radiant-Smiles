@@ -10,7 +10,7 @@ const MAX = 8;
 
 /**
  * Family membership: a small stepper that adds up the yearly plan for a household
- * ($150 for the first person, $75 for each additional family member, from site.ts).
+ * ($150 for the first person, $100 for each additional family member, from site.ts).
  * The server renders a household of four; the visitor changes the count.
  */
 export function FamilyPlan() {

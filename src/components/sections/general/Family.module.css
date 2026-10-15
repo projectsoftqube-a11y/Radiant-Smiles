@@ -462,7 +462,7 @@
   color: var(--navy-800);
 }
 
-.microscope {
+.fitNote {
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -473,12 +473,12 @@
   color: var(--slate-on-navy);
 }
 
-.microscope a {
+.fitNote a {
   font-weight: 600;
   color: var(--sky-300);
 }
 
-.microscopeIcon {
+.fitNoteIcon {
   display: inline-grid;
   flex: none;
   place-items: center;
@@ -884,7 +884,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .microscope {
+  .fitNote {
     flex-direction: column;
     align-items: flex-start;
   }

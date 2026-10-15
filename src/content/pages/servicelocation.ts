@@ -39,7 +39,7 @@ export const diHero: PageHeroContent = {
 };
 
 export const diFacts = [
-  { icon: "tag", text: "$500 off implant, abutment and crown (regular $3,500)" },
+  { icon: "tag", text: "$500 off implant, abutment and crown (regular $4,500)" },
   { icon: "chat", text: "Free consultation and second opinion" },
   { icon: "calendar", text: "Open Saturday, 8 am to 2 pm" },
   { icon: "shield", text: "Many PPO plans accepted, including Horizon Blue Cross" },
@@ -54,7 +54,7 @@ export const diWhy = {
     {
       icon: "tag",
       lead: "A fee you can see before you call.",
-      text: "Our implant offer covers all three parts of a single-tooth implant: the titanium post, the abutment that connects it and the crown on top. The regular fee is $3,500, and the current offer takes $500 off. [See all current offers](/special-offers/)",
+      text: "Our implant offer covers all three parts of a single-tooth implant: the titanium post, the abutment that connects it and the crown on top. The regular fee is $4,500, and the current offer takes $500 off. [See all current offers](/special-offers/)",
     },
     {
       icon: "chat",
@@ -67,9 +67,9 @@ export const diWhy = {
       text: "We're open Saturday from 8 am to 2 pm. That matters when an implant takes several visits and you'd rather not take time off work for each one.",
     },
     {
-      icon: "microscope",
+      icon: "layers",
       lead: "Precision tools.",
-      text: "We use high-power dental microscopes, similar to the one an ophthalmologist uses, for a precise fit and finish on the crown, plus cone beam CT for 3D images of the jaw.",
+      text: "We use cone beam CT for 3D images of the jaw and check the fit and finish of the crown closely.",
     },
   ],
   after:
@@ -95,7 +95,7 @@ export const diVisits = {
     },
     {
       lead: "Your new tooth.",
-      text: "We attach the abutment and your custom crown, checking the fit and finish under the microscope.",
+      text: "We attach the abutment and your custom crown, checking the fit and finish.",
     },
   ],
   after:
@@ -106,7 +106,7 @@ export const diVisits = {
 export const diCost: CostBlock = {
   title: "Cost, Offers & Financing",
   paragraphs: [
-    "A single implant, abutment and crown is regularly $3,500 at our office, and our current offer takes $500 off. Ask about the offer's terms when you call.",
+    "A single implant, abutment and crown is regularly $4,500 at our office, and our current offer takes $500 off. Ask about the offer's terms when you call.",
     "When you compare affordable dental implants, NJ and PA quotes don't always include the same things. Check that each one covers the implant, the abutment and the crown. Ours does. If you need other treatment first, such as an extraction, we'll explain that cost separately at your consultation.",
   ],
   items: [
@@ -163,9 +163,9 @@ export const diFaqs: FaqBlock = {
         "Yes, we accept many PPO plans, including Horizon Blue Cross, Delta Dental, Aetna, Cigna PPO, MetLife and UnitedHealthcare. Implant coverage depends on your plan, so call (215) 860-4600 with your plan details and we'll check your benefits before treatment starts. CareCredit financing is also available.",
     },
     {
-      question: "What does the $3,500 implant fee include?",
+      question: "What does the $4,500 implant fee include?",
       answer:
-        "The regular $3,500 fee covers one implant post, the abutment that connects it and the crown on top, and the current offer takes $500 off. It includes a free consultation and second opinion. If you need other treatment first, such as an extraction, we'll explain that cost separately.",
+        "The regular $4,500 fee covers one implant post, the abutment that connects it and the crown on top, and the current offer takes $500 off. It includes a free consultation and second opinion. If you need other treatment first, such as an extraction, we'll explain that cost separately.",
     },
     {
       question: "How many visits will I need, and can some be on a Saturday?",
@@ -238,9 +238,9 @@ export const etWhy = {
       text: "A tooth that breaks on Friday night doesn't have to wait until Monday. We're open Saturday from 8 am to 2 pm.",
     },
     {
-      icon: "microscope",
+      icon: "xray",
       lead: "A clear look at the tooth.",
-      text: "Digital X-rays use about one-sixth of the radiation of conventional film, and our high-power dental microscopes support precise, careful repairs.",
+      text: "Digital X-rays use about one-sixth of the radiation of conventional film, and give the dentist a clear view for precise, careful repairs.",
     },
   ],
   after:
@@ -297,7 +297,7 @@ export const etCost: CostBlock = {
       lead: "Insurance:",
       text: "we accept many PPO plans, including Horizon Blue Cross, Aetna, Delta Dental, Cigna PPO, MetLife and UnitedHealthcare. Coverage depends on your plan, so have your card ready when you call. [Insurance and payment options](/patient-information/insurance-payment-options/)",
     },
-    { lead: "Membership plan:", text: "members of our in-office plan ($150 a year) pay $65 for an emergency exam with X-ray." },
+    { lead: "Membership plan:", text: "members of our in-office plan ($150 a year) pay $50 for an emergency visit, and everyone else can book our $80 Emergency Visit: a limited emergency exam, diagnostic X-rays and an immediate care plan." },
     {
       lead: "CareCredit:",
       text: "no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [CareCredit financing](/patient-information/carecredit/)",
@@ -305,7 +305,7 @@ export const etCost: CostBlock = {
     { lead: "Payment:", text: "cash, check, Visa, MasterCard, Discover and American Express, due at the time of service." },
   ],
   after: [
-    "Once the emergency is under control, uninsured new patients can book our $89 new patient visit, which includes a cleaning, X-ray and exam. [See current offers](/special-offers/)",
+    "Once the emergency is under control, uninsured new patients can book our $99 new patient visit, which includes a cleaning, X-ray and exam. [See current offers](/special-offers/)",
   ],
 };
 

@@ -213,7 +213,7 @@ export function PerioCost() {
         <div className={styles.tag} aria-hidden="true" data-reveal>
           <span className={styles.tagKicker}>Membership plan</span>
           <span className={styles.tagPrice}>
-            $<span data-count={membershipPlan.extraCleaning}>{membershipPlan.extraCleaning}</span>
+            $<span data-count={membershipPlan.perioMaintenance}>{membershipPlan.perioMaintenance}</span>
           </span>
           <span className={styles.tagNote}>Each additional periodontal maintenance visit, for membership plan members</span>
         </div>

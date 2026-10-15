@@ -21,7 +21,7 @@ export const rdHero: PageHeroContent = {
   intro:
     "Restorative dentistry repairs damaged teeth and replaces missing ones, so you can chew, speak and smile comfortably again. As your restorative dentist in Yardley, Radiant Smiles @ Floral Vale provides fillings, crowns, root canal therapy, dental implants, bridges, dentures, extractions and gum disease treatment at 117 Floral Vale Boulevard, with Saturday hours from 8 am to 2 pm.",
   more: [
-    "Two Temple-trained dentists, Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria, plan and place your restorations here, using high-power dental microscopes for a precise fit.",
+    "Two Temple-trained dentists, Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria, plan and place your restorations here, with careful attention to a precise fit.",
   ],
   buttons: ["appointment", "call"],
 };
@@ -85,7 +85,7 @@ export const rdReplace = {
     {
       art: "implant",
       lead: "[Dental implants](/restorative-dentistry/dental-implants/):",
-      text: "a small titanium post placed in the jawbone that replaces the tooth's root and holds a crown. The office has cone beam CT (3D) imaging, which can be used to assess bone before implant treatment. Our current offer is $500 off the regular $3,500 fee for an implant, abutment and crown, with a free consultation and second opinion.",
+      text: "a small titanium post placed in the jawbone that replaces the tooth's root and holds a crown. The office has cone beam CT (3D) imaging, which can be used to assess bone before implant treatment. Our current offer is $500 off the regular $4,500 fee for an implant, abutment and crown, with a free consultation and second opinion.",
     },
     {
       art: "bridge",
@@ -160,11 +160,11 @@ export const rdWhich = {
   ],
 };
 
-export const rdMagnify = {
-  title: "Choosing a Restorative Dentist in Yardley Who Works Under Magnification",
+export const rdFitCheck = {
+  title: "Choosing a Restorative Dentist in Yardley Who Checks the Fit",
   intro:
-    "Restorations last longer when their edges fit the tooth closely, and fit depends on what the dentist can see. Radiant Smiles uses high-power dental microscopes, similar to the ones eye surgeons use, to check the fit and finish of crowns, fillings and bridges in fine detail.",
-  listIntro: "The office also uses:",
+    "Restorations last longer when their edges fit the tooth closely. Radiant Smiles plans crowns, fillings and bridges with modern imaging and checks the fit and finish of each one before it's placed.",
+  listIntro: "The office uses:",
   items: [
     { icon: "layers", lead: "Cone beam CT:", text: "3D images of the jawbone and nerves, which can be used to assess bone before implant treatment." },
     { icon: "camera", lead: "iTero intraoral scanner:", text: "digital impressions without a mouthful of impression material." },
@@ -202,7 +202,7 @@ export const rdCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "the in-office membership plan costs $150 a year ($75 for each additional family member), covers two cleanings, exams and X-rays, and takes 15% off all dental treatment.",
+      text: "the in-office membership plan costs $150 a year ($100 for each additional family member), covers two cleanings, exams and X-rays, and takes 20% off all dental treatment.",
     },
     {
       lead: "Financing:",
@@ -226,7 +226,7 @@ export const rdFaqs: FaqBlock = {
     {
       question: "Who provides restorative care at Radiant Smiles @ Floral Vale?",
       answer:
-        "Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria provide restorative dentistry at Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. Both trained at Temple University's Kornberg School of Dentistry. They use high-power dental microscopes to check the fit and finish of crowns, fillings and bridges.",
+        "Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria provide restorative dentistry at Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. Both trained at Temple University's Kornberg School of Dentistry. They check the fit and finish of every crown, filling and bridge.",
     },
     {
       question: "What are my options for replacing a missing tooth?",
@@ -236,7 +236,7 @@ export const rdFaqs: FaqBlock = {
     {
       question: "Does insurance cover restorative dentistry?",
       answer:
-        "Often in part, depending on your plan. Radiant Smiles accepts many PPO plans, including Delta Dental, Cigna PPO and MetLife, and the team can help you check your benefits before treatment. Without insurance, the $150-a-year membership plan takes 15% off all dental treatment, and CareCredit financing is available.",
+        "Often in part, depending on your plan. Radiant Smiles accepts many PPO plans, including Delta Dental, Cigna PPO and MetLife, and the team can help you check your benefits before treatment. Without insurance, the $150-a-year membership plan takes 20% off all dental treatment, and CareCredit financing is available.",
     },
     {
       question: "Can I get restorative work done on a Saturday?",

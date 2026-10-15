@@ -240,7 +240,7 @@ export function TwoVisits() {
           ))}
         </div>
         <p className={c.note} data-reveal>
-          <Icon name="microscope" size={20} />
+          <Icon name="check" size={20} />
           <span>{ioVisits.after}</span>
         </p>
       </div>

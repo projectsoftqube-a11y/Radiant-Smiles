@@ -16,7 +16,7 @@ export const trMeta: PageMeta = {
   path: "/dentist-trenton-nj/",
   title: "Dentist near Trenton, NJ | Radiant Smiles",
   description:
-    "Trenton, NJ dentist about 15 minutes over the bridge: Saturday hours, many NJ PPO plans and an $89 new patient visit if uninsured. (215) 860-4600.",
+    "Trenton, NJ dentist about 15 minutes over the bridge: Saturday hours, many NJ PPO plans and a $99 new patient visit if uninsured. (215) 860-4600.",
 };
 
 export const trCrumbs = areaCrumbs("Trenton, NJ", trMeta.path);
@@ -25,7 +25,7 @@ export const trAreas: ServedArea[] = [{ type: "City", name: "Trenton, NJ", state
 export const trHero: PageHeroContent = {
   h1: "Your Dentist near Trenton, NJ",
   intro:
-    "Radiant Smiles @ Floral Vale is about 15 minutes from Trenton, NJ, depending on traffic, just across the Delaware in Lower Makefield Township, PA. Looking for a dentist in Trenton, NJ who's open Saturdays? We're open 8 am to 2 pm, accept many PPO plans including Horizon Blue Cross and Delta Dental, and publish our prices: $89 for a first visit if you don't have insurance.",
+    "Radiant Smiles @ Floral Vale is about 15 minutes from Trenton, NJ, depending on traffic, just across the Delaware in Lower Makefield Township, PA. Looking for a dentist in Trenton, NJ who's open Saturdays? We're open 8 am to 2 pm, accept many PPO plans including Horizon Blue Cross and Delta Dental, and publish our prices: $99 for a first visit if you don't have insurance.",
   buttons: ["call", "appointment"],
 };
 
@@ -62,9 +62,10 @@ export const trCost = {
   intro: "We publish our prices for patients who pay for themselves, so you know what a visit costs before you cross the river.",
   head: ["Option", "What you pay", "What's included"],
   rows: [
-    ["New Patient Visit Special (no insurance)", "$89", "Cleaning, X-rays and exam"],
-    ["In-office membership plan", "$150 a year, $75 for each additional family member", "2 cleanings, exams and X-rays a year, plus 15% off all treatment"],
-    ["Emergency exam for members", "$65", "Emergency exam with X-ray"],
+    ["New Patient Visit Special (no insurance)", "$99", "Cleaning, X-rays and exam"],
+    ["In-office membership plan", "$150 a year, $100 for each additional family member", "2 cleanings, exams and X-rays a year, plus 20% off all treatment"],
+    ["Emergency visit for members", "$50", "Emergency visit"],
+    ["Emergency Visit (everyone)", "$80", "Limited emergency exam, diagnostic X-rays and an immediate care plan"],
   ],
   quote: { text: "Everyone was professional, welcoming, and attentive throughout my visit.", author: "Avni D., May 2026" },
   after:
@@ -91,7 +92,7 @@ export const trCare = {
     {
       icon: "implant",
       lead: "Missing teeth:",
-      text: "$500 off a dental implant (regular $3,500 for implant, abutment and crown), with a free consultation and second opinion. [Implant options](/restorative-dentistry/dental-implants/) · [Dental implants for Mercer County, NJ](/dental-implants-mercer-county-nj/)",
+      text: "$500 off a dental implant (regular $4,500 for implant, abutment and crown), with a free consultation and second opinion. [Implant options](/restorative-dentistry/dental-implants/) · [Dental implants for Mercer County, NJ](/dental-implants-mercer-county-nj/)",
     },
     {
       icon: "aligner",
@@ -101,7 +102,7 @@ export const trCare = {
     {
       icon: "tooth",
       lead: "Repairs:",
-      text: "[crowns](/restorative-dentistry/dental-crowns/) and [fillings](/restorative-dentistry/dental-fillings/) fitted under dental microscopes, and [root canal therapy](/restorative-dentistry/root-canal/).",
+      text: "[crowns](/restorative-dentistry/dental-crowns/) and [fillings](/restorative-dentistry/dental-fillings/) made for a close fit, and [root canal therapy](/restorative-dentistry/root-canal/).",
     },
   ],
 };
@@ -122,12 +123,12 @@ export const trFaqs: FaqBlock = {
     {
       question: "Do you accept NJ Medicaid or NJ FamilyCare?",
       answer:
-        "NJ Medicaid and NJ FamilyCare are not on our list of accepted plans. If you don't have private dental insurance, our $89 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan is $150 a year with 15% off treatment. Call (215) 860-4600 and we'll talk through your options.",
+        "NJ Medicaid and NJ FamilyCare are not on our list of accepted plans. If you don't have private dental insurance, our $99 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan is $150 a year with 20% off treatment. Call (215) 860-4600 and we'll talk through your options.",
     },
     {
       question: "What does a first visit cost without insurance?",
       answer:
-        "$89. The New Patient Visit Special is for patients without insurance and includes a cleaning, X-rays and an exam. Before any further treatment, the dentist explains what they found and what it would cost, so you can decide without pressure. Payment is due at the time of service.",
+        "$99. The New Patient Visit Special is for patients without insurance and includes a cleaning, X-rays and an exam. Before any further treatment, the dentist explains what they found and what it would cost, so you can decide without pressure. Payment is due at the time of service.",
     },
     {
       question: "Which languages do your dentists speak?",
@@ -238,7 +239,7 @@ export const ewWork = {
 export const ewCost: CostBlock = {
   title: "New Jersey Insurance & Payment",
   paragraphs: [
-    "We accept many PPO plans, including Aetna and Cigna PPO, and Horizon Blue Cross and Delta Dental are on our list too. Coverage depends on your plan, so call us before your visit to check. Without insurance, the $89 New Patient Visit Special covers a cleaning, X-rays and an exam. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
+    "We accept many PPO plans, including Aetna and Cigna PPO, and Horizon Blue Cross and Delta Dental are on our list too. Coverage depends on your plan, so call us before your visit to check. Without insurance, the $99 New Patient Visit Special covers a cleaning, X-rays and an exam. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
   ],
 };
 
@@ -345,7 +346,7 @@ export const hoImplants = {
     {
       key: "single",
       title: "Single dental implants",
-      text: "An implant is a small titanium post placed in the jawbone, where the bone bonds to it and holds a crown. The process starts with an exam, X-rays and a health history, and from placement to final crown usually takes six to eight months. Our offer: $500 off an implant, abutment and crown (regular $3,500). [Dental implants](/restorative-dentistry/dental-implants/)",
+      text: "An implant is a small titanium post placed in the jawbone, where the bone bonds to it and holds a crown. The process starts with an exam, X-rays and a health history, and from placement to final crown usually takes six to eight months. Our offer: $500 off an implant, abutment and crown (regular $4,500). [Dental implants](/restorative-dentistry/dental-implants/)",
     },
     {
       key: "healing",
@@ -389,7 +390,7 @@ export const hoFaqs: FaqBlock = {
     {
       question: "What does a dental implant cost here?",
       answer:
-        "A single implant, abutment and crown is regularly $3,500, and our current offer takes $500 off. The consultation and second opinion are free, so you can find out whether an implant suits you, and what your insurance may cover, before you decide. Call (215) 860-4600 to book.",
+        "A single implant, abutment and crown is regularly $4,500, and our current offer takes $500 off. The consultation and second opinion are free, so you can find out whether an implant suits you, and what your insurance may cover, before you decide. Call (215) 860-4600 to book.",
     },
     {
       question: "Can I get a second opinion on an implant plan?",
@@ -469,7 +470,7 @@ export const haPlaces = {
 
 export const haSaturday = {
   title: "A Hamilton, NJ Dentist Open on Saturdays",
-  text: "If you're comparing Hamilton, NJ dentist options, check the weekend hours first. Ours run 8 am to 2 pm on Saturday, which lets a whole household come in without anyone missing school or work. A check-up includes an exam under magnification, a cleaning and an oral cancer screening, with digital X-rays when they're due. Children can start just after their first birthday. As a family dentist for Hamilton, NJ, we also handle the bigger jobs, from crowns to root canals, and keep same-day [emergency appointments](/emergency-dentistry/) open every business day. [Family dentistry](/family-dentistry/)",
+  text: "If you're comparing Hamilton, NJ dentist options, check the weekend hours first. Ours run 8 am to 2 pm on Saturday, which lets a whole household come in without anyone missing school or work. A check-up includes a thorough exam, a cleaning and an oral cancer screening, with digital X-rays when they're due. Children can start just after their first birthday. As a family dentist for Hamilton, NJ, we also handle the bigger jobs, from crowns to root canals, and keep same-day [emergency appointments](/emergency-dentistry/) open every business day. [Family dentistry](/family-dentistry/)",
 };
 
 export const haDentures = {
@@ -498,7 +499,7 @@ export const haDentures = {
 export const haCost: CostBlock = {
   title: "Insurance & Payment for Hamilton Patients",
   paragraphs: [
-    "We accept many PPO plans, including Delta Dental and UnitedHealthcare. Coverage for dentures and relines depends on your plan, so call us to check before your appointment. Without insurance, the $89 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan ($150 a year, $75 for each additional family member) includes two cleanings a year and 15% off treatment. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
+    "We accept many PPO plans, including Delta Dental and UnitedHealthcare. Coverage for dentures and relines depends on your plan, so call us to check before your appointment. Without insurance, the $99 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan ($150 a year, $100 for each additional family member) includes two cleanings a year and 20% off treatment. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
   ],
 };
 
@@ -728,7 +729,6 @@ export const peTech = {
     },
     { icon: "xray", lead: "Digital X-rays:", text: "about one-sixth the radiation of conventional film, viewed on a computer screen." },
     { icon: "camera", lead: "Intraoral camera:", text: "close-up pictures of your teeth on a screen, so you see what the dentist sees." },
-    { icon: "microscope", lead: "Dental microscopes:", text: "a focused beam of light and high magnification for precise fillings and crowns." },
   ],
   link: { label: "Advanced technology", href: "/patient-information/care-and-comfort/advanced-technology/" },
 };
@@ -736,7 +736,7 @@ export const peTech = {
 export const peFirst: CostBlock = {
   title: "Your First Visit & What It Costs",
   paragraphs: [
-    "Your first visit is about getting to know your mouth and your goals: digital X-rays, an exam under magnification and a cleaning. Without insurance, it's $89 under our New Patient Visit Special. We accept many PPO plans, including Ameritas and Principal Life, and coverage depends on your plan, so call and we'll check yours. [New patients](/patient-information/new-patients/) · [Special offers](/special-offers/)",
+    "Your first visit is about getting to know your mouth and your goals: digital X-rays, a thorough exam and a cleaning. Without insurance, it's $99 under our New Patient Visit Special. We accept many PPO plans, including Ameritas and Principal Life, and coverage depends on your plan, so call and we'll check yours. [New patients](/patient-information/new-patients/) · [Special offers](/special-offers/)",
     "We're open Saturdays from 8 am to 2 pm, and same-day [emergency appointments](/emergency-dentistry/) are kept open on business days.",
   ],
 };
@@ -843,8 +843,8 @@ export const meFamily = {
     { icon: "toothClean", text: "[Teeth cleaning and check-ups](/preventative-care/teeth-cleaning-and-check-ups/), with an oral cancer screening at every visit" },
     { icon: "smile", text: "[Children's dentistry](/preventative-care/child-dentistry/), fluoride and sealants" },
     {
-      icon: "microscope",
-      text: "[Crowns](/restorative-dentistry/dental-crowns/) fitted and checked under dental microscopes, and [root canal therapy](/restorative-dentistry/root-canal/)",
+      icon: "shield",
+      text: "[Crowns](/restorative-dentistry/dental-crowns/) made for a close fit, and [root canal therapy](/restorative-dentistry/root-canal/)",
     },
     { icon: "users", text: "[Family dentistry](/family-dentistry/) overview" },
   ],
@@ -863,7 +863,7 @@ export const meOffers = {
       icon: "implant",
       lead: "Dental implants:",
       figure: "$500 off",
-      text: "$500 off an implant, abutment and crown (regular $3,500), with a free consultation and second opinion. [Dental implant treatment](/restorative-dentistry/dental-implants/) · [Dental implants for Mercer County, NJ](/dental-implants-mercer-county-nj/)",
+      text: "$500 off an implant, abutment and crown (regular $4,500), with a free consultation and second opinion. [Dental implant treatment](/restorative-dentistry/dental-implants/) · [Dental implants for Mercer County, NJ](/dental-implants-mercer-county-nj/)",
     },
     {
       key: "invisalign",
@@ -878,7 +878,7 @@ export const meOffers = {
 export const meCost: CostBlock = {
   title: "Insurance for New Jersey Residents",
   paragraphs: [
-    "We accept many PPO plans, including Horizon Blue Cross and Blue Cross Blue Shield, and the full list on our insurance page runs to more than 40 plans. Coverage depends on your plan, so call before your visit and we'll check. NJ Medicaid and NJ FamilyCare aren't among the plans we accept; without insurance, the $89 New Patient Visit Special and our $150-a-year membership plan are the simplest options. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
+    "We accept many PPO plans, including Horizon Blue Cross and Blue Cross Blue Shield, and the full list on our insurance page runs to more than 40 plans. Coverage depends on your plan, so call before your visit and we'll check. NJ Medicaid and NJ FamilyCare aren't among the plans we accept; without insurance, the $99 New Patient Visit Special and our $150-a-year membership plan are the simplest options. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
   ],
 };
 
@@ -903,7 +903,7 @@ export const meFaqs: FaqBlock = {
     {
       question: "Do you offer dental implants for Mercer County patients?",
       answer:
-        "Yes. A single implant, abutment and crown is regularly $3,500, and our current offer takes $500 off, with a free consultation and second opinion. Treatment usually takes six to eight months from placement to final crown, and Saturday appointments can make the trips across the river easier to fit in.",
+        "Yes. A single implant, abutment and crown is regularly $4,500, and our current offer takes $500 off, with a free consultation and second opinion. Treatment usually takes six to eight months from placement to final crown, and Saturday appointments can make the trips across the river easier to fit in.",
     },
   ],
 };
