@@ -95,7 +95,7 @@ export const ccOther = {
     {
       icon: "badgeDollar",
       lead: "In-office membership plan:",
-      text: "$150 a year for two cleanings, exams and X-rays, plus 20% off dental treatment.",
+      text: "$150 a year, with a $75 cleaning, exam and X-rays (up to two a year) and 20% off dental treatment except implants and Invisalign.",
     },
     { icon: "banknote", lead: "Pay at the visit:", text: "cash, check, Visa, MasterCard, Discover or American Express." },
   ],

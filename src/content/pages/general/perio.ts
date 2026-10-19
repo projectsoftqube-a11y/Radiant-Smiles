@@ -10,7 +10,7 @@ export const pmMeta: PageMeta = {
   path: "/preventative-care/periodontal-maintenance/",
   title: "Periodontal Maintenance in Yardley, PA | Radiant Smiles",
   description:
-    "Periodontal maintenance in Yardley, PA: gum cleanings that keep gum disease in check after a deep cleaning. Members pay $75 per additional visit.",
+    "Periodontal maintenance in Yardley, PA: gum cleanings that keep gum disease in check after a deep cleaning. Members pay $75 per visit.",
 };
 
 export const pmCrumbs = pcCrumbs("Periodontal Maintenance", pmMeta.path);
@@ -84,7 +84,7 @@ export const pmCost: CostBlock = {
   items: [
     {
       lead: "Membership plan:",
-      text: "$150 a year covers 2 cleanings, exams and X-rays. Additional cleanings or periodontal maintenance visits are $75 each, and members get 20% off other dental treatment.",
+      text: "$150 a year, then $75 for each cleaning, exam and X-rays (up to two a year) or periodontal maintenance visit, and members get 20% off other dental treatment except implants and Invisalign.",
     },
     {
       lead: "Insurance:",
@@ -123,7 +123,7 @@ export const pmFaqs: FaqBlock = {
     {
       question: "How much does periodontal maintenance cost?",
       answer:
-        "For members of the Radiant Smiles @ Floral Vale in-office membership plan, each additional periodontal maintenance visit is $75. The plan itself is $150 a year and includes 2 cleanings, exams and X-rays. With insurance, coverage depends on your plan, so call (215) 860-4600 to check.",
+        "For members of the Radiant Smiles @ Floral Vale in-office membership plan, each periodontal maintenance visit is $75. The plan itself is $150 a year, and a cleaning, exam and X-rays is also $75 for members, up to two a year. With insurance, coverage depends on your plan, so call (215) 860-4600 to check.",
     },
     {
       question: "Can I go back to regular cleanings?",

@@ -109,7 +109,7 @@ export const tcCost = {
     ["New patient without insurance", "$99 for a cleaning, X-rays and exam. [See special offers](/special-offers/)"],
     [
       "Membership plan member",
-      "$150 a year covers 2 cleanings, exams and X-rays, and extra cleanings are $75 each. Each additional family member is $100. Members also get 20% off other dental treatment.",
+      "$150 a year, then $75 for each cleaning, exam and X-rays, up to two a year (a third in the same year is $99). Each additional family member is $100. Members also get 20% off other dental treatment, except implants and Invisalign.",
     ],
     ["PPO insurance", "Many plans cover two cleanings a year. Coverage depends on your plan."],
   ],
@@ -144,7 +144,7 @@ export const tcFaqs: FaqBlock = {
     {
       question: "How much is a teeth cleaning without insurance?",
       answer:
-        "New patients without insurance pay $99 for a cleaning, X-rays and an exam at Radiant Smiles @ Floral Vale. After that, our in-office membership plan is $150 a year and covers 2 cleanings, exams and X-rays, plus 20% off any other dental treatment you need.",
+        "New patients without insurance pay $99 for a cleaning, X-rays and an exam at Radiant Smiles @ Floral Vale. After that, our in-office membership plan is $150 a year; members pay $75 for each cleaning, exam and X-rays, up to two a year, and get 20% off other dental treatment except implants and Invisalign.",
     },
     {
       question: "Does insurance cover dental cleanings?",

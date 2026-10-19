@@ -213,7 +213,7 @@ export const emPay = {
     },
     {
       lead: "Membership plan:",
-      text: "$150 a year covers 2 cleanings, exams and X-rays, with an emergency visit for $50 and 20% off other treatment, including emergency treatment.",
+      text: "$150 a year, with an emergency visit for $50 and 20% off other treatment, including emergency treatment (except implants and Invisalign).",
     },
     { lead: "Financing:", text: "CareCredit, subject to credit approval. [CareCredit financing](/patient-information/carecredit/)" },
     { lead: "Insurance:", text: "we accept many PPO plans. [Insurance and payment](/patient-information/insurance-payment-options/)" },

@@ -63,7 +63,7 @@ export const trCost = {
   head: ["Option", "What you pay", "What's included"],
   rows: [
     ["New Patient Visit Special (no insurance)", "$99", "Cleaning, X-rays and exam"],
-    ["In-office membership plan", "$150 a year, $100 for each additional family member", "2 cleanings, exams and X-rays a year, plus 20% off all treatment"],
+    ["In-office membership plan", "$150 a year, $100 for each additional family member", "$75 cleaning, exam and X-rays (up to 2 a year); 20% off other treatment except implants and Invisalign"],
     ["Emergency visit for members", "$50", "Emergency visit"],
     ["Emergency Visit (everyone)", "$80", "Limited emergency exam, diagnostic X-rays and an immediate care plan"],
   ],
@@ -123,7 +123,7 @@ export const trFaqs: FaqBlock = {
     {
       question: "Do you accept NJ Medicaid or NJ FamilyCare?",
       answer:
-        "NJ Medicaid and NJ FamilyCare are not on our list of accepted plans. If you don't have private dental insurance, our $99 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan is $150 a year with 20% off treatment. Call (215) 860-4600 and we'll talk through your options.",
+        "NJ Medicaid and NJ FamilyCare are not on our list of accepted plans. If you don't have private dental insurance, our $99 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan is $150 a year with 20% off treatment except implants and Invisalign. Call (215) 860-4600 and we'll talk through your options.",
     },
     {
       question: "What does a first visit cost without insurance?",
@@ -223,7 +223,7 @@ export const ewGums = {
       key: "maintenance",
       icon: "refresh",
       title: "Periodontal maintenance",
-      text: "After treatment, more frequent cleanings help keep gum disease under control. Membership plan members pay $75 for each additional cleaning or periodontal maintenance visit. [Periodontal maintenance](/preventative-care/periodontal-maintenance/)",
+      text: "After treatment, more frequent cleanings help keep gum disease under control. Membership plan members pay $75 for each cleaning, exam and X-rays (up to two a year) or periodontal maintenance visit. [Periodontal maintenance](/preventative-care/periodontal-maintenance/)",
     },
   ],
 };
@@ -499,7 +499,7 @@ export const haDentures = {
 export const haCost: CostBlock = {
   title: "Insurance & Payment for Hamilton Patients",
   paragraphs: [
-    "We accept many PPO plans, including Delta Dental and UnitedHealthcare. Coverage for dentures and relines depends on your plan, so call us to check before your appointment. Without insurance, the $99 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan ($150 a year, $100 for each additional family member) includes two cleanings a year and 20% off treatment. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
+    "We accept many PPO plans, including Delta Dental and UnitedHealthcare. Coverage for dentures and relines depends on your plan, so call us to check before your appointment. Without insurance, the $99 New Patient Visit Special covers a cleaning, X-rays and an exam, and our membership plan ($150 a year, $100 for each additional family member) gives a $75 cleaning, exam and X-rays (up to two a year) and 20% off other treatment except implants and Invisalign. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
   ],
 };
 

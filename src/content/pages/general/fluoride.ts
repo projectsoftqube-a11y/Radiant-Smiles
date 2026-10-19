@@ -91,7 +91,7 @@ export const flHome = {
 export const flCost: CostBlock = {
   title: "Fluoride Treatment Cost & Insurance",
   paragraphs: [
-    "Many dental plans cover fluoride for children, and some cover it for adults. Coverage depends on your plan, so call (215) 860-4600 to check. We accept many PPO plans, and members of our in-office membership plan ($150 a year) get 20% off dental treatment. [Insurance and payment](/patient-information/insurance-payment-options/)",
+    "Many dental plans cover fluoride for children, and some cover it for adults. Coverage depends on your plan, so call (215) 860-4600 to check. We accept many PPO plans, and members of our in-office membership plan ($150 a year) get 20% off dental treatment except implants and Invisalign. [Insurance and payment](/patient-information/insurance-payment-options/)",
   ],
 };
 

@@ -93,7 +93,7 @@ export const lzCost: CostBlock = {
       lead: "Insurance:",
       text: "coverage for gum disease treatment depends on your plan. We accept many PPO plans. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "Membership plan:", text: "$150 a year, with 20% off dental treatment." },
+    { lead: "Membership plan:", text: "$150 a year, with 20% off dental treatment except implants and Invisalign." },
     { lead: "Financing:", text: "CareCredit, subject to credit approval. [CareCredit financing](/patient-information/carecredit/)" },
   ],
 };

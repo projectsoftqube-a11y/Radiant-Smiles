@@ -107,7 +107,7 @@ export const cdFamily = {
   payTitle: "Paying for your child's visits:",
   pay: [
     "We accept many PPO plans, including Delta Dental, Cigna PPO, Guardian and MetLife. Coverage depends on your plan.",
-    "Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. It covers 2 cleanings, exams and X-rays a year, plus 20% off other treatment.",
+    "Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. Members pay $75 for each cleaning, exam and X-rays, up to two a year, plus 20% off other treatment except implants and Invisalign.",
   ],
 };
 

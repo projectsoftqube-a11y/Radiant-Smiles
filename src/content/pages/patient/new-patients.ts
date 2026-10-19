@@ -85,7 +85,7 @@ export const npBring = {
 export const npSpecial = {
   title: "$99 New Patient Special for Uninsured Patients",
   paragraphs: [
-    "If you don't have dental insurance, the $99 New Patient Visit Special includes a cleaning, X-rays and an exam. After your first visit, you can join our in-office membership plan for $150 a year to cover your routine care.",
+    "If you don't have dental insurance, the $99 New Patient Visit Special includes a cleaning, X-rays and an exam. After your first visit, you can join our in-office membership plan for $150 a year for member prices on your routine care.",
     "Have insurance? We accept many PPO plans, including Aetna, Delta Dental, Guardian, Horizon Blue Cross and MetLife. Call us to check your coverage before you come in.",
   ],
   links: [
@@ -129,7 +129,7 @@ export const npFaqs: FaqBlock = {
     {
       question: "Do you see new patients without insurance?",
       answer:
-        "Yes. Uninsured new patients can book the $99 New Patient Visit Special, which includes a cleaning, X-rays and an exam. Our in-office membership plan, at $150 a year, then covers two cleanings, exams and X-rays and gives you 20% off dental treatment.",
+        "Yes. Uninsured new patients can book the $99 New Patient Visit Special, which includes a cleaning, X-rays and an exam. Our in-office membership plan, at $150 a year, then gives you a $75 cleaning, exam and X-rays (up to two a year) and 20% off dental treatment except implants and Invisalign.",
     },
   ],
 };

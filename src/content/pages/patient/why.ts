@@ -77,7 +77,7 @@ export const whyPrices = {
     {
       icon: "badgeDollar",
       lead: "No insurance:",
-      text: "a $99 New Patient Visit Special, then a $150-a-year membership plan with 20% off treatment.",
+      text: "a $99 New Patient Visit Special, then a $150-a-year membership plan with 20% off treatment except implants and Invisalign.",
     },
     { icon: "card", lead: "Financing:", text: "CareCredit, subject to credit approval." },
   ],

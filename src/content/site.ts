@@ -77,22 +77,25 @@ export const offers = {
 } as const;
 
 /**
- * In-office membership plan (final rate card, client 15 Oct 2026). The yearly fee includes
- * 2 cleanings, exams and X-rays (confirmed by the user, 15 Oct 2026); the rate card's $75
- * cleaning is the price of each extra one.
+ * In-office membership plan (rate card, client 15 Oct 2026; corrected 19 Oct 2026). Nothing is
+ * included in the yearly fee: members pay $75 for each cleaning, exam and X-rays, up to two a
+ * year, and a third in the same year is $99. The 20% off other services excludes implants and
+ * Invisalign.
  */
 export const membershipPlan = {
   yearly: 150,
   /** Each additional family member, a year */
   additionalMember: 100,
-  /** Cleanings (each with an exam and X-rays) included in the yearly fee */
-  includedCleanings: 2,
-  /** Each extra cleaning, exam and X-rays beyond the included two, per visit */
-  extraCleaning: 75,
+  /** Each cleaning, exam and X-rays visit, up to `cleaningsPerYear` a year */
+  cleaningExamXrays: 75,
+  cleaningsPerYear: 2,
+  /** A third cleaning, exam and X-rays in the same year */
+  thirdCleaning: 99,
   perioMaintenance: 75,
   emergencyVisit: 50,
-  /** Off any other dental services */
+  /** Off any other dental services, except `discountExcludes` */
   otherServicesDiscountPercent: 20,
+  discountExcludes: "implants & Invisalign",
   terms: [
     "Yearly enrollment fees are non-refundable.",
     "Payments for services are due at the time of service.",

@@ -207,7 +207,7 @@ export const cdCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "our in-office membership plan is $150 a year and includes 20% off dental treatment.",
+      text: "our in-office membership plan is $150 a year and includes 20% off dental treatment, except implants and Invisalign.",
     },
   ],
   after: ["We accept cash, check, Visa, MasterCard, Discover and American Express. Payment is due at the time of service."],

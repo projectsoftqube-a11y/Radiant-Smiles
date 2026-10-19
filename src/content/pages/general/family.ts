@@ -116,7 +116,7 @@ export const famPay = {
     },
     {
       lead: "Membership plan:",
-      text: "$150 a year for the first person and $100 for each additional family member. It covers 2 cleanings, exams and X-rays a year, plus 20% off other dental treatment.",
+      text: "$150 a year for the first person and $100 for each additional family member. Members pay $75 for each cleaning, exam and X-rays, up to two a year, plus 20% off other dental treatment except implants and Invisalign.",
     },
     { lead: "New patients without insurance:", text: "a cleaning, X-rays and exam for $99. [Special offers](/special-offers/)" },
     { lead: "Financing:", text: "CareCredit, subject to credit approval." },
@@ -144,7 +144,7 @@ export const famFaqs: FaqBlock = {
     {
       question: "Do you have a dental plan for families without insurance?",
       answer:
-        "Yes. Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. Each member gets 2 cleanings, exams and X-rays a year, plus 20% off other dental treatment, with no insurance company involved.",
+        "Yes. Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. Each member pays $75 for a cleaning, exam and X-rays, up to two a year (a third in the same year is $99), and gets 20% off other dental treatment except implants and Invisalign, with no insurance company involved.",
     },
     {
       question: "Are you open on Saturdays?",

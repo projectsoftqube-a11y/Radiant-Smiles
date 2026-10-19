@@ -284,7 +284,7 @@ export function EmergencyPay() {
           <span className={styles.examNote}>Emergency visit, per visit</span>
           <span className={styles.examRule} />
           <span className={styles.examPlus}>
-            <Icon name="card" size={16} /> Plan members: {membershipPlan.otherServicesDiscountPercent}% off other treatment
+            <Icon name="card" size={16} /> Plan members: {membershipPlan.otherServicesDiscountPercent}% off other treatment, except {membershipPlan.discountExcludes}
           </span>
         </div>
       </div>

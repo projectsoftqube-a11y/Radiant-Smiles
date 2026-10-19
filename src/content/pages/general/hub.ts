@@ -199,7 +199,7 @@ export const pcCost = {
     {
       icon: "card",
       lead: "Membership plan:",
-      text: "$150 a year covers 2 cleanings, exams and X-rays, plus 20% off other dental treatment. Each additional family member is $100.",
+      text: "$150 a year, then $75 for each cleaning, exam and X-rays (up to two a year), plus 20% off other dental treatment except implants and Invisalign. Each additional family member is $100.",
     },
     {
       icon: "banknote",
@@ -231,7 +231,7 @@ export const pcFaqs: FaqBlock = {
     {
       question: "What if I don't have dental insurance?",
       answer:
-        "You have two options. New patients without insurance can have a cleaning, X-rays and an exam for $99. Our in-office membership plan is $150 a year and covers 2 cleanings, exams and X-rays, plus 20% off other dental treatment. CareCredit financing is also available.",
+        "You have two options. New patients without insurance can have a cleaning, X-rays and an exam for $99. Our in-office membership plan is $150 a year; members pay $75 for each cleaning, exam and X-rays, up to two a year, plus 20% off other dental treatment except implants and Invisalign. CareCredit financing is also available.",
     },
   ],
 };

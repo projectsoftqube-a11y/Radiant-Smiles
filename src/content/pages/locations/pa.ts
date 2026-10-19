@@ -103,7 +103,7 @@ export const moFamily = {
 export const moCost: CostBlock = {
   title: "New Patient Special & Insurance",
   paragraphs: [
-    "No insurance? Our $99 New Patient Visit Special covers a cleaning, X-rays and an exam. After that, the in-office membership plan is $150 a year and includes two cleanings, exams, X-rays and 20% off treatment. We also accept many PPO plans, including Blue Cross Blue Shield, Capital Blue Cross and United Concordia Elite Plus, and coverage depends on your plan. For larger repairs, CareCredit offers no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Current offers](/special-offers/) · [Insurance and payment](/patient-information/insurance-payment-options/)",
+    "No insurance? Our $99 New Patient Visit Special covers a cleaning, X-rays and an exam. After that, the in-office membership plan is $150 a year, with a $75 cleaning, exam and X-rays (up to two a year) and 20% off other treatment except implants and Invisalign. We also accept many PPO plans, including Blue Cross Blue Shield, Capital Blue Cross and United Concordia Elite Plus, and coverage depends on your plan. For larger repairs, CareCredit offers no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Current offers](/special-offers/) · [Insurance and payment](/patient-information/insurance-payment-options/)",
   ],
 };
 
@@ -230,7 +230,7 @@ export const wcFamily = {
 export const wcCost: CostBlock = {
   title: "Paying for Restorative Work",
   paragraphs: [
-    "We accept many PPO plans, including Lincoln Financial and Mutual of Omaha, and coverage for crowns and onlays depends on your plan, so call and we'll check before treatment. Without insurance, our membership plan ($150 a year) gives 20% off all dental treatment, and CareCredit lets you spread the cost: no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
+    "We accept many PPO plans, including Lincoln Financial and Mutual of Omaha, and coverage for crowns and onlays depends on your plan, so call and we'll check before treatment. Without insurance, our membership plan ($150 a year) gives 20% off dental treatment except implants and Invisalign, and CareCredit lets you spread the cost: no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [Insurance and payment](/patient-information/insurance-payment-options/) · [Special offers](/special-offers/)",
   ],
 };
 
@@ -365,7 +365,7 @@ export const lmFaqs: FaqBlock = {
     {
       question: "Is there a dental plan for a family without insurance?",
       answer:
-        "Yes. Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. It includes two cleanings, exams and X-rays each year, plus 20% off all dental treatment. Additional cleanings and periodontal maintenance are $75, and an emergency visit is $50.",
+        "Yes. Our in-office membership plan is $150 a year for the first person and $100 for each additional family member. Members pay $75 for each cleaning, exam and X-rays, up to two a year (a third in the same year is $99), and get 20% off other dental treatment except implants and Invisalign. Periodontal maintenance is also $75, and an emergency visit is $50.",
     },
     {
       question: "Can my children be seen on a Saturday?",

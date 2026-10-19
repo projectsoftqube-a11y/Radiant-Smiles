@@ -198,7 +198,7 @@ export const homeServices: { title: string; intro: string; groups: ServiceGroup[
 export const homeMembership = {
   title: "No Insurance? Our In-Office Membership Plan",
   intro:
-    "Our membership plan covers your routine care for one yearly fee and takes 20% off your treatment. There's no insurance company involved.",
+    "Our membership plan gives you member prices on routine care for one yearly fee and takes 20% off other treatment, except implants and Invisalign. There's no insurance company involved.",
   columns: ["Membership plan", "Price"],
   // Built from site.ts (final rate card, 15 Oct 2026)
   rows: membershipRows,
@@ -386,7 +386,7 @@ export const homeFaqs: { title: string; items: FaqItem[] } = {
     {
       question: "What if I don't have dental insurance?",
       answer:
-        "You have two options. New patients without insurance can book a $99 visit that includes a cleaning, X-rays and an exam. Our in-office membership plan costs $150 a year, plus $100 for each additional family member, and covers 2 cleanings, exams and X-rays, with 20% off treatment.",
+        "You have two options. New patients without insurance can book a $99 visit that includes a cleaning, X-rays and an exam. Our in-office membership plan costs $150 a year, plus $100 for each additional family member; members pay $75 for each cleaning, exam and X-rays, up to two a year, and get 20% off other treatment except implants and Invisalign.",
     },
     {
       question: "Can I get a same-day emergency appointment?",

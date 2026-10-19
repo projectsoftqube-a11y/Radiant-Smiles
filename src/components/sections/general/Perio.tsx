@@ -215,7 +215,7 @@ export function PerioCost() {
           <span className={styles.tagPrice}>
             $<span data-count={membershipPlan.perioMaintenance}>{membershipPlan.perioMaintenance}</span>
           </span>
-          <span className={styles.tagNote}>Each additional periodontal maintenance visit, for membership plan members</span>
+          <span className={styles.tagNote}>Each periodontal maintenance visit, for membership plan members</span>
         </div>
         <div className={styles.costCopy}>
           <p className="label" data-reveal>

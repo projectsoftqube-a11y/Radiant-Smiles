@@ -38,7 +38,7 @@ export const insBenefits = {
 
 export const insMembership = {
   title: "No Insurance? Our In-Office Membership Plan",
-  intro: "Our in-office membership plan covers routine care for one yearly fee, with savings on other treatment:",
+  intro: "Our in-office membership plan gives you member prices on routine care for one yearly fee, with savings on other treatment:",
   head: ["What you get", "Price"],
   // Built from site.ts (final rate card, 15 Oct 2026)
   rows: membershipRows.map((row) => [row.item, row.price] as const),
@@ -79,7 +79,7 @@ export const insFaqs: FaqBlock = {
     {
       question: "What if I don't have dental insurance?",
       answer:
-        "You can join our in-office membership plan for $150 a year, plus $100 for each additional family member. It includes two cleanings, exams and X-rays; extra cleanings and periodontal maintenance are $75 each, an emergency visit is $50, and you get 20% off all other dental treatment. CareCredit financing is available too.",
+        "You can join our in-office membership plan for $150 a year, plus $100 for each additional family member. Members pay $75 for each cleaning, exam and X-rays, up to two a year (a third in the same year is $99), $75 for periodontal maintenance and $50 for an emergency visit, and get 20% off other dental treatment except implants and Invisalign. CareCredit financing is available too.",
     },
     {
       question: "When is payment due?",

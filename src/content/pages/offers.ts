@@ -109,7 +109,7 @@ export const offersNoInsurance = {
     {
       icon: "badgeDollar",
       title: "In-office membership plan",
-      text: "For $150 a year, plus $100 for each additional family member, you get 2 cleanings, exams and X-rays each year and 20% off any other dental services. Extra cleanings or periodontal maintenance visits are $75 each, and an emergency visit is $50. Yearly enrollment fees are non-refundable, payment is due at the time of service, and the plan isn't dental insurance: it can't be combined with insurance and is good only at Radiant Smiles @ Floral Vale.",
+      text: "For $150 a year, plus $100 for each additional family member, you pay $75 for each cleaning, exam and X-rays, up to two a year (a third in the same year is $99), $75 for periodontal maintenance and $50 for an emergency visit, and get 20% off any other dental services except implants and Invisalign. Yearly enrollment fees are non-refundable, payment is due at the time of service, and the plan isn't dental insurance: it can't be combined with insurance and is good only at Radiant Smiles @ Floral Vale.",
       link: null,
     },
     {
@@ -158,7 +158,7 @@ export const offersFaqs: FaqBlock = {
     {
       question: "Can I see a dentist without insurance?",
       answer:
-        "Yes. New patients without insurance can start with a $99 visit for a cleaning, X-rays and an exam. After that, our in-office membership plan costs $150 a year, plus $100 per additional family member, and covers 2 cleanings, exams and X-rays, with 20% off treatment.",
+        "Yes. New patients without insurance can start with a $99 visit for a cleaning, X-rays and an exam. After that, our in-office membership plan costs $150 a year, plus $100 per additional family member; members pay $75 for each cleaning, exam and X-rays, up to two a year, and get 20% off other treatment except implants and Invisalign.",
     },
     {
       question: "Do you offer payment plans?",

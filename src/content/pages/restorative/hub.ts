@@ -202,7 +202,7 @@ export const rdCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "the in-office membership plan costs $150 a year ($100 for each additional family member), covers two cleanings, exams and X-rays, and takes 20% off all dental treatment.",
+      text: "the in-office membership plan costs $150 a year ($100 for each additional family member), prices a cleaning, exam and X-rays at $75 (up to two a year) and takes 20% off dental treatment except implants and Invisalign.",
     },
     {
       lead: "Financing:",
@@ -236,7 +236,7 @@ export const rdFaqs: FaqBlock = {
     {
       question: "Does insurance cover restorative dentistry?",
       answer:
-        "Often in part, depending on your plan. Radiant Smiles accepts many PPO plans, including Delta Dental, Cigna PPO and MetLife, and the team can help you check your benefits before treatment. Without insurance, the $150-a-year membership plan takes 20% off all dental treatment, and CareCredit financing is available.",
+        "Often in part, depending on your plan. Radiant Smiles accepts many PPO plans, including Delta Dental, Cigna PPO and MetLife, and the team can help you check your benefits before treatment. Without insurance, the $150-a-year membership plan takes 20% off dental treatment except implants and Invisalign, and CareCredit financing is available.",
     },
     {
       question: "Can I get restorative work done on a Saturday?",

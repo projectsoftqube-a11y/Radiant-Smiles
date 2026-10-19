@@ -39,7 +39,7 @@ const money = (n: number) => `$${n.toLocaleString("en-US")}`;
 
 /** The membership plan in one sentence (final rate card, site.ts) */
 const membershipSummary = () =>
-  `${money(membershipPlan.yearly)} a year, plus ${money(membershipPlan.additionalMember)} for each additional family member. Includes ${membershipPlan.includedCleanings} cleanings, exams and X-rays a year. Member prices: extra cleaning, exam and X-rays ${money(membershipPlan.extraCleaning)}; periodontal maintenance ${money(membershipPlan.perioMaintenance)}; emergency visit ${money(membershipPlan.emergencyVisit)}; ${membershipPlan.otherServicesDiscountPercent}% off any other dental services. Not dental insurance; good only at Radiant Smiles @ Floral Vale.`;
+  `${money(membershipPlan.yearly)} a year, plus ${money(membershipPlan.additionalMember)} for each additional family member. Member prices: cleaning, exam and X-rays ${money(membershipPlan.cleaningExamXrays)} (up to ${membershipPlan.cleaningsPerYear} a year; a third in the same year ${money(membershipPlan.thirdCleaning)}); periodontal maintenance ${money(membershipPlan.perioMaintenance)}; emergency visit ${money(membershipPlan.emergencyVisit)}; ${membershipPlan.otherServicesDiscountPercent}% off any other dental services except implants and Invisalign. Not dental insurance; good only at Radiant Smiles @ Floral Vale.`;
 
 export function dentistEntity({
   areaServed,

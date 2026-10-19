@@ -70,7 +70,7 @@ export const hubCards: HubCard[] = [
     bullets: [
       {
         lead: "No insurance:",
-        text: "our in-office membership plan is $150 a year and includes two cleanings, exams and X-rays, plus 20% off treatment.",
+        text: "our in-office membership plan is $150 a year, with a $75 cleaning, exam and X-rays (up to two a year) and 20% off other treatment except implants and Invisalign.",
       },
       {
         lead: "Ways to pay:",

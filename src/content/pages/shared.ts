@@ -70,17 +70,17 @@ export const formFields = {
 const usd = (n: number) => `$${n.toLocaleString("en-US")}`;
 
 /**
- * The in-office membership plan as table rows, built from site.ts (final rate card, client
- * 15 Oct 2026), so every table on the site shows the same prices.
+ * The in-office membership plan as table rows, built from site.ts (rate card, client 15 Oct
+ * 2026, corrected 19 Oct 2026: nothing included), so every table shows the same prices.
  */
 export const membershipRows: { item: string; price: string }[] = [
   { item: "Yearly membership, first person", price: `${usd(membershipPlan.yearly)} a year` },
   { item: "Each additional family member", price: `${usd(membershipPlan.additionalMember)} a year` },
-  { item: `${membershipPlan.includedCleanings} cleanings, exams & X-rays a year`, price: "Included" },
-  { item: "Extra cleaning, exam & X-rays", price: `${usd(membershipPlan.extraCleaning)} per visit` },
+  { item: `Cleaning, exam & X-rays (up to ${membershipPlan.cleaningsPerYear} a year)`, price: `${usd(membershipPlan.cleaningExamXrays)} per visit` },
+  { item: "A 3rd cleaning, exam & X-rays in the same year", price: usd(membershipPlan.thirdCleaning) },
   { item: "Periodontal maintenance", price: `${usd(membershipPlan.perioMaintenance)} per visit` },
   { item: "Emergency visit", price: `${usd(membershipPlan.emergencyVisit)} per visit` },
-  { item: "Any other dental services", price: `${membershipPlan.otherServicesDiscountPercent}% off` },
+  { item: `Any other dental services (except ${membershipPlan.discountExcludes})`, price: `${membershipPlan.otherServicesDiscountPercent}% off` },
 ];
 
 /** The plan's terms (client's rate card), shown wherever the full plan is listed */

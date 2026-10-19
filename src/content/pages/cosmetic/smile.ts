@@ -155,7 +155,7 @@ export const veCost: CostBlock = {
       lead: "Financing:",
       text: "CareCredit lets you pay for veneers over time, with no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval. [CareCredit financing](/patient-information/carecredit/)",
     },
-    { lead: "Membership plan:", text: "members pay $150 a year and get 20% off dental treatment." },
+    { lead: "Membership plan:", text: "members pay $150 a year and get 20% off dental treatment, except implants and Invisalign." },
   ],
 };
 
@@ -177,7 +177,7 @@ export const veFaqs: FaqBlock = {
     {
       question: "How much are porcelain veneers?",
       answer:
-        "The price of porcelain veneers depends on how many teeth are treated and what each tooth needs, so it's set after an exam. At Radiant Smiles @ Floral Vale you get the cost of your plan before treatment starts, and CareCredit financing and our membership plan, with 20% off dental treatment, can help spread or reduce the cost.",
+        "The price of porcelain veneers depends on how many teeth are treated and what each tooth needs, so it's set after an exam. At Radiant Smiles @ Floral Vale you get the cost of your plan before treatment starts, and CareCredit financing and our membership plan, with 20% off dental treatment except implants and Invisalign, can help spread or reduce the cost.",
     },
     {
       question: "How long do porcelain veneers last?",
@@ -482,7 +482,7 @@ export const bdCost: CostBlock = {
       lead: "Financing:",
       text: "CareCredit offers no interest if paid in full within 6 months on qualifying purchases of $200 or more, subject to credit approval.",
     },
-    { lead: "Membership plan:", text: "$150 a year, including 20% off dental treatment." },
+    { lead: "Membership plan:", text: "$150 a year, including 20% off dental treatment except implants and Invisalign." },
   ],
 };
 

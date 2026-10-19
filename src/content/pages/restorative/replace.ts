@@ -126,7 +126,7 @@ export const brCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may cover part of a bridge. We accept many PPO plans, including Ameritas, Cigna PPO, Delta Dental and Humana; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all dental treatment." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off dental treatment except implants and Invisalign." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) lets you spread the cost: no interest if a qualifying purchase of $200 or more is paid in full within 6 months, subject to credit approval.",

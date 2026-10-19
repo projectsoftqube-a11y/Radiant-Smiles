@@ -108,7 +108,7 @@ export const crCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may pay part of the cost of a crown when it's needed to restore a damaged tooth. We accept many PPO plans, including Anthem Blue Cross, Capital Blue Cross, Delta Dental and Guardian; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the in-office membership plan is $150 a year and takes 20% off all dental treatment, crowns included." },
+    { lead: "No insurance:", text: "the in-office membership plan is $150 a year and takes 20% off dental treatment except implants and Invisalign, crowns included." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) is accepted. Qualifying purchases of $200 or more carry no interest when paid in full within 6 months, subject to credit approval.",
@@ -284,7 +284,7 @@ export const fiCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "new patients without insurance can start with the $99 New Patient Visit (cleaning, X-ray and exam). The $150-a-year membership plan then takes 20% off all treatment, fillings included.",
+      text: "new patients without insurance can start with the $99 New Patient Visit (cleaning, X-ray and exam). The $150-a-year membership plan then takes 20% off treatment except implants and Invisalign, fillings included.",
     },
     { lead: "Financing:", text: "you can pay with [CareCredit](/patient-information/carecredit/), subject to credit approval." },
   ],
@@ -424,7 +424,7 @@ export const rcCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may pay toward root canal treatment. We accept many plans, including Cigna PPO, Delta Dental, Horizon Blue Cross and UnitedHealthcare; call to verify your coverage. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all dental treatment, and an emergency visit is $50 for members." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off dental treatment except implants and Invisalign, and an emergency visit is $50 for members." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) gives you 6 months with no interest when a qualifying purchase of $200 or more is paid in full in that time, subject to credit approval.",
@@ -457,7 +457,7 @@ export const rcFaqs: FaqBlock = {
     {
       question: "How much does a root canal cost?",
       answer:
-        "The cost depends on which tooth needs treatment and how severe the infection is, and most treated teeth also need a crown. Radiant Smiles @ Floral Vale gives you the full cost before treatment, accepts many PPO plans, and offers CareCredit financing and a membership plan with 20% off treatment.",
+        "The cost depends on which tooth needs treatment and how severe the infection is, and most treated teeth also need a crown. Radiant Smiles @ Floral Vale gives you the full cost before treatment, accepts many PPO plans, and offers CareCredit financing and a membership plan with 20% off treatment except implants and Invisalign.",
     },
     {
       question: "Do I need a crown after a root canal?",

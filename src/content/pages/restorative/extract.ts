@@ -123,7 +123,7 @@ export const exCost: CostBlock = {
       lead: "Insurance:",
       text: "your PPO plan may cover part of an extraction. We accept many PPO plans, including Colonial Life, Delta Dental, Mutual of Omaha and United Concordia Elite Plus; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all treatment, and an emergency visit is $50 for members." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off treatment except implants and Invisalign, and an emergency visit is $50 for members." },
     { lead: "Financing:", text: "[CareCredit](/patient-information/carecredit/) is accepted, subject to credit approval." },
   ],
 };
@@ -257,7 +257,7 @@ export const wtCost: CostBlock = {
       lead: "Insurance:",
       text: "the team will help you make the most of your dental insurance. We accept many PPO plans, including Aetna, Cigna PPO, Horizon Blue Cross and Delta Dental; call to verify yours. [Insurance and payment](/patient-information/insurance-payment-options/)",
     },
-    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off all treatment." },
+    { lead: "No insurance:", text: "the $150-a-year membership plan takes 20% off treatment except implants and Invisalign." },
     {
       lead: "Financing:",
       text: "[CareCredit](/patient-information/carecredit/) is available, with no interest on qualifying purchases of $200 or more paid in full within 6 months, subject to credit approval.",
@@ -393,7 +393,7 @@ export const psMaintenance = {
   title: "Ongoing Periodontal Maintenance",
   paragraphs: [
     "Gum disease can be controlled, but it needs regular follow-up to stay that way. After active treatment, [periodontal maintenance](/preventative-care/periodontal-maintenance/) visits replace routine cleanings, so the pockets can be cleaned and measured and any flare-up is caught early.",
-    "Your dentist will recommend how often you should come in, based on how your gums respond. For membership plan members, additional cleanings or periodontal maintenance visits are $75 each.",
+    "Your dentist will recommend how often you should come in, based on how your gums respond. For membership plan members, a cleaning, exam and X-rays (up to two a year) or a periodontal maintenance visit is $75.",
   ],
 };
 
@@ -409,7 +409,7 @@ export const psCost: CostBlock = {
     },
     {
       lead: "No insurance:",
-      text: "the $150-a-year membership plan includes two cleanings, exams and X-rays, takes 20% off all treatment and prices periodontal maintenance at $75 a visit.",
+      text: "the $150-a-year membership plan prices a cleaning, exam and X-rays (up to two a year) and periodontal maintenance at $75 a visit, and takes 20% off other treatment except implants and Invisalign.",
     },
     { lead: "Financing:", text: "[CareCredit](/patient-information/carecredit/) can cover treatment over several visits, subject to credit approval." },
   ],
