@@ -149,6 +149,25 @@
   color: var(--navy-800);
 }
 
+/* The practice inbox under the buttons */
+.email {
+  display: inline-flex;
+  justify-self: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--navy-800);
+  text-decoration: none;
+}
+
+.email svg {
+  color: var(--sky-600);
+}
+
+.email:hover {
+  color: var(--sky-700);
+}
+
 .ctas {
   display: grid;
   gap: 0.6rem;

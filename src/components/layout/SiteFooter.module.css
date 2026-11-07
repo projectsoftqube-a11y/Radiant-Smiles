@@ -78,6 +78,27 @@
   color: var(--sky-700);
 }
 
+/* The practice inbox under the phone: smaller, colour change only on hover */
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  color: var(--navy-800);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color var(--dur-ui) ease;
+}
+
+.email svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.email:hover {
+  color: var(--sky-700);
+}
+
 .phoneIcon {
   display: inline-grid;
   place-items: center;

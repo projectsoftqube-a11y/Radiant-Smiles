@@ -255,7 +255,6 @@ export const homeDoctors = {
   ],
   upcomingTitle: "Two more dentists are joining our team",
   upcomingText: "We'll introduce them here when they join the practice.",
-  upcomingNote: "Name, degree, photo and bio to come from the practice",
 };
 
 export const homeTechnology = {

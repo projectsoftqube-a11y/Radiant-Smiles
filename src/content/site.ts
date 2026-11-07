@@ -27,6 +27,11 @@ export const practice = {
     href: "tel:+12158604600",
     schema: "+1-215-860-4600",
   },
+  /** The practice inbox: shown in the footer and on Contact Us; website enquiries go here (user, 7 Nov 2026) */
+  email: {
+    display: "info@radiant-smiles.com",
+    href: "mailto:info@radiant-smiles.com",
+  },
   directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=117+Floral+Vale+Boulevard+Yardley+PA+19067",
   mapEmbedUrl: "https://www.google.com/maps?q=117+Floral+Vale+Boulevard,+Yardley,+PA+19067&output=embed",
 } as const;

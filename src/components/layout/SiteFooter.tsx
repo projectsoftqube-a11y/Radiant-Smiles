@@ -51,6 +51,10 @@ export function SiteFooter() {
             </span>
             {practice.phone.display}
           </a>
+          <a href={practice.email.href} className={styles.email} data-track="email_click_footer">
+            <Icon name="mail" size={18} />
+            {practice.email.display}
+          </a>
           <a href={practice.directionsUrl} className="text-link" target="_blank" rel="noopener noreferrer" data-track="directions_click_footer">
             Get Directions <Icon name="arrowUpRight" size={16} />
             <span className="visually-hidden"> (opens Google Maps in a new tab)</span>

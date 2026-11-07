@@ -109,7 +109,7 @@ export const privacy: LegalPage = {
           ],
           icons: ["bell", "refresh", "search"],
         },
-        { p: "To make any of these requests, write to us at the office address below or use the contact form on our [contact page](/contact-us/)." },
+        { p: "To make any of these requests, write to us at the office address below, email [info@radiant-smiles.com](mailto:info@radiant-smiles.com) or use the contact form on our [contact page](/contact-us/)." },
       ],
     },
     {

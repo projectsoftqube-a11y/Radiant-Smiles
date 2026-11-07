@@ -53,7 +53,7 @@ export const accessibility: LegalPage = {
       blocks: [
         {
           callout:
-            "If you have trouble using any part of this website, please call us at (215) 860-4600. We'll give you the information you need, help you request an appointment by phone and work to fix the problem. Please tell us the page and the problem you found.",
+            "If you have trouble using any part of this website, please call us at (215) 860-4600 or email [info@radiant-smiles.com](mailto:info@radiant-smiles.com). We'll give you the information you need, help you request an appointment by phone and work to fix the problem. Please tell us the page and the problem you found.",
           tone: "help",
           icon: "headphones",
         },

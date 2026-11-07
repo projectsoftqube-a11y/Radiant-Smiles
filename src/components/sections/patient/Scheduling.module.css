@@ -214,6 +214,30 @@
   color: var(--navy-800);
 }
 
+/* The practice inbox under the three steps */
+.emailNote {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  color: var(--slate-600);
+}
+
+.emailNote svg {
+  flex: none;
+  color: var(--sky-700);
+}
+
+.emailNote a {
+  font-weight: 600;
+  color: var(--navy-800);
+  overflow-wrap: anywhere;
+}
+
+.emailNote a:hover {
+  color: var(--sky-700);
+}
+
 .flowIcon {
   display: inline-grid;
   place-items: center;

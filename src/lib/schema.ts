@@ -54,6 +54,7 @@ export function dentistEntity({
     name: practice.name,
     url: `${SITE_URL}/`,
     telephone: practice.phone.schema,
+    email: practice.email.display,
     address: {
       "@type": "PostalAddress",
       streetAddress: practice.address.street,
@@ -282,6 +283,7 @@ export function dentistContact(): Json {
     name: practice.name,
     url: `${SITE_URL}/`,
     telephone: practice.phone.schema,
+    email: practice.email.display,
     address: {
       "@type": "PostalAddress",
       streetAddress: practice.address.street,
@@ -295,6 +297,7 @@ export function dentistContact(): Json {
       "@type": "ContactPoint",
       contactType: "appointments",
       telephone: practice.phone.schema,
+      email: practice.email.display,
       areaServed: "US",
       availableLanguage: "English",
     },
@@ -576,6 +579,7 @@ export function locationDentist(areas: ServedArea[]): Json {
     name: practice.name,
     url: absoluteUrl("/"),
     telephone: practice.phone.schema,
+    email: practice.email.display,
     address: {
       "@type": "PostalAddress",
       streetAddress: practice.address.street,

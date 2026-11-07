@@ -130,7 +130,7 @@ export const terms: LegalPage = {
       h2: "Contact Us",
       icon: "pin",
       contact: true,
-      blocks: [{ p: "Questions about these terms? Contact Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067 · (215) 860-4600." }],
+      blocks: [{ p: "Questions about these terms? Contact Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067 · (215) 860-4600 · [info@radiant-smiles.com](mailto:info@radiant-smiles.com)." }],
     },
   ],
 };

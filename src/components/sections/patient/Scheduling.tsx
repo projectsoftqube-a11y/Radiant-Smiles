@@ -3,6 +3,7 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 import { Rich } from "@/components/ui/Rich";
 import SiteLink from "@/components/ui/SiteLink";
 import { schedBefore, schedEmergency, schedHours, schedRequest } from "@/content/pages/patient/scheduling";
+import { practice } from "@/content/site";
 import { HoursTiles } from "./SchedulingLive";
 import styles from "./Scheduling.module.css";
 
@@ -44,6 +45,15 @@ export function RequestDesk() {
               </li>
             ))}
           </ol>
+          <p className={styles.emailNote} data-reveal>
+            <Icon name="mail" size={18} />
+            <span>
+              Prefer email?{" "}
+              <a href={practice.email.href} data-track="email_click_scheduling">
+                {practice.email.display}
+              </a>
+            </span>
+          </p>
         </div>
         <div className={styles.formWrap} data-reveal>
           <AppointmentForm variant="scheduling" />

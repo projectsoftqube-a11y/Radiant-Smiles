@@ -128,6 +128,10 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
             Request an Appointment
           </Button>
         </div>
+        <a href={practice.email.href} className={styles.email} data-track="email_click_menu">
+          <Icon name="mail" size={18} />
+          {practice.email.display}
+        </a>
       </div>
     </div>
   );

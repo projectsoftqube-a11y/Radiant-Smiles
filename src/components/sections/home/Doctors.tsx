@@ -1,7 +1,6 @@
 import { Icon } from "@/components/ui/Icon";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import SiteLink from "@/components/ui/SiteLink";
-import { ToConfirm } from "@/components/ui/ToConfirm";
 import { images } from "@/content/images";
 import { homeDoctors } from "@/content/pages/home";
 import { dentists } from "@/content/site";
@@ -86,7 +85,6 @@ export function Doctors() {
             <p className={styles.joiningTitle}>{homeDoctors.upcomingTitle}</p>
             <p className={styles.joiningText}>{homeDoctors.upcomingText}</p>
           </div>
-          <ToConfirm note={homeDoctors.upcomingNote} />
         </div>
       </div>
     </section>

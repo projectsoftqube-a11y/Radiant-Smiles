@@ -50,4 +50,4 @@ export const TERMS: Crumb = { name: "Terms of Use", path: "/patient-information/
 export const noticeLink = { label: "Notice of Privacy Practices", href: "/hipaa-notice-of-privacy-practices/" };
 
 /** The NAP line closing each page (handoff: exactly as on the homepage and GBP) */
-export const legalNap = "Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067 · (215) 860-4600";
+export const legalNap = `Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067 · (215) 860-4600 · [info@radiant-smiles.com](mailto:info@radiant-smiles.com)`;

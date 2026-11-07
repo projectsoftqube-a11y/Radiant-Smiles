@@ -45,6 +45,11 @@ export function ContactCard() {
           <a href={practice.phone.href} data-track="call_click_contact_card">
             {practice.phone.display}
           </a>
+          <br />
+          <strong>Email:</strong>{" "}
+          <a href={practice.email.href} data-track="email_click_contact_card">
+            {practice.email.display}
+          </a>
         </p>
       </div>
       <div className={styles.actions}>
@@ -97,6 +102,10 @@ export function ContactRequest() {
               <Icon name="phone" size={26} />
             </span>
             <span>{practice.phone.display}</span>
+          </a>
+          <a href={practice.email.href} className={styles.emailLink} data-track="email_click_contact_request" data-reveal>
+            <Icon name="mail" size={20} />
+            <span>{practice.email.display}</span>
           </a>
           <p className={styles.urgent} data-reveal>
             <span className={styles.urgentIcon} aria-hidden="true">
