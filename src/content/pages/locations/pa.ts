@@ -24,7 +24,7 @@ export const moAreas: ServedArea[] = [{ type: "City", name: "Morrisville, PA", s
 export const moHero: PageHeroContent = {
   h1: "Your Dentist near Morrisville, PA",
   intro:
-    "Radiant Smiles @ Floral Vale is about 5 to 10 minutes from Morrisville, PA, depending on traffic, at 117 Floral Vale Boulevard in neighbouring Lower Makefield Township. When a tooth breaks or a filling falls out, that short drive matters. We keep same-day emergency appointments open every business day, see patients on Saturday mornings, and provide family, cosmetic and restorative dentistry for the whole household.",
+    "Radiant Smiles @ Floral Vale is about 5 to 10 minutes from Morrisville, PA, depending on traffic, at 117 Floral Vale Boulevard in neighboring Lower Makefield Township. When a tooth breaks or a filling falls out, that short drive matters. We keep same-day emergency appointments open every business day, see patients on Saturday mornings, and provide family, cosmetic and restorative dentistry for the whole household.",
   buttons: ["call", "appointment"],
 };
 
@@ -43,7 +43,7 @@ export const moHere: { title: string; blocks: Block[] } = {
     },
     { h3: "Around the borough" },
     {
-      p: "Morrisville sits on the Delaware River directly across from Trenton, with Lower Makefield Township as its neighbour to the north. If you know Summerseat, the National Historic Landmark that was Robert Morris's home, or walk the Delaware Canal State Park towpath, you're already close to us. If you work across the river, our [Trenton, NJ page](/dentist-trenton-nj/) covers the bridge routes back to the office.",
+      p: "Morrisville sits on the Delaware River directly across from Trenton, with Lower Makefield Township as its neighbor to the north. If you know Summerseat, the National Historic Landmark that was Robert Morris's home, or walk the Delaware Canal State Park towpath, you're already close to us. If you work across the river, our [Trenton, NJ page](/dentist-trenton-nj/) covers the bridge routes back to the office.",
     },
     { directions: true },
   ],
@@ -96,7 +96,7 @@ export const moFamily = {
   text: "Being about 5 to 10 minutes away also makes routine care easier to keep up with. As a family dentist for Morrisville, PA, we see children from just after their first birthday through to adults who need crowns or dentures. Check-ups include an exam, a cleaning and an oral cancer screening at every visit, with digital X-rays when they're due. Saturday appointments mean a check-up doesn't have to cost anyone a school or work day. [Family dentistry](/family-dentistry/)",
   who: {
     title: "Who you'll see",
-    text: "Two dentists share the practice: [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/) and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/). Both graduated from Temple University's Kornberg School of Dentistry, where Dr. Gadria earned the DMD with high honors.",
+    text: "Two dentists share the practice: [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/), and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/). Both graduated from Temple University's Kornberg School of Dentistry, where Dr. Gadria earned the DMD with high honors.",
   },
 };
 

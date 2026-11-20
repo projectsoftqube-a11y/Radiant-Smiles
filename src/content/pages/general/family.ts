@@ -18,7 +18,7 @@ export const famCrumbs = [
 export const famHero: PageHeroContent = {
   h1: "Family Dentist in Yardley, PA",
   intro:
-    "A family dentist looks after everyone in your household, from a toddler's first checkup to a grandparent's dentures, in one office. At Radiant Smiles @ Floral Vale, Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria are your family dentist in Yardley, PA, with checkups, cleanings, children's visits, fillings, crowns and more at 117 Floral Vale Boulevard. New patients are welcome, and we're open Saturdays from 8 am to 2 pm.",
+    "A family dentist looks after everyone in your household, from a toddler's first checkup to a grandparent's dentures, in one office. At Radiant Smiles @ Floral Vale, Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria are your family dentists in Yardley, PA, with checkups, cleanings, children's visits, fillings, crowns and more at 117 Floral Vale Boulevard. New patients are welcome, and we're open Saturdays from 8 am to 2 pm.",
   buttons: ["appointment", "call"],
 };
 

@@ -504,8 +504,8 @@ export function CosmeticDentists() {
                 <p data-reveal>
                   <SiteLink href={person.href} className={styles.dentistName}>
                     {person.name}
-                  </SiteLink>{" "}
-                  {person.text}
+                  </SiteLink>
+                  , {person.text}
                 </p>
                 <span className={styles.dentistTags} aria-hidden="true" data-reveal>
                   {person.tags.map((tag) => (

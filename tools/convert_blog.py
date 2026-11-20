@@ -100,6 +100,19 @@ FIXES = [
     ("personalized care and -of-the-art treatments", "personalized care and state-of-the-art treatments"),
     ("**Increased Self-esteem: F**eeling", "**Increased Self-esteem:** Feeling"),
     ("The location of the dental practise", "The location of the dental practice"),
+    # Proofreading, 20 Nov 2026
+    ('living tooth.Once', 'living tooth. Once'),
+    ('staining is known', 'staining are known'),
+    ('dead tooth that has root canal', 'dead tooth that has had a root canal'),
+    ('**Check-ups and Exams** Regular', '**Check-ups and Exams:** Regular'),
+    ('somewhere in-between', 'somewhere in between'),
+    ('an injured pulp or infection,', 'an injured pulp or infection'),
+    ('extraction of infected tooth', 'extraction of an infected tooth'),
+    ('Dental implants refer to a biocompatible fixture', 'A dental implant refers to a biocompatible fixture'),
+    ('up to date with latest', 'up to date with the latest'),
+    ('Dental implants surgical placement', 'Dental implant surgical placement'),
+    ('recommend Zirconium', 'recommend zirconium'),
+    ('about [Dental Crowns in Yardley](/restorative-dentistry/dental-crowns/) please contact', 'about [dental crowns in Yardley](/restorative-dentistry/dental-crowns/), please contact'),
 ]
 
 

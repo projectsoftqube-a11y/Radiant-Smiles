@@ -6,6 +6,7 @@ import { images } from "@/content/images";
 import { noticeLink } from "@/content/pages/legal/common";
 import { npBring, npExpect, npFacts, npForms, npSpecial } from "@/content/pages/patient/new-patients";
 import styles from "./NewPatients.module.css";
+import { offers } from "@/content/site";
 
 /**
  * New Patients sections (order and heading levels follow 02 Content.md). Designs used on
@@ -123,7 +124,7 @@ export function SpecialBand() {
         <div className={styles.priceTile} aria-hidden="true" data-reveal>
           <span className={styles.priceLabel}>New patient visit</span>
           <span className={styles.price}>
-            $<span data-count="89">89</span>
+            $<span data-count={offers.newPatient.price}>{offers.newPatient.price}</span>
           </span>
           <span className={styles.priceIncludes}>Cleaning · X-rays · Exam</span>
         </div>

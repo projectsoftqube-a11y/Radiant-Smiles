@@ -165,7 +165,7 @@ export const asBridges = {
 export const asCare = {
   title: "Care People Travel For",
   intro:
-    "Whatever brings you across the river, the same two dentists look after you, from check-ups to crowns. Dr. Urvishkumar Bhalala, DMD and Dr. Jaspreet Gadria, DMD both trained at Temple University's Kornberg School of Dentistry, and the office uses cone beam CT, iTero digital scans and digital X-rays.",
+    "Whatever brings you across the river, the same two dentists look after you, from check-ups to crowns. Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, both trained at Temple University's Kornberg School of Dentistry, and the office uses cone beam CT, iTero digital scans and digital X-rays.",
   items: [
     {
       icon: "firstAid",

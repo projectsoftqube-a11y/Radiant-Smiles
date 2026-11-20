@@ -14,7 +14,13 @@ export function Rich({ text, newTab = false }: { text: string; /** External link
   return (
     <>
       {parts.map((part, index) => {
-        if (part.startsWith("**") && part.endsWith("**")) return <strong key={index}>{part.slice(2, -2)}</strong>;
+        // Bold text may itself hold a link or the phone number (blog: "**Call today [label](tel:…)**")
+        if (part.startsWith("**") && part.endsWith("**"))
+          return (
+            <strong key={index}>
+              <Rich text={part.slice(2, -2)} newTab={newTab} />
+            </strong>
+          );
         // Every phone mention is a tel: link (handoffs)
         if (part === practice.phone.display) return <Fragment key={index}>{anchor(part, practice.phone.href)}</Fragment>;
         const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);

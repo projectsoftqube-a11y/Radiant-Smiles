@@ -105,7 +105,7 @@ export const membershipPlan = {
     "Yearly enrollment fees are non-refundable.",
     "Payments for services are due at the time of service.",
     "This is not dental insurance and cannot be combined with dental insurance.",
-    "It is good only for Radiant Smiles @ Floral Vale, therefore it cannot be used at any other offices, including specialists.",
+    "It is good only for Radiant Smiles @ Floral Vale; therefore, it cannot be used at any other offices, including specialists.",
   ],
 } as const;
 

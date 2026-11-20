@@ -293,8 +293,8 @@ export function FamilyDentists() {
                   <SiteLink href={person.href} className={styles.dentistName}>
                     {person.name}
                   </SiteLink>
-                </strong>{" "}
-                {person.text}
+                </strong>
+                , {person.text}
               </p>
             </li>
           ))}

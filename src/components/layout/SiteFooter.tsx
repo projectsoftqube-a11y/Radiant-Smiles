@@ -102,7 +102,7 @@ export function SiteFooter() {
             ))}
           </ul>
           <p className={styles.credit} data-reveal>
-            Design &amp; Developed By{" "}
+            Designed &amp; Developed By{" "}
             <a href="https://softqubes.com/" target="_blank" rel="noopener">
               Softqube Technologies LLC<span className="visually-hidden"> (opens in a new tab)</span>
             </a>

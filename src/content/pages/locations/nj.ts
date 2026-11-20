@@ -109,7 +109,7 @@ export const trCare = {
 
 export const trWeek = {
   title: "Saturday Mornings & Later Weekdays",
-  text: "We're open Saturday from 8 am to 2 pm, and until 6 pm on Wednesdays and Thursdays, so a check-up doesn't have to cost you a workday. Two dentists share the practice: [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/) and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/), both graduates of Temple University's Kornberg School of Dentistry.",
+  text: "We're open Saturday from 8 am to 2 pm, and until 6 pm on Wednesdays and Thursdays, so a check-up doesn't have to cost you a workday. Two dentists share the practice: [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/), and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/), both graduates of Temple University's Kornberg School of Dentistry.",
 };
 
 export const trFaqs: FaqBlock = {
@@ -191,13 +191,13 @@ export const ewWest = {
   title: "West Trenton & the Rest of Ewing Township",
   paragraphs: [
     "West Trenton, ZIP 08628, is part of Ewing Township and is covered by this page. It's home to the West Trenton SEPTA station and Trenton-Mercer Airport, and Bear Tavern Road connects it to I-295 for the run to the bridge. If you're searching for a dentist in West Trenton, NJ, our office is about the same 15 to 20 minute drive.",
-    "The page also covers the township's other neighbourhoods, including Scudders Falls, Glendale and the area around The College of New Jersey. Ewing borders Trenton; if you live closer to the US-1 or Calhoun Street bridges, see our [Trenton, NJ page](/dentist-trenton-nj/) for those routes.",
+    "The page also covers the township's other neighborhoods, including Scudders Falls, Glendale and the area around The College of New Jersey. Ewing borders Trenton; if you live closer to the US-1 or Calhoun Street bridges, see our [Trenton, NJ page](/dentist-trenton-nj/) for those routes.",
   ],
   places: ["West Trenton", "Scudders Falls", "Glendale", "The College of New Jersey"],
 };
 
 export const ewGums = {
-  title: "An Ewing, NJ Dentist for Healthy Gums",
+  title: "A Ewing, NJ Dentist for Healthy Gums",
   intro:
     "Gum disease often starts quietly, so this is the care we'd most like Ewing patients to keep up with. It begins at a check-up, where the dentist measures the pockets around your teeth and looks for tartar below the gum line. Plaque is the main cause, and the risk rises with smoking, diabetes, stress, clenching or grinding, some medications and poor nutrition.",
   items: [
@@ -264,7 +264,7 @@ export const ewFaqs: FaqBlock = {
     {
       question: "What happens at a deep cleaning?",
       answer:
-        "A deep cleaning treats gum disease below the gum line. After an exam and any X-rays, the dentist may numb the area, removes tartar with an ultrasonic scaler, then smooths the root surfaces so the gums can heal. In deeper pockets, an antibiotic such as Arestin may be placed.",
+        "A deep cleaning treats gum disease below the gum line. After an exam and any X-rays, the dentist may numb the area, then removes tartar with an ultrasonic scaler and smooths the root surfaces so the gums can heal. In deeper pockets, an antibiotic such as Arestin may be placed.",
     },
   ],
 };
@@ -460,12 +460,12 @@ export const haPlaces = {
       zip: "08690",
       text: "(ZIP 08690): if you're looking for a dentist in Hamilton Square, NJ, the drive is in the same 20 to 25 minute range.",
     },
-    { lead: "Mercerville", zip: "08619", text: "(ZIP 08619): centred on the Five Points intersection, close to the I-295 interchanges." },
+    { lead: "Mercerville", zip: "08619", text: "(ZIP 08619): centered on the Five Points intersection, close to the I-295 interchanges." },
     { lead: "Yardville", zip: "08620", text: "(ZIP 08620): along US-130." },
-    { lead: "White Horse, Groveville", zip: "", text: "and the neighbourhoods around Veterans Park and Grounds For Sculpture." },
+    { lead: "White Horse, Groveville", zip: "", text: "and the neighborhoods around Veterans Park and Grounds For Sculpture." },
   ],
   after:
-    "There are several places called Hamilton. This page is for Hamilton Township in Mercer County, NJ, and whether you need a dentist for Hamilton Township, NJ as a whole or for one neighbourhood, the route and the welcome are the same.",
+    "There are several places called Hamilton. This page is for Hamilton Township in Mercer County, NJ, and whether you need a dentist for Hamilton Township, NJ as a whole or for one neighborhood, the route and the welcome are the same.",
 };
 
 export const haSaturday = {
@@ -575,7 +575,7 @@ export const lwHere: { title: string; blocks: Block[] } = {
     { directions: true },
     { h3: "Lawrenceville & Lawrence Township" },
     {
-      p: "Lawrenceville is an unincorporated community within Lawrence Township, and many township addresses use the Lawrenceville name and ZIP 08648. This page covers the whole township, from the area around Rider University and The Lawrenceville School to the neighbourhoods near Quaker Bridge Mall and along Lawrence Road (US-206). If you've been searching for a dentist in Lawrence Township, NJ, the route and drive time are the same.",
+      p: "Lawrenceville is an unincorporated community within Lawrence Township, and many township addresses use the Lawrenceville name and ZIP 08648. This page covers the whole township, from the area around Rider University and The Lawrenceville School to the neighborhoods near Quaker Bridge Mall and along Lawrence Road (US-206). If you've been searching for a dentist in Lawrence Township, NJ, the route and drive time are the same.",
     },
   ],
 };
@@ -838,7 +838,7 @@ export const meTowns = {
 export const meFamily = {
   title: "A Mercer County, NJ Dentist for the Whole Family",
   intro:
-    "Most families need the same things from a dentist: regular check-ups, a plan for the kids, and someone they can call when something goes wrong. As a family dentist for Mercer County, NJ households, we see children from just after their first birthday and adults of every age, with two dentists, Dr. Urvishkumar Bhalala, DMD and Dr. Jaspreet Gadria, DMD, who both trained at Temple University's Kornberg School of Dentistry.",
+    "Most families need the same things from a dentist: regular check-ups, a plan for the kids, and someone they can call when something goes wrong. As a family dentist for Mercer County, NJ households, we see children from just after their first birthday and adults of every age, with two dentists, Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, who both trained at Temple University's Kornberg School of Dentistry.",
   items: [
     { icon: "toothClean", text: "[Teeth cleaning and check-ups](/preventative-care/teeth-cleaning-and-check-ups/), with an oral cancer screening at every visit" },
     { icon: "smile", text: "[Children's dentistry](/preventative-care/child-dentistry/), fluoride and sealants" },

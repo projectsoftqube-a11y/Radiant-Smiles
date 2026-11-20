@@ -37,7 +37,7 @@ export function SiteTree({ groups }: { groups: SitemapGroup[] }) {
               <span className={styles.branchName}>{group.title}</span>
               <span className={styles.branchCount}>
                 {count(group)}
-                <span className="visually-hidden"> pages</span>
+                <span className="visually-hidden">{count(group) === 1 ? " page" : " pages"}</span>
               </span>
             </a>
           </li>

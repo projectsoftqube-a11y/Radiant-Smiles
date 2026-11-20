@@ -69,7 +69,7 @@ export const disclaimer: LegalPage = {
       icon: "arrowUpRight",
       blocks: [
         {
-          p: "This website may link to other websites, such as financing or insurance providers. We are not responsible for the content or privacy practices of any hyper-linked site.",
+          p: "This website may link to other websites, such as financing or insurance providers. We are not responsible for the content or privacy practices of any hyperlinked site.",
         },
       ],
     },

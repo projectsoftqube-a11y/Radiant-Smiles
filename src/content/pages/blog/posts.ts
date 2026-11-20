@@ -27,7 +27,7 @@ export const posts: BlogPost[] = [
       },
       {
         "ul": [
-          "Staying up to date with latest techniques and equipment.",
+          "Staying up to date with the latest techniques and equipment.",
           "Ensuring a comfortable, relaxing environment.",
           "Exceeding your expectations with our professionalism."
         ]
@@ -69,7 +69,7 @@ export const posts: BlogPost[] = [
         "h2": "Your Consultation"
       },
       {
-        "p": "Before you decide to whiten your teeth, it is important that you get a proper dental examination that includes X-rays to help establish the cause of tooth discoloration. In some cases, staining can be an indication of dental disease that requires a different treatment. But for simple whitening, options include bleaching from inside the tooth, for a dead tooth that has root canal, or a single-tooth bleaching tray for a living tooth.Once the cause and extent of discoloration and staining is known, you and your dentist can explore the different whitening options that apply to your case."
+        "p": "Before you decide to whiten your teeth, it is important that you get a proper dental examination that includes X-rays to help establish the cause of tooth discoloration. In some cases, staining can be an indication of dental disease that requires a different treatment. But for simple whitening, options include bleaching from inside the tooth, for a dead tooth that has had a root canal, or a single-tooth bleaching tray for a living tooth. Once the cause and extent of discoloration and staining are known, you and your dentist can explore the different whitening options that apply to your case."
       },
       {
         "p": "Teeth usually don’t get discolored uniformly. So your dentist will come up with an appropriate strategy to whiten each tooth sufficiently to give you a uniform smile. This means that you can also choose to whiten only one or two teeth, or more."
@@ -128,7 +128,7 @@ export const posts: BlogPost[] = [
     "description": "Toothaches are usually the result of tooth trauma or a dental condition, such as a cracked tooth, dental cavity, advanced gum disease, an exposed tooth…",
     "blocks": [
       {
-        "p": "Toothaches are usually the result of tooth trauma or a dental condition, such as a cracked tooth, dental cavity, advanced gum disease, an exposed tooth root, or disorders of the jaw joint (temporomandibular joint). Pain can be either mild, severe or somewhere in-between, and it can vary from periodic to chronic."
+        "p": "Toothaches are usually the result of tooth trauma or a dental condition, such as a cracked tooth, dental cavity, advanced gum disease, an exposed tooth root, or disorders of the jaw joint (temporomandibular joint). Pain can be either mild, severe or somewhere in between, and it can vary from periodic to chronic."
       },
       {
         "h2": "Causes of tooth pain"
@@ -161,8 +161,8 @@ export const posts: BlogPost[] = [
           "Topical fluoride application for minor tooth sensitivities",
           "Dental filling for small and shallow cavities",
           "Dental crown for larger cavities",
-          "Root canal therapy for cases that involve an injured pulp or infection,",
-          "Tooth extraction of infected tooth followed by tooth replacement",
+          "Root canal therapy for cases that involve an injured pulp or infection",
+          "Tooth extraction of an infected tooth followed by tooth replacement",
           "Teeth with advanced gum disease will need a thorough cleaning, as well as scaling and root planing in addition to improved tooth care habits."
         ]
       },
@@ -187,7 +187,7 @@ export const posts: BlogPost[] = [
       },
       {
         "ul": [
-          "**Check-ups and Exams** Regular dental check-ups and thorough exams are the first line of defense against dental diseases. These appointments allow for the early detection of problems like cavities, gum disease, and even oral cancer, ensuring timely intervention and treatment.",
+          "**Check-ups and Exams:** Regular dental check-ups and thorough exams are the first line of defense against dental diseases. These appointments allow for the early detection of problems like cavities, gum disease, and even oral cancer, ensuring timely intervention and treatment.",
           "**Cleanings:** Professional cleanings go beyond what brushing and flossing can achieve at home. By removing plaque and tartar buildup, cleanings prevent the onset of gum disease and cavities, conditions linked to broader health issues such as heart disease and diabetes.",
           "**Dental Crowns:** Crowns restore the function and appearance of damaged teeth. By covering a tooth that has been decayed or broken, crowns prevent further damage and potential infections that can affect overall health.",
           "**Fillings:** Treating cavities with fillings immediately stops decay from spreading further. This not only saves the tooth but also prevents the spread of bacteria that can lead to more severe infections, protecting both oral and overall health."
@@ -335,7 +335,7 @@ export const posts: BlogPost[] = [
         "p": "Tooth-colored crowns that are fabricated entirely from porcelain are referred to as all-porcelain crowns, while those made entirely from ceramic are known as all-ceramic crowns. Dental composite resin is another tooth-colored material that can give you an aesthetic restoration. Composite crowns are highly affordable, but are arguably the weakest material for crowns since they’re prone to chipping, cracking, and rapid wear."
       },
       {
-        "p": "Your dentist may also recommend Zirconium, which is a fairly new dental material that produces crowns that are as strong and durable as metal crowns and natural-looking for an aesthetic restoration. They’re also biocompatible, meaning that they won’t cause allergic reactions, and can be fabricated at the dentist’s office for same-day crown restorations."
+        "p": "Your dentist may also recommend zirconium, which is a fairly new dental material that produces crowns that are as strong and durable as metal crowns and natural-looking for an aesthetic restoration. They’re also biocompatible, meaning that they won’t cause allergic reactions, and can be fabricated at the dentist’s office for same-day crown restorations."
       },
       {
         "p": "Porcelain-fused-to-metal crowns are generally fabricated with a metal base and porcelain coating, which gives them the strength of metal crowns and the aesthetics of tooth-colored crowns. However, porcelain-metal crowns tend to be abrasive to opposing teeth, which increases their wear rate. The metal ring on the crown may also become visible in the event of gum recession."
@@ -356,7 +356,7 @@ export const posts: BlogPost[] = [
         "p": "Metal crowns are primarily used to repair back teeth because they’re strong and highly resistant, and they’re not visible when smiling, which makes aesthetics less of a concern. But they may not be suitable for people who’re allergic to metals or those with aesthetic concerns."
       },
       {
-        "p": "To learn more about [Dental Crowns in Yardley](/restorative-dentistry/dental-crowns/) please contact us today."
+        "p": "To learn more about [dental crowns in Yardley](/restorative-dentistry/dental-crowns/), please contact us today."
       }
     ]
   },
@@ -417,11 +417,11 @@ export const posts: BlogPost[] = [
     "title": "Candidates for Dental Implants in Yardley",
     "topic": "implants",
     "date": "2025-12-06T02:06:58",
-    "excerpt": "Dental implants refer to a biocompatible fixture that is surgically placed into the jawbone underneath an area with missing teeth, so it can fuse…",
-    "description": "Dental implants refer to a biocompatible fixture that is surgically placed into the jawbone underneath an area with missing teeth, so it can fuse with the…",
+    "excerpt": "A dental implant refers to a biocompatible fixture that is surgically placed into the jawbone underneath an area with missing teeth, so it can fuse…",
+    "description": "A dental implant refers to a biocompatible fixture that is surgically placed into the jawbone underneath an area with missing teeth, so it can fuse with the…",
     "blocks": [
       {
-        "p": "Dental implants refer to a biocompatible fixture that is surgically placed into the jawbone underneath an area with missing teeth, so it can fuse with the bone to provide a strong and sturdy artificial tooth root that can support the replacement tooth. Your dentist may recommend dental implant placement for a replacement tooth in order to:"
+        "p": "A dental implant refers to a biocompatible fixture that is surgically placed into the jawbone underneath an area with missing teeth, so it can fuse with the bone to provide a strong and sturdy artificial tooth root that can support the replacement tooth. Your dentist may recommend dental implant placement for a replacement tooth in order to:"
       },
       {
         "ul": [
@@ -439,7 +439,7 @@ export const posts: BlogPost[] = [
       {
         "ul": [
           "No allergic reactions – The implant is made from biocompatible materials like titanium",
-          "Highly successful – Dental implants surgical placement has a success rate of over 98%",
+          "Highly successful – Dental implant surgical placement has a success rate of over 98%",
           "Conservative restoration – Dental implants stand on their own without depending on the support of surrounding natural teeth",
           "Natural look and feel – Since implants integrate to the underlying bone tissue, they are so stable that they look and feel like your natural teeth.",
           "No changes to your lifestyle – You can continue to eat your favorite foods without any worry and practice your usual oral care routine."
