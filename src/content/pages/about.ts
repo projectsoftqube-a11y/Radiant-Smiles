@@ -11,13 +11,13 @@ export const aboutMeta: PageMeta = {
   path: "/about-us/",
   title: "About Radiant Smiles @ Floral Vale | Yardley, PA Dentist",
   description:
-    "About Radiant Smiles @ Floral Vale in Yardley, PA: two Temple-trained dentists, 3D imaging, Saturday hours and clear pricing before treatment.",
+    "About Radiant Smiles @ Floral Vale in Yardley, PA: Temple-trained dentists, 3D imaging, Saturday hours and clear pricing before treatment.",
 };
 
 export const aboutHero: PageHeroContent = {
   h1: "About Radiant Smiles @ Floral Vale in Yardley, PA",
   intro:
-    "Radiant Smiles @ Floral Vale is a family, cosmetic and restorative dental practice at 117 Floral Vale Boulevard in Yardley, PA, serving patients since 2009. Two dentists, Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria, lead the care, with a team of hygienists and dental assistants. The short version about Radiant Smiles in Yardley: you hear what we found and what it costs before any treatment starts.",
+    "Radiant Smiles @ Floral Vale is a family, cosmetic and restorative dental practice at 117 Floral Vale Boulevard in Yardley, PA, serving patients since 2009. Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria lead the care, with a team of hygienists and dental assistants. The short version about Radiant Smiles in Yardley: you hear what we found and what it costs before any treatment starts.",
   buttons: ["call", "appointment"],
 };
 
@@ -29,7 +29,7 @@ export const aboutGlance = {
     {
       icon: "graduation",
       lead: "Who:",
-      text: "Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, both graduates of Temple University's Kornberg School of Dentistry.",
+      text: "Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, graduates of Temple University's Kornberg School of Dentistry.",
     },
     { icon: "calendar", lead: "When:", text: "six days a week, including Saturday from 8 am to 2 pm." },
     { icon: "chat", lead: "Languages:", text: "English, plus Punjabi and some Hindi with Dr. Gadria." },
@@ -71,7 +71,7 @@ export const aboutDentists: {
   doctors: { key: string; name: string; text: string; link: LinkItem; image: ImageKey }[];
 } = {
   title: "Meet Our Dentists",
-  intro: "Both of our dentists trained at Temple University's Kornberg School of Dentistry.",
+  intro: "Dr. Bhalala and Dr. Gadria trained at Temple University's Kornberg School of Dentistry.",
   doctors: [
     {
       key: "bhalala",

@@ -151,7 +151,7 @@ export function WeekStrip() {
           <span className={styles.duo}>
             <Portrait image={images.drBhalala} ratio="1 / 1" sizes="72px" className={styles.face} />
             <Portrait image={images.drGadria} ratio="1 / 1" sizes="72px" className={styles.face} />
-            <span className={styles.duoText}>Two Temple-trained dentists</span>
+            <span className={styles.duoText}>Temple-trained dentists</span>
           </span>
         </div>
       </div>

@@ -66,6 +66,13 @@ export function SiteHeader() {
               {practice.address.street}, {practice.address.city}, {practice.address.region} {practice.address.postalCode}
             </span>
           </p>
+          {/* Practice email (user, 27 Nov 2026) */}
+          <p className={`${styles.topItem} ${styles.topEmail}`}>
+            <Icon name="mail" size={16} />
+            <a href={practice.email.href} className={styles.topLink} data-track="email_click_topbar">
+              {practice.email.display}
+            </a>
+          </p>
         </div>
       </div>
 

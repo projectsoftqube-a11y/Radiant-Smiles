@@ -109,7 +109,7 @@ export const trCare = {
 
 export const trWeek = {
   title: "Saturday Mornings & Later Weekdays",
-  text: "We're open Saturday from 8 am to 2 pm, and until 6 pm on Wednesdays and Thursdays, so a check-up doesn't have to cost you a workday. Two dentists share the practice: [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/), and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/), both graduates of Temple University's Kornberg School of Dentistry.",
+  text: "We're open Saturday from 8 am to 2 pm, and until 6 pm on Wednesdays and Thursdays, so a check-up doesn't have to cost you a workday. Our dentists include [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/), and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/), graduates of Temple University's Kornberg School of Dentistry.",
 };
 
 export const trFaqs: FaqBlock = {
@@ -838,7 +838,7 @@ export const meTowns = {
 export const meFamily = {
   title: "A Mercer County, NJ Dentist for the Whole Family",
   intro:
-    "Most families need the same things from a dentist: regular check-ups, a plan for the kids, and someone they can call when something goes wrong. As a family dentist for Mercer County, NJ households, we see children from just after their first birthday and adults of every age, with two dentists, Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, who both trained at Temple University's Kornberg School of Dentistry.",
+    "Most families need the same things from a dentist: regular check-ups, a plan for the kids, and someone they can call when something goes wrong. As a family dentist for Mercer County, NJ households, we see children from just after their first birthday and adults of every age. Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, trained at Temple University's Kornberg School of Dentistry.",
   items: [
     { icon: "toothClean", text: "[Teeth cleaning and check-ups](/preventative-care/teeth-cleaning-and-check-ups/), with an oral cancer screening at every visit" },
     { icon: "smile", text: "[Children's dentistry](/preventative-care/child-dentistry/), fluoride and sealants" },

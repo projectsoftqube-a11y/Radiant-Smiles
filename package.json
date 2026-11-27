@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3300",
-    "build": "next build",
-    "start": "next start -p 3300",
-    "lint": "eslint"
+    "dev": "node node_modules/next/dist/bin/next dev -p 3300",
+    "build": "node node_modules/next/dist/bin/next build",
+    "start": "node node_modules/next/dist/bin/next start -p 3300",
+    "lint": "node node_modules/eslint/bin/eslint.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

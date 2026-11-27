@@ -30,8 +30,6 @@ declare global {
 
 const REVEAL_START = "clamp(top 80%)";
 const MEDIA_START = "clamp(top 75%)";
-/** How far (px) the closed lower jaw rises past the section top to meet the upper teeth */
-const MOUTH_BITE = 38;
 
 export function MotionController() {
   const pathname = usePathname();
@@ -62,13 +60,6 @@ export function MotionController() {
           gsap.to(el, { autoAlpha: 1, y: 0, duration: motion.duration.reveal, ease: motion.ease, delay, overwrite: true, clearProps: "transform" });
         }
       };
-      // Content inside the opening mouth (desktop): the closed jaw covers it, so it reveals
-      // when the jaw uncovers it (handled with the mouth below), not at the usual line.
-      const mouthDesktop = () => window.matchMedia("(min-width: 1200px)").matches;
-      const insideMouth = (el: Element) => {
-        const section = el.closest("section");
-        return !!section?.querySelector("[data-mouth-floor]") && !el.closest("[data-mouth-floor]");
-      };
 
       // Reduced motion: never keep anything hidden
       mm.add("(prefers-reduced-motion: reduce)", () => {
@@ -82,7 +73,7 @@ export function MotionController() {
         const foldLine = window.innerHeight * 0.92;
         const belowFold = (el: Element) => el.getBoundingClientRect().top > foldLine;
 
-        const allItems = gsap.utils.toArray<HTMLElement>("[data-reveal]").filter((el) => !(mouthDesktop() && insideMouth(el)));
+        const allItems = gsap.utils.toArray<HTMLElement>("[data-reveal]");
 
         // Already on screen at load (a short hero, a tall screen, a reload mid-page):
         // play in now, top to bottom, instead of being skipped
@@ -131,23 +122,6 @@ export function MotionController() {
           const tl = gsap.timeline({ scrollTrigger: { trigger: svg, start: MEDIA_START, once: true } });
           tl.to(strokes, { strokeDashoffset: 0, duration: 1.8, ease: "power2.inOut", stagger: 0.06 });
           if (dots.length) tl.to(dots, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(2)", stagger: 0.07 }, "-=1.1");
-        });
-
-        // Receipt printing out of the card reader (membership): the paper slides down out of
-        // its well, tied to the scroll
-        gsap.utils.toArray<HTMLElement>("[data-print]").forEach((well) => {
-          const paper = well.querySelector<HTMLElement>("[data-print-paper]");
-          if (!paper) return;
-          gsap.fromTo(
-            paper,
-            { yPercent: -100 },
-            {
-              yPercent: 0,
-              ease: "none",
-              // Fully printed by the time the receipt's top reaches mid-screen
-              scrollTrigger: { trigger: well, start: "top 90%", end: "top 55%", scrub: 0.5 },
-            },
-          );
         });
 
         // Vertical bars (office hours chart): grow down from their top, one after another.
@@ -216,59 +190,6 @@ export function MotionController() {
             stagger: 0.08,
             scrollTrigger: { trigger: group, start: REVEAL_START, once: true },
           });
-        });
-      });
-
-      // Opening mouth (home page, desktop): the lower jaw ("floor") starts lifted right under
-      // the hero's upper teeth, covering the Family section, and slides back to its place
-      // as the section scrolls up, tied to the scroll. No pinning; the content is always in
-      // the HTML. Reverted below 1200px and for reduced motion.
-      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 1200px)", () => {
-        gsap.utils.toArray<HTMLElement>("[data-mouth-floor]").forEach((floor) => {
-          const section = floor.closest("section");
-          if (!section) return;
-          gsap.fromTo(
-            floor,
-            // Closed: the lower teeth tips meet the upper teeth tips at the hero's edge
-            { y: () => -(floor.offsetTop + MOUTH_BITE) },
-            {
-              y: 0,
-              ease: "none",
-              scrollTrigger: {
-                trigger: section,
-                // Starts opening once the bite (section top) is about three-quarters down
-                start: "top 75%",
-                end: "bottom bottom",
-                scrub: 0.3,
-                invalidateOnRefresh: true,
-              },
-            },
-          );
-
-          // The section's own content reveals as the opening jaw uncovers it: when the top of
-          // the jaw's fade (4rem above the floor) passes the middle of each element.
-          const FADE = 64;
-          gsap.utils
-            .toArray<HTMLElement>(section.querySelectorAll("[data-reveal]"))
-            .filter((el) => !floor.contains(el))
-            .forEach((el) => {
-              hideForReveal(el);
-              ScrollTrigger.create({
-                trigger: section,
-                once: true,
-                invalidateOnRefresh: true,
-                start: () => {
-                  const box = section.getBoundingClientRect();
-                  const top = el.getBoundingClientRect().top - box.top;
-                  const F = floor.offsetTop;
-                  const p = gsap.utils.clamp(0, 1, 1 - (F - top - el.offsetHeight / 2 - FADE) / (F + MOUTH_BITE));
-                  const from = box.top + window.scrollY - window.innerHeight * 0.75;
-                  const to = box.top + window.scrollY + section.offsetHeight - window.innerHeight;
-                  return from + p * (to - from);
-                },
-                onEnter: () => playReveal(el, 0),
-              });
-            });
         });
       });
 

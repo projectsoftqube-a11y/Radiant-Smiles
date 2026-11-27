@@ -137,7 +137,7 @@ export const bhalalaPage: DoctorPage = {
   ],
   about: {
     title: "About Dr. Urvishkumar Bhalala",
-    text: "Dr. Bhalala is one of two dentists at Radiant Smiles @ Floral Vale, alongside Dr. Jaspreet Gadria. Before opening his own practice, he worked at several established dental offices.",
+    text: "Dr. Bhalala is one of the dentists at Radiant Smiles @ Floral Vale, where he works alongside Dr. Jaspreet Gadria. Before opening his own practice, he worked at several established dental offices.",
     sub: {
       title: "Dr. Bhalala's Dental Care in Yardley",
       text: "You can see Dr. Bhalala at the practice's Floral Vale office in Yardley, which is open six days a week, including Saturday mornings. The office provides family, cosmetic and restorative dentistry, from checkups and fillings to crowns, implants and whitening.",

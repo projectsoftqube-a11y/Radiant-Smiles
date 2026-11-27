@@ -1,13 +1,12 @@
 import { Fragment } from "react";
-import { ToothMark } from "@/components/ui/Brand";
-import { Icon } from "@/components/ui/Icon";
-import SiteLink from "@/components/ui/SiteLink";
-import { homeMembership } from "@/content/pages/home";
+import { Button } from "@/components/ui/Button";
+import { Icon, type IconName } from "@/components/ui/Icon";
+import { Rays } from "@/components/ui/Rays";
+import { homeHero, homeMembership } from "@/content/pages/home";
 import { practice } from "@/content/site";
-import { MemberCard } from "./MemberCard";
 import styles from "./Membership.module.css";
 
-/** Keeps each word whole, so "X-rays" never breaks at its hyphen on narrow receipts */
+/** Keeps each word whole, so "In-Office" and "X-rays" never break at their hyphens */
 function Words({ text }: { text: string }) {
   return (
     <>
@@ -21,81 +20,111 @@ function Words({ text }: { text: string }) {
   );
 }
 
+/** "$75 per visit" → the figure set large and the rest of the same text beside it */
+function Price({ text }: { text: string }) {
+  const [figure, ...rest] = text.split(" ");
+  return (
+    <>
+      <strong className={styles.figure}>{figure}</strong>
+      {rest.length ? <span className={styles.unit}> {rest.join(" ")}</span> : null}
+    </>
+  );
+}
+
+/** A small icon for each member price (decorative) */
+const iconFor = (item: string): IconName =>
+  item.includes("3rd") ? "calendar" : item.includes("Periodontal") ? "tooth" : item.includes("Emergency") ? "firstAid" : "toothClean";
+
 /**
- * "Pay one fee, get the receipt": a glossy member card sits in a card reader, and as the
- * section scrolls into view the plan table prints out of the reader as a paper receipt
- * (MotionController, data-print). The receipt is the real table, so it is always in the
- * HTML; without motion it is simply shown.
+ * Membership (client, 27 Nov 2026: "redesign it entirely, the best you can make"; the user's
+ * reference was a two-tone plan card). A split header (label + H2 left, intro right), then
+ * one wide card: on white, the member prices as price-first tiles and the 20% discount as
+ * a strip; on a blue panel with the radiant rays, the two yearly fees and the buttons. The
+ * plan's terms sit under the card. Every row and term is the site.ts rate card, word for word.
  */
 export function Membership() {
+  const [first, additional, ...others] = homeMembership.rows;
+  const discount = others.find((row) => row.price.endsWith("% off"));
+  const memberPrices = others.filter((row) => row !== discount);
+
   return (
     <section className={styles.section} aria-labelledby="home-membership-title">
-      <div className={`container ${styles.grid}`}>
-        <div className={styles.copy}>
-          <p className="label" data-reveal>
-            No insurance
-          </p>
-          <h2 id="home-membership-title" data-reveal>
-            {homeMembership.title}
-          </h2>
+      <div className="container">
+        <div className={styles.head}>
+          <div className={styles.headTitle}>
+            <p className="label" data-reveal>
+              No insurance
+            </p>
+            <h2 id="home-membership-title" className={styles.title} data-reveal>
+              <Words text={homeMembership.title} />
+            </h2>
+          </div>
           <p className={`lead ${styles.intro}`} data-reveal>
             {homeMembership.intro}
           </p>
-          <div data-reveal>
-            <SiteLink href={homeMembership.link.href} className="text-link">
-              {homeMembership.link.label} <Icon name="arrow" size={16} />
-            </SiteLink>
-          </div>
         </div>
 
-        <div className={styles.stage} data-reveal>
-          <div className={styles.cardSlot}>
-            <MemberCard />
+        <div className={styles.plan}>
+          <div className={styles.prices} data-reveal>
+            <p className={styles.kicker}>Member prices</p>
+            <dl className={styles.tiles}>
+              {memberPrices.map((row) => (
+                <div key={row.item} className={styles.tile}>
+                  <dt>
+                    <span className={styles.tileIcon} aria-hidden="true">
+                      <Icon name={iconFor(row.item)} size={22} strokeWidth={1.6} />
+                    </span>
+                    <Words text={row.item} />
+                  </dt>
+                  <dd>
+                    <Price text={row.price} />
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            {discount ? (
+              <dl className={styles.discount}>
+                <div className={styles.discountRow}>
+                  <dt>
+                    <Words text={discount.item} />
+                  </dt>
+                  <dd>
+                    <Price text={discount.price} />
+                  </dd>
+                </div>
+              </dl>
+            ) : null}
           </div>
 
-          {/* The card reader, with the slot the receipt prints from */}
-          <div className={styles.reader} aria-hidden="true">
-            <span className={styles.readerLight} />
-            <span className={styles.readerSlot} />
-          </div>
-
-          <div className={styles.paperWell} data-print>
-            <div className={styles.paper} data-print-paper>
-              <div className={styles.paperHead} aria-hidden="true">
-                <ToothMark className={styles.paperMark} />
-                <span className={styles.paperName}>{practice.name}</span>
-              </div>
-              <table className={styles.receipt}>
-                <caption className="visually-hidden">{homeMembership.title}</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">{homeMembership.columns[0]}</th>
-                    <th scope="col">{homeMembership.columns[1]}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {homeMembership.rows.map((row) => (
-                    <tr key={row.item}>
-                      <th scope="row">
-                        <Words text={row.item} />
-                      </th>
-                      <td>
-                        <Words text={row.price} />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              {/* The plan's terms, as fine print on the receipt */}
-              <ul role="list" className={styles.terms}>
-                {homeMembership.terms.map((term) => (
-                  <li key={term}>{term}</li>
-                ))}
-              </ul>
-              <span className={styles.barcode} aria-hidden="true" />
+          <div className={styles.side} data-reveal>
+            <Rays className={styles.rays} count={19} spread={150} inner={0.3} scroll />
+            <p className={styles.sideKicker}>{homeMembership.columns[0]}</p>
+            <dl className={styles.fees}>
+              {[first, additional].map((row) => (
+                <div key={row.item} className={styles.fee}>
+                  <dt>{row.item}</dt>
+                  <dd>
+                    <Price text={row.price} />
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <div className={styles.actions}>
+              <Button href={practice.phone.href} variant="light" icon="phone" track="call_click_membership">
+                {homeHero.callLabel}
+              </Button>
+              <Button href={homeMembership.link.href} variant="ghost-light" iconEnd="arrow" long>
+                {homeMembership.link.label}
+              </Button>
             </div>
           </div>
         </div>
+
+        <ul role="list" className={styles.terms} data-reveal>
+          {homeMembership.terms.map((term) => (
+            <li key={term}>{term}</li>
+          ))}
+        </ul>
       </div>
     </section>
   );

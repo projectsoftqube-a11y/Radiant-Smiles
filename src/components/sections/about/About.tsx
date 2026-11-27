@@ -57,7 +57,7 @@ export function AboutBento() {
             {gadria.src ? <Image src={gadria.src} alt="" fill sizes="56px" style={{ objectFit: "cover", objectPosition: "60% 20%" }} /> : null}
           </span>
         </span>
-        <span className={styles.tileStrong}>Two Temple-trained dentists</span>
+        <span className={styles.tileStrong}>Temple-trained dentists</span>
       </div>
       <div className={`${styles.tile} ${styles.tileHours}`}>
         <Icon name="calendar" size={24} />

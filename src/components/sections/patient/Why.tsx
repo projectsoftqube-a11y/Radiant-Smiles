@@ -15,7 +15,7 @@ import styles from "./Why.module.css";
  */
 
 const reasons: { icon: IconName; title: string; tone: string }[] = [
-  { icon: "graduation", title: "Two Temple-trained dentists", tone: "navy" },
+  { icon: "graduation", title: "Temple-trained dentists", tone: "navy" },
   { icon: "layers", title: "3D imaging", tone: "sky" },
   { icon: "calendar", title: "Saturday appointments", tone: "white" },
   { icon: "badgeDollar", title: "A clear price first", tone: "pearl" },

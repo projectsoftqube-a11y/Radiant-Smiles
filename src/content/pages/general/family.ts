@@ -89,7 +89,7 @@ export const famEmergency = {
 
 export const famDentists = {
   title: "Meet Your Family Dentists",
-  intro: "Both dentists earned their Doctor of Dental Medicine degrees at Temple University's Kornberg School of Dentistry.",
+  intro: "Dr. Bhalala and Dr. Gadria earned their Doctor of Dental Medicine degrees at Temple University's Kornberg School of Dentistry.",
   people: [
     {
       key: "drBhalala",

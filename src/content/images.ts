@@ -5,6 +5,7 @@ import whiteningAfterImg from "@/assets/images/gallery-whitening-after.jpg";
 import whiteningBeforeImg from "@/assets/images/gallery-whitening-before.jpg";
 import familyPillImg from "@/assets/images/home-family-pill-patient.jpg";
 import heroImg from "@/assets/images/home-hero-family.jpg";
+import heroSmileImg from "@/assets/images/home-hero-smile-mirror.jpg";
 import npHeroImg from "@/assets/images/new-patients-hero-welcome.jpg";
 import cosmeticImg from "@/assets/images/home-services-cosmetic-smile.jpg";
 import implantsImg from "@/assets/images/home-service-implants.jpg";
@@ -73,6 +74,18 @@ export const images = {
       provider: "practice",
       licence: "Supplied by the user for the site (Downloads/Team image 1.jpg, 1206×804, 15 Oct 2026; replaces Team image.jpg); origin and licence on file with the agency",
       downloaded: "2026-10-15",
+    },
+  },
+  // Hero slider, slide 2 (user, 27 Nov 2026). Stock: not a patient of the practice. The
+  // tooth-shaped mirror's small print is not readable at banner size.
+  homeHeroSmile: {
+    src: heroSmileImg,
+    alt: "Smiling woman in a dental chair holding a tooth-shaped hand mirror",
+    brief: "Hero slider: a bright, happy smile after a visit",
+    position: "65% 35%",
+    source: {
+      ...pexels("6627574", "https://www.pexels.com/photo/smiling-woman-in-dentist-chair-looking-in-mirror-6627574/", "Kaboompics.com"),
+      downloaded: "2026-11-27",
     },
   },
   npHero: {

@@ -213,71 +213,6 @@
   outline-offset: 2px;
 }
 
-/* Map strip with the address card on it */
-.place {
-  position: relative;
-  margin-top: clamp(3rem, 6vw, 5rem);
-  min-height: 26rem;
-  overflow: hidden;
-  border-radius: var(--radius-l);
-  background: var(--sky-100);
-  box-shadow: var(--shadow-soft);
-}
-
-.map {
-  position: absolute;
-  inset: 0;
-}
-
-.card {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 1.1rem;
-  justify-items: start;
-  width: min(25rem, calc(100% - 3rem));
-  /* Right side: Google's own place card sits at the map's top left */
-  margin: 1.5rem 1.5rem 1.5rem auto;
-  padding: 1.75rem;
-  border: 1px solid rgb(255 255 255 / 0.9);
-  border-radius: var(--radius-l);
-  background: rgb(255 255 255 / 0.9);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-lift);
-}
-
-.cardIcon {
-  display: inline-grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: var(--radius-m);
-  background: var(--navy-800);
-  color: var(--sky-300);
-}
-
-.nap {
-  display: grid;
-  gap: 0.15rem;
-  line-height: 1.5;
-}
-
-.napName {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  color: var(--navy-800);
-}
-
-.phoneLine a {
-  font-weight: 600;
-  color: var(--navy-800);
-}
-
-.mapNote {
-  font-size: 0.875rem;
-  color: var(--slate-500);
-}
-
 @media (max-width: 1199px) {
   .top {
     grid-template-columns: 1fr;
@@ -345,21 +280,6 @@
     grid-column: 2;
     justify-self: start;
     margin-top: 0.4rem;
-  }
-
-  .place {
-    min-height: 0;
-    display: grid;
-  }
-
-  .map {
-    position: relative;
-    height: 16rem;
-  }
-
-  .card {
-    width: auto;
-    margin: -2rem 0.75rem 0.75rem;
   }
 
   .chart {

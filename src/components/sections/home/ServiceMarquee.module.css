@@ -1,0 +1,90 @@
+/* Service marquee: a full-width white band between the hero and the Family section, the
+   names moving right to left with the two-colour tooth mark between them. */
+.band {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(1.1rem, 0.85rem + 0.75vw, 1.75rem);
+  border-block: 1px solid var(--sky-200);
+  background: var(--white);
+}
+
+/* Short soft fades at the screen edges, drawn over the moving names (static) */
+.band::before,
+.band::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: clamp(1.25rem, 0.75rem + 2.5vw, 4rem);
+  pointer-events: none;
+}
+
+.band::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--white), rgb(255 255 255 / 0));
+}
+
+.band::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--white), rgb(255 255 255 / 0));
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.list {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 0.8rem + 1.5vw, 2.75rem);
+  padding-right: clamp(1.25rem, 0.8rem + 1.5vw, 2.75rem);
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.75rem);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--navy-800);
+}
+
+/* The logo's tooth mark between names (decorative) */
+.mark {
+  flex: none;
+  width: 0.9em;
+  height: 0.9em;
+  background: url("/images/tooth-mark.svg") center / contain no-repeat;
+}
+
+/* Reduced motion: still, and the names can be scrolled sideways instead */
+@media (prefers-reduced-motion: reduce) {
+  .band {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .band::-webkit-scrollbar {
+    display: none;
+  }
+
+  .band::before,
+  .band::after {
+    display: none;
+  }
+
+  .list[aria-hidden="true"] {
+    display: none;
+  }
+}

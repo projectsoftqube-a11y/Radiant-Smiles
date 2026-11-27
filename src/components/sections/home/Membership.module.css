@@ -1,353 +1,395 @@
+/* Membership (client, 27 Nov 2026): split header, one wide two-tone plan card (member price
+   tiles on white, yearly fees on a blue panel with the radiant rays), terms underneath */
 .section {
   position: relative;
-  overflow: hidden;
   padding-block: var(--space-section);
   background:
-    radial-gradient(45% 60% at 85% 30%, var(--sky-100) 0%, transparent 70%),
+    radial-gradient(45% 55% at 90% 20%, var(--sky-100) 0%, transparent 70%),
     linear-gradient(180deg, var(--sky-50), var(--white));
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2.5rem, 6vw, 7rem);
-  align-items: center;
-}
-
-.copy {
-  display: grid;
-  gap: 1.25rem;
-  justify-items: start;
-}
-
-.copy h2 {
-  max-width: 15ch;
-}
-
-.intro {
-  max-width: 44ch;
-  color: var(--slate-600);
-}
-
-/* The stage: card in the reader, receipt printing out underneath */
-.stage {
-  justify-self: center;
-  width: min(100%, 31rem);
-  display: grid;
-  justify-items: center;
-}
-
-.cardSlot {
-  position: relative;
-  z-index: 1;
-  width: 86%;
-  /* The bottom of the card tucks into the reader */
-  margin-bottom: -3.2rem;
-}
-
-/* Member card */
-.cardStage {
-  perspective: 900px;
-}
-
-.memberCard {
-  --rx: 0deg;
-  --ry: 0deg;
-  --gx: 30%;
-  --gy: 20%;
-  position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 0.75rem;
-  aspect-ratio: 1.586;
-  padding: 1.4rem 1.5rem 1.3rem;
-  border-radius: var(--radius-l);
-  overflow: hidden;
-  background:
-    radial-gradient(circle at var(--gx) var(--gy), rgb(169 218 243 / 0.4) 0%, transparent 45%),
-    linear-gradient(135deg, var(--navy-700) 0%, var(--navy-800) 45%, var(--navy-950) 100%);
-  color: var(--white);
-  box-shadow: 0 30px 50px -28px rgb(15 38 69 / 0.6);
-  transform: rotate(-3deg) rotateX(var(--rx)) rotateY(var(--ry));
-  transition: transform 0.4s var(--ease-out);
-}
-
-/* Fine security lines, and a light sheen that sweeps across now and then */
-.memberCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(115deg, rgb(255 255 255 / 0.045) 0 1px, transparent 1px 14px);
-  pointer-events: none;
-}
-
-.memberCard::after {
-  content: "";
-  position: absolute;
-  inset: -50% auto -50% -60%;
-  width: 40%;
-  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.22), transparent);
-  rotate: 20deg;
-  animation: sheen 5.5s ease-in-out 1.5s infinite;
-  pointer-events: none;
-}
-
-@keyframes sheen {
-  0%,
-  60% {
-    translate: 0 0;
-  }
-  100% {
-    translate: 420% 0;
-  }
-}
-
-.cardTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.cardMark {
-  width: 2rem;
-  height: auto;
-  --mark-outline: var(--sky-500);
-  --mark-monogram: var(--white);
-}
-
-.cardKind {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--sky-300);
-}
-
-.cardPrice {
-  align-self: center;
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  font-variant-numeric: lining-nums;
-}
-
-.cardPrice span {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  color: var(--sky-300);
-}
-
-.cardBottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.25rem 1rem;
-  font-size: 0.8125rem;
-  color: var(--slate-on-navy);
-}
-
-.cardName {
-  font-weight: 600;
-  color: var(--white);
-}
-
-/* Card reader */
-.reader {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 4.25rem;
-  border-radius: var(--radius-l) var(--radius-l) var(--radius-m) var(--radius-m);
-  background: linear-gradient(180deg, #2a4f86 0%, var(--navy-900) 100%);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.15),
-    0 18px 30px -16px rgb(15 38 69 / 0.55);
-}
-
-.readerLight {
-  position: absolute;
-  left: 1.25rem;
-  top: 1.1rem;
-  width: 2.5rem;
-  height: 0.35rem;
-  border-radius: var(--radius-pill);
-  background: var(--sky-500);
-  box-shadow: 0 0 12px var(--sky-500);
-}
-
-.readerSlot {
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  bottom: 0.7rem;
-  height: 0.45rem;
-  border-radius: var(--radius-pill);
-  background: var(--navy-950);
-  box-shadow: inset 0 2px 3px rgb(0 0 0 / 0.5);
-}
-
-/* The receipt prints out of the slot: its well clips the paper as it slides down */
-.paperWell {
-  position: relative;
-  width: 86%;
-  margin-top: -1.15rem;
-  overflow: hidden;
-  padding: 0 1rem 2rem;
-  /* The paper's own mask would cut its shadow, so the shadow lives here */
-  filter: drop-shadow(0 14px 18px rgb(15 38 69 / 0.16)) drop-shadow(0 2px 3px rgb(15 38 69 / 0.08));
-}
-
-.paper {
-  --scallop: 9px;
-  position: relative;
-  padding: 1.6rem 1.4rem calc(var(--scallop) + 1.4rem);
-  background: linear-gradient(180deg, #e9edf1 0, var(--white) 1.4rem);
-  /* Perforated tear-off bottom edge */
-  -webkit-mask:
-    linear-gradient(#000 0 0) top / 100% calc(100% - var(--scallop)) no-repeat,
-    radial-gradient(circle var(--scallop) at 50% 0, #000 98%, #0000) bottom / calc(2 * var(--scallop) + 4px) var(--scallop) repeat-x;
-  mask:
-    linear-gradient(#000 0 0) top / 100% calc(100% - var(--scallop)) no-repeat,
-    radial-gradient(circle var(--scallop) at 50% 0, #000 98%, #0000) bottom / calc(2 * var(--scallop) + 4px) var(--scallop) repeat-x;
-}
-
-.paperHead {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding-bottom: 1rem;
-  margin-bottom: 0.4rem;
-  border-bottom: 2px dashed var(--line-strong);
-}
-
-.paperMark {
-  width: 1.15rem;
-  height: auto;
-}
-
-.paperName {
-  font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--navy-800);
-}
-
-.receipt {
-  width: 100%;
-  font-variant-numeric: tabular-nums;
-}
-
-.receipt thead th {
-  padding: 0.5rem 0 0.4rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  text-align: left;
-  color: var(--sky-700);
-}
-
-.receipt thead th:last-child {
-  text-align: right;
-}
-
-.receipt tbody tr {
-  border-top: 1px dashed var(--line-strong);
-}
-
-.receipt tbody th {
-  padding: 0.75rem 0.75rem 0.75rem 0;
-  text-align: left;
-  font-weight: 400;
-  font-size: 0.9375rem;
-  line-height: 1.4;
-  color: var(--ink);
-}
-
-.receipt td {
-  width: 42%;
-  padding: 0.75rem 0;
-  text-align: right;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.9375rem;
-  line-height: 1.35;
-  font-variant-numeric: lining-nums;
-  color: var(--navy-800);
-}
-
-/* The 15% off line, like a receipt's total */
-.receipt tbody tr:last-child {
-  border-top: 2px solid var(--navy-800);
-}
-
-.receipt tbody tr:last-child td {
-  font-size: 1.25rem;
-  color: var(--sky-700);
-}
-
+/* Keeps hyphenated words and prices whole */
 .word {
   white-space: nowrap;
 }
 
-/* The plan's terms: fine print under the prices */
-.terms {
+/* ───────── Header: label + H2 left, intro right ───────── */
+.head {
   display: grid;
-  gap: 0.3rem;
-  margin: 1rem 0 0;
-  padding: 0.85rem 0 0;
-  border-top: 1px dashed var(--line-strong);
-  list-style: none;
-  font-size: 0.8125rem;
-  line-height: 1.45;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: end;
+  gap: clamp(1.25rem, 4vw, 5rem);
+  margin-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.headTitle {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+}
+
+.title {
+  max-width: 17ch;
+}
+
+.intro {
+  max-width: 46ch;
   color: var(--slate-600);
 }
 
-.barcode {
-  display: block;
-  height: 2.2rem;
-  margin: 1rem auto 0;
-  width: 70%;
-  background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 8px, var(--ink) 8px 11px, transparent 11px 13px);
-  opacity: 0.8;
+/* ───────── The plan card ───────── */
+.plan {
+  --pad: clamp(1.5rem, 0.9rem + 2.2vw, 3.25rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.kicker,
+.sideKicker {
+  position: relative;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.kicker {
+  color: var(--sky-700);
+}
+
+.sideKicker {
+  color: var(--sky-200);
+}
+
+.figure {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.unit {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* Left: member prices, price first */
+.prices {
+  display: grid;
+  align-content: center;
+  gap: 1.1rem;
+  min-width: 0;
+  padding: var(--pad);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+  padding: 1.25rem 1.25rem 1.3rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-m);
+  background: var(--sky-50);
+  transition: translate 0.35s var(--ease-out), border-color var(--dur-ui) ease, background-color var(--dur-ui) ease;
+}
+
+/* The price reads first; the name (dt, first in the markup) sits under it */
+.tile dd {
+  order: -1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin: 0;
+  padding-right: 3.25rem;
+  color: var(--navy-800);
+}
+
+.tile .figure {
+  font-size: clamp(2rem, 1.65rem + 0.9vw, 2.5rem);
+}
+
+.tile .unit {
+  color: var(--slate-600);
+}
+
+.tile dt {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--navy-800);
+}
+
+.tileIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--sky-200);
+  border-radius: var(--radius-s);
+  background: var(--white);
+  color: var(--sky-700);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    translate: 0 -3px;
+    border-color: var(--sky-300);
+    background: var(--white);
+  }
+
+  .tile:hover .tileIcon {
+    border-color: var(--navy-800);
+    background: var(--navy-800);
+    color: var(--sky-300);
+  }
+}
+
+/* The 20% discount: a strip under the tiles */
+.discount {
+  margin: 0;
+}
+
+.discountRow {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-m);
+  background: var(--sky-100);
+}
+
+.discountRow dt {
+  min-width: 0;
+  line-height: 1.45;
+  color: var(--navy-800);
+}
+
+.discountRow dd {
+  order: -1;
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin: 0;
+  color: var(--sky-700);
+}
+
+.discountRow .figure {
+  font-size: clamp(1.75rem, 1.45rem + 0.8vw, 2.25rem);
+  font-weight: 700;
+}
+
+/* Right: the yearly fees on a blue panel, the rays rising from its foot */
+.side {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-content: center;
+  gap: 1.35rem;
+  min-width: 0;
+  overflow: hidden;
+  padding: var(--pad);
+  background: linear-gradient(160deg, var(--sky-700) 0%, var(--navy-800) 78%);
+  color: var(--white);
+}
+
+.rays {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  bottom: -12%;
+  width: 150%;
+  translate: -50% 0;
+  stroke: var(--white);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.fees {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.fee {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  min-width: 0;
+  padding: 1.15rem 1.2rem 1.3rem;
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: var(--radius-m);
+  background: rgb(255 255 255 / 0.1);
+}
+
+.fee dt {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--sky-200);
+}
+
+.fee dd {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.fee .figure {
+  font-size: clamp(2.25rem, 1.8rem + 1.2vw, 3rem);
+}
+
+.fee .unit {
+  opacity: 0.85;
+}
+
+/* The first person's fee: a white tile */
+.fee:first-child {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.fee:first-child dt {
+  color: var(--sky-700);
+}
+
+.actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.actions > * {
+  justify-content: center;
+  width: 100%;
+}
+
+/* The plan's terms: fine print under the card, two columns */
+.terms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 2.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0 0.25rem;
+  list-style: none;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--slate-600);
+}
+
+.terms li {
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.terms li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: var(--sky-500);
+}
+
+/* Tablets: the blue panel moves under the prices */
+@media (max-width: 1199px) {
+  .plan {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actions > * {
+    width: auto;
+  }
 }
 
 @media (max-width: 991px) {
-  .grid {
+  .head {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 575px) {
-  .cardSlot,
-  .paperWell {
-    width: 92%;
-  }
-
-  .paper {
-    padding-inline: 1rem;
-  }
-
-  .memberCard {
-    padding: 1.1rem 1.2rem;
+@media (max-width: 767px) {
+  .terms {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .memberCard {
-    transform: rotate(-3deg);
+/* Phones: each member price becomes a row, figure on the left */
+@media (max-width: 575px) {
+  .tiles {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 
-  .memberCard::after {
-    animation: none;
+  .tile {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .tile dd {
+    flex: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    width: 6.25rem;
+    padding-right: 0;
+  }
+
+  .tile .unit {
+    font-size: 0.8125rem;
+  }
+
+  .tileIcon {
+    display: none;
+  }
+
+  .discountRow {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .fees {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    display: grid;
+  }
+
+  .actions > * {
+    width: 100%;
   }
 }

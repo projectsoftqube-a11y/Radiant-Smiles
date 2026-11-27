@@ -41,7 +41,7 @@ export const cdWhat = {
   title: "What Is Cosmetic Dentistry?",
   paragraphs: [
     "Cosmetic dentistry is dental treatment that improves how your teeth look: their color, shape, size, alignment and the spaces between them. Many cosmetic treatments also repair damage, so a chipped tooth looks better and is protected at the same time.",
-    "A cosmetic dentist is a general dentist who provides these treatments. At our Yardley office, the same two dentists who look after your checkups and fillings also plan your cosmetic work, so they already know your teeth, your gums and your history.",
+    "A cosmetic dentist is a general dentist who provides these treatments. At our Yardley office, the same dentists who look after your checkups and fillings also plan your cosmetic work, so they already know your teeth, your gums and your history.",
   ],
 };
 
@@ -220,7 +220,7 @@ export const cdResults = {
 
 export const cdDentists = {
   title: "Meet Your Cosmetic Dentists",
-  intro: "Both of our dentists trained at Temple University's Kornberg School of Dentistry.",
+  intro: "Dr. Gadria and Dr. Bhalala trained at Temple University's Kornberg School of Dentistry.",
   people: [
     {
       key: "drGadria",
@@ -270,7 +270,7 @@ export const cdFaqs: FaqBlock = {
     {
       question: "Who are the cosmetic dentists at Radiant Smiles?",
       answer:
-        "Dr. Jaspreet Gadria, DMD, and Dr. Urvishkumar Bhalala, DMD, provide cosmetic dentistry at Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. Both trained at Temple University's Kornberg School of Dentistry, and Dr. Gadria's focus includes general, cosmetic and restorative dentistry.",
+        "Dr. Jaspreet Gadria, DMD, and Dr. Urvishkumar Bhalala, DMD, provide cosmetic dentistry at Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. They trained at Temple University's Kornberg School of Dentistry, and Dr. Gadria's focus includes general, cosmetic and restorative dentistry.",
     },
     {
       question: "Are you open on Saturdays for cosmetic appointments?",

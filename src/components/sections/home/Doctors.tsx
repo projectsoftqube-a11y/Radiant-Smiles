@@ -36,7 +36,7 @@ export function Doctors() {
             </span>
             <span>
               <strong>{dentists.gadria.school}</strong>
-              <small>Where both our dentists trained</small>
+              <small>Where our dentists trained</small>
             </span>
           </p>
         </header>
@@ -72,7 +72,7 @@ export function Doctors() {
           ))}
         </ul>
 
-        {/* The two dentists joining soon: one slim strip until their details arrive */}
+        {/* New dentists joining soon: one slim strip until their details arrive */}
         <div className={styles.joining} data-reveal>
           <span className={styles.joiningFaces} aria-hidden="true">
             {homeDoctors.upcoming.map((slot) => (

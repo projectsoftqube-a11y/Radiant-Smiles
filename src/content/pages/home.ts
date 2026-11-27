@@ -23,14 +23,26 @@ export const homeHero = {
   // had "…Family, Cosmetic & Restorative Care"; the title tag and meta are unchanged.
   h1: "Dentist in Yardley, PA for Family, Cosmetic & Implant Dentistry",
   intro:
-    "Radiant Smiles @ Floral Vale is a family dentist in Yardley, PA, where two Temple-trained dentists use 3D imaging and digital scans so repairs fit right, and explain what they found, and what it costs, before anything starts. Open Saturdays 8 am to 2 pm. Same-day emergency slots every business day. No insurance? Your first visit is $99.",
+    "Radiant Smiles @ Floral Vale is a family dentist in Yardley, PA, where Temple-trained dentists use 3D imaging and digital scans so repairs fit right, and explain what they found, and what it costs, before anything starts. Open Saturdays 8 am to 2 pm. Same-day emergency slots every business day. No insurance? Your first visit is $99.",
   callLabel: "Call (215) 860-4600",
   appointment: { label: "Request an Appointment", href: "/patient-information/scheduling/" },
   newPatient: { label: "New patient? Here's what to expect", href: "/patient-information/new-patients/" },
   /**
-   * The five upper teeth under the hero: five services, each linking to its page (client
-   * feedback, 15 Oct 2026; they were the quick facts: address, Saturday hours, same-day
-   * emergencies, the new-patient visit and insurance, all still in the hero copy above).
+   * Hero photo slider (user, 27 Nov 2026, like the hero on media-bright-smile.vercel.app): the
+   * banner cross-fades to the next photo every 6 s. Each slide is an images.ts key; `position`
+   * overrides the image's own crop for the wide banner. Swap in the practice's own photos
+   * (office, reception, team) when they arrive.
+   */
+  slides: [
+    { image: "homeHero" },
+    { image: "homeHeroSmile" },
+    { image: "npHero", position: "50% 40%" },
+  ],
+  /**
+   * Five service cards under the hero, each linking to its page (client feedback, 15 Oct
+   * 2026; they were the quick facts: address, Saturday hours, same-day emergencies, the
+   * new-patient visit and insurance, all still in the hero copy above). Simple cards since
+   * 26 Nov 2026 (client: the upper-teeth design is gone).
    */
   facts: [
     { icon: "aligner", text: "Invisalign", href: "/cosmetic-dentistry/invisalign/" },
@@ -41,10 +53,32 @@ export const homeHero = {
   ],
 } as const;
 
+/**
+ * Service names that scroll right to left in the band just after the hero (client, 26 Nov
+ * 2026, like the Hampton Family Dental homepage). Plain text, not links; labels match the
+ * page names in routes.ts.
+ */
+export const homeMarquee = {
+  label: "Dental services at Radiant Smiles @ Floral Vale",
+  items: [
+    "Family Dentistry",
+    "Teeth Cleaning & Check-ups",
+    "Invisalign",
+    "Dental Implants",
+    "Teeth Whitening",
+    "Porcelain Veneers",
+    "Dental Crowns",
+    "Root Canal Therapy",
+    "Dentures",
+    "Dental Bonding",
+    "Emergency Dentistry",
+  ],
+} as const;
+
 export const homeFamily = {
   title: "Family Dentistry in Yardley, Explained Before It Starts",
   paragraphs: [
-    "You get two dentists, one office and a clear plan before any treatment begins. As a Yardley dentist for the whole family, we see children from around their first birthday through to adults who need a tooth repaired or replaced.",
+    "You get one dental team, one office and a clear plan before any treatment begins. As a Yardley dentist for the whole family, we see children from around their first birthday through to adults who need a tooth repaired or replaced.",
     "Your first visit is about getting to know your mouth and your goals. We take digital X-rays, check your teeth and gums, and clean your teeth. Then we explain what we found and what it costs, so there are no surprises and no pressure to decide that day.",
     "Nervous about the dentist? Tell us. You're welcome to bring headphones and music, and you can ask us about sedation options.",
   ],
@@ -219,11 +253,11 @@ export const homeInsurance = {
 };
 
 export const homeDoctors = {
-  // Client feedback (15 Oct 2026): the title no longer names two dentists, since the team is
-  // growing; the intro names the current two and the two joining.
+  // Client feedback (15 Oct 2026): the title doesn't name the dentists, since the team is
+  // growing. Client (26 Nov 2026): no dentist counts anywhere ("two", "both"...).
   title: "Meet Our Dentists",
   intro:
-    "Dr. Bhalala and Dr. Gadria share the care at Radiant Smiles @ Floral Vale, and both trained at Temple University's Kornberg School of Dentistry. Two more dentists are joining the team soon.",
+    "Dr. Bhalala and Dr. Gadria lead the care at Radiant Smiles @ Floral Vale. Each trained at Temple University's Kornberg School of Dentistry, and more dentists are joining the team soon.",
   doctors: [
     {
       key: "bhalala" as const,
@@ -244,16 +278,16 @@ export const homeDoctors = {
     },
   ],
   /**
-   * Two more dentists are joining (client feedback, 14 Oct 2026). Shown as "joining soon"
+   * More dentists are joining (client feedback, 14 Oct 2026). Shown as "joining soon"
    * cards with a placeholder portrait until the practice sends each one's name, degree,
    * photo and bio; then they move into `doctors` (and site.ts `dentists`), and the title
-   * and intro above, which name two dentists, need updating with the SEO team.
+   * and intro above, which name the current dentists, need updating with the SEO team.
    */
   upcoming: [
     { key: "new-1", label: "New dentist", status: "Joining soon" },
     { key: "new-2", label: "New dentist", status: "Joining soon" },
   ],
-  upcomingTitle: "Two more dentists are joining our team",
+  upcomingTitle: "New dentists are joining our team",
   upcomingText: "We'll introduce them here when they join the practice.",
 };
 
@@ -375,7 +409,7 @@ export const homeFaqs: { title: string; items: FaqItem[] } = {
     {
       question: "Who are the dentists at Radiant Smiles @ Floral Vale?",
       answer:
-        "Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, treat patients at Radiant Smiles @ Floral Vale. Both graduated from Temple University's Kornberg School of Dentistry. Dr. Gadria earned her DMD with high honors and speaks English and Punjabi fluently, plus some Hindi.",
+        "Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, treat patients at Radiant Smiles @ Floral Vale. They graduated from Temple University's Kornberg School of Dentistry. Dr. Gadria earned her DMD with high honors and speaks English and Punjabi fluently, plus some Hindi.",
     },
     {
       question: "Do you accept my dental insurance?",

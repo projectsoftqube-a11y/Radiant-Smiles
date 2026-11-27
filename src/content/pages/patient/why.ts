@@ -11,7 +11,7 @@ export const whyMeta: PageMeta = {
   path: "/patient-information/why-choose-us/",
   title: "Why Choose Our Yardley Dentists | Radiant Smiles",
   description:
-    "Two Temple-trained Yardley dentists, 3D imaging, Saturday hours and clear prices before treatment. See why patients choose Radiant Smiles.",
+    "Temple-trained Yardley dentists, 3D imaging, Saturday hours and clear prices before treatment. See why patients choose Radiant Smiles.",
 };
 
 export const whyCrumbs = piCrumbs("Why Choose Us", whyMeta.path);
@@ -19,14 +19,14 @@ export const whyCrumbs = piCrumbs("Why Choose Us", whyMeta.path);
 export const whyHero: PageHeroContent = {
   h1: "Why Patients Choose Our Yardley Dentists",
   intro:
-    "Patients choose Radiant Smiles @ Floral Vale for personalized, gentle and comprehensive care from two Temple-trained Yardley dentists. You get precise work planned with 3D imaging, Saturday appointments, and a clear price before any treatment begins.",
+    "Patients choose Radiant Smiles @ Floral Vale for personalized, gentle and comprehensive care from Temple-trained Yardley dentists. You get precise work planned with 3D imaging, Saturday appointments, and a clear price before any treatment begins.",
   buttons: ["appointment", "call"],
 };
 
 export const whyDentists = {
-  title: "Two Yardley Dentists Under One Roof",
+  title: "Your Yardley Dentists Under One Roof",
   intro:
-    "Two dentists share one office at 117 Floral Vale Boulevard, so most of your care happens in one place, by people who know your history.",
+    "Our dentists share one office at 117 Floral Vale Boulevard, so most of your care happens in one place, by people who know your history.",
   doctors: [
     {
       key: "bhalala",
@@ -108,12 +108,12 @@ export const whyFaqs: FaqBlock = {
     {
       question: "What makes Radiant Smiles @ Floral Vale different from other Yardley dentists?",
       answer:
-        "Radiant Smiles @ Floral Vale combines two Temple-trained dentists, 3D imaging for precise restorations and Saturday hours in one Yardley office. Prices are explained before any treatment, and patients without insurance can use a $99 new patient visit and a $150 yearly membership plan.",
+        "Radiant Smiles @ Floral Vale combines Temple-trained dentists, 3D imaging for precise restorations and Saturday hours in one Yardley office. Prices are explained before any treatment, and patients without insurance can use a $99 new patient visit and a $150 yearly membership plan.",
     },
     {
       question: "Who are the dentists at Radiant Smiles @ Floral Vale?",
       answer:
-        "Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, both graduated from Temple University's Kornberg School of Dentistry. Dr. Gadria earned her DMD with high honors and focuses on general, cosmetic and restorative dentistry. Both dentists see patients at the same Yardley office.",
+        "Dr. Urvishkumar Bhalala, DMD, and Dr. Jaspreet Gadria, DMD, graduated from Temple University's Kornberg School of Dentistry. Dr. Gadria earned her DMD with high honors and focuses on general, cosmetic and restorative dentistry. All of our dentists see patients at the same Yardley office.",
     },
     {
       question: "Do you refer patients to other providers?",

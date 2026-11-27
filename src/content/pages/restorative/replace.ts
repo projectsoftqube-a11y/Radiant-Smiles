@@ -342,7 +342,7 @@ export const imRecovery = {
 export const imYouGet = {
   title: "What You Get With an Implant at Our Yardley Office",
   intro:
-    "Your implant dentist in Yardley explains your options and costs before treatment begins, using 3D imaging where needed and careful attention to fit and finish. Both dentists, [Dr. Urvishkumar Bhalala](/about-us/dr-urvishkumar-bhalala/) and [Dr. Jaspreet Gadria](/about-us/dr-jaspreet-gadria-dmd/), trained at Temple University's Kornberg School of Dentistry.",
+    "Your implant dentist in Yardley explains your options and costs before treatment begins, using 3D imaging where needed and careful attention to fit and finish. [Dr. Urvishkumar Bhalala](/about-us/dr-urvishkumar-bhalala/) and [Dr. Jaspreet Gadria](/about-us/dr-jaspreet-gadria-dmd/) trained at Temple University's Kornberg School of Dentistry.",
   items: [
     { icon: "tag", text: "Published pricing: $4,500 regular for implant, abutment and crown, with $500 off right now" },
     { icon: "chat", text: "A free consultation and second opinion" },

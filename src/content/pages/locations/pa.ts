@@ -96,7 +96,7 @@ export const moFamily = {
   text: "Being about 5 to 10 minutes away also makes routine care easier to keep up with. As a family dentist for Morrisville, PA, we see children from just after their first birthday through to adults who need crowns or dentures. Check-ups include an exam, a cleaning and an oral cancer screening at every visit, with digital X-rays when they're due. Saturday appointments mean a check-up doesn't have to cost anyone a school or work day. [Family dentistry](/family-dentistry/)",
   who: {
     title: "Who you'll see",
-    text: "Two dentists share the practice: [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/), and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/). Both graduated from Temple University's Kornberg School of Dentistry, where Dr. Gadria earned the DMD with high honors.",
+    text: "Our dentists include [Dr. Urvishkumar Bhalala, DMD](/about-us/dr-urvishkumar-bhalala/), and [Dr. Jaspreet Gadria, DMD](/about-us/dr-jaspreet-gadria-dmd/). They graduated from Temple University's Kornberg School of Dentistry, where Dr. Gadria earned the DMD with high honors.",
   },
 };
 

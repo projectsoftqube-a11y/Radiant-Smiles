@@ -34,7 +34,7 @@ export const diCrumbs = crumbs("Mercer County, NJ", "/dentist-mercer-county-nj/"
 export const diHero: PageHeroContent = {
   h1: "Dental Implants Near Mercer County, NJ",
   intro:
-    "Radiant Smiles @ Floral Vale places dental implants for patients from Mercer County, NJ at 117 Floral Vale Boulevard in Yardley, PA, just across the Delaware River. Trenton is about 15 minutes away, and Ewing, Titusville, Hamilton, Lawrenceville and Pennington are about 15–25 minutes, depending on traffic. Two Temple-trained dentists plan your implant with you, and we're open Saturday mornings, so the visits fit around a New Jersey work week.",
+    "Radiant Smiles @ Floral Vale places dental implants for patients from Mercer County, NJ at 117 Floral Vale Boulevard in Yardley, PA, just across the Delaware River. Trenton is about 15 minutes away, and Ewing, Titusville, Hamilton, Lawrenceville and Pennington are about 15–25 minutes, depending on traffic. Our Temple-trained dentists plan your implant with you, and we're open Saturday mornings, so the visits fit around a New Jersey work week.",
   buttons: [book("Book Your Free Implant Consultation", "implant_consult_click,appointment_click_di_hero"), "call"],
 };
 
@@ -73,7 +73,7 @@ export const diWhy = {
     },
   ],
   after:
-    "Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria both earned their DMD at Temple University's Kornberg School of Dentistry. You'll meet the dentist who plans your implant at your consultation.",
+    "Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria earned their DMD at Temple University's Kornberg School of Dentistry. You'll meet the dentist who plans your implant at your consultation.",
 };
 
 export const diVisits = {
@@ -416,8 +416,8 @@ export const itnWhy = {
     },
     {
       icon: "graduation",
-      lead: "Two Temple-trained dentists.",
-      text: "Both Dr. Jaspreet Gadria and Dr. Urvishkumar Bhalala hold a DMD from Temple University's Kornberg School of Dentistry.",
+      lead: "Temple-trained dentists.",
+      text: "Dr. Jaspreet Gadria and Dr. Urvishkumar Bhalala hold a DMD from Temple University's Kornberg School of Dentistry.",
     },
   ],
   after:

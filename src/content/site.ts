@@ -33,7 +33,9 @@ export const practice = {
     href: "mailto:info@radiant-smiles.com",
   },
   directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=117+Floral+Vale+Boulevard+Yardley+PA+19067",
-  mapEmbedUrl: "https://www.google.com/maps?q=117+Floral+Vale+Boulevard,+Yardley,+PA+19067&output=embed",
+  /** Google Maps embed of the practice's own place listing (user, 27 Nov 2026; replaces the plain address search) */
+  mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.4874453948946!2d-74.88759722350032!3d40.22046306756061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c15419cd9351ef%3A0xa49bb3cfd480cb99!2sRadiant%20Smiles%20%40%20Floral%20Vale!5e0!3m2!1sen!2sin!4v1795753311856!5m2!1sen!2sin",
 } as const;
 
 /** One line, exactly as it must match the Google Business Profile (handoff). */

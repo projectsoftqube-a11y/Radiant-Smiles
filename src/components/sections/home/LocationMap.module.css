@@ -1,0 +1,95 @@
+/* Full-width map band just above the footer, the address card on its right */
+.section {
+  position: relative;
+  min-height: clamp(26rem, 18rem + 12vw, 34rem);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--sky-200);
+  background: var(--sky-100);
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+}
+
+/* Lets the pointer through to the map everywhere except on the card */
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-block: 2rem;
+  pointer-events: none;
+}
+
+.card {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+  width: min(25rem, 100%);
+  padding: 1.75rem;
+  border: 1px solid rgb(255 255 255 / 0.9);
+  border-radius: var(--radius-l);
+  background: rgb(255 255 255 / 0.94);
+  box-shadow: var(--shadow-lift);
+  pointer-events: auto;
+}
+
+.cardIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-m);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.nap {
+  display: grid;
+  gap: 0.15rem;
+  line-height: 1.5;
+}
+
+.napName {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--navy-800);
+}
+
+.phoneLine a {
+  font-weight: 600;
+  color: var(--navy-800);
+}
+
+.mapNote {
+  font-size: 0.875rem;
+  color: var(--slate-500);
+}
+
+/* Tablets and phones: the map on top (its pin stays clear), then the card overlapping its
+   bottom edge */
+@media (max-width: 991px) {
+  .section {
+    display: block;
+    min-height: 0;
+    padding-bottom: 1.5rem;
+    background: var(--wash-50);
+  }
+
+  .map {
+    position: relative;
+    height: clamp(18rem, 12rem + 20vw, 24rem);
+  }
+
+  .inner {
+    display: block;
+    margin-top: -2.5rem;
+    padding-block: 0;
+  }
+
+  .card {
+    width: auto;
+  }
+}

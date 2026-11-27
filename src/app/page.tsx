@@ -6,11 +6,13 @@ import { Faq } from "@/components/sections/home/Faq";
 import { FinalCta } from "@/components/sections/home/FinalCta";
 import { Hero } from "@/components/sections/home/Hero";
 import { Hours } from "@/components/sections/home/Hours";
+import { LocationMap } from "@/components/sections/home/LocationMap";
 import { Insurance } from "@/components/sections/home/Insurance";
 import { Membership } from "@/components/sections/home/Membership";
 import { Offers } from "@/components/sections/home/Offers";
 import { Reviews } from "@/components/sections/home/Reviews";
 import { Services } from "@/components/sections/home/Services";
+import { ServiceMarquee } from "@/components/sections/home/ServiceMarquee";
 import { Technology } from "@/components/sections/home/Technology";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { homeAreas, homeFaqs, homeMeta, homeServices } from "@/content/pages/home";
@@ -37,6 +39,7 @@ export default function HomePage() {
       <JsonLd data={coreSchema} />
       <JsonLd data={faqSchema} />
       <Hero />
+      <ServiceMarquee />
       <Family />
       <Hours />
       <Offers />
@@ -50,6 +53,7 @@ export default function HomePage() {
       <Areas />
       <Faq />
       <FinalCta />
+      <LocationMap />
     </>
   );
 }

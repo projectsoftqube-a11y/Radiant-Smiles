@@ -1,12 +1,9 @@
 .hero {
   position: relative;
-  /* Clipped at the sides only: the upper teeth's shadows fall onto the section below */
   overflow-x: clip;
   background:
     radial-gradient(60% 70% at 82% 38%, var(--sky-100) 0%, transparent 70%),
     linear-gradient(180deg, var(--white) 0%, var(--sky-50) 38%, var(--sky-100) 62%, var(--sky-100) 100%);
-  /* The white below the smile meets the next section with no hairline */
-  margin-bottom: -1px;
 }
 
 .grid {
@@ -63,7 +60,7 @@
   }
 }
 
-/* Banner + copy share one block, so the banner ends above the teeth row */
+/* Banner + copy share one block, so the banner ends above the service cards */
 .top {
   position: relative;
 }
@@ -85,9 +82,9 @@
   animation: banner-in 1.6s var(--ease-out) 0.1s both;
 }
 
+/* The banner's photos (HeroSlider: cross-fade and zoom live in HeroSlider.module.css) */
 .bannerImg {
   object-fit: cover;
-  transition: scale 1.2s var(--ease-out);
 }
 
 @keyframes banner-in {
@@ -154,89 +151,26 @@
   }
 }
 
-/* Quick facts: five white tooth-shaped tiles (squared top, rounded dome at the bottom),
-   set in the upper gum (<Jaw jaw="upper">) at the bottom of the hero. */
+/* Service cards: five plain white cards under the hero copy, each one link to its page
+   (client, 26 Nov 2026: simple cards instead of the upper teeth) */
 .rail {
   position: relative;
-  /* Above the Family section (z-index 4), so the upper teeth overlap the lower teeth when
-     the mouth closes, like a real bite */
-  z-index: 6;
-  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(3rem, 2rem + 3vw, 5rem);
 }
 
 .facts {
   display: grid;
-  /* Teeth sit side by side; the centre one is the widest, like a front tooth */
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr) minmax(0, 1.12fr) minmax(0, 1fr) minmax(0, 0.92fr);
-  align-items: start;
-  gap: 0.5rem;
-}
-
-/* The row follows the smile: outer tiles highest, the centre tile lowest */
-.fact:nth-child(2),
-.fact:nth-child(4) {
-  margin-top: var(--arc-mid, 1.6rem);
-}
-
-.fact:nth-child(3) {
-  margin-top: var(--arc-low, 2.25rem);
-}
-
-/* One row (≥1200px): the five main teeth sit a little narrower, leaving room at both
-   sides for the smaller teeth of the full smile */
-@media (min-width: 1200px) {
-  /* Upper teeth tips sit close to the hero's edge, where the lower teeth meet them */
-  .rail {
-    padding-bottom: 1rem;
-  }
-
-  .facts {
-    width: min(1200px, 100% - 2 * clamp(120px, 11vw, 240px));
-  }
-
-  /* A proper smile: tops on a gentle arc, bottoms (the biting edges) on a steeper one,
-     so the centre teeth are the longest */
-  .fact {
-    min-height: 12.4rem;
-  }
-
-  .fact:nth-child(2),
-  .fact:nth-child(4) {
-    margin-top: 1.2rem;
-    min-height: 13.6rem;
-  }
-
-  .fact:nth-child(3) {
-    margin-top: 1.6rem;
-    min-height: 14rem;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1439px) {
-  .fact {
-    padding-inline: 0.85rem;
-  }
-
-  .factText {
-    font-size: 1rem;
-  }
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.75rem, 0.5rem + 0.6vw, 1.25rem);
 }
 
 .fact {
   position: relative;
-  display: grid;
-  justify-items: center;
-  align-content: start;
-  gap: 1rem;
-  padding: 3.6rem 1.25rem 2.6rem;
+  min-width: 0;
   border: 1px solid var(--sky-200);
-  /* Tooth: the top is tucked under the gum; the rounded dome hangs at the bottom */
-  border-radius: 0 0 50% 50% / 0 0 4.5rem 4.5rem;
-  /* Natural tooth white: a touch of warm shade under the gum, bright toward the edge */
-  border-color: #e4e7ea;
-  background: linear-gradient(180deg, #f2f3f4 0%, var(--white) 35%);
-  text-align: center;
-  box-shadow: 0 1px 2px rgb(15 38 69 / 0.04), 0 18px 34px -24px rgb(15 38 69 / 0.35);
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: 0 1px 2px rgb(15 38 69 / 0.04), 0 18px 36px -28px rgb(15 38 69 / 0.4);
   transition: translate 0.4s var(--ease-out), box-shadow 0.4s ease, border-color var(--dur-ui) ease;
   animation: fade-up 0.8s var(--ease-out) both;
 }
@@ -247,50 +181,29 @@
 .fact:nth-child(4) { animation-delay: 1.44s; }
 .fact:nth-child(5) { animation-delay: 1.52s; }
 
-.fact:hover,
-.fact:focus-within {
-  /* The tooth lifts slightly into the gum */
-  translate: 0 -6px;
-  border-color: var(--sky-300);
-  box-shadow: 0 2px 6px rgb(15 38 69 / 0.06), 0 28px 50px -28px rgb(15 38 69 / 0.45);
+/* The whole card is the link */
+.factLink {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 1rem;
+  height: 100%;
+  padding: clamp(1.5rem, 1.2rem + 0.8vw, 2.1rem) 1rem;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Round icon chip at the top of the tile (round icon chips are allowed) */
+/* Icon chip at the top of the card */
 .factIcon {
   display: inline-grid;
   place-items: center;
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: 50%;
+  border-radius: var(--radius-m);
   background: var(--sky-100);
   color: var(--navy-800);
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.fact:hover .factIcon {
-  background: var(--navy-800);
-  color: var(--sky-300);
-}
-
-/* Each tooth is one link to its service page; the whole tile is clickable */
-.factLink {
-  display: grid;
-  justify-items: center;
-  align-content: start;
-  gap: 1rem;
-  height: 100%;
-  color: inherit;
-  text-decoration: none;
-}
-
-/* The tile carries the visible focus ring (the link fills it) */
-.fact:has(.factLink:focus-visible) {
-  outline: 3px solid var(--color-focus);
-  outline-offset: 3px;
-}
-
-.factLink:focus-visible {
-  outline: none;
 }
 
 .factText {
@@ -303,33 +216,56 @@
   color: var(--navy-800);
 }
 
-@media (max-width: 1199px) {
-  /* No smile here: the hero ends on a straight line */
-  .hero {
-    margin-bottom: 0;
-    border-bottom: 1px solid var(--sky-200);
+/* Card hover: a small lift and the chip turns navy (cards may lift; buttons never move) */
+@media (hover: hover) {
+  .fact:hover {
+    translate: 0 -4px;
+    border-color: var(--sky-300);
+    box-shadow: 0 2px 6px rgb(15 38 69 / 0.06), 0 26px 46px -28px rgb(15 38 69 / 0.45);
   }
 
-  /* Plain boxes: three across, the last two centred under them */
+  .fact:hover .factIcon {
+    background: var(--navy-800);
+    color: var(--sky-300);
+  }
+}
+
+/* The card carries the visible focus ring (the link fills it) */
+.fact:has(.factLink:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.factLink:focus-visible {
+  outline: none;
+}
+
+@media (max-width: 1299px) {
+  .factLink {
+    padding-inline: 0.75rem;
+  }
+
+  .factText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* Three across, the last two centred under them */
   .facts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
     gap: 1rem;
   }
 
-  .fact,
-  .fact:nth-child(n) {
+  .fact {
     flex: 0 0 calc((100% - 2rem) / 3);
-    margin-top: 0;
-    min-height: 0;
-    padding: 1.6rem 1.25rem;
-    border: 1px solid var(--sky-200);
-    border-radius: var(--radius-l);
-    background: var(--white);
   }
 
+  .factText {
+    font-size: 1.0625rem;
+  }
 }
 
 @media (max-width: 991px) {
@@ -363,21 +299,27 @@
 }
 
 @media (max-width: 767px) {
-  /* Phones: tiles turn sideways, the arch moves to the left end */
+  /* Phones: one card per row, icon then the name */
+  .rail {
+    padding-bottom: 2.5rem;
+  }
+
   .facts {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
 
-  .fact,
-  .fact:nth-child(n) {
+  .fact {
+    border-radius: var(--radius-m);
+  }
+
+  .factLink {
     display: flex;
     align-items: center;
     gap: 0.9rem;
     padding: 0.8rem 1.1rem 0.8rem 0.8rem;
     text-align: left;
-    border-radius: var(--radius-m);
   }
 
   .factIcon {
@@ -388,14 +330,6 @@
 
   .factText {
     max-width: none;
-  }
-
-  /* Phones: icon, then the name */
-  .factLink {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    width: 100%;
   }
 
   .banner {

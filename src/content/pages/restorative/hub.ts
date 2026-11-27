@@ -21,7 +21,7 @@ export const rdHero: PageHeroContent = {
   intro:
     "Restorative dentistry repairs damaged teeth and replaces missing ones, so you can chew, speak and smile comfortably again. As your restorative dentist in Yardley, Radiant Smiles @ Floral Vale provides fillings, crowns, root canal therapy, dental implants, bridges, dentures, extractions and gum disease treatment at 117 Floral Vale Boulevard, with Saturday hours from 8 am to 2 pm.",
   more: [
-    "Two Temple-trained dentists, Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria, plan and place your restorations here, with careful attention to a precise fit.",
+    "Temple-trained dentists Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria plan and place your restorations here, with careful attention to a precise fit.",
   ],
   buttons: ["appointment", "call"],
 };
@@ -226,7 +226,7 @@ export const rdFaqs: FaqBlock = {
     {
       question: "Who provides restorative care at Radiant Smiles @ Floral Vale?",
       answer:
-        "Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria provide restorative dentistry at Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. Both trained at Temple University's Kornberg School of Dentistry. They check the fit and finish of every crown, filling and bridge.",
+        "Dr. Urvishkumar Bhalala and Dr. Jaspreet Gadria provide restorative dentistry at Radiant Smiles @ Floral Vale, 117 Floral Vale Boulevard, Yardley, PA 19067. They trained at Temple University's Kornberg School of Dentistry and check the fit and finish of every crown, filling and bridge.",
     },
     {
       question: "What are my options for replacing a missing tooth?",

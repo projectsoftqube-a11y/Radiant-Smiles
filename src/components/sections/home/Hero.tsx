@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { RiseWords } from "@/components/ui/RiseWords";
@@ -6,36 +5,29 @@ import SiteLink from "@/components/ui/SiteLink";
 import { images } from "@/content/images";
 import { homeHero } from "@/content/pages/home";
 import { practice } from "@/content/site";
-import { Jaw } from "./Jaw";
+import { HeroSlider, type HeroSlide } from "./HeroSlider";
 import styles from "./Hero.module.css";
 
 /**
  * Hero: the H1 rises word by word ("Dentist in Yardley, PA" in the heavy weight) beside an
  * open banner photo. The photo is unframed and runs to the screen's right edge, fading into
  * the blue on its left and at the bottom (client feedback, 14 Oct 2026: "keep the banner
- * photo open, with a fading effect"; it was an arched frame with rays before). Below, the
- * upper teeth set in the gum are five service links (client feedback, 15 Oct 2026).
+ * photo open, with a fading effect"; it was an arched frame with rays before). Below, five
+ * service cards, each a link (client feedback, 15 Oct 2026; plain cards since 26 Nov 2026,
+ * when the client dropped the upper-teeth design).
  */
 export function Hero() {
-  const photo = images.homeHero;
+  // The banner's photos (homeHero.slides), each with its crop for the wide banner
+  const slides = homeHero.slides.flatMap((slide): HeroSlide[] => {
+    const photo = images[slide.image];
+    if (!photo.src) return [];
+    const position = ("position" in slide ? slide.position : undefined) ?? ("position" in photo ? photo.position : undefined) ?? "center";
+    return [{ src: photo.src, alt: photo.alt, position }];
+  });
   return (
     <section className={styles.hero} aria-labelledby="home-hero-title">
       <div className={styles.top}>
-      {photo.src ? (
-        <div className={styles.banner}>
-          <Image
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            priority
-            quality={85}
-            placeholder="blur"
-            sizes="(max-width: 991px) 100vw, 62vw"
-            className={styles.bannerImg}
-            style={{ objectPosition: photo.position }}
-          />
-        </div>
-      ) : null}
+      {slides.length ? <HeroSlider slides={slides} className={styles.banner} imageClassName={styles.bannerImg} /> : null}
       <div className={`container ${styles.grid}`}>
         <div className={styles.copy}>
           <p className={`label ${styles.label}`}>{practice.name}</p>
@@ -74,7 +66,7 @@ export function Hero() {
       <div className={styles.rail}>
         <ul role="list" className={`container ${styles.facts}`}>
           {homeHero.facts.map((fact) => (
-            <li key={fact.text} className={styles.fact} data-tooth>
+            <li key={fact.text} className={styles.fact}>
               <SiteLink href={fact.href} className={styles.factLink} data-track="hero_service_click" data-track-service={fact.text}>
                 <span className={styles.factIcon} aria-hidden="true">
                   <Icon name={fact.icon as IconName} size={24} strokeWidth={1.7} />
@@ -85,9 +77,6 @@ export function Hero() {
           ))}
         </ul>
       </div>
-
-      {/* Upper teeth in a pink gum; the Family section below ends with the lower teeth */}
-      <Jaw jaw="upper" inside="var(--mouth-edge)" />
     </section>
   );
 }
